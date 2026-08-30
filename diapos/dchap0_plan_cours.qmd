@@ -6,49 +6,20 @@ institute: « Département de physique, génie physique et d’optique, Univers
 date: last-modified
 format:
   revealjs:
-    theme: simple
+    theme: moon
     slide-number: c/t
-    transition: slide
-    controls: true
-    progress: true
-    center: false
-    html-math-method: katex   # LaTeX natif via KaTeX (plus léger/rapide que MathJax)
-    width: 1280
-    height: 720
-    footer: « Prof. Luc Marleau — Mécanique analytique PHY-2000 — Chapitre 0 »
-    logo: null
+    html-math-method: katex
+    quiz:
+      checkKey: « c »
+      resetKey: « q »
+      shuffleKey: « t »
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: « Correct ! »
+      defaultIncorrect: « Incorrect. »
+revealjs-plugins:
+  - quiz
 —
-
-```{=html}
-<style>
-  :root{
-    —band-blue:#4f7fab;
-    —band-blue-dark:#3a5f80;
-    —accent-red:#8f1d1d;
-    —accent-navy:#1b2a4a;
-    —accent-green:#2f5d34;
-  }
-  .reveal h2{ color:var(—band-blue-dark); }
-  .red{ color:var(—accent-red); font-weight:bold; }
-  .navy{ color:var(—accent-navy); font-weight:bold; }
-  table.eval td, table.eval th{ padding:0.3em 0.9em; }
-  table.eval td{ color:var(—accent-red); text-align:left; }
-
-  /* Quiz natif (mêmes styles que la version HTML précédente) */
-  .quiz-form{ display:flex; flex-direction:column; gap:0.5em; margin:1em 0; font-size:0.75em; }
-  .quiz-option{ display:flex; align-items:center; gap:0.6em; padding:0.5em 0.8em;
-    border:1px solid #ccc; border-radius:6px; cursor:pointer; }
-  .quiz-option:hover{ background:#f2f6fa; }
-  button.quiz-check{ font-size:0.7em; padding:0.5em 1.4em; background:var(—band-blue-dark);
-    color:#fff; border:none; border-radius:6px; cursor:pointer; }
-  button.quiz-check:hover{ background:var(—band-blue); }
-  .quiz-feedback{ margin-top:0.8em; font-size:0.72em; padding:0.6em 0.9em; border-radius:6px; }
-  .quiz-feedback.correct{ background:#e3f3e3; color:var(—accent-green); border:1px solid var(—accent-green); }
-  .quiz-feedback.incorrect{ background:#fbe6e6; color:var(—accent-red); border:1px solid var(—accent-red); }
-  .quiz-option.correct-answer{ border-color:var(—accent-green); background:#eefaee; }
-  .quiz-option.wrong-answer{ border-color:var(—accent-red); background:#fdecec; }
-</style>
-```
 
 ## Liens vers les parties du cours
 
@@ -72,7 +43,7 @@ entre les chapitres.
 1. 0. Plan de cours
    - 0.1 Sommaire du plan de cours
 
-# Plan de cours {background-color=« #e7f0f7 »}
+# Plan de cours
 
 ## Sommaire du plan de cours
 
@@ -80,13 +51,13 @@ entre les chapitres.
 Rappeler que ce document n’est pas le plan de cours officiel.
 :::
 
-<p class=« navy »>Le document qui suit constitue une version non définitive du plan de cours officiel :</p>
+Le document qui suit constitue une version non définitive du plan de cours officiel :
 
-- ■ Plan de cours
+- Plan de cours
 
-<p class=« red »>ATTENTION !!! :<br>
-Le plan de cours auto-construit du portail du cours PHY-2000<br>
-<strong>N’EST PAS COMPLET NI OFFICIEL.</strong></p>
+**ATTENTION !!!** :
+Le plan de cours auto-construit du portail du cours PHY-2000
+**N’EST PAS COMPLET NI OFFICIEL.**
 
 ## Sommaire du plan de cours (suite...)
 
@@ -159,18 +130,20 @@ Les grandes lignes du cours sont :
 
 L’étudiant(e) devra développer les compétences suivantes :
 
-<p class=« red »>• En mécanique lagrangienne</p>
+**En mécanique lagrangienne**
 
 - écrire, en coordonnées généralisées, le lagrangien $\mathcal{L}(q_i, \dot q_i, t)$
   approprié à une grande variété de problèmes,
-- en obtenir les équations de mouvement $\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot q_i} - \dfrac{\partial \mathcal{L}}{\partial q_i} = 0$,
+- en obtenir les équations de mouvement
+  $\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot q_i} - \dfrac{\partial \mathcal{L}}{\partial q_i} = 0$,
 - les résoudre, en particulier dans la limite des petites oscillations.
 
-<p class=« red »>• En mécanique hamiltonienne</p>
+**En mécanique hamiltonienne**
 
 - écrire l’hamiltonien $\mathcal{H}(q_i, p_i, t)$,
 - effectuer des transformations canoniques,
-- écrire les équations de mouvement sous forme canonique $\dot q_i = \partial \mathcal{H}/\partial p_i$, $\dot p_i = -\partial \mathcal{H}/\partial q_i$,
+- écrire les équations de mouvement sous forme canonique
+  $\dot q_i = \partial \mathcal{H}/\partial p_i$, $\dot p_i = -\partial \mathcal{H}/\partial q_i$,
 - écrire les équations de mouvement à l’aide des crochets de Poisson.
 
 ::: {.notes}
@@ -178,34 +151,26 @@ Formule LaTeX rendue nativement via KaTeX — pratique pour introduire la notati
 dès ce chapitre d’introduction.
 :::
 
-## Quiz — vérification rapide
+## Quel formalisme utilise les crochets de Poisson pour écrire les équations de mouvement ? {.quiz-question}
 
-**Quel formalisme utilise les crochets de Poisson pour écrire les équations de mouvement ?**
-
-```{=html}
-<form class=« quiz-form » data-correct=« hamilton »>
-  <label class=« quiz-option »><input type=« radio » name=« q1 » value=« lagrange »> Le formalisme lagrangien</label>
-  <label class=« quiz-option »><input type=« radio » name=« q1 » value=« hamilton »> Le formalisme hamiltonien</label>
-  <label class=« quiz-option »><input type=« radio » name=« q1 » value=« hj »> La méthode d’Hamilton-Jacobi</label>
-  <label class=« quiz-option »><input type=« radio » name=« q1 » value=« perturb »> La théorie des perturbations</label>
-</form>
-<button class=« quiz-check »>Vérifier</button>
-<p class=« quiz-feedback » style=« display:none; »></p>
-```
+- Le formalisme lagrangien
+- [Le formalisme hamiltonien]{.correct data-explanation=« Les crochets de Poisson relèvent du formalisme hamiltonien. »}
+- La méthode d’Hamilton-Jacobi
+- La théorie des perturbations
 
 ## Objectifs spécifiques (suite...)
 
-<p class=« red »>• Sur la méthode de Hamilton-Jacobi</p>
+**Sur la méthode de Hamilton-Jacobi**
 
 - connaître les rudiments de la méthode de Hamilton-Jacobi,
 - savoir l’utiliser dans la solution de problèmes simples.
 
-<p class=« red »>• Sur la théorie des perturbations</p>
+**Sur la théorie des perturbations**
 
 - connaître les éléments de base de la méthode des perturbations,
 - savoir l’utiliser dans la solution de problèmes relativement simples.
 
-<p class=« red »>• Sur la dynamique des corps indéformables</p>
+**Sur la dynamique des corps indéformables**
 
 - savoir décrire le mouvement des corps indéformables.
 
@@ -214,13 +179,11 @@ dès ce chapitre d’introduction.
 L’évaluation est basée sur deux examens partiels obligatoires et une série de
 devoirs à remettre. La note est calculée selon :
 
-::: {.eval}
 | Évaluation          | Travaux                          | Pondération |
 |———————|————————————|:————:|
 | Séries d’exercices  | à remettre à des dates précises  | 20%          |
 | 1<sup>e</sup> examen | 1<sup>e</sup> partie — 24 octobre 2024   | 40%          |
 | 2<sup>e</sup> examen | 2<sup>e</sup> partie — 12 décembre 2024  | 40%          |
-:::
 
 ::: {.notes}
 Les dates d’examens changent d’une session à l’autre — vérifier le portail
@@ -257,44 +220,3 @@ qualité de la langue est aussi un critère de correction.
 - Chapitre 6 : Mouvement d’un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
-
-```{=html}
-<script>
-document.querySelectorAll(‘.quiz-check’).forEach(function(btn){
-  btn.addEventListener(‘click’, function(){
-    var section = btn.closest(‘section’);
-    var form = section.querySelector(‘.quiz-form’);
-    var feedback = section.querySelector(‘.quiz-feedback’);
-    var correct = form.getAttribute(‘data-correct’);
-    var selected = form.querySelector(‘input[type=« radio »]:checked’);
-
-    form.querySelectorAll(‘.quiz-option’).forEach(function(opt){
-      opt.classList.remove(‘correct-answer’, ‘wrong-answer’);
-    });
-
-    if (!selected) {
-      feedback.textContent = ‘Choisissez une réponse avant de vérifier.’;
-      feedback.className = ‘quiz-feedback incorrect’;
-      feedback.style.display = ‘block’;
-      return;
-    }
-
-    var selectedLabel = selected.closest(‘.quiz-option’);
-    var isCorrect = selected.value === correct;
-
-    if (isCorrect) {
-      selectedLabel.classList.add(‘correct-answer’);
-      feedback.textContent = ‘Correct ! Les crochets de Poisson relèvent du formalisme hamiltonien.’;
-      feedback.className = ‘quiz-feedback correct’;
-    } else {
-      selectedLabel.classList.add(‘wrong-answer’);
-      var correctLabel = form.querySelector(‘input[value=« ’ + correct + ‘ »]’).closest(‘.quiz-option’);
-      correctLabel.classList.add(‘correct-answer’);
-      feedback.textContent = « Pas tout à fait — la bonne réponse est mise en évidence ci-dessus. »;
-      feedback.className = ‘quiz-feedback incorrect’;
-    }
-    feedback.style.display = ‘block’;
-  });
-});
-</script>
-```
