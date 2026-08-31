@@ -1,0 +1,495 @@
+---
+title: "Mécanique analytique"
+subtitle: "PHY-2000 — Chapitre 1 : Rappel"
+author: "Prof. Claudine Allen"
+institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+date: last-modified
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    html-math-method: katex
+    quiz:
+      checkKey: "c"
+      resetKey: "q"
+      shuffleKey: "t"
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: "Correct !"
+      defaultIncorrect: "Incorrect."
+revealjs-plugins:
+  - quiz
+---
+
+## Progression dans les notes de cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
+
+## SOMMAIRE
+
+1. 1. Rappel
+   - 1.1 Trajectoire et cinématique d'une particule ponctuelle
+   - 1.2 Plusieurs particules ponctuelles
+   - 1.3 Éléments de dynamique
+   - 1.4 Travail et Énergie
+2. (suite)
+   - 1.5 Systèmes à N particules et forces extérieures
+   - 1.6 Degrés de liberté
+
+# 1.1 Trajectoire et cinématique d'une particule ponctuelle
+
+## Position et temps
+
+**Particule ponctuelle** : sans dimension ; mouvement de translation uniquement (pas de rotation sur elle-même).
+
+**Espace** = 3 dimensions de distance, avec une origine $O$ et 3 axes orientés.
+
+**Temps $t$** (en mécanique classique) :
+
+- $t \neq$ dimension (contrairement à la relativité)
+- $t$ = paramètre immuable, indépendant des objets physiques, servant à mesurer le taux d'évolution.
+
+::: {.notes}
+Poser le décor : espace euclidien à 3D + temps absolu, cadre newtonien classique
+avant l'introduction du formalisme lagrangien aux chapitres suivants.
+:::
+
+## Position et temps (suite...)
+
+La position instantanée de la particule est dénotée par un point $P$, entièrement définie par un triplet de nombres en 3D — les **coordonnées** du point (notées $x_i$ ou $q_i$), mesurant généralement des longueurs ou des angles.
+
+On définit aussi le **vecteur position** de la particule, noté $\mathbf{x}$ ou $\mathbf{r}$, allant de l'origine $O$ au point $P$.
+
+::: {.callout-note title="Notation 1.1"}
+Les vecteurs en 3D sont représentés par des caractères gras (ex. $\mathbf{x}$ ou $\mathbf{r}$). Les vecteurs $\mathbf{e}$ représentent des vecteurs unitaires, c.-à-d. de norme 1 : $|\mathbf{e}| = 1$.
+:::
+
+L'évolution du système physique est décrite par une **trajectoire** $C$ (déplacement continu du point $P$) et un **paramètre invariant** qui augmente — par exemple $t$, où $t_{\text{initial}} \le t \le t_{\text{final}}$.
+
+::: {.callout-tip title="Exemple 1.1 — Trajectoire"}
+La position $\mathbf{x}$ du point $P$ varie dans le temps ; la trajectoire est décrite par $\mathbf{x} = \mathbf{x}(t)$, soit en composantes :
+$$x_i = x_i(t), \quad i = 1, 2, 3 . \tag{1}$$
+:::
+
+## Vitesse
+
+Intuitivement, le mouvement suggère une rapidité — quantifiée par la **vitesse** $\mathbf{V}$ :
+$$\mathbf{V}(t) = \frac{d}{dt}\mathbf{x}(t) \equiv \dot{\mathbf{x}}(t) . \tag{2}$$
+
+Notons $p$ le paramètre (arbitraire) dont la variation génère la trajectoire ($p$ peut être ou non le temps), variant de façon monotone entre $p_0$ et $p_1$.
+
+La longueur $s$ de la trajectoire entre $p_0$ et $p_1$ :
+$$s(p_0, p_1) = \int_{s(p_0)}^{s(p_1)} ds = \int_{p_0}^{p_1} dp \sqrt{\sum_i \left(\frac{dx_i}{dp}\right)^2} \tag{3}$$
+
+Alors :
+$$\mathbf{V} = \frac{d\mathbf{x}}{dt} = \frac{ds}{dt}\frac{d\mathbf{x}}{ds} \equiv v\frac{d\mathbf{x}}{ds} . \tag{4}$$
+
+## Vitesse (suite...)
+
+Puisque $v = |\mathbf{V}|$ et $\mathbf{V} = v \dfrac{d\mathbf{x}}{ds}$, on voit que :
+$$\frac{d\mathbf{x}}{ds} = \mathbf{e}_k = \text{vecteur unitaire tangent à la trajectoire} \tag{5}$$
+
+En effet :
+$$\mathbf{e}_k = \lim_{\Delta s \to 0} \frac{\Delta \mathbf{x}}{\Delta s} = \frac{d\mathbf{x}}{ds} \tag{6}$$
+
+ainsi $\mathbf{V} = v\,\mathbf{e}_k$, où :
+
+- $\mathbf{e}_k$ : direction du vecteur de vitesse $\mathbf{V}$
+- $v$ : grandeur du vecteur de vitesse $\mathbf{V}$ (aussi appelée « la vitesse » par abus de langage)
+
+::: {.callout-important title="Remarque 1.1 — Direction de V"}
+$\mathbf{V}$ est toujours tangent à la trajectoire. Pourvu que le paramètre $p$ varie de façon monotone et continue, $d\mathbf{x}/dp$ est tangent à la trajectoire — le cas $\mathbf{V} = d\mathbf{x}/dt$ n'est qu'un cas particulier.
+:::
+
+## Accélération
+
+La vitesse $\mathbf{V}$ peut varier le long de la trajectoire. On définit l'**accélération** $\mathbf{a}$ :
+$$\mathbf{a} = \frac{d\mathbf{V}}{dt} = \frac{d^2\mathbf{x}}{dt^2} \equiv \dot{\mathbf{V}} \equiv \ddot{\mathbf{x}} \tag{7}$$
+
+et clairement :
+$$\mathbf{a} = \frac{d(v\mathbf{e}_k)}{dt} = \frac{dv}{dt}\mathbf{e}_k + v\frac{d\mathbf{e}_k}{dt} \tag{8}$$
+
+Puisque $\mathbf{e}_k \cdot \mathbf{e}_k = 1$, on a $\dfrac{d(\mathbf{e}_k \cdot \mathbf{e}_k)}{dt} = 2\mathbf{e}_k \cdot \dfrac{d\mathbf{e}_k}{dt} = 0$, donc $\dfrac{d\mathbf{e}_k}{dt} \perp \mathbf{e}_k$.
+
+On appelle $\mathbf{e}_\perp$ le vecteur unitaire normal à la trajectoire (dans le plan instantané de la trajectoire), et on définit par $\dfrac{d\mathbf{e}_k}{ds} = \dfrac{1}{\rho}$.
+
+## Accélération (suite...)
+
+On obtient finalement :
+$$\mathbf{a} = \underbrace{\frac{d^2 s}{dt^2}}_{\parallel \text{ trajectoire}} \mathbf{e}_k + \underbrace{\frac{v^2}{\rho}}_{\perp \text{ trajectoire}} \mathbf{e}_\perp \tag{11}$$
+
+L'accélération $\mathbf{a}$ possède donc :
+
+1. une composante **tangente** à la trajectoire ($\mathbf{e}_k$) de valeur $\dfrac{d^2 s}{dt^2}$, et
+2. une composante **normale** à la trajectoire ($\mathbf{e}_\perp$) de valeur $\dfrac{v^2}{\rho}$.
+
+**Rayon de courbure** $\rho$ : dans le voisinage immédiat du point $P$, la trajectoire peut être approximée par un arc de cercle de rayon $\rho$. Plus la trajectoire est courbée autour de $P$, plus la vitesse change rapidement selon $\mathbf{e}_\perp$ — pour $\rho$ petit, la composante normale $v^2/\rho$ est grande.
+
+# 1.2 Plusieurs particules ponctuelles
+
+## Plusieurs particules ponctuelles
+
+Pour $N$ particules dans notre espace de configuration à 3D, décrit par $N$ triplets de nombres (total $3N$) :
+$$\mathbf{r}_\nu = (x_{\nu 1}, x_{\nu 2}, x_{\nu 3}); \quad \nu = 1, 2, \dots, N . \tag{12}$$
+
+L'évolution du système correspond à $N$ trajectoires (une par particule) dans cet espace.
+
+**Alternative** : il est souvent utile d'imaginer un espace abstrait comptant $3N$ dimensions, où $3N$ coordonnées décrivent la position d'un seul point de cet espace, donnant à lui seul la position instantanée des $N$ particules.
+
+::: {.callout-note title="Notation 1.2 — Notation en 3N dimensions"}
+Par un léger abus de notation, on note les coordonnées de ce point $\{x_i ; i = 1, 2, \dots, n = 3N\}$ et on parle de la trajectoire du système dans cet espace.
+:::
+
+::: {.callout-tip title="Exemple 1.2"}
+La force nécessite $n = 3N$ composantes : $F_i(x_j, t)$ est la $i$-ième composante de la force, avec $i, j = 1, 2, \dots, n$. $\tag{13}$
+:::
+
+# 1.3 Éléments de dynamique
+
+## Les 3 postulats proposés par Newton
+
+Trois postulats permettent de décrire la dynamique d'un système quelconque de $N$ particules.
+
+::: {.callout-note title="Postulat 1.1 — 1ʳᵉ loi de Newton (inertie)"}
+Le mouvement d'un corps isolé est rectiligne uniforme dans un référentiel galiléen (inertiel).
+:::
+
+::: {.callout-note title="Postulat 1.2 — 2ᵉ loi de Newton"}
+$$\mathbf{F} = m\mathbf{a} \tag{14}$$
+où $\mathbf{F}$ est la somme des forces extérieures, $m$ la masse et $\mathbf{a}$ l'accélération du centre d'inertie.
+:::
+
+::: {.callout-note title="Postulat 1.3 — 3ᵉ loi de Newton (action-réaction)"}
+Tout corps $A$ exerçant une force sur un corps $B$ subit une force d'intensité égale, de même direction mais de sens opposé.
+:::
+
+**Équation fondamentale du mouvement**, formes équivalentes :
+$$m\frac{d^2\mathbf{r}}{dt^2} = \mathbf{F}, \qquad m\frac{d\mathbf{v}}{dt} = \mathbf{F}, \qquad \frac{d\mathbf{p}}{dt} = \mathbf{F} . \tag{15--17}$$
+
+## Éléments de dynamique (suite...)
+
+$\mathbf{F}$ = force (déterminée empiriquement), valide pour $n$ degrés de liberté (ddl) : $\mathbf{r} = \mathbf{x} = (x_1, x_2, x_3)$, s'écrivant comme un vecteur à $n$ composantes $\mathbf{x} = (x_1, \dots, x_n)$.
+
+En posant $\mathbf{f} = \mathbf{F}/m$ :
+
+$$\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \dot{\mathbf{x}}, t) \quad \text{(1 éq. vectorielle, } n = 3N \text{ composantes)} \tag{20}$$
+$$\ddot{x}_i = f_i(x_j, \dot{x}_j, t) \quad \text{(n éq. scalaires)} \tag{21}$$
+$$\ddot{\mathbf{x}}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu, \dot{\mathbf{x}}_\mu, t); \quad \nu, \mu = 1, \dots, N \text{ particules} \tag{22}$$
+
+## Symétries de l'équation de Newton — invariances
+
+L'équation de Newton doit obéir à certaines symétries pour un système **fermé** :
+
+**Invariance par rapport au temps** — mêmes résultats entre $t_0$ et $t$ qu'entre $t_0+s$ et $t+s$ : donc $\mathbf{f}$ ne peut dépendre explicitement du temps :
+$$\ddot{x}_i = f_i(x_j, \dot{x}_j); \quad n = 3N \text{ éqs.} \tag{24}$$
+
+**Invariance par translation** — pour $x_\nu \to x_\nu + X$ (avec $\dot X = 0$), la loi de Newton implique que $f_\nu$ ne dépend que des positions **relatives** :
+$$\ddot{\mathbf{x}}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu - \mathbf{x}_\lambda, \dot{\mathbf{x}}_\mu) . \tag{26}$$
+
+**Invariance galiléenne** — pour 2 observateurs en mouvement relatif uniforme :
+$$\mathbf{f}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu - \mathbf{x}_\lambda) \quad \text{ou} \quad \mathbf{f}_\nu(\mathbf{x}_\mu - \mathbf{x}_\lambda, \dot{\mathbf{x}}_\mu - \dot{\mathbf{x}}_\lambda) . \tag{27}$$
+
+::: {.callout-important title="Remarque 1.2 — Système fermé"}
+Un système fermé regroupe tous les corps ayant un rôle significatif ; aucune force extérieure. Le seul vrai système fermé est l'Univers — mais on approxime souvent lorsque les effets des corps éloignés sont négligeables.
+:::
+
+## Invariance par rotation
+
+Pour une rotation d'angle $\varphi$ autour d'un axe $\mathbf{e}_\perp$ : $\mathbf{r} \to \mathbf{r}' = G\mathbf{r}$, où $G$ est la matrice de rotation $3\times 3$.
+
+Si $\mathbf{r} \to \mathbf{r}' = G\mathbf{r}$, alors $\dot{\mathbf{r}} \to \dot{\mathbf{r}}' = G\dot{\mathbf{r}}$ et $\ddot{\mathbf{r}} \to \ddot{\mathbf{r}}' = G\ddot{\mathbf{r}}$, donc l'invariance de $\ddot{\mathbf{r}} = \mathbf{f}(\mathbf{r}, \dot{\mathbf{r}})$ implique :
+$$\mathbf{f}(G\mathbf{r}, G\dot{\mathbf{r}}) = G\mathbf{f}(\mathbf{r}, \dot{\mathbf{r}}) .$$
+
+Autrement dit : appliquer une rotation aux vecteurs $(\mathbf{r}, \dot{\mathbf{r}})$ avant de calculer l'accélération équivaut à calculer l'accélération puis appliquer la rotation — l'équation de Newton ne peut dépendre de l'orientation du référentiel.
+
+## Action-réaction et conservation du moment linéaire
+
+::: {.callout-note title="Définition 1.1 — Action-réaction dans un système fermé"}
+Si un corps $\nu$ agit avec une force $\mathbf{F}_{\mu\nu}$ sur un corps $\mu$, alors $\mu$ agit sur $\nu$ avec une force $\mathbf{F}_{\mu\nu} = -\mathbf{F}_{\nu\mu}$.
+:::
+
+Pour $N$ corps, la force totale sur le corps $\nu$ :
+$$m_\nu \ddot{\mathbf{r}}_\nu = \sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\nu\mu} = -\sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\mu\nu} . \tag{35}$$
+
+En sommant sur $\nu$ (avec $\mathbf{F}_{\nu\nu} = 0$) :
+$$\sum_{\nu=1}^N m_\nu \ddot{\mathbf{r}}_\nu = \frac{d}{dt}\sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = 0 \quad \Longrightarrow \quad \sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = \text{cte} . \tag{37--39}$$
+
+En définissant le **moment linéaire** $\mathbf{p}_\nu = m\dot{\mathbf{r}}_\nu$ :
+$$\sum_{\nu=1}^N \mathbf{p}_\nu = \text{cte} \equiv \mathbf{P} : \text{le moment linéaire total.} \tag{40}$$
+
+::: {.callout-important title="Remarque 1.3"}
+Le moment linéaire total d'un système fermé est une constante du mouvement.
+:::
+
+## Moment angulaire total
+
+Le moment angulaire d'une particule $\nu$ : $\mathbf{l}_\nu = \mathbf{r}_\nu \times \mathbf{p}_\nu = m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu$. $\tag{41,42}$
+
+Sa dérivée :
+$$\dot{\mathbf{l}}_\nu = m_\nu \dot{\mathbf{r}}_\nu \times \dot{\mathbf{r}}_\nu + m_\nu \mathbf{r}_\nu \times \ddot{\mathbf{r}}_\nu = \mathbf{r}_\nu \times \mathbf{F}_\nu = \mathbf{r}_\nu \times \sum_{\mu=1}^N \mathbf{F}_{\nu\mu} . \tag{43--47}$$
+
+Le moment angulaire total du système : $\mathbf{L} = \sum_\nu \mathbf{l}_\nu = \sum_\nu m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu$. $\tag{48,49}$
+
+En sommant et utilisant $\mathbf{F}_{\nu\nu} = 0$ et $\mathbf{F}_{\nu\mu} = -\mathbf{F}_{\mu\nu}$ :
+$$\dot{\mathbf{L}} = \sum_{\nu, \mu > \nu} (\mathbf{r}_\nu - \mathbf{r}_\mu) \times \mathbf{F}_{\nu\mu} \tag{52}$$
+
+Si la force entre particules est dirigée selon $(\mathbf{r}_\nu - \mathbf{r}_\mu)$ (forces centrales), le produit vectoriel s'annule et $\dot{\mathbf{L}} = 0$, donc $\mathbf{L} = \text{cte}$.
+
+::: {.callout-important title="Remarque 1.4"}
+Si les particules d'un système fermé n'interagissent que selon la droite qui les relie, le moment angulaire total est une constante du mouvement.
+:::
+
+## Quel formalisme utilise les crochets de Poisson pour écrire les équations de mouvement ? {.quiz-question}
+
+- Le formalisme lagrangien
+- [Le formalisme hamiltonien]{.correct data-explanation="Les crochets de Poisson relèvent du formalisme hamiltonien — un aperçu de ce qui vient au Chapitre 4."}
+- La méthode d'Hamilton-Jacobi
+- La théorie des perturbations
+
+# 1.4 Travail et Énergie
+
+## Travail
+
+Lorsqu'une force $\mathbf{F}$ agit sur une particule, elle effectue un **travail** sur ce système, entraînant un changement de son énergie.
+
+Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$. Calculons $\mathbf{F} \cdot d\mathbf{x}$ le long de cette trajectoire :
+$$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \int_{t_0}^t \mathbf{F} \cdot \frac{d\mathbf{x}}{dt}\, dt \;\overset{\text{traj. phys.}}{=}\; \int_{t_0}^t m\frac{d^2\mathbf{x}}{dt^2} \cdot \frac{d\mathbf{x}}{dt}\, dt \tag{53}$$
+
+Calculons $\dfrac{d}{dt}(v^2)$ en détail, avec $v = d\mathbf{x}/dt$ :
+$$\frac{d}{dt}(v^2) = \frac{d}{dt}\left(\frac{d\mathbf{x}}{dt}\cdot\frac{d\mathbf{x}}{dt}\right) = \left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)\cdot\frac{d\mathbf{x}}{dt} + \frac{d\mathbf{x}}{dt}\cdot\left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right) = 2\frac{d^2\mathbf{x}}{dt^2}\cdot\frac{d\mathbf{x}}{dt}$$
+
+En substituant ce résultat, on obtient :
+$$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \frac{1}{2}mv^2(t) - \frac{1}{2}mv^2(t_0) = T - T_0 \tag{54--56}$$
+
+où $T = \tfrac{1}{2}mv^2$ est l'**énergie cinétique** : le travail de $\mathbf{F}$ change cette énergie.
+
+L'intégrale se faisant le long d'une trajectoire particulière, le résultat peut en général en dépendre : $\displaystyle\int_{C_1} \mathbf{F}\cdot d\mathbf{x} \neq \int_{C_2} \mathbf{F}\cdot d\mathbf{x}$.
+
+## Forces conservatives
+
+::: {.callout-important title="Remarque 1.5"}
+Dans certains cas (physiquement importants), l'intégrale ne dépend pas de la trajectoire mais uniquement des points initial et final — on dit que la force est **conservative**.
+:::
+
+Pour une force conservative, l'intégrale de $\mathbf{F}\cdot d\mathbf{x}$ sur un parcours fermé est nulle. Par le théorème de Stokes :
+$$0 = \oint_C \mathbf{F}\cdot d\mathbf{x} = \int_{S \in C} (\nabla \times \mathbf{F})\cdot d\mathbf{S} \tag{57}$$
+
+Comme $S$ est arbitraire, la fonction à intégrer doit être nulle :
+$$\nabla \times \mathbf{F} = 0 \;:\; \text{force conservative.} \tag{58}$$
+
+::: {.callout-note title="Définition 1.2 — Force conservative"}
+Il est toujours possible d'écrire $\mathbf{F}$ comme le gradient d'une fonction scalaire : $\mathbf{F} = -\nabla V(\mathbf{x})$ où $V(\mathbf{x})$ est l'**énergie potentielle**. $\tag{59}$
+:::
+
+## Conservation de l'énergie
+
+Le travail fait par une force conservative entre $\mathbf{x}_0$ et $\mathbf{x}$ :
+$$\int_{x_0}^{x} \mathbf{F}\cdot d\mathbf{x} = -\big(V(\mathbf{x}) - V(\mathbf{x}_0)\big) = V_0 - V \tag{60,61}$$
+
+Puisque ce même travail vaut aussi $T - T_0$ :
+$$T(x) - T(x_0) = V(x_0) - V(x) \quad\Longrightarrow\quad T + V = T_0 + V_0 : \text{Énergie conservée.} \tag{62}$$
+
+Lorsque la force est conservative, on peut définir une constante du mouvement, l'**énergie** :
+$$E = T + V .$$
+
+::: {.callout-important title="Remarque 1.6 — Énergie"}
+La force est donnée par $-\nabla V$ ; on peut donc remplacer $V$ par $(V + \text{cte})$ sans changer $\mathbf{F}$, ce qui change $E$ en $(E + \text{cte})$. L'échelle d'énergie n'est donc fixée qu'à une constante additive près.
+:::
+
+# 1.5 Systèmes à N particules et forces extérieures
+
+## Quantité de mouvement totale
+
+Soit un ensemble de $N$ particules interagissant entre elles, avec possibilité de forces extérieures. Définissons : $m_i$ = masse de la particule $i$, $\mathbf{F}_i$ = force externe sur elle, $\mathbf{F}_{ij}$ = force due à l'interaction de $j$ sur $i$ (avec $\mathbf{F}_{jj}=0$ et $\mathbf{F}_{ij} = -\mathbf{F}_{ji}$).
+
+Équation de mouvement pour la particule $i$ :
+$$m_i \ddot{\mathbf{x}}_i = \mathbf{F}_i + \sum_j \mathbf{F}_{ij} \tag{63}$$
+
+En sommant sur toutes les particules (les forces internes s'annulent deux à deux) :
+$$\sum_i m_i \ddot{\mathbf{x}}_i = \sum_i \mathbf{F}_i = \mathbf{F} : \text{force externe totale} \tag{64}$$
+
+Avec $M = \sum_i m_i$ (masse totale) :
+$$\mathbf{F} = M\left[\frac{1}{M}\sum_i m_i \ddot{\mathbf{x}}_i\right] = M\frac{d^2}{dt^2}\left[\frac{1}{M}\sum_i m_i \mathbf{x}_i\right] \tag{65}$$
+
+d'où :
+$$\mathbf{F} = M\frac{d^2}{dt^2}\mathbf{X}, \qquad \mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i \tag{66}$$
+
+::: {.callout-note title="Définition 1.3 — Centre de masse"}
+$$\mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i, \qquad M = \sum_i m_i \tag{67}$$
+:::
+
+::: {.callout-important title="Remarque 1.7"}
+Quelle que soit l'interaction entre les particules, le mouvement du centre de masse (CM) se fait comme si toute la masse y était concentrée, avec la force externe totale s'y appliquant.
+:::
+
+## Moment linéaire et moment angulaire du système
+
+Moment linéaire total :
+$$\mathbf{P} = M\frac{d\mathbf{X}}{dt} = \sum_i m_i \dot{\mathbf{x}}_i, \qquad \mathbf{F} = \frac{d}{dt}\mathbf{P}$$
+
+Si la force extérieure est nulle : $\mathbf{P} = \text{cte}$.
+
+Moment angulaire total par rapport à l'origine $O$ : $\mathbf{L} = \sum_i \mathbf{l}_i = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$. $\tag{69}$
+
+Introduisons les coordonnées relatives à la position du centre de masse, $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. En substituant dans $\mathbf{L} = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$ :
+$$\mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
+
+En développant le produit vectoriel :
+$$\mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right) \tag{71}$$
+
+En séparant les termes et en regroupant les sommes sur $i$ :
+$$\mathbf{L} = \left(\sum_i m_i\, \mathbf{x}'_i \times \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i\right)\mathbf{X}\times\dot{\mathbf{X}} \tag{72}$$
+$$+\; \mathbf{X}\times\left(\sum_i m_i \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i \mathbf{x}'_i\right)\times\dot{\mathbf{X}} \tag{73}$$
+
+Or, par définition même du centre de masse, $\sum_i m_i \mathbf{x}'_i = 0$ (et donc aussi $\sum_i m_i \dot{\mathbf{x}}'_i = 0$) — les deux derniers termes de (73) s'annulent donc identiquement. Il reste :
+$$\mathbf{L} = \underbrace{\sum_i m_i \mathbf{x}'_i \times \dot{\mathbf{x}}'_i}_{\mathbf{L}'} + \underbrace{M\mathbf{X}\times\dot{\mathbf{X}}}_{\mathbf{L}_{CM}} = \mathbf{L}' + \mathbf{L}_{CM} \tag{74,75}$$
+
+::: {.callout-important title="Remarque 1.8"}
+Le moment angulaire total $\mathbf{L}$ par rapport à l'origine d'un système inertiel est la somme du moment angulaire relatif $\mathbf{L}'$ des particules par rapport au CM, et du moment angulaire $\mathbf{L}_{CM} = \mathbf{X}\times\mathbf{P}$ correspondant à la masse totale concentrée au CM. $\tag{76}$
+:::
+
+## Sommaire des propriétés globales
+
+| Propriété globale | Dynamique |
+|---|---|
+| $M = \sum_i m_i$ | |
+| $M\mathbf{X} = \sum_i m_i \mathbf{x}_i$ | |
+| $\mathbf{P} = M\mathbf{V} = M\dfrac{d\mathbf{X}}{dt} = \sum_i m_i \mathbf{v}_i$ | $M\mathbf{A} = M\dfrac{d^2\mathbf{X}}{dt^2} = \mathbf{F}$ |
+| $M\mathbf{A} = M\dfrac{d^2\mathbf{X}}{dt^2} = \sum_i m_i \mathbf{a}_i$ | |
+| $T = \tfrac{1}{2}M V^2 + \tfrac{1}{2}\sum_i m_i v_i'^2$ | |
+| $\mathbf{L} = \sum_i \mathbf{l}_i = \sum_i m_i \mathbf{x}_i \times \mathbf{v}_i$ | $\dfrac{d\mathbf{L}}{dt} = \boldsymbol{\tau}$ |
+
+## Milieux continus
+
+Passage d'un ensemble de particules ponctuelles à un corps de volume fini :
+
+- une particule → élément de volume infinitésimal
+- sommes sur toutes les particules → intégrales sur tous les éléments de volume
+- masses $m_1, m_2, \dots$ → élément de masse $dm = \rho(\mathbf{x})\,d^3x$, où $\rho(\mathbf{x})$ = densité de masse.
+
+Masse totale :
+$$M = \int dm = \int_{\text{Volume}} \rho(\mathbf{x})\,d^3x \tag{77}$$
+
+Correspondances : $x_i \leftrightarrow$ fonctions de la position $\mathbf{x}(x)$, et $\sum_i \leftrightarrow \int d^3x$.
+
+| Discret | Milieu continu |
+|---|---|
+| $M = \sum_i m_i$ | $M = \int \rho(\mathbf{x})\,d^3x$ |
+| $M\mathbf{X} = \sum_i m_i \mathbf{x}_i$ | $M\mathbf{X} = \int \mathbf{x}\,\rho(\mathbf{x})\,d^3x$ |
+| $\mathbf{P} = \sum_i m_i \mathbf{v}_i$ | $\mathbf{P} = \int \mathbf{v}\,\rho(\mathbf{x})\,d^3x$ |
+| $\mathbf{L} = \sum_i m_i \mathbf{x}_i\times\mathbf{v}_i$ | $\mathbf{L} = \int \mathbf{x}\times\mathbf{v}\,\rho(\mathbf{x})\,d^3x$ |
+
+## Exemple 1.3 — Particule dans un potentiel 1D
+
+Soit $F(x) = -\dfrac{\partial V}{\partial x}$ agissant sur une particule en 1D. La force étant conservative :
+$$E = \frac{m}{2}\dot{x}^2 + V(x) = T + V = \text{cte.} \tag{79}$$
+
+Puisque $T \ge 0$, on a toujours $E \ge V(x)$, ce qui **contraint le mouvement** : selon la valeur de $E$, le mouvement peut être limité à une région bornée (état lié) ou permettre un mouvement non borné.
+
+Isolant $\dot{x} = dx/dt$ à partir de l'équation de l'énergie :
+$$\frac{dx}{dt} = \sqrt{\frac{2}{m}(E - V(x))} \quad\Longrightarrow\quad \sqrt{\frac{m}{2}}\frac{dx}{\sqrt{E - V(x)}} = dt \tag{82,83}$$
+
+En intégrant des deux côtés :
+$$f(x, E) - f(x_0, E) = t - t_0, \qquad \text{où } f(x,E) = \sqrt{\frac{m}{2}}\int \frac{dx}{\sqrt{E-V(x)}}$$
+
+d'où la solution générale $x = x(t - t_0, E, x_0)$ — unique si l'on connaît $E$ et $x_0 = x(t_0)$.
+
+# 1.6 Degrés de liberté
+
+## Degrés de liberté (ddl)
+
+Un **degré de liberté** (ddl) généralise le nombre de directions indépendantes selon lesquelles une particule peut se déplacer. Propriété clé : les ddl **se comptent**.
+
+- 1 particule ponctuelle dans 1 direction → 1 ddl
+- 1 particule ponctuelle dans 2 directions → 2 ddl
+- 2 particules ponctuelles dans 2 directions → 4 ddl
+- $m$ particules ponctuelles dans $n$ directions → $mn$ ddl
+
+Des forces peuvent limiter le mouvement à un domaine fini selon ces directions **sans faire disparaître le ddl**.
+
+::: {.callout-tip title="Exemple 1.4 — Mouvement à 1 ddl"}
+Une particule libre selon $Ox$ a 1 ddl. Sous une force harmonique $F_x = -kx$, son domaine de variation est réduit à $[-x_0, x_0]$ selon son énergie $E = kx_0^2/2$ — mais elle conserve toujours **1 ddl**.
+:::
+
+::: {.callout-important title="Remarque 1.9"}
+Si cette force est plutôt une tige rigide empêchant tout mouvement, le domaine de variation est réduit à zéro → **0 ddl**.
+:::
+
+## Exemple 1.5 — Mouvement à 1 ddl, trajectoire courbe
+
+::: {.callout-tip title="Exemple 1.5"}
+Dans l'exemple précédent, la direction du mouvement est une droite (cartésienne) → 1 ddl physique.
+
+Mais le mouvement d'une particule peut tout aussi bien se limiter à une **courbe quelconque** plutôt qu'à une droite.
+
+Ici encore : 1 ddl ⟵ courbe = un espace à 1 dimension $\Longrightarrow$ un seul nombre (ou coordonnée) est suffisant pour déterminer la position de tout point sur la courbe — peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D.
+:::
+
+## Définition formelle des degrés de liberté
+
+::: {.callout-note title="Définition 1.4"}
+Le nombre de ddl d'une particule est égal au nombre de coordonnées nécessaires et suffisantes pour déterminer sa position.
+:::
+
+Un système physique comptant $n$ particules pouvant se déplacer dans un espace à $D$ dimensions a $nD$ ddl — même en interaction, tant que les domaines de variation ne sont pas limités à zéro.
+
+::: {.callout-tip title="Exemple 1.6 — Deux particules reliées par un ressort"}
+2 particules en 3D → $2 \times 3 = 6$ ddl. Avec deux contraintes $z_1 = \text{cte}$, $z_2 = \text{cte}$ (mouvement dans un plan) :
+$$6 \text{ ddl} - 2 \text{ cont.} = 4 \text{ ddl}$$
+:::
+
+::: {.callout-tip title="Exemple 1.7 — Masses reliées par une tige rigide"}
+Même système, mais avec une contrainte supplémentaire $r = l$ (tige rigide, $dr=0$) :
+$$6 \text{ ddl} - 3 \text{ cont.} = 3 \text{ ddl}$$
+:::
+
+## Combien de degrés de liberté ? {.quiz-question}
+
+Deux particules ponctuelles évoluent librement dans un espace à 3 dimensions, sans aucune contrainte entre elles. Combien de degrés de liberté le système possède-t-il ?
+
+- 2 ddl
+- 3 ddl
+- [6 ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl, comme dans l'Exemple 1.6 avant l'ajout des contraintes de plan."}
+- 12 ddl
+
+## Le nombre de ddl est-il une propriété de la solution ?
+
+::: {.callout-important title="Remarque 1.10 — Cas particuliers"}
+Pour certaines conditions initiales spéciales (ex. $\theta = \text{cte}$ ou $r = \text{cte}$), le domaine de variation de certaines coordonnées pourrait sembler réduit à zéro.
+:::
+
+**Question** : le nombre de ddl est-il alors < 4 ?
+
+**Réponse** : **NON !** Le système continue d'avoir 4 ddl — seule la solution (les conditions initiales) a changé ; il faut toujours 4 coordonnées pour décrire le mouvement en général.
+
+::: {.callout-important title="Remarque 1.11"}
+Le nombre de ddl ne se compte pas dans la solution, mais est une **propriété intrinsèque** du système physique.
+:::
+
+::: {.callout-important title="Remarque 1.12"}
+Nous comptons ici les ddl dans l'espace physique (3D, ou sous-espaces à 2D/1D).
+:::
+
+::: {.callout-important title="Remarque 1.13 — Espace des phases"}
+Certains domaines de la physique préfèrent l'espace des phases, qui inclut les vitesses en plus des coordonnées — par exemple $x,y,z,\dot x,\dot y,\dot z$ forme un espace à 6D. Nous garderons ici la notion de ddl définie dans l'espace physique seulement (simple convention).
+:::
+
+## Liens vers les parties du cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
