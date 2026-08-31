@@ -1,9 +1,9 @@
 ---
 title: "Mécanique analytique"
-subtitle: "PHY-2000 — Chapitre 0 : Plan de cours"
-author: "Prof. Luc Marleau"
+subtitle: "PHY-2000 — Plan de cours"
+author: "Prof. Claudine Allen"
 institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
-date: last-modified
+<---# date: last-modified --->
 format:
   revealjs:
     theme: moon
@@ -21,55 +21,30 @@ revealjs-plugins:
   - quiz
 ---
 
-## Liens vers les parties du cours
-
-- Chapitre 0 : Plan de cours
-- Chapitre 1 : Rappel
-- Chapitre 2 : Formalisme de Lagrange
-- Chapitre 3 : Applications et propriétés
-- Chapitre 4 : Formalisme canonique
-- Chapitre 5 : Théorie des perturbations
-- Chapitre 6 : Mouvement d'un solide indéformable
-- Chapitre 7 : Mécanique lagrangienne des milieux continus
-- Chapitre 8 : Annexes
-
-::: {.notes}
-Vue d'ensemble du plan de la session complète — utile comme carte de navigation
-entre les chapitres.
-:::
-
-## SOMMAIRE
-
-1. 0. Plan de cours
-   - 0.1 Sommaire du plan de cours
-
 # Plan de cours
 
 ## Sommaire du plan de cours
 
+Le site de cours PHY-2000 sur Brio contiendra les informations complètes et officielles du plan de cours.
+
+**Recherche d'auxiliaire pour le design web Brio de votre site de cours**
+Veuillez me faire parvenir un relevé de notes.
+
+
+## Sommaire du plan de cours : Coordonnées
+
+**Professeure**
+Claudine Allen, POP-2137
+Courriel : <claudine.allen@phy.ulaval.ca>
+
 ::: {.notes}
-Rappeler que ce document n'est pas le plan de cours officiel.
+Disponibilités en présentiel
 :::
 
-Le document qui suit constitue une version non définitive du plan de cours officiel :
+**Dépanneur/correcteur**
+Xavier Lemens <xavier.lemens.1@ulaval.ca>
 
-- Plan de cours
-
-**ATTENTION !!!** :
-Le plan de cours auto-construit du portail du cours PHY-2000
-**N'EST PAS COMPLET NI OFFICIEL.**
-
-## Sommaire du plan de cours (suite...)
-
-**Professeur** :
-Luc Marleau, VCH-3417
-courriel: lmarleau@phy.ulaval.ca
-site web: <https://feynman.phy.ulaval.ca/marleau/marleau.html>
-
-**Dépanneur/correcteur** :
-Zacharie Robitaille-Jean <zacharie.robitaille-jean.1@ulaval.ca> : (dépannage)
-Antoine Bouchard <antoine.bouchard.10@ulaval.ca> : (correction)
-
+## Sommaire du plan de cours : Coordonnées
 **Horaire** :
 
 | Jour  | Heure       | Local    | Activité |
@@ -78,11 +53,8 @@ Antoine Bouchard <antoine.bouchard.10@ulaval.ca> : (correction)
 | Jeudi | 9h30-10h20  | PLT-2504 | cours en classe (ou en virtuel) |
 | Jeudi | 10h30-11h20 | PLT-2504 | dépannage |
 
-::: {.notes}
-Rappeler les plages de dépannage — bon moment pour poser des questions ciblées.
-:::
 
-## Sommaire du plan de cours (suite...)
+## Sommaire du plan de cours
 
 **Références** :
 
@@ -113,7 +85,7 @@ complémentaire — on y trouve une banque de problèmes.
   (Upper Saddle River, N.J., 1998), ISBN : 0135052238.
 :::
 
-## Sommaire du plan de cours (suite...)
+## Sommaire du plan de cours
 
 **Contenu et objectifs** : le cours suivra fidèlement les notes de cours et en
 parallèle, les livres de référence complémentaires (Landau & Lifchitz ou Goldstein).
