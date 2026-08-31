@@ -64,7 +64,7 @@ Le document est disponible sur le site de cours dans le seul module ouvert pour 
 
 
 
-## Sommaire du plan de cours (suite...)
+## Sommaire du plan de cours
 
 **Références complémentaires** : les notes suivent assez bien les notions élaborées
 dans les sections correspondantes des volumes suivants, utilisables à titre
@@ -152,9 +152,9 @@ devoirs à remettre. La note est calculée selon :
 
 | Évaluation          | Travaux                          | Pondération |
 |---------------------|-----------------------------------|:-----------:|
-| Séries d'exercices  | à remettre à des dates précises  | 20%          |
-| 1<sup>e</sup> examen | 1<sup>e</sup> partie — 24 octobre 2024   | 40%          |
-| 2<sup>e</sup> examen | 2<sup>e</sup> partie — 12 décembre 2024  | 40%          |
+| Séries d'exercices  | 28sept, 19 oct, 23nov, 14 déc ?  | 20%          |
+| 1<sup>e</sup> examen | 1<sup>e</sup> partie — 22 octobre 2026   | 40%          |
+| 2<sup>e</sup> examen | 2<sup>e</sup> partie — 17 décembre 2026  | 40%          |
 
 ::: {.notes}
 Les dates d'examens changent d'une session à l'autre — vérifier le portail
