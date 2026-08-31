@@ -3,7 +3,6 @@ title: "Mécanique analytique"
 subtitle: "PHY-2000 — Plan de cours"
 author: "Prof. Claudine Allen"
 institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
-<---# date: last-modified --->
 format:
   revealjs:
     theme: moon
@@ -28,42 +27,42 @@ revealjs-plugins:
 Le site de cours PHY-2000 sur Brio contiendra les informations complètes et officielles du plan de cours.
 
 **Recherche d'auxiliaire pour le design web Brio de votre site de cours**
+
 Veuillez me faire parvenir un relevé de notes.
 
 
 ## Sommaire du plan de cours : Coordonnées
 
-**Professeure**
-Claudine Allen, POP-2137
+**Professeure**\
+Claudine Allen, POP-2137\
 Courriel : <claudine.allen@phy.ulaval.ca>
 
+Je vais privilégier des périodes de disponibilités en présentiel, veuillez me communiquer des plages horaires possibles via votre représentant.e de classe.
 ::: {.notes}
-Disponibilités en présentiel
+Présentiel
 :::
 
-**Dépanneur/correcteur**
+**Dépanneur/correcteur**\
 Xavier Lemens <xavier.lemens.1@ulaval.ca>
 
-## Sommaire du plan de cours : Coordonnées
-**Horaire** :
+
+## Sommaire du plan de cours : Horaire
+
 
 | Jour  | Heure       | Local    | Activité |
 |-------|-------------|----------|----------|
-| Lundi | 13h30-15h20 | VCH-3830 | cours en classe (ou en virtuel) |
-| Jeudi | 9h30-10h20  | PLT-2504 | cours en classe (ou en virtuel) |
-| Jeudi | 10h30-11h20 | PLT-2504 | dépannage |
+| Lundi | 13h30-15h20 | PLT-2750 | cours en classe |
+| Jeudi | 9h30-10h20  | PLT-2508 | cours en classe |
+| Jeudi | 10h30-11h20 | PLT-2508 | atelier de dépannage |
 
 
-## Sommaire du plan de cours
+## Sommaire du plan de cours : Référence de base
 
-**Références** :
+*Mécanique analytique*, Notes de cours, P. Amiot, L. Marleau. 
 
-**Référence de base** :
-*Mécanique analytique*, Notes de cours, P. Amiot, L. Marleau. Le document est
-disponible sur le portail de cours en deux versions pdf
+Le document est disponible sur le site de cours dans le seul module ouvert pour l'instant.
 
-1. Version pdf publique mais non-imprimable
-2. Version pdf imprimable non publique (mot de passe requis)
+
 
 ## Sommaire du plan de cours (suite...)
 
@@ -71,7 +70,7 @@ disponible sur le portail de cours en deux versions pdf
 dans les sections correspondantes des volumes suivants, utilisables à titre
 complémentaire — on y trouve une banque de problèmes.
 
-::: {style="font-size:0.75em;"}
+::: {style="font-size:0.7em;"}
 - **Classical mechanics**, 3e édition, Herbert Goldstein, Charles P. Poole, Pearson
   Education (Higher Ed. Grp, Box 70632, NJ, USA, 2001), ISBN : 0201657023.
 - **Mechanics**, L.D. Landau and E.M. Lifshitz ; traduit du russe par J.B. Sykes and
@@ -87,8 +86,8 @@ complémentaire — on y trouve une banque de problèmes.
 
 ## Sommaire du plan de cours
 
-**Contenu et objectifs** : le cours suivra fidèlement les notes de cours et en
-parallèle, les livres de référence complémentaires (Landau & Lifchitz ou Goldstein).
+**Contenu et objectifs** : le cours suivra généralement les notes de cours
+
 Les grandes lignes du cours sont :
 
 - Les notions de base de la mécanique classique.
