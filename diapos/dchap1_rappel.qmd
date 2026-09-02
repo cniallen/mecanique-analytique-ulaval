@@ -3,13 +3,14 @@ title: "Mécanique analytique"
 subtitle: "PHY-2000 — Chapitre 1 : Rappel"
 author: "Prof. Claudine Allen"
 institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+from: markdown+emoji
 format:
   revealjs:
     theme: moon
     slide-number: c/t
     html-math-method: katex
     spotlight:
-      size: 80
+      size: 30
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
