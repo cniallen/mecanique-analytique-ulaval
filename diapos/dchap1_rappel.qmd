@@ -3,12 +3,16 @@ title: "Mécanique analytique"
 subtitle: "PHY-2000 — Chapitre 1 : Rappel"
 author: "Prof. Claudine Allen"
 institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
-date: last-modified
 format:
   revealjs:
     theme: moon
     slide-number: c/t
     html-math-method: katex
+    spotlight:
+      size: 80
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -19,9 +23,10 @@ format:
       defaultIncorrect: "Incorrect."
 revealjs-plugins:
   - quiz
+  - spotlight
 ---
 
-## Progression dans les notes de cours
+## Progression dans le cours
 
 - Chapitre 0 : Plan de cours
 - Chapitre 1 : Rappel
@@ -35,12 +40,11 @@ revealjs-plugins:
 
 ## SOMMAIRE
 
-1. 1. Rappel
+1. Rappel
    - 1.1 Trajectoire et cinématique d'une particule ponctuelle
    - 1.2 Plusieurs particules ponctuelles
    - 1.3 Éléments de dynamique
    - 1.4 Travail et Énergie
-2. (suite)
    - 1.5 Systèmes à N particules et forces extérieures
    - 1.6 Degrés de liberté
 
@@ -316,6 +320,8 @@ $$m_i \ddot{\mathbf{x}}_i = \mathbf{F}_i + \sum_j \mathbf{F}_{ij} \tag{63}$$
 En sommant sur toutes les particules (les forces internes s'annulent deux à deux) :
 $$\sum_i m_i \ddot{\mathbf{x}}_i = \sum_i \mathbf{F}_i = \mathbf{F} : \text{force externe totale} \tag{64}$$
 
+## Le centre de masse
+
 Avec $M = \sum_i m_i$ (masse totale) :
 $$\mathbf{F} = M\left[\frac{1}{M}\sum_i m_i \ddot{\mathbf{x}}_i\right] = M\frac{d^2}{dt^2}\left[\frac{1}{M}\sum_i m_i \mathbf{x}_i\right] \tag{65}$$
 
@@ -330,7 +336,7 @@ $$\mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i, \qquad M = \sum_i m_i \tag{67
 Quelle que soit l'interaction entre les particules, le mouvement du centre de masse (CM) se fait comme si toute la masse y était concentrée, avec la force externe totale s'y appliquant.
 :::
 
-## Moment linéaire et moment angulaire du système
+## Moment linéaire du système
 
 Moment linéaire total :
 $$\mathbf{P} = M\frac{d\mathbf{X}}{dt} = \sum_i m_i \dot{\mathbf{x}}_i, \qquad \mathbf{F} = \frac{d}{dt}\mathbf{P}$$
@@ -341,6 +347,8 @@ Moment angulaire total par rapport à l'origine $O$ : $\mathbf{L} = \sum_i \math
 
 Introduisons les coordonnées relatives à la position du centre de masse, $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. En substituant dans $\mathbf{L} = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$ :
 $$\mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
+
+## Moment angulaire du système (suite...)
 
 En développant le produit vectoriel :
 $$\mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right) \tag{71}$$
@@ -482,14 +490,3 @@ Nous comptons ici les ddl dans l'espace physique (3D, ou sous-espaces à 2D/1D).
 Certains domaines de la physique préfèrent l'espace des phases, qui inclut les vitesses en plus des coordonnées — par exemple $x,y,z,\dot x,\dot y,\dot z$ forme un espace à 6D. Nous garderons ici la notion de ddl définie dans l'espace physique seulement (simple convention).
 :::
 
-## Liens vers les parties du cours
-
-- Chapitre 0 : Plan de cours
-- Chapitre 1 : Rappel
-- Chapitre 2 : Formalisme de Lagrange
-- Chapitre 3 : Applications et propriétés
-- Chapitre 4 : Formalisme canonique
-- Chapitre 5 : Théorie des perturbations
-- Chapitre 6 : Mouvement d'un solide indéformable
-- Chapitre 7 : Mécanique lagrangienne des milieux continus
-- Chapitre 8 : Annexes
