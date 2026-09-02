@@ -180,7 +180,7 @@ groupe. Dans la correction, l'importance est accordée aux hypothèses de dépar
 à la justesse du raisonnement plus qu'à l'exactitude des calculs numériques. La
 qualité de la langue est aussi un critère de correction.
 
-## Liens vers les parties du cours
+## Parties du cours et de ses notes
 
 - Chapitre 0 : Plan de cours
 - Chapitre 1 : Rappel
