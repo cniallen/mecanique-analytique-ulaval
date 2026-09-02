@@ -1,0 +1,580 @@
+---
+title: "Mécanique analytique"
+subtitle: "PHY-2000 — Chapitre 2 : Formalisme de Lagrange"
+author: "Prof. Claudine Allen"
+institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+from: markdown+emoji
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    html-math-method: katex
+    spotlight:
+      size: 30
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
+      initialPresentationMode: false
+    quiz:
+      checkKey: "c"
+      resetKey: "q"
+      shuffleKey: "t"
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: "Correct !"
+      defaultIncorrect: "Incorrect."
+revealjs-plugins:
+  - quiz
+  - spotlight
+---
+
+## Progression dans le cours
+
+- Chapitre 0 : Plan de cours  :white_check_mark:
+- Chapitre 1 : Rappel  :white_check_mark:
+- Chapitre 2 : Formalisme de Lagrange  :arrow_left:
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
+
+## SOMMAIRE
+
+1. 2.1 Coordonnées généralisées
+2. 2.2 Principe de base
+3. 2.3 Variation fonctionnelle
+4. 2.4 La fonction $L(q_i, \dot q_i, t)$
+5. 2.5 Coordonnées curvilignes
+6. 2.6 Contraintes holonomes et non holonomes
+7. 2.7 Lois de conservation et constantes du mouvement
+8. 2.8 Invariance de jauge
+9. 2.9 Caractéristiques, propriétés, limites
+10. 2.10 Symétrie de l'espace-temps
+
+# 2.1 Coordonnées généralisées
+
+## Coordonnées généralisées
+
+Le formalisme de Lagrange couvre une vaste gamme de problèmes en mécanique et est équivalent au formalisme de Newton, mais possède plusieurs avantages :
+
+- principe théorique fondamental et élégant
+- quantités **scalaires** plutôt que vectorielles
+- forme **indépendante** des coordonnées utilisées
+- base à une foule de méthodes en physique moderne : physique statistique, mécanique quantique, théorie des champs (classique ou quantique)
+
+Nous utiliserons des coordonnées généralisées $q_i$ : invariance de forme par rapport aux types de coordonnées utilisées. Les $q_i$ sont quelconques (distance, angle, etc.), sauf pour des limitations à venir.
+
+::: {.notes}
+Mentionner rapidement Joseph-Louis Lagrange : calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange).
+:::
+
+# 2.2 Principe de base
+
+## Principe de base
+
+Soit une particule ponctuelle dont la position instantanée est donnée par les coordonnées généralisées $\{q_i \mid i=1,2,3\}$. On cherche la trajectoire :
+$$q_i = q_i(t), \quad i=1,2,3 \tag{1}$$
+
+Le long de la trajectoire, on définit les **vitesses généralisées** :
+$$\dot q_i = \frac{d}{dt}q_i(t), \quad i=1,2,3 \tag{2}$$
+
+::: {.callout-tip title="Expérience de pensée"}
+Une source de particules au point $P_1$ émet à $t_1$ ; un détecteur en $P_2$ détecte à $t_2$. En répétant l'expérience avec les mêmes conditions ($P_1$, $P_2$, $t_2-t_1$ fixes), il existe *a priori* une infinité de trajectoires possibles $C_0, C_1, C_2, \dots$ satisfaisant ces contraintes. Pourtant, en laboratoire, on observe toujours une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
+:::
+
+## L'action et le principe de moindre action
+
+Paramétrons les trajectoires par $\alpha$ : $q_i^{(\alpha)} = q_i^{(\alpha)}(t)$. Le formalisme de Lagrange propose un critère pour sélectionner la trajectoire physique en assignant à chaque trajectoire une quantité $S(\alpha)$ :
+$$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)dt \tag{4}$$
+
+où $L$ est appelée la **fonction de Lagrange** ou **lagrangien**, dépendant en général de $q_i(t)$, $\dot q_i(t)$ et possiblement explicitement de $t$ (mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur — l'expérience l'indique).
+
+Le choix le plus simple à identifier pour sélectionner la trajectoire physique : un point **stationnaire** — là où $S$ est un extremum :
+$$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\bar\alpha} = 0 \tag{6}$$
+
+::: {.callout-note title="Définition 2.1 — Action"}
+La quantité $S$ s'appelle l'**action** et le principe énoncé ci-dessus est le **principe de moindre action**.
+:::
+
+::: {.callout-important title="Remarque 2.1 — Principe variationnel"}
+C'est un principe variationnel : nous recherchons un point fixe de $S$ tel que $dS=0$. Aujourd'hui, on tend à baser toutes les lois de la physique sur de tels principes.
+:::
+
+# 2.3 Variation fonctionnelle
+
+## Variation fonctionnelle {.smaller}
+
+La variation de $S$ n'est pas une variation habituelle (par rapport à un point le long d'une trajectoire) — elle est faite en **comparant des trajectoires**, en variant les fonctions $q_i^{(\alpha)}(t)$.
+
+::: {.callout-note title="Notation 2.1"}
+On note ces variations avec le symbole $\delta$ plutôt que $d$ :
+$$\text{différence } d: \; dq_i^{(\alpha)}(t) = q_i^{(\alpha)}(t+dt) - q_i^{(\alpha)}(t) \tag{8}$$
+$$\text{variation } \delta: \; \delta q_i^{(\alpha)}(t) = q_i^{(\alpha)}(t) - q_i^{(\alpha')}(t) \tag{9}$$
+:::
+
+Ces variations sont dites **« à temps constant »**. Au temps $t$, $\delta q^{(\alpha)}(t)$ est le même en comparant $\alpha$ à $\alpha'$ ou à $\alpha''$ — mais ce n'est *pas* vrai des $\delta\dot q^{(\alpha)}(t)$. Les variations des vitesses sont donc **indépendantes** des variations des coordonnées, puisque nous comparons des trajectoires différentes. Par ailleurs, les variations en $\alpha$ et en $t$ étant indépendantes :
+$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right) \tag{12}$$
+
+## Variation du lagrangien
+
+Comme pour la différentielle ordinaire $df = \sum_i \frac{\partial f}{\partial x_i}dx_i$, la variation de $L(q_i, \dot q_i, t)$ s'écrit :
+$$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \frac{\partial L}{\partial t}\delta t \tag{15}$$
+
+Le dernier terme ne contribue pas puisque les variations sont à temps constant ($\delta t \equiv 0$) :
+$$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i \tag{17}$$
+
+Pour appliquer le principe de moindre action, on calcule (intervertissant les variations en $t$ et en $\alpha$) :
+$$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0 \tag{18}$$
+
+Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour toutes les trajectoires, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$.
+
+## Dérivation des équations d'Euler-Lagrange {.smaller}
+
+En substituant (17) dans (18) :
+$$0 = \int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt \tag{19}$$
+
+Intégrons par parties le 2ᵉ terme, suivant $\int A\dfrac{dB}{dt}dt = \dfrac{d}{dt}(AB)\,dt - \int \dfrac{dA}{dt}B\,dt$ :
+$$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \underbrace{\left[\frac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2}}_{=\,0 \text{ car } \delta q_i(t_{1,2})=0} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt \tag{20}$$
+
+En remplaçant (20) dans (19), et en mettant $\delta q_i$ en évidence :
+$$\int_{t_1}^{t_2}\sum_i\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt = 0 \tag{21}$$
+
+Puisque les $\delta q_i$ sont **indépendants** (les $q_i$ correspondent à des ddl physiques sans contrainte), chaque terme du crochet doit être identiquement nul :
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \tag{23}$$
+
+::: {.callout-note title="Définition 2.2 — Équations d'Euler-Lagrange"}
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \tag{24}$$
+:::
+
+## Portée des équations d'Euler-Lagrange
+
+Ces équations, une fois solutionnées, définissent les trajectoires physiques $q_i = q_i(t)$. Elles restent valables pour un système à un nombre arbitraire de ddl (pourvu qu'ils ne soient pas contraints) — on obtient $n$ équations pour $i=1,\dots,n$.
+
+Rien n'a été dit sur la nature des $\{q_i\}$ (longueurs, angles, autres...) : la forme de l'équation d'E-L n'est **pas affectée** par ce choix — cette recette fonctionne dès qu'on peut construire le lagrangien du système.
+
+::: {.callout-important title="Remarque 2.2 — E-L et unités"}
+Puisque les $q_i$ sont quelconques, ils n'ont pas nécessairement les mêmes dimensions. L'équation de Newton $F=ma$ a systématiquement les dimensions $[MLT^{-2}]$, mais les équations d'E-L n'ont dimension de force que si $q_i$ a dimension de longueur — sinon, les équations « font automatiquement la cuisine des dimensions » et sont dites **dimensionnellement homogènes**.
+:::
+
+## Identité de Beltrami
+
+::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
+Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
+$$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
+:::
+
+**Démonstration :** La dérivée totale $\dfrac{dL}{dt} = \dfrac{\partial L}{\partial q_i}\dot q_i + \dfrac{\partial L}{\partial\dot q_i}\ddot q_i + \dfrac{\partial L}{\partial t}$. En isolant $\partial L/\partial q_i \cdot \dot q_i$ et en multipliant l'éq. d'E-L (23) par $\dot q_i$ :
+$$\dot q_i\frac{\partial L}{\partial q_i} = \dot q_i \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)$$
+
+En substituant et en regroupant (le terme $\dot q_i\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial\dot q_i}\ddot q_i$ étant la dérivée totale d'un produit) :
+$$0 = \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial t}$$
+
+Si $\partial L/\partial t = 0$, on intègre directement pour obtenir l'identité de Beltrami, où $C$ est interprétée comme une constante du mouvement.
+
+## Deux exemples célèbres
+
+::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
+Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution.
+:::
+
+::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
+La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite.
+:::
+
+## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question}
+
+- Ils garantissent que le lagrangien ne dépend pas du temps
+- [Ils annulent le terme de bord lors de l'intégration par parties]{.correct data-explanation="Sans cette condition, le terme [∂L/∂q̇ᵢ · δqᵢ] évalué entre t₁ et t₂ ne s'annulerait pas, et on ne pourrait pas isoler l'intégrande pour obtenir les équations d'E-L."}
+- Ils imposent que la trajectoire physique soit une droite
+- Ils sont nécessaires pour définir l'action $S$
+
+# 2.4 La fonction $L(q_i, \dot q_i, t)$
+
+## La fonction $L(q_i, \dot q_i, t)$
+
+La validité de la méthode repose sur le choix (ou la définition) de $L$, de façon à ce que résoudre le problème mécanique via les équations d'E-L redonne la trajectoire physique — c.-à-d. que **éq. d'E-L $\equiv$ éq. de Newton**.
+
+Il est possible de déduire $L$ à partir des équations de Newton, ou même de simples symétries (voir section 2.10). Ici, nous postulons d'abord la forme et vérifions le bien-fondé de l'hypothèse.
+
+## Forces conservatives : vérification $L = T - V$ {.smaller}
+
+Pour une force conservative $\mathbf{F} = -\nabla V(\mathbf{r})$, vérifions en coordonnées cartésiennes $x_i=(x,y,z)$ que les équations d'E-L reproduisent Newton, en posant :
+$$T = \sum_j \tfrac{1}{2}m\dot x_j^2, \qquad V = V(x_j), \qquad L = T-V = \sum_j\tfrac{1}{2}m\dot x_j^2 - V(x_j) \tag{34}$$
+
+**Calcul :**
+$$\frac{\partial L}{\partial\dot x_i} = m\dot x_i \implies \frac{d}{dt}\left(\frac{\partial L}{\partial\dot x_i}\right) = m\ddot x_i, \qquad \frac{\partial L}{\partial x_i} = -\frac{\partial V}{\partial x_i} \tag{36}$$
+
+L'équation d'E-L donne donc, pour chaque $i$ :
+$$m\ddot x_i + \frac{\partial V}{\partial x_i} = 0 \quad\Longrightarrow\quad m\ddot x_i = -\frac{\partial V}{\partial x_i} = F_i \tag{38,39}$$
+
+Équivalence complète avec Newton confirmée. Les deux approches sont physiquement équivalentes, mais $L=T-V$ est conceptuellement plus facile puisque les énergies (contrairement aux forces) ne sont **pas des quantités vectorielles**.
+
+::: {.callout-important title="Remarque 2.3"}
+Dans l'approche lagrangienne, on apprend à raisonner à partir de concepts d'énergie (potentielle et cinétique) plutôt que de force — un atout en physique quantique (où la notion de force n'a aucune signification) et en relativité (où l'action instantanée à distance est impossible).
+:::
+
+## Exemples de potentiels fondamentaux {.smaller}
+
+1. **Gravitation** : $F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$
+2. **Interaction coulombienne** : $F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$
+3. **Oscillateur harmonique** : $F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$
+
+::: {.callout-important title="Remarque 2.4"}
+La force harmonique n'est pas une interaction fondamentale de la nature, mais elle est utilisée fréquemment en approximation.
+:::
+
+Au voisinage d'un extremum $x_0$ de $V(x)$, un développement de Taylor donne (le terme constant sans intérêt, le terme linéaire nul en un minimum) :
+$$V(x) \approx \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u), \quad u=(x-x_0),\; k = \left[\frac{d^2V}{dx^2}\right]_{x_0} \tag{47-49}$$
+
+::: {.callout-important title="Remarque 2.5"}
+Pour bon nombre de problèmes, la première réponse à un petit déplacement hors d'équilibre est harmonique — l'approximation harmonique est d'une grande importance pratique.
+:::
+
+## Forces non conservatives et forces généralisées
+
+Mathématiquement, peu de fonctions $\mathbf{F}$ dérivent d'un gradient — en général $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. Elles apparaissent dans plusieurs situations physiques.
+
+::: {.callout-tip title="Exemple 2.4 — Frottement"}
+$$F_\text{frict.} = -k^{(n)}\dot x^n \tag{51}$$
+où $n$ dépend du régime (laminaire ou turbulent), et $k^{(n)}$ est déterminée empiriquement.
+:::
+
+Pour tenir compte de tels effets, on introduit une **force généralisée** $Q_i$, et les équations d'E-L deviennent :
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = Q_i \tag{52}$$
+
+::: {.callout-important title="Remarque 2.6"}
+ATTENTION : les composantes $Q_i$ ne sont pas nécessairement cartésiennes, et les équations n'ont pas toutes les mêmes unités !
+:::
+
+::: {.callout-important title="Remarque 2.7 — Théories de jauge"}
+Il existe une exception importante à cette approche « force généralisée » : les théories basées sur l'invariance de jauge, ex. l'électromagnétisme (voir section 2.8).
+:::
+
+# 2.5 Coordonnées curvilignes
+
+## Le problème des coordonnées curvilignes
+
+En coordonnées cartésiennes, dans un repère inertiel : $\mathbf{r}=(x,y,z)$, $\dot{\mathbf{r}} = \dot x\mathbf{e}_x+\dot y\mathbf{e}_y+\dot z\mathbf{e}_z$, et $v^2 = \dot x^2+\dot y^2+\dot z^2$ — simple, car $x,y,z$ ont tous des dimensions de longueur et leurs axes sont fixes et orthogonaux.
+
+**Question :** en coordonnées sphériques $\mathbf{r}=(r,\theta,\varphi)$, peut-on écrire sans ambiguïté $\dot{\mathbf{r}} = (\dot r, \dot\theta, \dot\varphi)$ ?
+
+**Réponse courte : Non !** Deux problèmes surgissent : (1) $r$, $\theta$ et $\varphi$ n'ont pas les mêmes dimensions ; (2) leurs axes sont orthogonaux mais ne sont **pas fixes** dans le temps (contrairement aux axes cartésiens).
+
+## Énergie cinétique en coordonnées sphériques
+
+Avec $x=r\sin\theta\cos\varphi$, $y=r\sin\theta\sin\varphi$, $z=r\cos\theta$, on calcule $\dot x, \dot y, \dot z$ par dérivation en chaîne, puis on substitue dans $v^2 = \dot x^2+\dot y^2+\dot z^2$ pour obtenir :
+$$v^2 = \dot r^2 + r^2\dot\theta^2 + r^2\sin^2\theta\,\dot\varphi^2 \tag{66}$$
+
+Ainsi, en coordonnées sphériques :
+$$T = \frac{m}{2}\dot r^2 + \frac{m}{2}r^2\dot\theta^2 + \frac{m}{2}r^2\sin^2\theta\,\dot\varphi^2 \tag{67}$$
+
+ce qui **ne correspond pas** à l'expression « naïve » $T \neq \tfrac{1}{2}m\dot r^2 + \tfrac{1}{2}m\dot\theta^2 + \tfrac{1}{2}m\dot\varphi^2$.
+
+## La métrique
+
+::: {.callout-note title="Définition 2.4 — Élément de longueur et métrique"}
+De façon générale, on écrit $T = \sum_{i,j}\frac{m}{2}g_{ij}\dot q_i \dot q_j$ et l'élément de longueur :
+$$ds^2 = \sum_{i,j} g_{ij}\,dq_i\,dq_j \tag{74}$$
+où $g_{ij}$ est la **métrique** (ou tenseur métrique), qui définit la longueur dans l'espace donné.
+:::
+
+**Exemples de métriques** (toujours diagonales, car les 3 systèmes d'axes restent orthogonaux) :
+
+- Cartésiennes $(x,y,z)$ : $g_{ij} = \text{diag}(1,1,1)$ — constante, sans dimension
+- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \text{diag}(1, r^2, r^2\sin^2\theta)$ — dépend de la position
+- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1)$
+
+## Équations d'E-L en coordonnées sphériques {.smaller}
+
+Du lagrangien $L = \dfrac{m}{2}\left(\dot r^2+r^2\dot\theta^2+r^2\sin^2\theta\,\dot\varphi^2\right) - V(r,\theta,\varphi)$, les trois équations d'E-L (obtenues par calcul direct pour chaque coordonnée) donnent :
+
+$$m\ddot r - mr\dot\theta^2 - mr\sin^2\theta\,\dot\varphi^2 = -\frac{\partial V}{\partial r}$$
+$$mr^2\ddot\theta + 2mr\dot r\dot\theta - mr^2\sin\theta\cos\theta\,\dot\varphi^2 = -\frac{\partial V}{\partial\theta}$$
+$$mr^2\ddot\varphi\sin^2\theta + 2mr\dot r\dot\varphi\sin^2\theta + 2mr^2\dot\theta\dot\varphi\sin\theta\cos\theta = -\frac{\partial V}{\partial\varphi}$$
+
+Ces équations ont des unités différentes et sont beaucoup moins intuitives qu'en coordonnées cartésiennes. Pourtant, la méthode lagrangienne les donne **« automatiquement »** — retrouver l'équation en $\theta$ à partir de Newton directement exige un calcul de $d^2r/dt^2$ nettement plus désagréable.
+
+## Symboles de Christoffel
+
+Le membre de gauche des équations précédentes suit toujours la forme $\ddot q_i + \sum_{j,k}\Gamma^i_{jk}\dot q_j\dot q_k$, ce qui mène à la **dérivée covariante** :
+
+::: {.callout-note title="Définition 2.5 — Dérivée covariante"}
+$$D_t \dot q_i = \ddot q_i + \sum_{j,k}\Gamma^i_{jk}\dot q_j\dot q_k$$
+:::
+
+::: {.callout-note title="Définition 2.6 — Symboles de Christoffel"}
+$$\Gamma^i_{jk} = \frac{1}{2}\sum_l g^{-1}_{il}\left[\frac{\partial g_{lj}}{\partial q_k}+\frac{\partial g_{lk}}{\partial q_j}-\frac{\partial g_{jk}}{\partial q_l}\right] \tag{105}$$
+où $g^{-1}$ est la matrice inverse de $g$. Entièrement déterminés par la métrique, ils jouent un rôle géométrique important.
+:::
+
+::: {.callout-important title="Remarque 2.8"}
+Pour les coordonnées cartésiennes, tous les $\Gamma^i_{jk}=0$ — seul système de coordonnées pour lequel c'est vrai, car l'espace y est plat (courbure nulle). La méthode lagrangienne fait automatiquement cette « cuisine » compliquée, ce qui n'est pas le moindre de son intérêt.
+:::
+
+# 2.6 Contraintes holonomes et non holonomes
+
+## Éliminer un ddl à l'aide d'une contrainte
+
+Considérons $L = \dfrac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-V(x,y,z)$ (particule ponctuelle en 3D).
+
+::: {.callout-tip title="Exemple 2.5 — Contrainte $x=a$"}
+Le mouvement est gelé en $x$, contraint dans le plan $x=a$ : il ne reste que 2 ddl, et $L = \dfrac{m}{2}(\dot y^2+\dot z^2)-V(a,y,z)$ — la contrainte $x=a$ a permis d'éliminer un ddl.
+:::
+
+::: {.callout-tip title="Exemple 2.6 — Contrainte $\dot y = \alpha$"}
+En intégrant $\dot y=\alpha$ trivialement, $y=\alpha t+\beta$. En substituant $y\to\alpha t+\beta$ et $\dot y\to\alpha$ dans $L$ : $L = \dfrac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z)$ — de nouveau, une contrainte a éliminé un ddl.
+:::
+
+::: {.callout-note title="Définition 2.7 — Contraintes holonomes"}
+$$f(q_i,\dot q_i,t)=0 \quad\text{ou}\quad f(q_i,\dot q_i,t) = \frac{d}{dt}h(q_i,t)=0, \text{ soit } h(q_i,t)=C \tag{112}$$
+:::
+
+::: {.callout-note title="Définition 2.8 — Rhéonome / scléronome"}
+Si $\partial f/\partial t\neq 0$, la contrainte est **rhéonome** (dépend du temps) ; si $\partial f/\partial t = 0$, elle est **scléronome**.
+:::
+
+## Contraintes non holonomes et méthode des multiplicateurs
+
+::: {.callout-note title="Définition 2.9 — Contraintes non holonomes"}
+Celles qui n'obéissent pas à $f=\dfrac{d}{dt}h$, ou qui s'écrivent en inégalité : $f<0$ ou $f>0$.
+:::
+
+::: {.callout-important title="Remarque 2.9"}
+ATTENTION : il faut s'assurer que la contrainte holonome est imposée correctement, c.-à-d. de manière à éliminer une des variables superflues (pas comme intégrale moyenne sans intérêt).
+:::
+
+Si un lagrangien $L$ dépend de ddl contraints **non éliminés**, les équations d'E-L qu'on en déduit ne sont **pas valides**. Pour certaines contraintes holonomes difficiles à éliminer directement, on utilise la **méthode des multiplicateurs de Lagrange**.
+
+## Méthode des multiplicateurs de Lagrange
+
+::: {.callout-note title="Méthode des multiplicateurs de Lagrange"}
+1. Écrire un lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$, où la contrainte est temporairement levée.
+2. Résoudre les $n$ équations d'E-L pour $L'$ : solution $q_i = q_i(t,\lambda)$.
+3. Déterminer $\lambda=\bar\lambda$ tel que $f(q_i(t,\bar\lambda),\dot q_i(t,\bar\lambda),t)=0$.
+4. La solution pour $L$ est alors $q_i = q_i(t,\bar\lambda)$.
+:::
+
+::: {.callout-important title="Remarque 2.11 — Limitation"}
+Si la contrainte dépend des $\dot q_j$, alors $\dfrac{d}{dt}\left(\dfrac{\partial L'}{\partial\dot q_i}\right)$ fait apparaître non seulement $\lambda$ mais aussi $\dot\lambda$, généralement inconnu — ce problème apparaît toujours pour les contraintes non holonomes.
+:::
+
+# 2.7 Lois de conservation et constantes du mouvement
+
+## Méthode générale de résolution
+
+1. Trouver les contraintes sur la dynamique du système.
+2. Identifier le nombre de ddl du système.
+3. Choisir des coordonnées généralisées appropriées.
+4. Déterminer $T$ et $V$ en fonction de ces coordonnées.
+5. *(à venir : exploiter les variables cycliques)*
+6. Écrire les équations du mouvement à partir des équations d'E-L.
+7. Résoudre pour trouver la trajectoire.
+
+Dans certains cas, il est possible de **simplifier** la résolution.
+
+## Variables cycliques
+
+::: {.callout-note title="Définition 2.10 — Variable cyclique"}
+Si un lagrangien ne dépend pas d'une variable $q$ (mais dépend de $\dot q$), alors $q$ est dite **cyclique**.
+:::
+
+De l'équation d'E-L pour une variable cyclique, $\partial L/\partial q = 0$, donc l'équation se réduit à :
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q}\right) = 0 \quad\Longrightarrow\quad \frac{\partial L}{\partial\dot q} = \text{cte} \tag{134}$$
+
+Cette quantité est alors une **constante du mouvement**. Pour un système à $n$ ddl, les $n$ équations d'E-L sont des équations différentielles du 2ᵉ ordre : chaque intégration introduit **2 constantes**, soit $2n$ constantes indépendantes au total, fixées par les conditions initiales/finales/aux limites du laboratoire.
+
+::: {.callout-tip title="Exemple 2.9 — Translation et rotation"}
+Si $q_i=x$ (translation), l'impulsion $p_i=\partial L/\partial\dot x = m\dot x$ est conservée : conservation de la quantité de mouvement.
+
+Si $q_i=\theta$ (rotation), le moment cinétique $p_i = \partial L/\partial\dot\theta = I\dot\theta$ est conservé (aucun moment de force n'agit) : conservation d'une composante du moment cinétique.
+:::
+
+## Exemple : l'oscillateur harmonique {.smaller}
+
+Le lagrangien $L = \dfrac{m}{2}\dot x^2 - \dfrac{1}{2}m\omega^2 x^2$ donne l'équation d'E-L $\ddot x = -\omega^2 x$, avec solution générale :
+$$x(t) = C\sin\omega t + D\cos\omega t, \qquad \dot x(t) = \omega C\cos\omega t - \omega D\sin\omega t \tag{142,143}$$
+
+On peut inverser pour identifier les constantes du mouvement $C$ et $D$ :
+$$C = x(t)\sin\omega t + \frac{\dot x(t)}{\omega}\cos\omega t, \qquad D = x(t)\cos\omega t - \frac{\dot x(t)}{\omega}\sin\omega t \tag{144,145}$$
+
+**Selon les conditions initiales** $x(t_0)=x_0$, $\dot x(t_0)=\dot x_0$ :
+$$C = x_0\sin\omega t_0 + \frac{\dot x_0}{\omega}\cos\omega t_0, \qquad D = x_0\cos\omega t_0 - \frac{\dot x_0}{\omega}\sin\omega t_0 \tag{146,147}$$
+
+**Selon des conditions aux limites** $x(t_0)=x_0$, $x(t_1)=x_1$ :
+$$C = \frac{x_0\cos\omega t_1 - x_1\cos\omega t_0}{\sin\omega(t_0-t_1)}, \qquad D = \frac{x_0\sin\omega t_1 - x_1\sin\omega t_0}{\sin\omega(t_0-t_1)} \tag{151,152}$$
+
+## Lagrangien indépendant du temps {.smaller}
+
+Si $L\equiv L(q_i,\dot q_i)$ (i.e. $\partial L/\partial t=0$), la dérivée totale $\dfrac{dL}{dt} = \sum_i\left(\dfrac{\partial L}{\partial q_i}\dot q_i + \dfrac{\partial L}{\partial\dot q_i}\ddot q_i\right)$. En utilisant l'équation d'E-L $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$ :
+$$\frac{dL}{dt} = \sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i\right] = \frac{d}{dt}\left(\sum_i \frac{\partial L}{\partial\dot q_i}\dot q_i\right)$$
+
+d'où $\dfrac{d}{dt}\left(\sum_i \dfrac{\partial L}{\partial\dot q_i}\dot q_i - L\right)=0$ — on retrouve l'identité de Beltrami !
+
+::: {.callout-note title="Définition 2.11/2.12 — Moment canonique et Hamiltonien"}
+$$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{(moment canonique)}$$
+$$H = \sum_i p_i\dot q_i - L \qquad\text{(intégrale de Jacobi ou Hamiltonien, conservée si } \partial L/\partial t=0)$$
+:::
+
+**Que représente $H$ ?** Si $V=V(q)$ seulement, on montre (avec $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$) que $H = 2T - (T-V) = T+V = E$ : l'énergie mécanique totale. Si $V=V(q,\dot q)$ (ex. force de Lorentz), $H = T+V-\dfrac{\partial V}{\partial\dot q_i}\dot q_i$, ce qui redonne $H=T+QU=E$ pour une charge $Q$ dans un potentiel électromagnétique $U$. Dans d'autres cas, $H$ est conservé mais $H\neq T+V$.
+
+## Théorème de Noether — énoncé
+
+::: {.callout-note title="Définition 2.14 — Théorème de Noether"}
+À toute transformation infinitésimale qui laisse l'action invariante correspond une quantité qui est conservée.
+:::
+
+Soit un lagrangien $L(q,\dot q,t)$ de solution $q_i(t)$, et une famille de trajectoires $\tilde q_i(t,u)$ dépendant continûment d'un paramètre $u$, telle que $\tilde q_i(t,0)=q_i(t)$.
+
+**Proposition :** si $L$ est indépendant de $u$, i.e. $L(\tilde q_i,\dot{\tilde q}_i,t)=L(q_i,\dot q_i,t)$, alors :
+$$O(q_k,\dot q_k) = \sum_k \left.\frac{\partial L}{\partial\dot q_k}\frac{d\tilde q_k}{du}\right|_{u=0} \tag{157}$$
+est une **constante du mouvement**.
+
+::: {.notes}
+Emmy Noether (1882-1935), qualifiée par Einstein de « monument de la pensée mathématique » — établit l'équivalence fondamentale entre lois de conservation et symétries.
+:::
+
+## Démonstration du théorème de Noether {.smaller}
+
+$L$ étant indépendant de $u$ :
+$$\frac{d}{du}L(\tilde q_i,\dot{\tilde q}_i,t) = \sum_i\left(\frac{\partial L}{\partial\tilde q_i}\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\dot{\tilde q}_i}{du}\right) = 0$$
+
+En utilisant $\dfrac{d\dot{\tilde q}_i}{du} = \dfrac{d}{dt}\dfrac{d\tilde q_i}{du}$ et l'équation d'E-L $\dfrac{\partial L}{\partial\tilde q_i} = \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\tilde q}_i}$ :
+$$\frac{dL}{du} = \sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\tilde q}_i}\right)\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d}{dt}\left(\frac{d\tilde q_i}{du}\right)\right] = \frac{d}{dt}\left(\sum_i\frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\tilde q_i}{du}\right) = 0$$
+
+L'expression entre parenthèses est donc une constante du mouvement. En posant $u=0$ (où $\tilde q_i\to q_i$), on obtient $O(q_k,\dot q_k)=C$, ce qui prouve le théorème.
+
+::: {.callout-tip title="Exemples 2.10-2.13 — Applications de Noether"}
+- **Translation** selon $x$ : $\tilde q_i(u)=q_i+u$ donne $\sum_k \partial L/\partial\dot q_k = P_x = \text{cte}$ — conservation de la quantité de mouvement.
+- **Translation 3D** : $\mathbf{P}=\sum_\alpha m_\alpha\dot{\mathbf{r}}_\alpha = \text{cte}$.
+- **Rotation** autour de $Oz$ : conservation de $L_z$, composante du moment cinétique.
+- **Rotation 3D** (symétrie sphérique) : conservation du moment cinétique total $\mathbf{L}$.
+:::
+
+## Quel principe relie les lois de conservation aux symétries d'un système ? {.quiz-question}
+
+- L'identité de Beltrami
+- La méthode des multiplicateurs de Lagrange
+- [Le théorème de Noether]{.correct data-explanation="Énoncé par Emmy Noether en 1918 : à toute transformation infinitésimale laissant l'action invariante correspond une quantité conservée — c'est le lien formel entre symétries et lois de conservation."}
+- Les symboles de Christoffel
+
+# 2.8 Invariance de jauge
+
+## Transformation de jauge
+
+::: {.callout-important title="Remarque 2.14"}
+L'invariance par rapport à une transformation de jauge est fondamentale en physique — elle est à la base des théories décrivant 3 des 4 interactions fondamentales : électromagnétique, faible et forte !
+:::
+
+::: {.callout-note title="Définition 2.15 — Transformation de jauge"}
+$$L'(q_i,\dot q_i,t) = L(q_i,\dot q_i,t) + \frac{d}{dt}F(q_i,t) \tag{162}$$
+où $F$ (fonction génératrice) dépend seulement des $q_i$ et de $t$.
+:::
+
+L'action devient $S' = S + F(2) - F(1)$. Puisque $t_1,t_2$ sont fixes ($\delta q_i(t_{1,2})=0$), $\delta F(1)=\delta F(2)=0$, donc $\delta S' = \delta S$ : **même physique, mêmes trajectoires**.
+
+Cependant, la *forme* de $L$ change. En posant $L=T-V(q_i,t)$, une transformation générée par $F$ donne un terme linéaire en $\dot q_i$ supplémentaire. Une **seconde** transformation de jauge (générée par $G$) restaure exactement la forme originale : $L'$ est **invariant de forme** sous transformation de jauge.
+
+## Le lagrangien le plus général
+
+::: {.callout-important title="Remarque 2.15"}
+On admet aujourd'hui que la forme la plus générale d'un lagrangien invariant de jauge est $L = T - V(q_i,t) + \dot q\cdot A(q_i,t)$, où $A$ est un champ vectoriel quelconque.
+:::
+
+L'équation d'E-L pour cette forme donne (en cartésiennes) :
+$$m\ddot{\mathbf{x}} = -\left(\nabla V(\mathbf{x},t) + \frac{\partial \mathbf{A}(\mathbf{x},t)}{\partial t}\right) + \dot{\mathbf{x}}\times(\nabla\times\mathbf{A}) \tag{191}$$
+
+## Émergence de l'électromagnétisme
+
+En comparant à la **force de Lorentz** $m\ddot{\mathbf{x}} = q(\mathbf{E}+\dot{\mathbf{x}}\times\mathbf{B})$, où $\mathbf{E}=-\nabla V_\text{em}-\partial\mathbf{A}_\text{em}/\partial t$ et $\mathbf{B}=\nabla\times\mathbf{A}_\text{em}$, on identifie directement $V=qV_\text{em}$ et $\mathbf{A}=q\mathbf{A}_\text{em}$.
+
+**L'invariance de jauge du lagrangien mène donc directement à l'interaction électromagnétique** — un résultat remarquable ! De façon équivalente, l'électromagnétisme possède sa propre invariance de jauge : les champs $\mathbf{E}$ et $\mathbf{B}$ sont invariants sous $V_\text{em}\to V_\text{em}-\partial F/\partial t$, $\mathbf{A}_\text{em}\to\mathbf{A}_\text{em}+\nabla F$ — identique à l'invariance de jauge lagrangienne.
+
+::: {.callout-important title="Remarque 2.16"}
+Si $A=\nabla F$ (gradient d'une fonction scalaire), la transformation ne décrit **aucune nouvelle interaction**. Si $A\neq\nabla F$, alors $A$ décrit une véritable interaction (force de Lorentz), compatible avec le formalisme lagrangien même si elle n'est pas conservative au sens usuel.
+:::
+
+# 2.9 Caractéristiques, propriétés, limites
+
+## Propriétés du formalisme lagrangien
+
+**Indépendance des coordonnées généralisées :** les $q_i$ décrivant les ddl doivent être physiquement indépendants — sinon, le lagrangien et les équations d'E-L ne sont pas valides.
+
+**En mécanique classique non relativiste**, pour chaque ddl $q_i$, le lagrangien : (1) contient un terme en $\dot q_i^2$ (pour garantir une éq. d'E-L en $\ddot q_i$), (2) peut dépendre linéairement de $\dot q_i$ (cf. section 2.8), (3) a une dépendance quelconque en $q_i$ (selon système de coordonnées et interactions).
+
+**Additivité de $L$ :** si $L_1$ et $L_2$ décrivent 2 systèmes indépendants, le système combiné a $L=L_1+L_2$. S'ils interagissent, $L=L_1+L_2-V(1,2)$.
+
+::: {.callout-tip title="Exemples 2.14-2.15"}
+Deux particules libres : $L=L_1+L_2 = \frac{m_1}{2}\dot r_1^2+\frac{m_2}{2}\dot r_2^2 - (V_1(r_1)+V_2(r_2))$.
+
+Avec interaction $F_{12}=-\nabla V(r_1,r_2)$ : $L = L_1+L_2 - V(r_1,r_2)$.
+:::
+
+# 2.10 Symétrie de l'espace-temps
+
+## Retrouver les 3 lois de Newton par symétrie
+
+Choisissons un repère inertiel (galiléen), où l'espace est **homogène et isotrope** et le temps **uniforme** (absolu) — base du principe de relativité de Galilée.
+
+**Particule libre — invariance de $L$ :** puisque l'espace est homogène, $L$ ne peut dépendre explicitement de $\mathbf{r}$ ; puisque le temps est uniforme, $L$ ne peut dépendre explicitement de $t$. $L$ ne dépend donc que de la vitesse $\mathbf{v}$. Puisque l'espace est isotrope, $L$ ne dépend pas de la direction de $\mathbf{v}$, seulement de son amplitude :
+$$L = L(v^2) \tag{210}$$
+
+Toutes les coordonnées étant cycliques (espace homogène), $\partial L/\partial\dot q_i = \text{cte}$, donc $v^2=\text{cte}$, et comme la direction de $\mathbf{v}$ est aussi constante : $\mathbf{v}=\text{cte}$.
+
+::: {.callout-important title="Remarque 2.17"}
+Une particule libre se déplace à vitesse uniforme dans un repère inertiel $\implies$ **1ʳᵉ loi de Newton**.
+:::
+
+## Détermination de la forme de $L$ pour une particule libre
+
+Sous une transformation de Galilée $\mathbf{v}=\mathbf{v}'+\mathbf{V}$, on développe $L(v^2)\approx L(v'^2) + \dfrac{\partial L}{\partial v'^2}(2\mathbf{v}'\cdot\mathbf{V})$ pour $\mathbf{V}$ petit. Deux lagrangiens équivalents devant être reliés par une transformation de jauge, le terme linéaire en $\mathbf{V}$ doit être une dérivée totale — ce qui force $\partial L/\partial v'^2$ à être une **constante** $C$, indépendante de $\mathbf{r}'$ et $t$ :
+$$L = Cv^2$$
+
+En posant $C=m/2$, on retrouve $L=\frac{m}{2}v^2=T$ pour une particule libre de masse $m$, et les équations d'E-L redonnent $\mathbf{a}=0$ — le mouvement rectiligne uniforme, cohérent avec la 1ʳᵉ loi.
+
+## Des 2ᵉ et 3ᵉ lois de Newton
+
+::: {.callout-important title="Remarque 2.18 — 2ᵉ loi de Newton"}
+Pour un système fermé de particules interagissant entre elles, $L=T-V$ (où $V$ ne dépend que des positions) mène directement à $m_\alpha \dot{\mathbf{v}}_\alpha = -\partial V/\partial\mathbf{r}_\alpha = \mathbf{F}_\alpha$ $\implies$ **2ᵉ loi de Newton**.
+:::
+
+::: {.callout-important title="Remarque 2.19 — 3ᵉ loi de Newton"}
+L'homogénéité de l'espace implique l'invariance de $L$ sous translation globale $\mathbf{r}'_\alpha=\mathbf{r}_\alpha+\boldsymbol\epsilon$ (système fermé). Ceci force $\sum_\alpha \mathbf{F}_\alpha=0$ — pour 2 particules, $\mathbf{F}_1+\mathbf{F}_2=0$, soit le principe d'action-réaction $\implies$ **3ᵉ loi de Newton**.
+:::
+
+**En résumé :** l'approche lagrangienne jumelée aux symétries de l'espace-temps permet de déduire les 3 lois de Newton — l'approche newtonienne, plus intuitive, utilise la force, alors que l'approche lagrangienne introduit des notions plus abstraites (énergies).
+
+## Vers le lagrangien relativiste
+
+En relativité, le principe de Galilée devient le principe de relativité de Lorentz. L'action d'une particule libre doit être un **invariant de Lorentz** ; le seul scalaire de Lorentz fonction uniquement de différentielles du premier ordre est proportionnel à l'intervalle de Minkowski $ds=\sqrt{c^2dt^2-d\mathbf{r}^2}$ :
+$$S = -a\int_{s_1}^{s_2} ds \tag{211}$$
+
+En levant la condition d'isotropie (référentiels en rotation), le lagrangien d'une particule libre relativiste s'écrit :
+$$L = -ac\sqrt{1-\frac{v^2}{c^2}} \tag{212}$$
+
+Dans la limite newtonienne $v\ll c$ : $L \approx -ac + \dfrac{a}{2c}v^2$ — en identifiant le second terme à l'énergie cinétique, on trouve $a=mc$ :
+$$L = -mc^2\sqrt{1-\frac{v^2}{c^2}}$$
+
+## Énergie, impulsion et l'invariant de Lorentz
+
+Le moment généralisé $p_i = \gamma m v_i$ (où $\gamma=1/\sqrt{1-v^2/c^2}$), et l'hamiltonien $H=E=\gamma mc^2 \to mc^2+T$ dans la limite $v\ll c$. On en tire les relations fondamentales :
+$$\mathbf{v}=\frac{\mathbf{p}c^2}{E}, \qquad m^2c^4 = E^2-p^2c^2$$
+
+la dernière étant un invariant de Lorentz reliant masse propre, énergie et impulsion.
+
+::: {.notes}
+On peut noter que la même procédure (principe de moindre action + symétries de l'espace-temps) s'étend en principe à des géométries encore plus riches (métrique de Riemann de la relativité générale, etc.) — restant à valider par l'expérience.
+:::
+
+## Liens vers les parties du cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes

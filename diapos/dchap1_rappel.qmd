@@ -30,8 +30,8 @@ revealjs-plugins:
 
 ## Progression dans le cours
 
-- Chapitre 0 : Plan de cours :white_check_mark:
-- Chapitre 1 : Rappel
+- Chapitre 0 : Plan de cours  :white_check_mark:
+- Chapitre 1 : Rappel  :arrow_left:
 - Chapitre 2 : Formalisme de Lagrange
 - Chapitre 3 : Applications et propriétés
 - Chapitre 4 : Formalisme canonique
