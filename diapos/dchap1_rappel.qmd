@@ -23,6 +23,13 @@ format:
       shuffleOptions: false
       defaultCorrect: "Correct !"
       defaultIncorrect: "Incorrect."
+    css: |
+      @media print {
+        .reveal .slides section {
+          padding-right: 34%;
+          box-sizing: border-box;
+        }
+      } 
 revealjs-plugins:
   - quiz
   - spotlight
