@@ -8,6 +8,11 @@ format:
     theme: moon
     slide-number: c/t
     html-math-method: katex
+    spotlight:
+      size: 80
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -18,6 +23,7 @@ format:
       defaultIncorrect: "Incorrect."
 revealjs-plugins:
   - quiz
+  - spotlight
 ---
 
 # Plan de cours
@@ -38,6 +44,7 @@ Claudine Allen, POP-2137\
 Courriel : <claudine.allen@phy.ulaval.ca>
 
 Je vais privilégier des périodes de disponibilités en présentiel, veuillez me communiquer des plages horaires possibles via votre représentant.e de classe.
+
 ::: {.notes}
 Présentiel
 :::
@@ -117,19 +124,7 @@ L'étudiant(e) devra développer les compétences suivantes :
   $\dot q_i = \partial \mathcal{H}/\partial p_i$, $\dot p_i = -\partial \mathcal{H}/\partial q_i$,
 - écrire les équations de mouvement à l'aide des crochets de Poisson.
 
-::: {.notes}
-Formule LaTeX rendue nativement via KaTeX — pratique pour introduire la notation
-dès ce chapitre d'introduction.
-:::
-
-## Quel formalisme utilise les crochets de Poisson pour écrire les équations de mouvement ? {.quiz-question}
-
-- Le formalisme lagrangien
-- [Le formalisme hamiltonien]{.correct data-explanation="Les crochets de Poisson relèvent du formalisme hamiltonien."}
-- La méthode d'Hamilton-Jacobi
-- La théorie des perturbations
-
-## Objectifs spécifiques (suite...)
+## Objectifs spécifiques
 
 **Sur la méthode de Hamilton-Jacobi**
 
@@ -182,7 +177,7 @@ qualité de la langue est aussi un critère de correction.
 
 ## Parties du cours et de ses notes
 
-- Chapitre 0 : Plan de cours
+- Chapitre 0 : Plan de cours :white_tick:
 - Chapitre 1 : Rappel
 - Chapitre 2 : Formalisme de Lagrange
 - Chapitre 3 : Applications et propriétés
