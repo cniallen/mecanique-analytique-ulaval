@@ -14,6 +14,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -178,7 +179,7 @@ qualité de la langue est aussi un critère de correction.
 
 ## Parties du cours et de ses notes
 
-- Chapitre 0 : Plan de cours :white_tick:
+- Chapitre 0 : Plan de cours :white_check_mark:
 - Chapitre 1 : Rappel
 - Chapitre 2 : Formalisme de Lagrange
 - Chapitre 3 : Applications et propriétés

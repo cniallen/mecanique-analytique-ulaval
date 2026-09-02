@@ -14,6 +14,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -29,7 +30,7 @@ revealjs-plugins:
 
 ## Progression dans le cours
 
-- Chapitre 0 : Plan de cours
+- Chapitre 0 : Plan de cours :white_check_mark:
 - Chapitre 1 : Rappel
 - Chapitre 2 : Formalisme de Lagrange
 - Chapitre 3 : Applications et propriétés
