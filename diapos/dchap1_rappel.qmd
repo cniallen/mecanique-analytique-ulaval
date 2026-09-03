@@ -76,7 +76,7 @@ Poser le décor : espace euclidien à 3D + temps absolu sont les ingrédients de
 
 ## Position et temps : les ingrédients
 
-![. Trajectoire d'une particule ponctuelle avec le vecteur de sa position en bleu.](./assets/chap1_fig1.png){#fig-trajectoire width="70%" fig-align="center"}
+![Trajectoire d'une particule ponctuelle avec le vecteur de sa position en bleu.](./assets/chap1_fig1.png){#fig-trajectoire width="70%" fig-align="center"}
 
 
 ## Position et temps
@@ -117,27 +117,23 @@ Alors :
 $$\mathbf{V} = \frac{d\mathbf{x}}{dt} = \frac{ds}{dt}\frac{d\mathbf{x}}{ds} \equiv v\frac{d\mathbf{x}}{ds} . \tag{4}$$
 
 
-<---#bonne figure à mettre
 ## Position et temps : les ingrédients
 
-See @fig-circuit for the initial high-frequency response layout.
-
-![Initial circuit layout](diagram.svg){#fig-circuit width="70%" fig-align="center"}
---->
+![Déplacement le long d'une trajectoire courbe](./assets/chap1_fig2.png){#fig-deplacesurarc width="70%" fig-align="center"}
 
 ## Vitesse
 
 Puisque $v = |\mathbf{V}|$ et $\mathbf{V} = v \dfrac{d\mathbf{x}}{ds}$, on voit que :
-$$\frac{d\mathbf{x}}{ds} = \mathbf{e}_k = \text{vecteur unitaire tangent à la trajectoire} \tag{5}$$
+$$\frac{d\mathbf{x}}{ds} = \mathbf{e}_\parallel = \text{vecteur unitaire tangent à la trajectoire} \tag{5}$$
 
 ## Vitesse
 
 En effet :
-$$\mathbf{e}_k = \lim_{\Delta s \to 0} \frac{\Delta \mathbf{x}}{\Delta s} = \frac{d\mathbf{x}}{ds} \tag{6}$$
+$$\mathbf{e}_\parallel = \lim_{\Delta s \to 0} \frac{\Delta \mathbf{x}}{\Delta s} = \frac{d\mathbf{x}}{ds} \tag{6}$$
 
-ainsi $\mathbf{V} = v\,\mathbf{e}_k$, où :
+ainsi $\mathbf{V} = v\,\mathbf{e}_\parallel$, où :
 
-- $\mathbf{e}_k$ : direction du vecteur de vitesse $\mathbf{V}$
+- $\mathbf{e}_\parallel$ : direction du vecteur de vitesse $\mathbf{V}$
 - $v$ : grandeur du vecteur de vitesse $\mathbf{V}$ (aussi appelée « la vitesse » par abus de langage)
 
 ## Vitesse
@@ -154,27 +150,31 @@ $$\mathbf{a} = \frac{d\mathbf{V}}{dt} = \frac{d^2\mathbf{x}}{dt^2} \equiv \dot{\
 et clairement :
 $$
 \begin{aligned}
-\mathbf{a} &= \frac{d(v\mathbf{e}_k)}{dt} 
-&= \frac{dv}{dt}\mathbf{e}_k + v\frac{d\mathbf{e}_k}{dt} \tag{8}
+\mathbf{a} &= \frac{d(v\mathbf{e}_\parallel)}{dt} 
+&= \frac{dv}{dt}\mathbf{e}_\parallel + v\frac{d\mathbf{e}_\parallel}{dt} \tag{8}
 \end{aligned}
 $$
 
 ## Accélération
 
-Puisque $\mathbf{e}_k \cdot \mathbf{e}_k = 1$, on a $\dfrac{d(\mathbf{e}_k \cdot \mathbf{e}_k)}{dt} = 2\mathbf{e}_k \cdot \dfrac{d\mathbf{e}_k}{dt} = 0$, donc $\dfrac{d\mathbf{e}_k}{dt} \perp \mathbf{e}_k$.
+Puisque $\mathbf{e}_\parallel \cdot \mathbf{e}_\parallel = 1$, on a $\dfrac{d(\mathbf{e}_\parallel \cdot \mathbf{e}_\parallel)}{dt} = 2\mathbf{e}_\parallel \cdot \dfrac{d\mathbf{e}_\parallel}{dt} = 0$, donc $\dfrac{d\mathbf{e}_\parallel}{dt} \perp \mathbf{e}_\parallel$.
 
 On appelle $\mathbf{e}_\perp$ le vecteur unitaire normal à la trajectoire (dans le plan instantané de la trajectoire), et on définit par $\dfrac{d\mathbf{e}_k}{ds} = \dfrac{1}{\rho}$.
 
 ## Accélération
 
 On obtient finalement :
-$$\mathbf{a} = \underbrace{\frac{d^2 s}{dt^2}}_{\parallel \text{ trajectoire}} \mathbf{e}_k + \underbrace{\frac{v^2}{\rho}}_{\perp \text{ trajectoire}} \mathbf{e}_\perp \tag{11}$$
+$$\mathbf{a} = \underbrace{\frac{d^2 s}{dt^2}}_{\parallel \text{ trajectoire}} \mathbf{e}_\parallel + \underbrace{\frac{v^2}{\rho}}_{\perp \text{ trajectoire}} \mathbf{e}_\perp \tag{11}$$
+
+## Accélération
+
+![Accélération sur une trajectoire courbe](./assets/chap1_fig3.png){#fig-trajectoire width="70%" fig-align="center"}
 
 ## Accélération
 
 L'accélération $\mathbf{a}$ possède donc :
 
-1. une composante **tangente** à la trajectoire ($\mathbf{e}_k$) de valeur $\dfrac{d^2 s}{dt^2}$, et
+1. une composante **tangente** à la trajectoire ($\mathbf{e}_\parallel$) de valeur $\dfrac{d^2 s}{dt^2}$, et
 2. une composante **normale** à la trajectoire ($\mathbf{e}_\perp$) de valeur $\dfrac{v^2}{\rho}$.
 
 ## Accélération
@@ -222,6 +222,10 @@ où $\mathbf{F}$ est la somme des forces extérieures, $m$ la masse et $\mathbf{
 ::: {.callout-note title="Postulat 1.3 — 3ᵉ loi de Newton (action-réaction)"}
 Tout corps $A$ exerçant une force sur un corps $B$ subit une force d'intensité égale, de même direction mais de sens opposé.
 :::
+
+## Action - Réaction
+
+![Forces mutuelles entre 2 particules](./assets/chap1_fig4.png){#fig-trajectoire width="70%" fig-align="center"}
 
 ## Équation fondamentale du mouvement
 
@@ -334,11 +338,13 @@ Si les particules d'un système fermé n'interagissent que selon la droite qui l
 
 ## Travail
 
-Lorsqu'une force $\mathbf{F}$ agit sur une particule, elle effectue un **travail** sur ce système, entraînant un changement de son énergie.
+Lorsqu'une force $\mathbf{F}$ agit sur une particule, elle effectue un **travail** sur ce système, entraînant un changement de son énergie. 
 
-Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$. 
+## Travail
 
-## Travail : figure
+Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$.
+
+![Exemples de différentes trajectoires entre les temps $t_0$ et $t_1$.](./assets/chap1_fig5.png){#fig-trajectoire width="60%" fig-align="center"}
 
 ## Travail $\rightarrow$ Énergie cinétique
 
@@ -445,13 +451,24 @@ Si la force extérieure est nulle : $\mathbf{P} = \text{cte}$.
 
 Moment angulaire total par rapport à l'origine $O$ : $\mathbf{L} = \sum_i \mathbf{l}_i = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$. $\tag{69}$
 
-Introduisons les coordonnées relatives à la position du centre de masse, $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. En substituant dans $\mathbf{L} = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$ :
-$$\mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
+## Coordonnées relatives
 
-## Moment angulaire du système (suite...)
+Introduisons les coordonnées relatives à la position du centre de masse, $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. 
+
+## Coordonnées relatives
+
+[Position de la particule de masse $m_i$ dans le système $S$ et dans le système du centre de masse $CM$,](./assets/chap1_fig6.png){#fig-trajectoire width="70%" fig-align="center"}
+
+
+## Moment angulaire du système
+
+En substituant dans $\mathbf{L} = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$ :
+$$\mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
 
 En développant le produit vectoriel :
 $$\mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right) \tag{71}$$
+
+## Moment angulaire du système
 
 En séparant les termes et en regroupant les sommes sur $i$ :
 $$\mathbf{L} = \left(\sum_i m_i\, \mathbf{x}'_i \times \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i\right)\mathbf{X}\times\dot{\mathbf{X}} \tag{72}$$
