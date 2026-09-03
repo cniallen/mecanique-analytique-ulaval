@@ -74,13 +74,10 @@ Rappel
 Poser le décor : espace euclidien à 3D + temps absolu sont les ingrédients de base du cadre newtonien classique et du formalisme lagrangien à venir.
 :::
 
-<---#bonne figure à mettre
 ## Position et temps : les ingrédients
 
-See @fig-circuit for the initial high-frequency response layout.
+![](./assets/chap1_fig1.png){#fig-trajectoire width="70%" fig-align="center"}
 
-![Initial circuit layout](diagram.svg){#fig-circuit width="70%" fig-align="center"}
---->
 
 ## Position et temps
 
