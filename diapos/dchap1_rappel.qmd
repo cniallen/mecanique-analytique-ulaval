@@ -207,13 +207,15 @@ La force nécessite $n = 3N$ composantes : $F_i(x_j, t)$ est la $i$-ième compos
 
 # 1.3 Éléments de dynamique
 
-## Les 3 postulats proposés par Newton
+## Les postulats proposés par Newton
 
 Trois postulats permettent de décrire la dynamique d'un système quelconque de $N$ particules.
 
 ::: {.callout-note title="Postulat 1.1 — 1ʳᵉ loi de Newton (inertie)"}
 Le mouvement d'un corps isolé est rectiligne uniforme dans un référentiel galiléen (inertiel).
 :::
+
+## Les postulats proposés par Newton
 
 ::: {.callout-note title="Postulat 1.2 — 2ᵉ loi de Newton"}
 $$\mathbf{F} = m\mathbf{a} \tag{14}$$
@@ -224,12 +226,16 @@ où $\mathbf{F}$ est la somme des forces extérieures, $m$ la masse et $\mathbf{
 Tout corps $A$ exerçant une force sur un corps $B$ subit une force d'intensité égale, de même direction mais de sens opposé.
 :::
 
-**Équation fondamentale du mouvement**, formes équivalentes :
+##Équation fondamentale du mouvement
+
+Formes équivalentes :
 $$m\frac{d^2\mathbf{r}}{dt^2} = \mathbf{F}, \qquad m\frac{d\mathbf{v}}{dt} = \mathbf{F}, \qquad \frac{d\mathbf{p}}{dt} = \mathbf{F} . \tag{15--17}$$
 
-## Éléments de dynamique (suite...)
+##Équation fondamentale du mouvement, notation
 
 $\mathbf{F}$ = force (déterminée empiriquement), valide pour $n$ degrés de liberté (ddl) : $\mathbf{r} = \mathbf{x} = (x_1, x_2, x_3)$, s'écrivant comme un vecteur à $n$ composantes $\mathbf{x} = (x_1, \dots, x_n)$.
+
+##Équation fondamentale du mouvement, notation
 
 En posant $\mathbf{f} = \mathbf{F}/m$ :
 
@@ -237,43 +243,55 @@ $$\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \dot{\mathbf{x}}, t) \quad \text{(1
 $$\ddot{x}_i = f_i(x_j, \dot{x}_j, t) \quad \text{(n éq. scalaires)} \tag{21}$$
 $$\ddot{\mathbf{x}}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu, \dot{\mathbf{x}}_\mu, t); \quad \nu, \mu = 1, \dots, N \text{ particules} \tag{22}$$
 
-## Symétries de l'équation de Newton — invariances
+## Symétries de l'équation de Newton : invariances
 
 L'équation de Newton doit obéir à certaines symétries pour un système **fermé** :
 
 **Invariance par rapport au temps** — mêmes résultats entre $t_0$ et $t$ qu'entre $t_0+s$ et $t+s$ : donc $\mathbf{f}$ ne peut dépendre explicitement du temps :
 $$\ddot{x}_i = f_i(x_j, \dot{x}_j); \quad n = 3N \text{ éqs.} \tag{24}$$
 
-**Invariance par translation** — pour $x_\nu \to x_\nu + X$ (avec $\dot X = 0$), la loi de Newton implique que $f_\nu$ ne dépend que des positions **relatives** :
+## Symétries de l'équation de Newton : invariances
+
+**Invariance sous translation spatiale** — pour $x_\nu \to x_\nu + X$ (avec $\dot X = 0$), la loi de Newton implique que $f_\nu$ ne dépend que des positions **relatives** :
 $$\ddot{\mathbf{x}}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu - \mathbf{x}_\lambda, \dot{\mathbf{x}}_\mu) . \tag{26}$$
+
+## Symétries de l'équation de Newton : invariances
 
 **Invariance galiléenne** — pour 2 observateurs en mouvement relatif uniforme :
 $$\mathbf{f}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu - \mathbf{x}_\lambda) \quad \text{ou} \quad \mathbf{f}_\nu(\mathbf{x}_\mu - \mathbf{x}_\lambda, \dot{\mathbf{x}}_\mu - \dot{\mathbf{x}}_\lambda) . \tag{27}$$
+
+## Symétries de l'équation de Newton : invariances
 
 ::: {.callout-important title="Remarque 1.2 — Système fermé"}
 Un système fermé regroupe tous les corps ayant un rôle significatif ; aucune force extérieure. Le seul vrai système fermé est l'Univers — mais on approxime souvent lorsque les effets des corps éloignés sont négligeables.
 :::
 
-## Invariance par rotation
+## Invariance sous rotation
 
 Pour une rotation d'angle $\varphi$ autour d'un axe $\mathbf{e}_\perp$ : $\mathbf{r} \to \mathbf{r}' = G\mathbf{r}$, où $G$ est la matrice de rotation $3\times 3$.
 
 Si $\mathbf{r} \to \mathbf{r}' = G\mathbf{r}$, alors $\dot{\mathbf{r}} \to \dot{\mathbf{r}}' = G\dot{\mathbf{r}}$ et $\ddot{\mathbf{r}} \to \ddot{\mathbf{r}}' = G\ddot{\mathbf{r}}$, donc l'invariance de $\ddot{\mathbf{r}} = \mathbf{f}(\mathbf{r}, \dot{\mathbf{r}})$ implique :
 $$\mathbf{f}(G\mathbf{r}, G\dot{\mathbf{r}}) = G\mathbf{f}(\mathbf{r}, \dot{\mathbf{r}}) .$$
 
+## Symétries de l'équation de Newton : invariances
+
 Autrement dit : appliquer une rotation aux vecteurs $(\mathbf{r}, \dot{\mathbf{r}})$ avant de calculer l'accélération équivaut à calculer l'accélération puis appliquer la rotation — l'équation de Newton ne peut dépendre de l'orientation du référentiel.
 
-## Action-réaction et conservation du moment linéaire
+## Conservation du moment cinétique linéaire comme conséquence de la 3e loi
 
 ::: {.callout-note title="Définition 1.1 — Action-réaction dans un système fermé"}
 Si un corps $\nu$ agit avec une force $\mathbf{F}_{\mu\nu}$ sur un corps $\mu$, alors $\mu$ agit sur $\nu$ avec une force $\mathbf{F}_{\mu\nu} = -\mathbf{F}_{\nu\mu}$.
 :::
+
+## Conservation du moment cinétique linéaire comme conséquence de la 3e loi
 
 Pour $N$ corps, la force totale sur le corps $\nu$ :
 $$m_\nu \ddot{\mathbf{r}}_\nu = \sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\nu\mu} = -\sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\mu\nu} . \tag{35}$$
 
 En sommant sur $\nu$ (avec $\mathbf{F}_{\nu\nu} = 0$) :
 $$\sum_{\nu=1}^N m_\nu \ddot{\mathbf{r}}_\nu = \frac{d}{dt}\sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = 0 \quad \Longrightarrow \quad \sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = \text{cte} . \tag{37--39}$$
+
+## Conservation du moment cinétique linéaire comme conséquence de la 3e loi
 
 En définissant le **moment linéaire** $\mathbf{p}_\nu = m\dot{\mathbf{r}}_\nu$ :
 $$\sum_{\nu=1}^N \mathbf{p}_\nu = \text{cte} \equiv \mathbf{P} : \text{le moment linéaire total.} \tag{40}$$
@@ -289,10 +307,14 @@ Le moment angulaire d'une particule $\nu$ : $\mathbf{l}_\nu = \mathbf{r}_\nu \ti
 Sa dérivée :
 $$\dot{\mathbf{l}}_\nu = m_\nu \dot{\mathbf{r}}_\nu \times \dot{\mathbf{r}}_\nu + m_\nu \mathbf{r}_\nu \times \ddot{\mathbf{r}}_\nu = \mathbf{r}_\nu \times \mathbf{F}_\nu = \mathbf{r}_\nu \times \sum_{\mu=1}^N \mathbf{F}_{\nu\mu} . \tag{43--47}$$
 
+## Moment angulaire total
+
 Le moment angulaire total du système : $\mathbf{L} = \sum_\nu \mathbf{l}_\nu = \sum_\nu m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu$. $\tag{48,49}$
 
 En sommant et utilisant $\mathbf{F}_{\nu\nu} = 0$ et $\mathbf{F}_{\nu\mu} = -\mathbf{F}_{\mu\nu}$ :
 $$\dot{\mathbf{L}} = \sum_{\nu, \mu > \nu} (\mathbf{r}_\nu - \mathbf{r}_\mu) \times \mathbf{F}_{\nu\mu} \tag{52}$$
+
+## Moment angulaire total
 
 Si la force entre particules est dirigée selon $(\mathbf{r}_\nu - \mathbf{r}_\mu)$ (forces centrales), le produit vectoriel s'annule et $\dot{\mathbf{L}} = 0$, donc $\mathbf{L} = \text{cte}$.
 
@@ -300,12 +322,6 @@ Si la force entre particules est dirigée selon $(\mathbf{r}_\nu - \mathbf{r}_\m
 Si les particules d'un système fermé n'interagissent que selon la droite qui les relie, le moment angulaire total est une constante du mouvement.
 :::
 
-## Quel formalisme utilise les crochets de Poisson pour écrire les équations de mouvement ? {.quiz-question}
-
-- Le formalisme lagrangien
-- [Le formalisme hamiltonien]{.correct data-explanation="Les crochets de Poisson relèvent du formalisme hamiltonien — un aperçu de ce qui vient au Chapitre 4."}
-- La méthode d'Hamilton-Jacobi
-- La théorie des perturbations
 
 # 1.4 Travail et Énergie
 
