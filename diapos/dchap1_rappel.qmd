@@ -76,7 +76,7 @@ Poser le décor : espace euclidien à 3D + temps absolu sont les ingrédients de
 
 ## Position et temps : les ingrédients
 
-![](./assets/chap1_fig1.png){#fig-trajectoire width="70%" fig-align="center"}
+![. Trajectoire d'une particule ponctuelle avec le vecteur de sa position en bleu.](./assets/chap1_fig1.png){#fig-trajectoire width="70%" fig-align="center"}
 
 
 ## Position et temps
