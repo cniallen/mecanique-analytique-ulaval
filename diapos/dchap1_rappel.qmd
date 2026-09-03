@@ -329,18 +329,30 @@ Si les particules d'un système fermé n'interagissent que selon la droite qui l
 
 Lorsqu'une force $\mathbf{F}$ agit sur une particule, elle effectue un **travail** sur ce système, entraînant un changement de son énergie.
 
-Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$. Calculons $\mathbf{F} \cdot d\mathbf{x}$ le long de cette trajectoire :
+Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$. 
+
+## Travail : figure
+
+## Travail $\rightarrow$ Énergie
+
+Calculons $\mathbf{F} \cdot d\mathbf{x}$ le long de cette trajectoire :
 $$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \int_{t_0}^t \mathbf{F} \cdot \frac{d\mathbf{x}}{dt}\, dt \;\overset{\text{traj. phys.}}{=}\; \int_{t_0}^t m\frac{d^2\mathbf{x}}{dt^2} \cdot \frac{d\mathbf{x}}{dt}\, dt \tag{53}$$
+
+## Travail $\rightarrow$ Énergie cinétique
 
 Calculons $\dfrac{d}{dt}(v^2)$ en détail, avec $v = d\mathbf{x}/dt$ :
 $$\frac{d}{dt}(v^2) = \frac{d}{dt}\left(\frac{d\mathbf{x}}{dt}\cdot\frac{d\mathbf{x}}{dt}\right) = \left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)\cdot\frac{d\mathbf{x}}{dt} + \frac{d\mathbf{x}}{dt}\cdot\left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right) = 2\frac{d^2\mathbf{x}}{dt^2}\cdot\frac{d\mathbf{x}}{dt}$$
 
+## Travail $\rightarrow$ Énergie cinétique
+
 En substituant ce résultat, on obtient :
 $$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \frac{1}{2}mv^2(t) - \frac{1}{2}mv^2(t_0) = T - T_0 \tag{54--56}$$
 
-où $T = \tfrac{1}{2}mv^2$ est l'**énergie cinétique** : le travail de $\mathbf{F}$ change cette énergie.
+où $T = \tfrac{1}{2}mv^2$ est l'**énergie cinétique** : le travail effectué par la force $\mathbf{F}$ change cette énergie.
 
-L'intégrale se faisant le long d'une trajectoire particulière, le résultat peut en général en dépendre : $\displaystyle\int_{C_1} \mathbf{F}\cdot d\mathbf{x} \neq \int_{C_2} \mathbf{F}\cdot d\mathbf{x}$.
+## Travail $\rightarrow$ Énergie cinétique
+
+Notons cependant que l'intégrale se fait le long d'une trajectoire particulière, d'où le résultat peut en général dépendre de cette trajectoire : $\displaystyle\int_{C_1} \mathbf{F}\cdot d\mathbf{x} \neq \int_{C_2} \mathbf{F}\cdot d\mathbf{x}$.
 
 ## Forces conservatives
 
@@ -348,23 +360,29 @@ L'intégrale se faisant le long d'une trajectoire particulière, le résultat pe
 Dans certains cas (physiquement importants), l'intégrale ne dépend pas de la trajectoire mais uniquement des points initial et final — on dit que la force est **conservative**.
 :::
 
+## Forces conservatives
+
 Pour une force conservative, l'intégrale de $\mathbf{F}\cdot d\mathbf{x}$ sur un parcours fermé est nulle. Par le théorème de Stokes :
 $$0 = \oint_C \mathbf{F}\cdot d\mathbf{x} = \int_{S \in C} (\nabla \times \mathbf{F})\cdot d\mathbf{S} \tag{57}$$
 
 Comme $S$ est arbitraire, la fonction à intégrer doit être nulle :
 $$\nabla \times \mathbf{F} = 0 \;:\; \text{force conservative.} \tag{58}$$
 
+## Forces conservatives
+
 ::: {.callout-note title="Définition 1.2 — Force conservative"}
 Il est toujours possible d'écrire $\mathbf{F}$ comme le gradient d'une fonction scalaire : $\mathbf{F} = -\nabla V(\mathbf{x})$ où $V(\mathbf{x})$ est l'**énergie potentielle**. $\tag{59}$
 :::
 
-## Conservation de l'énergie
+## Forces conservatives $\rightarrow$ Conservation de l'énergie
 
 Le travail fait par une force conservative entre $\mathbf{x}_0$ et $\mathbf{x}$ :
 $$\int_{x_0}^{x} \mathbf{F}\cdot d\mathbf{x} = -\big(V(\mathbf{x}) - V(\mathbf{x}_0)\big) = V_0 - V \tag{60,61}$$
 
 Puisque ce même travail vaut aussi $T - T_0$ :
 $$T(x) - T(x_0) = V(x_0) - V(x) \quad\Longrightarrow\quad T + V = T_0 + V_0 : \text{Énergie conservée.} \tag{62}$$
+
+## Forces conservatives $\rightarrow$ Conservation de l'énergie 
 
 Lorsque la force est conservative, on peut définir une constante du mouvement, l'**énergie** :
 $$E = T + V .$$
