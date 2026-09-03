@@ -47,18 +47,19 @@ revealjs-plugins:
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
 
-## SOMMAIRE
+## SOMMAIRE DU CHAPITRE 2
 
-1. 2.1 Coordonnées généralisées
-2. 2.2 Principe de base
-3. 2.3 Variation fonctionnelle
-4. 2.4 La fonction $L(q_i, \dot q_i, t)$
-5. 2.5 Coordonnées curvilignes
-6. 2.6 Contraintes holonomes et non holonomes
-7. 2.7 Lois de conservation et constantes du mouvement
-8. 2.8 Invariance de jauge
-9. 2.9 Caractéristiques, propriétés, limites
-10. 2.10 Symétrie de l'espace-temps
+**Formalisme lagrangien**
+2.1 Coordonnées généralisées
+2.2 Principe de base
+2.3 Variation fonctionnelle
+2.4 La fonction $L(q_i, \dot q_i, t)$
+2.5 Coordonnées curvilignes
+2.6 Contraintes holonomes et non holonomes
+2.7 Lois de conservation et constantes du mouvement
+2.8 Invariance de jauge
+2.9 Caractéristiques, propriétés, limites
+2.10 Symétrie de l'espace-temps
 
 # 2.1 Coordonnées généralisées
 

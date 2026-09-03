@@ -180,6 +180,8 @@ L'accélération $\mathbf{a}$ possède donc :
 1. une composante **tangente** à la trajectoire ($\mathbf{e}_k$) de valeur $\dfrac{d^2 s}{dt^2}$, et
 2. une composante **normale** à la trajectoire ($\mathbf{e}_\perp$) de valeur $\dfrac{v^2}{\rho}$.
 
+## Accélération
+
 **Rayon de courbure** $\rho$ : dans le voisinage immédiat du point $P$, la trajectoire peut être approximée par un arc de cercle de rayon $\rho$. Plus la trajectoire est courbée autour de $P$, plus la vitesse change rapidement selon $\mathbf{e}_\perp$ — pour $\rho$ petit, la composante normale $v^2/\rho$ est grande.
 
 # 1.2 Plusieurs particules ponctuelles

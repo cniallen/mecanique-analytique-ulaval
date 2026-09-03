@@ -1,0 +1,430 @@
+---
+title: "Mécanique analytique"
+subtitle: "PHY-2000 — Chapitre 3 : Applications et propriétés"
+author: "Prof. Claudine Allen"
+institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+from: markdown+emoji
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    html-math-method: katex
+    spotlight:
+      size: 30
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
+      initialPresentationMode: false
+    quiz:
+      checkKey: "c"
+      resetKey: "q"
+      shuffleKey: "t"
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: "Correct !"
+      defaultIncorrect: "Incorrect."
+    css: |
+      @media print {
+        .reveal .slides section {
+          padding-right: 34%;
+          box-sizing: border-box;
+        }
+      } 
+revealjs-plugins:
+  - quiz
+  - spotlight
+---
+
+## Progression dans le cours
+
+- Chapitre 0 : Plan de cours  :white_check_mark:
+- Chapitre 1 : Rappel  :white_check_mark:
+- Chapitre 2 : Formalisme de Lagrange  :white_check_mark:
+- Chapitre 3 : Applications et propriétés  :arrow_left:
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
+
+## SOMMAIRE DU CHAPITRE 3
+
+**Applications et propriétés du formalisme lagrangien**
+3.1 Cas simples en mécanique
+3.2 Exemples non mécaniques
+3.3 Problème à 2 corps
+3.4 Le potentiel central
+3.5 Résumé
+
+# 3.1 Cas simples en mécanique
+
+## Exemple 3.1 — Particule dans un champ gravitationnel
+
+::: {.callout-tip title="Exemple 3.1"}
+Une particule de masse $m$ dans le champ gravitationnel près de la surface a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération constante à la surface de la Terre.
+:::
+
+**1. Degrés de liberté :** 1 corps en 3D $\implies$ 3 ddl ; 0 contrainte $\implies$ **3 ddl**.
+
+**2. Coordonnées généralisées :** cartésiennes ($V=mgz$ s'écrit simplement).
+
+**3. Lagrangien :**
+$$T = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2), \qquad V=mgz, \qquad L = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-mgz \tag{1,2}$$
+
+**4. Variables cycliques :** $L$ ne dépend pas explicitement de $x$ ni de $y$.
+
+## Résolution complète
+
+**En $x$ :** $\partial L/\partial x=0$, donc $x$ est cyclique. L'éq. d'E-L se réduit à $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right)=0$, soit $\partial L/\partial\dot x = m\dot x = \text{cte} = mc_{1x}$, d'où :
+$$x(t) = c_{1x}t + c_{2x} \tag{4}$$
+
+**En $y$ :** de la même façon, $y(t) = c_{1y}t + c_{2y}$ (5).
+
+**En $z$ :** $\partial L/\partial z = -mg$, $\partial L/\partial\dot z = m\dot z \Rightarrow \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right)=m\ddot z$. L'éq. d'E-L donne $m\ddot z + mg = 0$, soit $\ddot z = -g$ (8). En intégrant deux fois :
+$$z(t) = -\frac{gt^2}{2} + c_{1z}t + c_{2z} \tag{9}$$
+
+**Solution complète** (les constantes fixées par les conditions initiales) :
+$$x(t)=c_{1x}t+c_{2x}, \quad y(t)=c_{1y}t+c_{2y}, \quad z(t)=-\frac{gt^2}{2}+c_{1z}t+c_{2z} \tag{10-12}$$
+
+## Exemple 3.2 — Particule suspendue à un ressort
+
+::: {.callout-tip title="Exemple 3.2"}
+Une particule de masse $m$ est suspendue à un ressort de constante $k$ dans le champ gravitationnel ; seul le mouvement vertical est permis.
+:::
+
+**1. ddl :** 1 corps en 3D $\implies$ 3 ddl ; 2 contraintes ($x=$cte, $y=$cte) $\implies$ **1 ddl** (en $z$).
+
+**2. Coordonnées :** cartésiennes (contraintes et $V$ s'écrivent aisément).
+
+**3. Lagrangien :** avec $z_0$ = position d'équilibre du ressort sans gravité :
+$$T=\frac{m}{2}\dot z^2, \qquad V = \frac{k}{2}(z-z_0)^2+mgz, \qquad L = \frac{m}{2}\dot z^2 - \frac{k}{2}(z-z_0)^2 - mgz \tag{13,14}$$
+
+**4. Variables cycliques :** aucune.
+
+## Équation du mouvement et solution {.smaller}
+
+**1 équation d'E-L :** $\dfrac{\partial L}{\partial z} = -k(z-z_0)-mg$, $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right)=m\ddot z$, donnant :
+$$m\ddot z + kz = kz_0 - mg \tag{19}$$
+
+**Résolution** : $z=z_h+z_p$, où $z_h$ solutionne l'éq. homogène $m\ddot z_h+kz_h=0$. Avec $z_h=Ae^{st}$, on trouve $ms^2+k=0 \Rightarrow s=\pm i\omega$, $\omega=\sqrt{k/m}$, donc $z_h(t)=A\sin(\omega t+\delta)$. La solution particulière (constante) est $z_p=C$. En substituant $z=z_h+C$ dans (19) et en identifiant les termes :
+$$kz_0 - mg = -m\omega^2 A\sin(\omega t+\delta) + kA\sin(\omega t+\delta) + kC = kC \quad (\text{car } m\omega^2=k)$$
+
+d'où $C = z_0 - mg/k$. **Solution générale :**
+$$z(t) = A\sin(\omega t+\delta) + z_0 - \frac{mg}{k} \tag{37}$$
+
+Un mouvement harmonique de fréquence $\omega=\sqrt{k/m}$ oscillant autour de $z=z_0-mg/k$ : au repos ($A=0$), le champ gravitationnel étire le ressort d'une longueur $mg/k$.
+
+## Exemple 3.3 — Particule au bout d'une tige rigide
+
+::: {.callout-tip title="Exemple 3.3"}
+Une particule est suspendue au bout d'une tige rigide sans masse et se déplace dans le plan $xz$ (le pendule plan).
+:::
+
+**1. ddl :** 3 ddl − 2 contraintes ($y=$cte, distance = cte) $\implies$ **1 ddl**.
+
+**2. Coordonnées :** un choix intelligent, lorsqu'il y a contrainte, consiste à choisir les ddl contraints comme faisant partie des coordonnées généralisées elles-mêmes. Ici : coordonnées polaires $(r,\varphi)$, où $r=l$ est précisément l'équation de contrainte — ne laissant que $\varphi$ (sans dimension).
+
+**3. Lagrangien :** avec $x=l\sin\varphi$, $z=-l\cos\varphi$ (origine au point d'ancrage), $\dot x = l\dot\varphi\cos\varphi$, $\dot z=l\dot\varphi\sin\varphi$ :
+$$T = \frac{m}{2}(\dot x^2+\dot z^2) = \frac{m}{2}l^2\dot\varphi^2, \qquad V = mgz = -mgl\cos\varphi \tag{40,42}$$
+$$L = \frac{ml^2}{2}\dot\varphi^2 + mgl\cos\varphi \tag{43}$$
+
+## Équation du pendule et ses solutions {.smaller}
+
+**Équation d'E-L :** $\partial L/\partial\varphi = -mgl\sin\varphi$, $\dfrac{d}{dt}(\partial L/\partial\dot\varphi) = ml^2\ddot\varphi$, donnant après division par $ml^2$ :
+$$\ddot\varphi + \frac{g}{l}\sin\varphi = 0$$
+
+La solution exacte fait appel à des intégrales elliptiques. **Trois régimes** (avec $\omega_0=\sqrt{g/l}$, $k=\sin(\theta_0/2)$) :
+
+- **Oscillations** ($k<1$) : $\dot\varphi = 2k\omega_0\,\text{cn}(\omega_0 t,k)$, période $T=T_0\cdot 2K(k)/\pi$ (fonctions elliptiques de Jacobi)
+- **Cas limite** ($k=1$) : départ à l'arrêt en $\varphi=\pi$, arrivée en $\varphi=-\pi$ en temps infini : $\varphi = 4\arctan(e^{\omega_0 t})-\pi$
+- **Tournoiement** ($k>1$) : $\dot\varphi = 2k\omega_0\,\text{dn}(k\omega_0 t, 1/k)$
+
+**Petites oscillations** : avec $\sin\varphi\approx\varphi$, on retrouve $\ddot\varphi+\omega^2\varphi\approx 0$ (oscillateur harmonique), $\omega=\sqrt{g/l}$, de solution $\varphi(t)=A\sin(\omega t+\delta)$ — le fameux pendule plan, longtemps utilisé comme référence pour mesurer le temps.
+
+::: {.callout-important title="Remarque 3.2 — Unités"}
+Dans les 2 premiers exemples, la coordonnée a des dimensions de longueur $\Rightarrow$ éq. d'E-L en unités de force. Dans le 3ᵉ, la variable est un angle $\Rightarrow$ l'éq. d'E-L reste l'équation du mouvement même si elle n'a pas d'unités de force.
+:::
+
+## Exemple 3.4 — Pendule plan sur ressort de masse nulle {.smaller}
+
+::: {.callout-tip title="Exemple 3.4"}
+La tige rigide est remplacée par un ressort de masse nulle qui peut osciller en ligne droite.
+:::
+
+**ddl :** 3 ddl − 1 contrainte (plan $xz$) $\implies$ **2 ddl**. Coordonnées adaptées à la géométrie : $u$ (distance au point d'appui) et $\varphi$ (angle avec la verticale).
+
+**Lagrangien :** avec $x=u\sin\varphi$, $z=-u\cos\varphi$ :
+$$T = \frac{m}{2}(\dot u^2+u^2\dot\varphi^2), \qquad V = -mgu\cos\varphi + \frac{K}{2}(u-u_0)^2$$
+$$L = \frac{m}{2}(\dot u^2+u^2\dot\varphi^2) + mgu\cos\varphi - \frac{K}{2}(u-u_0)^2 \tag{62}$$
+
+**2 équations d'E-L couplées** (aucune variable cyclique) :
+$$m\ddot u - mu\dot\varphi^2 - mg\cos\varphi + K(u-u_0) = 0 \qquad [\text{unités de force}] \tag{65}$$
+$$u^2\ddot\varphi + 2u\dot u\dot\varphi + gu\sin\varphi = 0 \qquad [\text{unités de } L^2T^{-2}, \text{ pas une force}] \tag{70}$$
+
+::: {.callout-important title="Remarque 3.4"}
+La solution de ces 2 équations couplées n'est pas triviale (non intégrable analytiquement) — mais leur obtention par une méthode simple constitue déjà un résultat intéressant en soi.
+:::
+
+# 3.2 Exemples non mécaniques
+
+## Le principe de Fermat
+
+On peut baser toute l'optique géométrique sur le principe de Fermat, qui, remarquablement, est un **principe variationnel** — les trajectoires des rayons lumineux obéissent à des équations d'E-L.
+
+::: {.callout-note title="Définition 3.1"}
+Entre les points 1 et 2, le rayon lumineux suit la trajectoire qui prend le moins de temps.
+:::
+
+Si $\eta$ est l'indice de réfraction, la vitesse du rayon est $v=c/\eta$. Avec $ds$ l'élément de longueur, $dt=ds/v$, le temps requis entre les points 1 et 2 :
+$$T = \int_1^2 dt = \int_1^2 \frac{ds}{v} = \frac{1}{c}\int_1^2 \eta\,ds \tag{71}$$
+
+::: {.callout-important title="Remarque 3.5"}
+La recherche de la trajectoire physique implique de minimiser $T$ — parallèle direct entre le principe de Fermat et le principe de moindre action ; $T$ y joue le rôle de l'action.
+:::
+
+## Mise en correspondance avec le formalisme lagrangien
+
+Limitons-nous à 2D $(x,y)$, avec $ds=\sqrt{dx^2+dy^2}=dx\sqrt{1+\dot y^2}$ (où $\dot y=dy/dx$, $x$ jouant le rôle de paramètre). Alors :
+$$T = \frac{1}{c}\int_1^2 \eta(x,y)\sqrt{1+\dot y^2}\,dx \equiv \int_1^2 L(y,\dot y,x)\,dx, \qquad L(y,\dot y,x)=\frac{1}{c}\eta(x,y)\sqrt{1+\dot y^2} \tag{75,76}$$
+
+**Analogie complète** avec la mécanique :
+
+| Mécanique | | Principe de Fermat |
+|---|---|---|
+| action $S$ | $\leftrightsquigarrow$ | $T$ : temps |
+| temps $t$ | $\leftrightsquigarrow$ | $x$ : position horizontale |
+| position $q$ | $\leftrightsquigarrow$ | $y$ : position verticale |
+| vitesse $\dot q$ | $\leftrightsquigarrow$ | $\dot y=dy/dx$ : pente |
+| $L(q,\dot q,t)$ | $\leftrightsquigarrow$ | $L(y,\dot y,x)$ |
+
+On minimise $T=\int_{x_1}^{x_2}L\,dx$ ($\delta T=0$), ce qui redonne l'éq. d'E-L pour $y$ : $\dfrac{d}{dx}\left(\dfrac{\partial L}{\partial\dot y}\right) - \dfrac{\partial L}{\partial y}=0$ (78).
+
+## Dérivation de la trajectoire lumineuse {.smaller}
+
+En calculant explicitement (avec $L=\frac{\eta}{c}\sqrt{1+\dot y^2}$) :
+$$\frac{\partial L}{\partial\dot y} = \frac{\eta\dot y}{c\sqrt{1+\dot y^2}} \tag{79}$$
+
+et après dérivation en chaîne complète du terme $\dfrac{d}{dx}\left(\partial L/\partial\dot y\right)$ et de $\partial L/\partial y = \frac{1}{c}\sqrt{1+\dot y^2}\,\partial\eta/\partial y$, l'équation d'E-L se simplifie (en multipliant par $c\sqrt{1+\dot y^2}/\eta$) à :
+$$\ddot y - \frac{\dot y^2\ddot y}{1+\dot y^2} - \dot y\frac{1}{\eta}\frac{\partial\eta}{\partial x} - \frac{1}{\eta}\frac{\partial\eta}{\partial y} = 0 \tag{83}$$
+
+**Si l'indice $\eta$ est uniforme** ($\partial\eta/\partial x=\partial\eta/\partial y=0$), l'équation se réduit à $\ddot y - \dfrac{\dot y^2\ddot y}{1+\dot y^2}=0$, soit $\ddot y(1+\dot y^2)-\dot y^2\ddot y=0 \Rightarrow \ddot y=0$. Donc $\dot y=\text{cte}$ :
+$$y(x) = ax+b$$
+
+**la trajectoire de la lumière est une ligne droite** dans un milieu homogène — confirmation directe du résultat attendu, mais dérivé ici du principe de moindre action plutôt que de l'optique géométrique classique.
+
+# 3.3 Problème à 2 corps
+
+## Réduction au problème à 1 corps
+
+Le problème à 2 corps est le système physique fermé le plus simple avec plus d'1 particule. **ddl :** 2 corps en 3D, 0 contrainte $\implies$ **6 ddl**.
+
+Posons masses $m_1,m_2$, positions $\mathbf{r}_1,\mathbf{r}_2$, interaction $V(\mathbf{r}_1,\mathbf{r}_2)=V(\mathbf{r}_1-\mathbf{r}_2)$ (85). Par homogénéité de l'espace, le potentiel dû au reste de l'univers est nul pour un système fermé. **Lagrangien** (additif) :
+$$L = \frac{m_1}{2}\dot{\mathbf{r}}_1^2 + \frac{m_2}{2}\dot{\mathbf{r}}_2^2 - V(\mathbf{r}_1-\mathbf{r}_2) \tag{86}$$
+
+**Changement de coordonnées** vers la coordonnée relative $\mathbf{r}=\mathbf{r}_1-\mathbf{r}_2$ et celle du centre de masse $\mathbf{R}=\dfrac{m_1\mathbf{r}_1+m_2\mathbf{r}_2}{m_1+m_2}$ (87), inversé en :
+$$\mathbf{r}_1 = \mathbf{R} + \frac{m_2}{m_1+m_2}\mathbf{r}, \qquad \mathbf{r}_2 = \mathbf{R} - \frac{m_1}{m_1+m_2}\mathbf{r} \tag{88,89}$$
+
+## Masse totale, masse réduite et découplage {.smaller}
+
+En substituant $\dot{\mathbf{r}}_1,\dot{\mathbf{r}}_2$ dans le lagrangien, celui-ci se réécrit :
+$$L = \frac{M}{2}\dot{\mathbf{R}}^2 + \frac{m}{2}\dot{\mathbf{r}}^2 - V(\mathbf{r}), \qquad M=m_1+m_2 \text{ (masse totale)}, \quad m = \frac{m_1m_2}{m_1+m_2} \text{ (masse réduite)} \tag{92,93}$$
+
+Le lagrangien se décompose en $L = L_{CM} + L_\text{rel}$ :
+
+1. $L_{CM} = \dfrac{M}{2}\dot{\mathbf{R}}^2$ — puisque $\mathbf{R}$ est cyclique, $M\dot{\mathbf{R}} = \text{cte}$ : **le CM se déplace à vitesse constante**.
+2. $L_\text{rel} = \dfrac{m}{2}\dot{\mathbf{r}}^2 - V(\mathbf{r})$ — apparaît comme le lagrangien d'**une seule particule fictive** de masse $m$ et position $\mathbf{r}$.
+
+::: {.callout-important title="Remarque 3.6 — Cas Soleil-Terre"}
+Si $m_2\gg m_1$ (ex. Soleil-Terre), alors $m\simeq m_1$ dans $L_\text{rel}$.
+:::
+
+::: {.callout-important title="Remarque 3.7"}
+Aucune des 2 particules n'a la masse $m$, et $\mathbf{r}$ ne donne la position d'aucune des deux — $L_\text{rel}$ décrit le mouvement *relatif* réduit à un problème à un corps fictif.
+:::
+
+Grâce à cette réduction, le problème à 2 corps admet une **solution analytique**. Le problème à $N>2$ corps n'a généralement pas de solution analytique — le système peut même être chaotique.
+
+# 3.4 Le potentiel central
+
+## Position du problème
+
+Le problème du potentiel central couvre : (1) une particule soumise à une force externe centrée à l'origine, ou (2) le mouvement relatif dans un problème à 2 corps réduit. **ddl :** 1 corps en 3D, 0 contrainte $\implies$ **3 ddl**. Lagrangien :
+$$L = \frac{m}{2}\dot{\mathbf{r}}^2 - V(r) \tag{98}$$
+
+où $V(r)$ ne dépend que de la distance — la force est purement radiale, ex. : interaction gravitationnelle ou coulombienne entre 2 corps.
+
+**Force purement radiale** ($\mathbf{r}\parallel\mathbf{F}$) $\implies$ le torque $\mathbf{r}\times\mathbf{F}=0$ $\implies$ le moment cinétique $\mathbf{l}=m\mathbf{r}\times\dot{\mathbf{r}}$ est une **constante du mouvement** (99), puisque :
+$$\dot{\mathbf{l}} = m\dot{\mathbf{r}}\times\dot{\mathbf{r}} + m\mathbf{r}\times\ddot{\mathbf{r}} = 0 + \mathbf{r}\times\mathbf{F} = 0 \tag{100-102}$$
+
+**Conséquence :** le mouvement est perpendiculaire à $\mathbf{l}$ (constant en grandeur et direction) — le mouvement se fait donc **dans un plan**.
+
+## Réduction au plan et équation en $\varphi$
+
+Choisissons le plan $\theta=\pi/2$ ($\dot\theta=0$). Le lagrangien se réduit aux coordonnées polaires :
+$$L = \frac{m}{2}(\dot r^2 + r^2\dot\varphi^2) - V(r) \tag{103}$$
+
+$\varphi$ est **cyclique** ($\partial L/\partial\varphi=0$), donc le moment canonique (ici le moment cinétique) est conservé :
+$$\frac{\partial L}{\partial\dot\varphi} = mr^2\dot\varphi = l = \text{cte} \quad\Longrightarrow\quad \dot\varphi = \frac{l}{mr^2} \tag{104,105}$$
+
+où $l$ est fixé par les conditions initiales, et $mr^2$ est le moment d'inertie d'une masse $m$ à distance $r$.
+
+## Équation radiale et potentiel efficace {.smaller}
+
+**Équation en $r$ :** $\partial L/\partial r = mr\dot\varphi^2 - \partial V/\partial r$, $\dfrac{d}{dt}(\partial L/\partial\dot r)=m\ddot r$, donnant :
+$$m\ddot r - mr\dot\varphi^2 + \frac{\partial V}{\partial r} = 0$$
+
+En substituant $\dot\varphi = l/(mr^2)$ pour découpler les variables :
+$$m\ddot r = -\frac{\partial V}{\partial r} + \frac{l^2}{mr^3} \tag{110}$$
+
+::: {.callout-note title="Potentiel efficace"}
+$$V_\text{eff}(r) = V(r) + \frac{l^2}{2mr^2} \quad\Longrightarrow\quad m\ddot r = -\frac{\partial V_\text{eff}(r)}{\partial r} = F_\text{eff}(r) \tag{111,112}$$
+:::
+
+Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{z\text{-rot}} = l^2/(2mr^2)$, correspondant à une **répulsion centrifuge**.
+
+::: {.callout-important title="Remarque 3.8"}
+Un corps en rotation autour de l'origine est effectivement repoussé de celle-ci (sans l'atteindre) — plus $l$ est grand, plus il est repoussé. Cette force fictive correspond à la tendance du corps à maintenir son mouvement rectiligne uniforme (inertie) dans le repère inertiel.
+:::
+
+## Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ? {.quiz-question}
+
+- L'énergie potentielle gravitationnelle $V(r)$ seule
+- [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$, issu de la conservation du moment cinétique]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
+- La force de frottement du milieu
+- Le terme linéaire du développement de Taylor de $V(r)$
+
+## Potentiel en $r^{-1}$ : orbite circulaire {.smaller}
+
+::: {.callout-tip title="Cas particulier : $V(r) = -K/r$"}
+Potentiel gravitationnel ou électrostatique. **ddl :** 1 ddl (mouvement radial dans le plan). Potentiel efficace $V_\text{eff}(r) = -K/r + l^2/(2mr^2)$ (114).
+:::
+
+L'extremum $V_0$ en $r_0$ obéit à $\left.\partial V_\text{eff}/\partial r\right|_{r_0} = K/r_0^2 - l^2/(mr_0^3)=0$, donnant :
+$$r_0 = \frac{l^2}{Km}, \qquad V_\text{eff}(r_0) = V_0 = -\frac{mK^2}{2l^2} \tag{116,117}$$
+
+::: {.callout-important title="Remarque 3.9 — Orbite circulaire"}
+Le cas $r=r_0$ (donc $E=V_0$) correspond à un point stationnaire : $\ddot r=0$, aucune force radiale. C'est une **orbite circulaire** avec $\dot\varphi=\omega=l/(mr_0^2)=\text{cte}$.
+:::
+
+::: {.callout-important title="Remarque 3.10 — Période"}
+Fréquence angulaire $\omega = l/(mr_0^2)=mK^2/l^3$, période $\tau = 2\pi\sqrt{mr_0^3/K}$.
+:::
+
+## Petites oscillations autour de l'orbite circulaire {.smaller}
+
+Pour $E\gtrsim V_0$ (orbite proche de circulaire), développons $V_\text{eff}$ en série de Taylor autour de $r_0$ (le terme linéaire s'annule car $r_0$ est un extremum) :
+$$V_\text{eff}(r) \approx V_\text{eff}(r_0) + \frac{(r-r_0)^2}{2}\left[\frac{\partial^2 V_\text{eff}}{\partial r^2}\right]_{r_0} \tag{123}$$
+
+Avec $V=-K/r$, le calcul donne $k_\text{eff} = \left[\partial^2 V_\text{eff}/\partial r^2\right]_{r_0} = m^3K^4/l^6$ (125) — un **oscillateur harmonique effectif**. En définissant $u(t)=r(t)-r_0$ :
+$$\ddot u + \Omega^2 u = 0, \qquad \Omega = \sqrt{k_\text{eff}/m} = \frac{mK^2}{l^3} \tag{131-133}$$
+
+$$r(t) = r_0 + A\sin(\Omega t+\delta) \tag{135}$$
+
+::: {.callout-important title="Remarque 3.11"}
+Ici $\Omega=\omega$ (fréquence de fluctuation de $r$ = fréquence de rotation orbitale) — **particulier au choix** $V(r)=-K/r$. Ce potentiel génère des **orbites stables** : la fluctuation de $r$ autour de $r_0$ correspond simplement à un déplacement du centre de l'orbite circulaire d'une distance $A$ (pas encore une ellipse — ce sont les termes asymétriques d'ordre supérieur de $V_\text{eff}$ qui produisent la déformation elliptique exacte).
+:::
+
+## Potentiel en $r^{-n}$ : généralisation {.smaller}
+
+Considérons $V(r) = -K/r^n$, $n\in\mathbb{Z}$, force $F(r)=nK/r^{n+1}$. Le potentiel efficace $V_\text{eff}(r) = -K/r^n + l^2/(2mr^2)$ (141) a un extremum en :
+$$r_0 = \left(\frac{l^2}{nKm}\right)^{\frac{1}{2-n}}$$
+
+avec $k_\text{eff} = Kn(2-n)\left(\dfrac{l^2}{nKm}\right)^{\frac{n+2}{n-2}}$ (144). La fréquence de fluctuation :
+$$\Omega = \sqrt{k_\text{eff}/m}$$
+
+## L'angle apsidal
+
+::: {.callout-note title="Définition 3.2 — Angle apsidal"}
+Déplacement angulaire de l'orbite pendant la moitié de la période de fluctuation $\tau_r$ du rayon (le temps pour que $r$ passe de $r_\text{min}$ à $r_\text{max}$) :
+$$\psi = \varphi(\tau_r/2) - \varphi(0) = \frac{l}{mr_0^2}\cdot\frac{\tau_r}{2} = \frac{\pi}{\sqrt{2-n}}$$
+:::
+
+::: {.callout-important title="Remarque 3.14"}
+Pour qu'une orbite soit **fermée**, il faut que $j=\sqrt{2-n}$ soit un entier naturel. Comme il faut aussi $k_\text{eff}>0$ (force de rappel), $n<2$. Les valeurs permises sont $n = -j^2+2 = 1, -2, -7, -14, \dots$ pour $j=1,2,3,4,\dots$
+:::
+
+## Les orbites fermées : tableau et cas général {.smaller}
+
+| $n$ | $V(r)$ | Angle apsidal $\psi$ | Nombre de lobes $j$ |
+|:---:|:---:|:---:|:---:|
+| $1$ | $-K/r$ | $\pi$ | 1 |
+| $-2$ | $-Kr^2$ | $\pi/2$ | 2 |
+| $-7$ | $-Kr^7$ | $\pi/3$ | 3 |
+| $2-j^2$ | $-Kr^{j^2-2}$ | $\pi/j$ | $j$ |
+
+Toute autre loi de puissance mène à des **orbites instables** : la trajectoire ne repasse jamais par le même point, passant éventuellement par tous les points entre $r_\text{min}$ et $r_\text{max}$.
+
+::: {.callout-tip title="Cas général $V(r)=-K/r^\alpha$"}
+Pour une puissance quelconque $\alpha$, l'angle apsidal $\psi = \dfrac{\pi}{\sqrt{2-\alpha}} = \dfrac{p}{q}\pi$ (avec $p/q>1$) donne des orbites où le corps fait $p$ tours pendant $q$ fluctuations radiales — stables seulement si $\psi/\pi$ est rationnel.
+:::
+
+## Cas général : mouvement hors du plan $xOy$ {.smaller}
+
+Sans supposer d'emblée le mouvement dans le plan (approche générale), le lagrangien complet en coordonnées sphériques :
+$$L = \frac{m}{2}(\dot r^2 + r^2\dot\theta^2 + r^2\sin^2\theta\,\dot\varphi^2) - V(r) \tag{137}$$
+
+$\varphi$ cyclique $\implies \partial L/\partial\dot\varphi = mr^2\sin^2\theta\,\dot\varphi = l_z = \text{cte}$ (composante $z$ du moment cinétique) — ceci ne signifie *pas* que $\dot\varphi=$cte si $r=$cte, mais que la combinaison $r^2\sin^2\theta\,\dot\varphi$ l'est.
+
+L'équation en $\theta$ devient (en substituant $\dot\varphi = l_z/(mr^2\sin^2\theta)$) :
+$$\ddot\theta = \left(\frac{l_z}{mr^2}\right)^2\frac{\cos\theta}{\sin^3\theta}$$
+
+Même pour $r$ constant, la solution exige de résoudre 2 équations différentielles couplées en $\theta$ et $\varphi$. La solution générale reste de même forme (masse tournant à vitesse constante, $l=$cte car aucun torque), sauf que l'orbite est **inclinée** par rapport au plan $xOy$ — $\mathbf{l}$ ne pointe pas nécessairement selon $z$.
+
+# 3.5 Résumé
+
+## Méthode générale — Mécanique lagrangienne
+
+1. Trouver les contraintes sur la dynamique du système.
+2. Identifier le nombre de ddl.
+3. Choisir des coordonnées généralisées appropriées.
+4. Déterminer $T$ et $V$ en fonction de ces coordonnées.
+5. Identifier les variables cycliques ; pour chacune, construire la constante du mouvement associée.
+6. Écrire le reste des équations du mouvement à partir des équations d'E-L.
+7. Résoudre pour trouver la trajectoire.
+
+## Formulaire — Métriques et potentiels {.smaller}
+
+**Métriques :**
+
+- Cartésiennes $(x,y,z)$ : $ds^2 = dx^2+dy^2+dz^2$
+- Sphériques $(r,\theta,\varphi)$ : $ds^2 = dr^2 + r^2d\theta^2 + r^2\sin^2\theta\,d\varphi^2$
+- Cylindriques $(\rho,\theta,z)$ : $ds^2 = d\rho^2+\rho^2d\theta^2+dz^2$
+- Générales : $ds^2 = \sum_{i,j} g_{ij}\,dq_i\,dq_j$
+
+**Potentiels :**
+
+- Harmonique : $V(x) = \tfrac{1}{2}k(x-x_0)^2$, $k=m\omega^2$
+- Gravitationnel : $V_\text{grav} = mgh$ ou $-GM/r$
+- Électromagnétique : $U_\text{em} = qe(\phi - \mathbf{v}\cdot\mathbf{A})$, où $\mathbf{E}=-\nabla\phi$, $\mathbf{B}=\nabla\times\mathbf{A}$
+- Potentiel efficace (approximation) : $V(r) = V(r_0)+(r-r_0)V'(r_0)+\tfrac{1}{2}(r-r_0)^2V''(r_0)+O(r^3)$
+
+## Formulaire — Formalisme lagrangien {.smaller}
+
+Où $L\equiv L(q_i,\dot q_i,t)$ :
+
+- **Lagrangien :** $L=T-V$ avec $T=\sum_{i,j}\dfrac{m}{2}g_{ij}\dot q_i\dot q_j$
+- **Contrainte** $f\equiv f(q_i,\dot q_i,t)$ : holonome si $f=\dfrac{d}{dt}h(q_i,t)=0$ (soit $h=C$) ; non holonome sinon (ou $f\lessgtr 0$)
+- **Équations d'Euler-Lagrange :**
+  - Forces conservatives ($\mathbf{F}=-\nabla V$) : $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)-\dfrac{\partial L}{\partial q_i}=0$
+  - Forces non conservatives ($\mathbf{F}\neq-\nabla V$) : $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)-\dfrac{\partial L}{\partial q_i}=Q_i$ (forces généralisées)
+- **Multiplicateurs de Lagrange** ($f=0$) : $L'=L+\lambda f$ ; solution physique $q_i(t,\bar\lambda)$ où $f(q_i(t,\bar\lambda),\dot q_i(t,\bar\lambda),t)=0$
+- **Variables cycliques :** $\dfrac{\partial L}{\partial q_i}=0 \implies \dfrac{\partial L}{\partial\dot q_i}=\text{cte}$
+
+## Combien de degrés de liberté possède une particule suspendue au bout d'une tige rigide, contrainte à se déplacer dans un plan ? {.quiz-question}
+
+- 3 ddl (particule libre en 3D)
+- 2 ddl
+- [1 ddl]{.correct data-explanation="3 ddl − 2 contraintes (mouvement dans un plan ET distance fixe à la tige) = 1 ddl, décrit par l'angle φ seul — c'est l'Exemple 3.3, le pendule plan."}
+- 0 ddl (la tige immobilise complètement la particule)
+
+## Liens vers les parties du cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
