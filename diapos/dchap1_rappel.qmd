@@ -226,16 +226,20 @@ où $\mathbf{F}$ est la somme des forces extérieures, $m$ la masse et $\mathbf{
 Tout corps $A$ exerçant une force sur un corps $B$ subit une force d'intensité égale, de même direction mais de sens opposé.
 :::
 
-##Équation fondamentale du mouvement
+## Équation fondamentale du mouvement
 
 Formes équivalentes :
-$$m\frac{d^2\mathbf{r}}{dt^2} = \mathbf{F}, \qquad m\frac{d\mathbf{v}}{dt} = \mathbf{F}, \qquad \frac{d\mathbf{p}}{dt} = \mathbf{F} . \tag{15--17}$$
+$$
+\begin{align}
+m\frac{d^2\mathbf{r}}{dt^2} &= \mathbf{F}, \qquad m\frac{d\mathbf{v}}{dt} &= \mathbf{F}, \qquad \frac{d\mathbf{p}}{dt} &= \mathbf{F} . \tag{15--17}
+\begin{align}
+$$
 
-##Équation fondamentale du mouvement, notation
+## Équation fondamentale du mouvement, notation
 
 $\mathbf{F}$ = force (déterminée empiriquement), valide pour $n$ degrés de liberté (ddl) : $\mathbf{r} = \mathbf{x} = (x_1, x_2, x_3)$, s'écrivant comme un vecteur à $n$ composantes $\mathbf{x} = (x_1, \dots, x_n)$.
 
-##Équation fondamentale du mouvement, notation
+## Équation fondamentale du mouvement, notation
 
 En posant $\mathbf{f} = \mathbf{F}/m$ :
 
@@ -289,7 +293,7 @@ Pour $N$ corps, la force totale sur le corps $\nu$ :
 $$m_\nu \ddot{\mathbf{r}}_\nu = \sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\nu\mu} = -\sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\mu\nu} . \tag{35}$$
 
 En sommant sur $\nu$ (avec $\mathbf{F}_{\nu\nu} = 0$) :
-$$\sum_{\nu=1}^N m_\nu \ddot{\mathbf{r}}_\nu = \frac{d}{dt}\sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = 0 \quad \Longrightarrow \quad \sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = \text{cte} . \tag{37--39}$$
+$$\small \sum_{\nu=1}^N m_\nu \ddot{\mathbf{r}}_\nu = \frac{d}{dt}\sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = 0 \quad \Longrightarrow \quad \sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = \text{cte} . \tag{36}$$
 
 ## Conservation du moment cinétique linéaire comme conséquence de la 3e loi
 
@@ -302,14 +306,20 @@ Le moment linéaire total d'un système fermé est une constante du mouvement.
 
 ## Moment angulaire total
 
-Le moment angulaire d'une particule $\nu$ : $\mathbf{l}_\nu = \mathbf{r}_\nu \times \mathbf{p}_\nu = m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu$. $\tag{41,42}$
+Le moment angulaire d'une particule $\nu$ : 
+$$\mathbf{l}_\nu = \mathbf{r}_\nu \times \mathbf{p}_\nu = m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu \tag{41,42}$$
 
 Sa dérivée :
-$$\dot{\mathbf{l}}_\nu = m_\nu \dot{\mathbf{r}}_\nu \times \dot{\mathbf{r}}_\nu + m_\nu \mathbf{r}_\nu \times \ddot{\mathbf{r}}_\nu = \mathbf{r}_\nu \times \mathbf{F}_\nu = \mathbf{r}_\nu \times \sum_{\mu=1}^N \mathbf{F}_{\nu\mu} . \tag{43--47}$$
+$$
+\begin{align}
+\dot{\mathbf{l}}_\nu &= m_\nu \dot{\mathbf{r}}_\nu \times \dot{\mathbf{r}}_\nu + m_\nu \mathbf{r}_\nu \times \ddot{\mathbf{r}}_\nu &= \mathbf{r}_\nu \times \mathbf{F}_\nu &= \mathbf{r}_\nu \times \sum_{\mu=1}^N \mathbf{F}_{\nu\mu} . \tag{43}$$
+\end{align}
+$$
 
 ## Moment angulaire total
 
-Le moment angulaire total du système : $\mathbf{L} = \sum_\nu \mathbf{l}_\nu = \sum_\nu m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu$. $\tag{48,49}$
+Le moment angulaire total du système : 
+$$\mathbf{L} = \sum_\nu \mathbf{l}_\nu = \sum_\nu m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu \tag{48,49}$$
 
 En sommant et utilisant $\mathbf{F}_{\nu\nu} = 0$ et $\mathbf{F}_{\nu\mu} = -\mathbf{F}_{\mu\nu}$ :
 $$\dot{\mathbf{L}} = \sum_{\nu, \mu > \nu} (\mathbf{r}_\nu - \mathbf{r}_\mu) \times \mathbf{F}_{\nu\mu} \tag{52}$$
@@ -333,20 +343,28 @@ Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$.
 
 ## Travail : figure
 
-## Travail $\rightarrow$ Énergie
+## Travail $\rightarrow$ Énergie cinétique
 
 Calculons $\mathbf{F} \cdot d\mathbf{x}$ le long de cette trajectoire :
-$$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \int_{t_0}^t \mathbf{F} \cdot \frac{d\mathbf{x}}{dt}\, dt \;\overset{\text{traj. phys.}}{=}\; \int_{t_0}^t m\frac{d^2\mathbf{x}}{dt^2} \cdot \frac{d\mathbf{x}}{dt}\, dt \tag{53}$$
+$$
+\begin{gather}
+\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \int_{t_0}^t \mathbf{F} \cdot \frac{d\mathbf{x}}{dt}\, dt \;\overset{\text{traj. phys.}}{=}\; \int_{t_0}^t m\frac{d^2\mathbf{x}}{dt^2} \cdot \frac{d\mathbf{x}}{dt}\, dt \tag{53}
+\end{gather}
+$$
 
 ## Travail $\rightarrow$ Énergie cinétique
 
 Calculons $\dfrac{d}{dt}(v^2)$ en détail, avec $v = d\mathbf{x}/dt$ :
-$$\frac{d}{dt}(v^2) = \frac{d}{dt}\left(\frac{d\mathbf{x}}{dt}\cdot\frac{d\mathbf{x}}{dt}\right) = \left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)\cdot\frac{d\mathbf{x}}{dt} + \frac{d\mathbf{x}}{dt}\cdot\left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right) = 2\frac{d^2\mathbf{x}}{dt^2}\cdot\frac{d\mathbf{x}}{dt}$$
+$$
+\begin{align}
+\frac{d}{dt}(v^2) &= \frac{d}{dt}\left(\frac{d\mathbf{x}}{dt}\cdot\frac{d\mathbf{x}}{dt}\right) &= \left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)\cdot\frac{d\mathbf{x}}{dt} + \frac{d\mathbf{x}}{dt}\cdot\left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right) &= 2\frac{d^2\mathbf{x}}{dt^2}\cdot\frac{d\mathbf{x}}{dt}
+\end{align}
+$$
 
 ## Travail $\rightarrow$ Énergie cinétique
 
 En substituant ce résultat, on obtient :
-$$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \frac{1}{2}mv^2(t) - \frac{1}{2}mv^2(t_0) = T - T_0 \tag{54--56}$$
+$$\small \int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \frac{1}{2}mv^2(t) - \frac{1}{2}mv^2(t_0) = T - T_0 \tag{54}$$
 
 où $T = \tfrac{1}{2}mv^2$ est l'**énergie cinétique** : le travail effectué par la force $\mathbf{F}$ change cette énergie.
 
@@ -377,10 +395,12 @@ Il est toujours possible d'écrire $\mathbf{F}$ comme le gradient d'une fonction
 ## Forces conservatives $\rightarrow$ Conservation de l'énergie
 
 Le travail fait par une force conservative entre $\mathbf{x}_0$ et $\mathbf{x}$ :
-$$\int_{x_0}^{x} \mathbf{F}\cdot d\mathbf{x} = -\big(V(\mathbf{x}) - V(\mathbf{x}_0)\big) = V_0 - V \tag{60,61}$$
+$$\small \int_{x_0}^{x} \mathbf{F}\cdot d\mathbf{x} = -\big(V(\mathbf{x}) - V(\mathbf{x}_0)\big) = V_0 - V \tag{60}$$
 
 Puisque ce même travail vaut aussi $T - T_0$ :
-$$T(x) - T(x_0) = V(x_0) - V(x) \quad\Longrightarrow\quad T + V = T_0 + V_0 : \text{Énergie conservée.} \tag{62}$$
+$$\small T(x) - T(x_0) = V(x_0) - V(x) \quad\Longrightarrow\quad T + V = T_0 + V_0 \tag{62}$$
+d'où l'énergie totale ne change pas, elle est conservée.
+
 
 ## Forces conservatives $\rightarrow$ Conservation de l'énergie 
 
