@@ -49,12 +49,12 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 1
 
 Rappel
-   - 1.1 Trajectoire et cinématique d'une particule ponctuelle
-   - 1.2 Plusieurs particules ponctuelles
-   - 1.3 Éléments de dynamique
-   - 1.4 Travail et Énergie
-   - 1.5 Systèmes à N particules et forces extérieures
-   - 1.6 Degrés de liberté
+1.1 Trajectoire et cinématique d'une particule ponctuelle
+1.2 Plusieurs particules ponctuelles
+1.3 Éléments de dynamique
+1.4 Travail et Énergie
+1.5 Systèmes à N particules et forces extérieures
+1.6 Degrés de liberté
 
 # 1.1 Trajectoire et cinématique d'une particule ponctuelle
 
@@ -229,11 +229,10 @@ Tout corps $A$ exerçant une force sur un corps $B$ subit une force d'intensité
 ## Équation fondamentale du mouvement
 
 Formes équivalentes :
-$$
-\begin{align}
-m\frac{d^2\mathbf{r}}{dt^2} &= \mathbf{F}, \qquad m\frac{d\mathbf{v}}{dt} &= \mathbf{F}, \qquad \frac{d\mathbf{p}}{dt} &= \mathbf{F} . \tag{15--17}
-\begin{align}
-$$
+$$ m\frac{d^2\mathbf{r}}{dt^2} = \mathbf{F}$$ 
+$$ m\frac{d\mathbf{v}}{dt} = \mathbf{F}$$
+$$\frac{d\mathbf{p}}{dt} = \mathbf{F} \tag{15--17}$$
+
 
 ## Équation fondamentale du mouvement, notation
 
@@ -243,9 +242,9 @@ $\mathbf{F}$ = force (déterminée empiriquement), valide pour $n$ degrés de li
 
 En posant $\mathbf{f} = \mathbf{F}/m$ :
 
-$$\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \dot{\mathbf{x}}, t) \quad \text{(1 éq. vectorielle, } n = 3N \text{ composantes)} \tag{20}$$
+$$\small \ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \dot{\mathbf{x}}, t) \quad \text{(1 éq. vectorielle, } n = 3N \text{ composantes)} \tag{20}$$
 $$\ddot{x}_i = f_i(x_j, \dot{x}_j, t) \quad \text{(n éq. scalaires)} \tag{21}$$
-$$\ddot{\mathbf{x}}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu, \dot{\mathbf{x}}_\mu, t); \quad \nu, \mu = 1, \dots, N \text{ particules} \tag{22}$$
+$$\small \ddot{\mathbf{x}}_\nu = \mathbf{f}_\nu(\mathbf{x}_\mu, \dot{\mathbf{x}}_\mu, t); \quad \nu, \mu = 1, \dots, N \text{ particules} \tag{22}$$
 
 ## Symétries de l'équation de Newton : invariances
 
@@ -293,7 +292,7 @@ Pour $N$ corps, la force totale sur le corps $\nu$ :
 $$m_\nu \ddot{\mathbf{r}}_\nu = \sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\nu\mu} = -\sum_{\mu=1,\mu\neq\nu}^N \mathbf{F}_{\mu\nu} . \tag{35}$$
 
 En sommant sur $\nu$ (avec $\mathbf{F}_{\nu\nu} = 0$) :
-$$\small \sum_{\nu=1}^N m_\nu \ddot{\mathbf{r}}_\nu = \frac{d}{dt}\sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = 0 \quad \Longrightarrow \quad \sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = \text{cte} . \tag{36}$$
+$$\small \sum_{\nu=1}^N m_\nu \ddot{\mathbf{r}}_\nu = \frac{d}{dt}\sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = 0 \quad \Longrightarrow \quad \sum_{\nu=1}^N m_\nu \dot{\mathbf{r}}_\nu = \text{cte}$$
 
 ## Conservation du moment cinétique linéaire comme conséquence de la 3e loi
 
@@ -310,11 +309,9 @@ Le moment angulaire d'une particule $\nu$ :
 $$\mathbf{l}_\nu = \mathbf{r}_\nu \times \mathbf{p}_\nu = m_\nu \mathbf{r}_\nu \times \dot{\mathbf{r}}_\nu \tag{41,42}$$
 
 Sa dérivée :
-$$
-\begin{align}
-\dot{\mathbf{l}}_\nu &= m_\nu \dot{\mathbf{r}}_\nu \times \dot{\mathbf{r}}_\nu + m_\nu \mathbf{r}_\nu \times \ddot{\mathbf{r}}_\nu &= \mathbf{r}_\nu \times \mathbf{F}_\nu &= \mathbf{r}_\nu \times \sum_{\mu=1}^N \mathbf{F}_{\nu\mu} . \tag{43}$$
-\end{align}
-$$
+$$\dot{\mathbf{l}}_\nu = m_\nu \dot{\mathbf{r}}_\nu \times \dot{\mathbf{r}}_\nu + m_\nu \mathbf{r}_\nu \times \ddot{\mathbf{r}}_\nu $$
+$$\dot{\mathbf{l}}_\nu = \mathbf{r}_\nu \times \mathbf{F}_\nu$$
+$$ \dot{\mathbf{l}}_\nu = \mathbf{r}_\nu \times \sum_{\mu=1}^N \mathbf{F}_{\nu\mu} .$$
 
 ## Moment angulaire total
 
@@ -348,20 +345,15 @@ Soit une trajectoire $C_1$ entre les temps $t_0$ et $t$.
 ## Travail $\rightarrow$ Énergie cinétique
 
 Calculons $\mathbf{F} \cdot d\mathbf{x}$ le long de cette trajectoire :
-$$
-\begin{gather}
-\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \int_{t_0}^t \mathbf{F} \cdot \frac{d\mathbf{x}}{dt}\, dt \;\overset{\text{traj. phys.}}{=}\; \int_{t_0}^t m\frac{d^2\mathbf{x}}{dt^2} \cdot \frac{d\mathbf{x}}{dt}\, dt \tag{53}
-\end{gather}
-$$
+$$\int_{x(t_0)}^{x(t)} \mathbf{F} \cdot d\mathbf{x} = \int_{t_0}^t \mathbf{F} \cdot \frac{d\mathbf{x}}{dt}\, dt $$
+$$\overset{\text{traj. phys.}}{=}\; \int_{t_0}^t m\frac{d^2\mathbf{x}}{dt^2} \cdot \frac{d\mathbf{x}}{dt}\, dt \tag{53}$$
 
 ## Travail $\rightarrow$ Énergie cinétique
 
 Calculons $\dfrac{d}{dt}(v^2)$ en détail, avec $v = d\mathbf{x}/dt$ :
-$$
-\begin{align}
-\frac{d}{dt}(v^2) &= \frac{d}{dt}\left(\frac{d\mathbf{x}}{dt}\cdot\frac{d\mathbf{x}}{dt}\right) &= \left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)\cdot\frac{d\mathbf{x}}{dt} + \frac{d\mathbf{x}}{dt}\cdot\left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right) &= 2\frac{d^2\mathbf{x}}{dt^2}\cdot\frac{d\mathbf{x}}{dt}
-\end{align}
-$$
+$$\frac{d}{dt}(v^2) = \frac{d}{dt}\left(\frac{d\mathbf{x}}{dt}\cdot\frac{d\mathbf{x}}{dt}\right)$$
+$$ = \left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)\cdot\frac{d\mathbf{x}}{dt} + \frac{d\mathbf{x}}{dt}\cdot\left(\frac{d}{dt}\frac{d\mathbf{x}}{dt}\right)$$
+$$ = 2\frac{d^2\mathbf{x}}{dt^2}\cdot\frac{d\mathbf{x}}{dt}$$
 
 ## Travail $\rightarrow$ Énergie cinétique
 
@@ -400,7 +392,7 @@ Le travail fait par une force conservative entre $\mathbf{x}_0$ et $\mathbf{x}$ 
 $$\small \int_{x_0}^{x} \mathbf{F}\cdot d\mathbf{x} = -\big(V(\mathbf{x}) - V(\mathbf{x}_0)\big) = V_0 - V \tag{60}$$
 
 Puisque ce même travail vaut aussi $T - T_0$ :
-$$\small T(x) - T(x_0) = V(x_0) - V(x) \quad\Longrightarrow\quad T + V = T_0 + V_0 \tag{62}$$
+$$\small T(x) - T(x_0) = V(x_0) - V(x) \; \Longrightarrow \; T + V = T_0 + V_0 \tag{62}$$
 d'où l'énergie totale ne change pas, elle est conservée.
 
 
@@ -434,10 +426,10 @@ soit la force externe totale sur toutes les particules.
 ## Le centre de masse
 
 Avec la masse totale $M = \sum_i m_i$, on écrit
-$$\mathbf{F} = M\left[\frac{1}{M}\sum_i m_i \ddot{\mathbf{x}}_i\right] = M\frac{d^2}{dt^2}\left[\frac{1}{M}\sum_i m_i \mathbf{x}_i\right], \tag{65}$$
+$$\small \mathbf{F} = M\left[\frac{1}{M}\sum_i m_i \ddot{\mathbf{x}}_i\right] = M\frac{d^2}{dt^2}\left[\frac{1}{M}\sum_i m_i \mathbf{x}_i\right], \tag{65}$$
 
 donc
-$$\mathbf{F} = M\frac{d^2}{dt^2}\mathbf{X}, \qquad \text{où} \mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i \tag{66}$$
+$$\mathbf{F} = M\frac{d^2}{dt^2}\mathbf{X}, \qquad \text{où}\; \mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i \tag{66}$$
 
 ## Le centre de masse
 
@@ -458,7 +450,8 @@ La force extérieure s'exprime alors $\mathbf{F} = \frac{d}{dt}\mathbf{P}$ et si
 
 ## Le moment angulaire du système
 
-Moment angulaire total par rapport à l'origine $O$ : $\mathbf{L} = \sum_i \mathbf{l}_i = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$. $\tag{69}$
+Moment angulaire total par rapport à l'origine $O$ : 
+$$\mathbf{L} = \sum_i \mathbf{l}_i = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i. \tag{69}$$
 
 Introduisons les coordonnées primes, qui sont relatives à la position du centre de masse $X$, soit $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. 
 
@@ -473,18 +466,20 @@ En substituant dans $\mathbf{L} = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}
 $$\small \mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
 
 En développant le produit vectoriel :
-$$\small \mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right) \tag{71}$$
+$$\small \mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right)$$
 
 ## Moment angulaire du système
 
 En séparant les termes et en regroupant les sommes sur $i$ :
-$$\mathbf{L} = \left(\sum_i m_i\, \mathbf{x}'_i \times \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i\right)\mathbf{X}\times\dot{\mathbf{X}} \tag{72}$$
+$$\mathbf{L} = \left(\sum_i m_i\, \mathbf{x}'_i \times \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i\right)\mathbf{X}\times\dot{\mathbf{X}} $$
 $$+\; \mathbf{X}\times\left(\sum_i m_i \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i \mathbf{x}'_i\right)\times\dot{\mathbf{X}} \tag{73}$$
 
 ## Moment angulaire du système
 
 Or, par définition même du centre de masse, $\sum_i m_i \mathbf{x}'_i = 0$ (et donc aussi $\sum_i m_i \dot{\mathbf{x}}'_i = 0$) — les deux derniers termes de (73) s'annulent donc identiquement. Il reste :
 $$\mathbf{L} = \underbrace{\sum_i m_i \mathbf{x}'_i \times \dot{\mathbf{x}}'_i}_{\mathbf{L}'} + \underbrace{M\mathbf{X}\times\dot{\mathbf{X}}}_{\mathbf{L}_{CM}} = \mathbf{L}' + \mathbf{L}_{CM} \tag{74,75}$$
+
+## Moment angulaire du système
 
 ::: {.callout-important title="Remarque 1.8"}
 Le moment angulaire total $\mathbf{L}$ par rapport à l'origine d'un système inertiel est la somme du moment angulaire relatif $\mathbf{L}'$ des particules par rapport au CM, et du moment angulaire $\mathbf{L}_{CM} = \mathbf{X}\times\mathbf{P}$ correspondant à la masse totale concentrée au CM. $\tag{76}$
