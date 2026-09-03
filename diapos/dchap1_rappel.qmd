@@ -47,9 +47,9 @@ revealjs-plugins:
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
 
-## SOMMAIRE
+## SOMMAIRE DU CHAPITRE 1
 
-1. Rappel
+Rappel
    - 1.1 Trajectoire et cinématique d'une particule ponctuelle
    - 1.2 Plusieurs particules ponctuelles
    - 1.3 Éléments de dynamique
@@ -59,33 +59,45 @@ revealjs-plugins:
 
 # 1.1 Trajectoire et cinématique d'une particule ponctuelle
 
-## Position et temps
+## Position et temps : les ingrédients de base
 
 **Particule ponctuelle** : sans dimension ; mouvement de translation uniquement (pas de rotation sur elle-même).
 
-**Espace** = 3 dimensions de distance, avec une origine $O$ et 3 axes orientés.
+**Espace** = 3 dimensions de distance (3D), avec une origine $O$ et 3 axes orientés.
 
-**Temps $t$** (en mécanique classique) :
+**+ Temps $t$** (en mécanique classique) :
 
 - $t \neq$ dimension (contrairement à la relativité)
-- $t$ = paramètre immuable, indépendant des objets physiques, servant à mesurer le taux d'évolution.
+- $t$ = paramètre immuable, indépendant des objets physiques, servant à mesurer le taux de variation $\rightarrow$ évolution dynamique.
 
 ::: {.notes}
-Poser le décor : espace euclidien à 3D + temps absolu, cadre newtonien classique
-avant l'introduction du formalisme lagrangien aux chapitres suivants.
+Poser le décor : espace euclidien à 3D + temps absolu sont les ingrédients de base du cadre newtonien classique et du formalisme lagrangien à venir.
 :::
 
-## Position et temps (suite...)
+<---#bonne figure à mettre
+## Position et temps : les ingrédients
+
+See @fig-circuit for the initial high-frequency response layout.
+
+![Initial circuit layout](diagram.svg){#fig-circuit width="70%" fig-align="center"}
+--->
+
+## Position et temps
 
 La position instantanée de la particule est dénotée par un point $P$, entièrement définie par un triplet de nombres en 3D — les **coordonnées** du point (notées $x_i$ ou $q_i$), mesurant généralement des longueurs ou des angles.
 
 On définit aussi le **vecteur position** de la particule, noté $\mathbf{x}$ ou $\mathbf{r}$, allant de l'origine $O$ au point $P$.
 
+## Position et temps
+
 ::: {.callout-note title="Notation 1.1"}
-Les vecteurs en 3D sont représentés par des caractères gras (ex. $\mathbf{x}$ ou $\mathbf{r}$). Les vecteurs $\mathbf{e}$ représentent des vecteurs unitaires, c.-à-d. de norme 1 : $|\mathbf{e}| = 1$.
+- Les vecteurs en 3D sont représentés par des caractères gras (ex. $\mathbf{x}$ ou $\mathbf{r}$). 
+- Les vecteurs $\mathbf{e}$ représentent des vecteurs unitaires, c.-à-d. de norme 1 : $|\mathbf{e}| = 1$.
 :::
 
-L'évolution du système physique est décrite par une **trajectoire** $C$ (déplacement continu du point $P$) et un **paramètre invariant** qui augmente — par exemple $t$, où $t_{\text{initial}} \le t \le t_{\text{final}}$.
+## Position et temps
+
+L'évolution du système physique est décrite par une **trajectoire** $C$ (déplacement continu du point $P$) et un **paramètre invariant** qui augmente — par exemple le temps $t$, où $t_{\text{initial}} \le t \le t_{\text{final}}$.
 
 ::: {.callout-tip title="Exemple 1.1 — Trajectoire"}
 La position $\mathbf{x}$ du point $P$ varie dans le temps ; la trajectoire est décrite par $\mathbf{x} = \mathbf{x}(t)$, soit en composantes :
@@ -99,16 +111,29 @@ $$\mathbf{V}(t) = \frac{d}{dt}\mathbf{x}(t) \equiv \dot{\mathbf{x}}(t) . \tag{2}
 
 Notons $p$ le paramètre (arbitraire) dont la variation génère la trajectoire ($p$ peut être ou non le temps), variant de façon monotone entre $p_0$ et $p_1$.
 
+## Vitesse
+
 La longueur $s$ de la trajectoire entre $p_0$ et $p_1$ :
-$$s(p_0, p_1) = \int_{s(p_0)}^{s(p_1)} ds = \int_{p_0}^{p_1} dp \sqrt{\sum_i \left(\frac{dx_i}{dp}\right)^2} \tag{3}$$
+$$\small s(p_0, p_1) = \int_{s(p_0)}^{s(p_1)} ds = \int_{p_0}^{p_1} dp \sqrt{\sum_i \left(\frac{dx_i}{dp}\right)^2} \tag{3}$$
 
 Alors :
 $$\mathbf{V} = \frac{d\mathbf{x}}{dt} = \frac{ds}{dt}\frac{d\mathbf{x}}{ds} \equiv v\frac{d\mathbf{x}}{ds} . \tag{4}$$
 
-## Vitesse (suite...)
+
+<---#bonne figure à mettre
+## Position et temps : les ingrédients
+
+See @fig-circuit for the initial high-frequency response layout.
+
+![Initial circuit layout](diagram.svg){#fig-circuit width="70%" fig-align="center"}
+--->
+
+## Vitesse
 
 Puisque $v = |\mathbf{V}|$ et $\mathbf{V} = v \dfrac{d\mathbf{x}}{ds}$, on voit que :
 $$\frac{d\mathbf{x}}{ds} = \mathbf{e}_k = \text{vecteur unitaire tangent à la trajectoire} \tag{5}$$
+
+## Vitesse
 
 En effet :
 $$\mathbf{e}_k = \lim_{\Delta s \to 0} \frac{\Delta \mathbf{x}}{\Delta s} = \frac{d\mathbf{x}}{ds} \tag{6}$$
@@ -117,6 +142,8 @@ ainsi $\mathbf{V} = v\,\mathbf{e}_k$, où :
 
 - $\mathbf{e}_k$ : direction du vecteur de vitesse $\mathbf{V}$
 - $v$ : grandeur du vecteur de vitesse $\mathbf{V}$ (aussi appelée « la vitesse » par abus de langage)
+
+## Vitesse
 
 ::: {.callout-important title="Remarque 1.1 — Direction de V"}
 $\mathbf{V}$ est toujours tangent à la trajectoire. Pourvu que le paramètre $p$ varie de façon monotone et continue, $d\mathbf{x}/dp$ est tangent à la trajectoire — le cas $\mathbf{V} = d\mathbf{x}/dt$ n'est qu'un cas particulier.
@@ -128,16 +155,25 @@ La vitesse $\mathbf{V}$ peut varier le long de la trajectoire. On définit l'**a
 $$\mathbf{a} = \frac{d\mathbf{V}}{dt} = \frac{d^2\mathbf{x}}{dt^2} \equiv \dot{\mathbf{V}} \equiv \ddot{\mathbf{x}} \tag{7}$$
 
 et clairement :
-$$\mathbf{a} = \frac{d(v\mathbf{e}_k)}{dt} = \frac{dv}{dt}\mathbf{e}_k + v\frac{d\mathbf{e}_k}{dt} \tag{8}$$
+$$
+\begin{aligned}
+\mathbf{a} &= \frac{d(v\mathbf{e}_k)}{dt} 
+&= \frac{dv}{dt}\mathbf{e}_k + v\frac{d\mathbf{e}_k}{dt} \tag{8}
+\end{aligned}
+$$
+
+## Accélération
 
 Puisque $\mathbf{e}_k \cdot \mathbf{e}_k = 1$, on a $\dfrac{d(\mathbf{e}_k \cdot \mathbf{e}_k)}{dt} = 2\mathbf{e}_k \cdot \dfrac{d\mathbf{e}_k}{dt} = 0$, donc $\dfrac{d\mathbf{e}_k}{dt} \perp \mathbf{e}_k$.
 
 On appelle $\mathbf{e}_\perp$ le vecteur unitaire normal à la trajectoire (dans le plan instantané de la trajectoire), et on définit par $\dfrac{d\mathbf{e}_k}{ds} = \dfrac{1}{\rho}$.
 
-## Accélération (suite...)
+## Accélération
 
 On obtient finalement :
 $$\mathbf{a} = \underbrace{\frac{d^2 s}{dt^2}}_{\parallel \text{ trajectoire}} \mathbf{e}_k + \underbrace{\frac{v^2}{\rho}}_{\perp \text{ trajectoire}} \mathbf{e}_\perp \tag{11}$$
+
+## Accélération
 
 L'accélération $\mathbf{a}$ possède donc :
 
@@ -148,7 +184,7 @@ L'accélération $\mathbf{a}$ possède donc :
 
 # 1.2 Plusieurs particules ponctuelles
 
-## Plusieurs particules ponctuelles
+## Généralisation à $N$ particules ponctuelles
 
 Pour $N$ particules dans notre espace de configuration à 3D, décrit par $N$ triplets de nombres (total $3N$) :
 $$\mathbf{r}_\nu = (x_{\nu 1}, x_{\nu 2}, x_{\nu 3}); \quad \nu = 1, 2, \dots, N . \tag{12}$$
@@ -156,6 +192,8 @@ $$\mathbf{r}_\nu = (x_{\nu 1}, x_{\nu 2}, x_{\nu 3}); \quad \nu = 1, 2, \dots, N
 L'évolution du système correspond à $N$ trajectoires (une par particule) dans cet espace.
 
 **Alternative** : il est souvent utile d'imaginer un espace abstrait comptant $3N$ dimensions, où $3N$ coordonnées décrivent la position d'un seul point de cet espace, donnant à lui seul la position instantanée des $N$ particules.
+
+## Généralisation à $N$ particules ponctuelles
 
 ::: {.callout-note title="Notation 1.2 — Notation en 3N dimensions"}
 Par un léger abus de notation, on note les coordonnées de ce point $\{x_i ; i = 1, 2, \dots, n = 3N\}$ et on parle de la trajectoire du système dans cet espace.
