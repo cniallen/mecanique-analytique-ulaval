@@ -14,7 +14,6 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
-      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -418,21 +417,29 @@ La force est donnée par $-\nabla V$ ; on peut donc remplacer $V$ par $(V + \tex
 
 ## Quantité de mouvement totale
 
-Soit un ensemble de $N$ particules interagissant entre elles, avec possibilité de forces extérieures. Définissons : $m_i$ = masse de la particule $i$, $\mathbf{F}_i$ = force externe sur elle, $\mathbf{F}_{ij}$ = force due à l'interaction de $j$ sur $i$ (avec $\mathbf{F}_{jj}=0$ et $\mathbf{F}_{ij} = -\mathbf{F}_{ji}$).
+Soit un ensemble de $N$ particules interagissant entre elles, avec possibilité de forces extérieures. 
+
+Définissons : $m_i$ = masse de la particule $i$, $\mathbf{F}_i$ = force externe sur elle, $\mathbf{F}_{ij}$ = force due à l'interaction de $j$ sur $i$ (avec $\mathbf{F}_{jj}=0$ et $\mathbf{F}_{ij} = -\mathbf{F}_{ji}$).
+
+## Quantité de mouvement totale
 
 Équation de mouvement pour la particule $i$ :
 $$m_i \ddot{\mathbf{x}}_i = \mathbf{F}_i + \sum_j \mathbf{F}_{ij} \tag{63}$$
 
 En sommant sur toutes les particules (les forces internes s'annulent deux à deux) :
-$$\sum_i m_i \ddot{\mathbf{x}}_i = \sum_i \mathbf{F}_i = \mathbf{F} : \text{force externe totale} \tag{64}$$
+$$\sum_i m_i \ddot{\mathbf{x}}_i = \sum_i \mathbf{F}_i = \mathbf{F} \tag{64}$$
+
+soit la force externe totale sur toutes les particules.
 
 ## Le centre de masse
 
-Avec $M = \sum_i m_i$ (masse totale) :
-$$\mathbf{F} = M\left[\frac{1}{M}\sum_i m_i \ddot{\mathbf{x}}_i\right] = M\frac{d^2}{dt^2}\left[\frac{1}{M}\sum_i m_i \mathbf{x}_i\right] \tag{65}$$
+Avec la masse totale $M = \sum_i m_i$, on écrit
+$$\mathbf{F} = M\left[\frac{1}{M}\sum_i m_i \ddot{\mathbf{x}}_i\right] = M\frac{d^2}{dt^2}\left[\frac{1}{M}\sum_i m_i \mathbf{x}_i\right], \tag{65}$$
 
-d'où :
-$$\mathbf{F} = M\frac{d^2}{dt^2}\mathbf{X}, \qquad \mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i \tag{66}$$
+donc
+$$\mathbf{F} = M\frac{d^2}{dt^2}\mathbf{X}, \qquad \text{où} \mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i \tag{66}$$
+
+## Le centre de masse
 
 ::: {.callout-note title="Définition 1.3 — Centre de masse"}
 $$\mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i, \qquad M = \sum_i m_i \tag{67}$$
@@ -442,18 +449,18 @@ $$\mathbf{X} = \frac{1}{M}\sum_i m_i \mathbf{x}_i, \qquad M = \sum_i m_i \tag{67
 Quelle que soit l'interaction entre les particules, le mouvement du centre de masse (CM) se fait comme si toute la masse y était concentrée, avec la force externe totale s'y appliquant.
 :::
 
-## Moment linéaire du système
+## Le moment linéaire $\equiv$ quantité de mouvement
 
-Moment linéaire total :
-$$\mathbf{P} = M\frac{d\mathbf{X}}{dt} = \sum_i m_i \dot{\mathbf{x}}_i, \qquad \mathbf{F} = \frac{d}{dt}\mathbf{P}$$
+Définissant le moment linéaire total du système
+$$\mathbf{P} = M\frac{d\mathbf{X}}{dt} = \sum_i m_i \dot{\mathbf{x}}_i.$$
 
-Si la force extérieure est nulle : $\mathbf{P} = \text{cte}$.
+La force extérieure s'exprime alors $\mathbf{F} = \frac{d}{dt}\mathbf{P}$ et si elle est nulle,  $\frac{d}{dt}\mathbf{P}=0$ et $\mathbf{P} = \text{cte}$.
+
+## Le moment angulaire du système
 
 Moment angulaire total par rapport à l'origine $O$ : $\mathbf{L} = \sum_i \mathbf{l}_i = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$. $\tag{69}$
 
-## Coordonnées relatives
-
-Introduisons les coordonnées relatives à la position du centre de masse, $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. 
+Introduisons les coordonnées primes, qui sont relatives à la position du centre de masse $X$, soit $\mathbf{x}'_i = \mathbf{x}_i - \mathbf{X}$, c.-à-d. $\mathbf{x}_i = \mathbf{X} + \mathbf{x}'_i$. 
 
 ## Coordonnées relatives
 
@@ -463,16 +470,18 @@ Introduisons les coordonnées relatives à la position du centre de masse, $\mat
 ## Moment angulaire du système
 
 En substituant dans $\mathbf{L} = \sum_i m_i \mathbf{x}_i \times \dot{\mathbf{x}}_i$ :
-$$\mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
+$$\small \mathbf{L} = \sum_i m_i (\mathbf{X}+\mathbf{x}'_i)\times(\dot{\mathbf{X}}+\dot{\mathbf{x}}'_i) \tag{70}$$
 
 En développant le produit vectoriel :
-$$\mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right) \tag{71}$$
+$$\small \mathbf{L} = \sum_i m_i \left(\mathbf{x}'_i \times \dot{\mathbf{x}}'_i + \mathbf{X}\times\dot{\mathbf{X}} + \mathbf{X}\times\dot{\mathbf{x}}'_i + \mathbf{x}'_i\times\dot{\mathbf{X}}\right) \tag{71}$$
 
 ## Moment angulaire du système
 
 En séparant les termes et en regroupant les sommes sur $i$ :
 $$\mathbf{L} = \left(\sum_i m_i\, \mathbf{x}'_i \times \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i\right)\mathbf{X}\times\dot{\mathbf{X}} \tag{72}$$
 $$+\; \mathbf{X}\times\left(\sum_i m_i \dot{\mathbf{x}}'_i\right) + \left(\sum_i m_i \mathbf{x}'_i\right)\times\dot{\mathbf{X}} \tag{73}$$
+
+## Moment angulaire du système
 
 Or, par définition même du centre de masse, $\sum_i m_i \mathbf{x}'_i = 0$ (et donc aussi $\sum_i m_i \dot{\mathbf{x}}'_i = 0$) — les deux derniers termes de (73) s'annulent donc identiquement. Il reste :
 $$\mathbf{L} = \underbrace{\sum_i m_i \mathbf{x}'_i \times \dot{\mathbf{x}}'_i}_{\mathbf{L}'} + \underbrace{M\mathbf{X}\times\dot{\mathbf{X}}}_{\mathbf{L}_{CM}} = \mathbf{L}' + \mathbf{L}_{CM} \tag{74,75}$$
@@ -499,6 +508,8 @@ Passage d'un ensemble de particules ponctuelles à un corps de volume fini :
 - une particule → élément de volume infinitésimal
 - sommes sur toutes les particules → intégrales sur tous les éléments de volume
 - masses $m_1, m_2, \dots$ → élément de masse $dm = \rho(\mathbf{x})\,d^3x$, où $\rho(\mathbf{x})$ = densité de masse.
+
+## Milieux continus
 
 Masse totale :
 $$M = \int dm = \int_{\text{Volume}} \rho(\mathbf{x})\,d^3x \tag{77}$$
