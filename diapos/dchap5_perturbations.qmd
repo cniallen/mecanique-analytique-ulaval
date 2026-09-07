@@ -1,0 +1,450 @@
+---
+title: "Mécanique analytique"
+subtitle: "PHY-2000 — Chapitre 5 : Théorie des perturbations"
+author: "Prof. Claudine Allen"
+institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+from: markdown+emoji
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    html-math-method: katex
+    css: |
+      .reveal .slides {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    spotlight:
+      size: 30
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
+      initialPresentationMode: false
+    quiz:
+      checkKey: "c"
+      resetKey: "q"
+      shuffleKey: "t"
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: "Correct !"
+      defaultIncorrect: "Incorrect."
+revealjs-plugins:
+  - quiz
+  - spotlight
+---
+
+## Progression dans le cours
+
+- Chapitre 0 : Plan de cours  :white_check_mark:
+- Chapitre 1 : Rappel  :white_check_mark:
+- Chapitre 2 : Formalisme de Lagrange  :white_check_mark:
+- Chapitre 3 : Applications et propriétés  :white_check_mark:
+- Chapitre 4 : Formalisme canonique  :white_check_mark:
+- Chapitre 5 : Théorie des perturbations  :arrow_left:
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
+
+## SOMMAIRE DU CHAPITRE 5
+
+**Théorie des perturbations**
+5.1 Buts de la méthode
+5.2 L'idée de base : « varier » les constantes
+5.3 Les approximations
+5.4 Exemple : un cas très simple
+5.5 Méthode canonique de perturbations
+5.6 Autre exemple : l'oscillateur quartique
+5.7 Résumé
+
+# 5.1 Buts de la méthode
+
+## Buts de la méthode
+
+**Constat :** peu de problèmes de mécanique (ou de physique en général) ont une solution analytique exacte.
+
+**Solution numérique** — avantages : s'applique à de nombreux problèmes, avec pratiquement la précision désirée. Désavantages : analyse plus difficile du comportement général, répétition des calculs pour chaque condition initiale/frontière $\implies$ calculs longs et onéreux, comportement chaotique possible.
+
+::: {.callout-tip title="Exemple 5.1 — Comportement chaotique"}
+Le problème à 3 corps peut s'avérer chaotique (très sensible aux conditions initiales) — en pratique, **impossible** de le résoudre numériquement avec une précision arbitraire !
+:::
+
+**Méthodes approximatives** — avantages : si aucune solution analytique n'est connue (ou trop complexe), permettent d'obtenir une solution analytique *approximative*, généralisable. Désavantages : peuvent être difficiles à utiliser, voire totalement inappropriées.
+
+Nous considérons ici seulement les problèmes qui peuvent faire l'objet de **perturbations**.
+
+# 5.2 L'idée de base : « varier » les constantes
+
+## L'idée de base
+
+Soit un système décrit par un hamiltonien $H(q_i,p_i)$, $i=1,\dots,n$. La solution dépend de $2n$ constantes d'intégration, disons $a_i$ et $b_i$ (constantes du mouvement) :
+$$q_i = q_i(t,a_j,b_j), \qquad p_i = p_i(t,a_j,b_j); \quad i,j=1,\dots,n \tag{1}$$
+
+La méthode des perturbations permet d'obtenir cette solution approximative, **si** on peut écrire :
+$$H(q_i,p_i) = H_0(q_i,p_i) + H_1(q_i,p_i) \tag{2}$$
+
+de façon telle que (1) il existe une solution analytique pour $H_0$, et (2) $H_1 \ll H_0$.
+
+::: {.callout-important title="Comment vérifier $H_1\ll H_0$ ?"}
+Souvent difficile à vérifier *a priori* — requiert une certaine stabilité du mouvement face aux changements des conditions initiales, ce qui **exclut** un traitement des mouvements chaotiques.
+:::
+
+## Étape 1 — Résoudre pour $H_0$
+
+L'idée de base est relativement simple ; elle compte 6 étapes.
+
+**1.** On résout analytiquement pour $H_0$ : on obtient les solutions
+$$q_i^{(0)} = q_i^{(0)}(t,a_j^{(0)},b_j^{(0)}), \qquad p_i^{(0)} = p_i^{(0)}(t,a_j^{(0)},b_j^{(0)}) \tag{3}$$
+
+On considère cette solution comme l'approximation « 0 » pour l'hamiltonien complet $H(q_i,p_i)$.
+
+**2.** On inverse ces $2n$ équations pour obtenir :
+$$a_i^{(0)} = a_i^{(0)}(t,q_j^{(0)},p_j^{(0)}), \qquad b_i^{(0)} = b_i^{(0)}(t,q_j^{(0)},p_j^{(0)}) \tag{4}$$
+
+## Étape 2 — Vérification et hypothèse clé
+
+**3.** Puisque ce sont des constantes du mouvement, ces $2n$ équations vérifient évidemment $\dot a_i^{(0)}=\dot b_i^{(0)}=0$, soit :
+$$\dot a_i^{(0)} = \{a_i^{(0)},H_0\}+\frac{\partial}{\partial t}a_i^{(0)}\equiv0, \qquad \dot b_i^{(0)} = \{b_i^{(0)},H_0\}+\frac{\partial}{\partial t}b_i^{(0)}\equiv0 \tag{5}$$
+
+**4.** On pose que la solution complète pour $H$ prend la **même forme** que (3) et (4), mais avec des $a_i^{(0)}$ et $b_i^{(0)}$ remplacés par $a_i=a_i(t)$ et $b_i=b_i(t)$ — **c'est l'idée centrale : « varier les constantes »**. Alors $a_i,b_i$ ne sont plus des constantes du mouvement : $\dot a_i\neq0$, $\dot b_i\neq0$ (7).
+
+## Étape 3 — Isoler l'effet de $H_1$
+
+**5.** On calcule les $a_i$ et $b_i$ avec l'équation du mouvement impliquant $H=H_0+H_1$ au complet, en présumant que $a_i,b_i$ ont la même dépendance en $q_i,p_i$ qu'en (4) :
+$$\dot a_i = \{a_i,H\}+\frac{\partial}{\partial t}a_i = \{a_i,H_0\}+\{a_i,H_1\}+\frac{\partial}{\partial t}a_i \tag{8}$$
+$$\dot b_i = \{b_i,H\}+\frac{\partial}{\partial t}b_i = \{b_i,H_0\}+\{b_i,H_1\}+\frac{\partial}{\partial t}b_i \tag{9}$$
+
+Mais en connaissant déjà la relation (5) — $\{a_i,H_0\}+\partial a_i/\partial t=0$ — il ne reste qu'à résoudre :
+$$\dot a_i = \{a_i,H_1\}, \qquad \dot b_i = \{b_i,H_1\} \tag{12,13}$$
+
+**L'effet de $H_0$ s'annule exactement** ; seul $H_1$ contribue à faire varier $a_i,b_i$ dans le temps.
+
+## Étape 4 — Assembler la solution
+
+**6.** Finalement, on intègre ces équations pour obtenir $a_i(t)$ et $b_i(t)$, et on les replace dans les équations (3) à la place de $a_i^{(0)}$ et $b_i^{(0)}$ pour obtenir la solution désirée :
+$$q_i = q_i^{(0)}(t,a_j,b_j), \qquad p_i = p_i^{(0)}(t,a_j,b_j) \tag{14}$$
+
+Les fonctions $q_i^{(0)},p_i^{(0)}$ sont **les mêmes fonctions** que la solution non perturbée, mais on y substitue :
+$$a_i^{(0)} \Longrightarrow a_i=a_i(t), \qquad b_i^{(0)} \Longrightarrow b_i=b_i(t) \tag{15}$$
+
+qui dépendent maintenant explicitement du temps.
+
+# 5.3 Les approximations
+
+## Où interviennent les approximations ?
+
+À ce point, **aucune approximation n'a été faite** — tout le développement précédent est exact. Les approximations apparaissent dans l'**intégration** des équations $\dot a_i=\{a_i,H_1\}$, $\dot b_i=\{b_i,H_1\}$ — souvent trop complexes pour être résolues exactement.
+
+On présente souvent la méthode perturbative comme l'approximation d'un développement en série de puissance d'un paramètre caractérisant $H_1$ (ex. mécanique quantique) — **mais la série de puissance n'est pas la seule approximation possible.**
+
+**3 types d'approximations** :
+
+1. La méthode par série
+2. La méthode itérative
+3. La méthode de la moyenne (surtout utile lorsque les trajectoires de $H_0$ sont des orbites fermées)
+
+## 5.3.1 — Méthode par série
+
+On identifie un paramètre $\lambda$, idéalement petit et sans dimension, tel que $H_1=\lambda h(q_i,p_i)$ (18). On pose que les $a_i$ (et $b_i$) s'écrivent en séries de puissance :
+$$a_i = a_i^{(0)}+\lambda a_i^{(1)}+\lambda^2a_i^{(2)}+\cdots \tag{19}$$
+
+En substituant dans $\dot a_i=\{a_i,\lambda h\}$ et en égalant les termes de même puissance en $\lambda$ :
+$$\dot a_i^{(0)}=0, \qquad \dot a_i^{(1)}=\{a_i^{(0)},h\}, \qquad \dot a_i^{(2)}=\{a_i^{(1)},h\}, \qquad \dots, \qquad \dot a_i^{(n)}=\{a_i^{(n-1)},h\} \tag{22-26}$$
+
+Chaque équation s'intègre en cascade : $a_i^{(0)}=$ cte, $a_i^{(1)}=\int\{a_i^{(0)},h\}dt$, $a_i^{(2)}=\int\{a_i^{(1)},h\}dt$, etc. (même chose pour les $b_i$).
+
+::: {.callout-important title="Théorie des perturbations en physique moderne"}
+C'est la philosophie qu'on retrouve dans la théorie des perturbations de la mécanique quantique — et en QED, elle donne des résultats extrêmement précis.
+:::
+
+## 5.3.2 — Méthode itérative
+
+Suppose que la suite converge. **1ʳᵉ approximation** : à partir de $\dot a_i=\{a_i,H_1\}$, on calcule :
+$$\dot a_i^{(1)}=\{a_i,H_1\}\big|_{a_j^{(0)},b_j^{(0)}}, \qquad \dot b_i^{(1)}=\{b_i,H_1\}\big|_{a_j^{(0)},b_j^{(0)}} \tag{29,30}$$
+
+(le crochet est évalué en substituant $a_i=a_j^{(0)}$, $b_i=b_j^{(0)}$ après le calcul). On intègre pour obtenir $a_j^{(1)}(t)$, $b_j^{(1)}(t)$.
+
+**2ᵉ approximation** : on utilise $a_j^{(1)},b_j^{(1)}$ à droite pour recalculer :
+$$\dot a_i^{(2)}=\{a_i,H_1\}\big|_{a_j^{(1)},b_j^{(1)}}, \qquad\text{etc.} \tag{31,32}$$
+
+On répète à volonté. **Finalement** : on peut s'arrêter à la $n$ᵉ approximation, ou tenter la solution exacte $a_i=\lim_{n\to\infty}a_i^{(n)}$, si la suite converge.
+
+## 5.3.3 — Méthode de la moyenne
+
+**Limitation** : utilisable lorsque la solution non perturbée est une **orbite cyclique** de période $\tau$. **But** : évaluer le changement net par période — l'effet moyen de la perturbation sur une orbite complète :
+$$\dot a_i = \frac{1}{\tau}\int_0^\tau \{a_i,H_1\}\,dt, \qquad \dot b_i = \frac{1}{\tau}\int_0^\tau\{b_i,H_1\}\,dt \tag{33,34}$$
+
+Cette méthode est compatible avec la méthode itérative.
+
+::: {.callout-tip title="Exemple 5.2"}
+Les changements orbitaux des satellites et des planètes dus à certaines excentricités ou aux autres planètes sont généralement calculés ainsi — comme le déplacement (rotation) de l'orbite elliptique de Mercure.
+:::
+
+::: {.callout-important title="Remarque 5.1 — Attention"}
+Les crochets de Poisson ici sont présumés calculés avec les variables canoniques $q_i,p_i$ — impliquant un constant va-et-vient via (3),(4). On verra à la section 5.5 une façon systématique de choisir $\alpha_i,\beta_i$ de Hamilton-Jacobi, qui ont l'avantage d'être eux-mêmes canoniques.
+:::
+
+# 5.4 Exemple : un cas très simple
+
+## Particule soumise à une force constante {.smaller}
+
+::: {.callout-tip title="Exemple 5.3"}
+$$H(p,q) = \frac{p^2}{2m}+\lambda q \tag{35,36}$$
+$V=\lambda q$, force constante $F=-\nabla V=-\lambda$ (opposée au mouvement si $\lambda>0$).
+:::
+
+**Solution exacte** (accélération constante) : $q(t)=q_0+\dot q_0t-\dfrac{\lambda t^2}{2m}$.
+
+**Approche canonique directe** : $\dot q=\{q,H\}=p/m$, $\dot p=\{p,H\}=-\lambda$ (38), donc $\ddot q=-\lambda/m$. En intégrant deux fois :
+$$q(t)=q_0+\dot q_0t-\frac{\lambda t^2}{2m}, \qquad p(t)=m\dot q=m\dot q_0-\lambda t \tag{39,40}$$
+
+## Approche perturbative : étapes 1-2 {.smaller}
+
+Décomposons $H=H_0+H_1$ avec $H_0=p^2/2m$, $H_1=\lambda q$ (41).
+
+**1.** Solution pour $H_0$ (particule libre, triviale) : $\dot q=p/m$, $\dot p=0$ (42), donc :
+$$q=a^{(0)}t+b^{(0)}, \qquad p=ma^{(0)} \tag{43,44}$$
+
+**2.** Inversion : $a^{(0)}=p/m$, $b^{(0)}=q-\dfrac{p}{m}t$ (45,46). On vérifie (exercice, en fait inutile) que $\dot a^{(0)}=\{a^{(0)},H_0\}=\{p/m,p^2/2m\}\equiv0$ (48), et de même $\dot b^{(0)}\equiv0$ après calcul direct via les propriétés des CP.
+
+## Approche perturbative : étapes 3-4 {.smaller}
+
+**3.** On pose que la solution complète a la même forme : $q=at+b$, $p=ma$ (49), inversée en $a=p/m$, $b=q-\frac{p}{m}t$.
+
+**4.** On calcule les équations d'évolution avec $H_1=\lambda q$ :
+$$\dot a = \{a,H_1\} = \left\{\frac{p}{m},\lambda q\right\} = \frac{\lambda}{m}\{p,q\} = \frac{\lambda}{m}\cdot(-1) = -\frac{\lambda}{m} \tag{50}$$
+$$\dot b = \{b,H_1\} = \left\{q-\frac{pt}{m},\lambda q\right\} = -\frac{\lambda t}{m}\{p,q\} = \frac{\lambda t}{m} \tag{51}$$
+
+## Approche perturbative : étapes 5-6 {.smaller}
+
+**5-6.** On intègre en supposant que $H_1$ est « allumée » à $t=0$ (pour $t<0$, seul $H_0$ jouait) — ceci fixe les constantes d'intégration :
+$$a(t) = \int_0^t\left(-\frac{\lambda}{m}\right)dt = -\frac{\lambda}{m}t+a^{(0)}, \qquad b(t) = \int_0^t\frac{\lambda t}{m}dt = \frac{1}{2m}\lambda t^2+b^{(0)} \tag{52,53}$$
+
+En substituant dans $q=a(t)t+b(t)$ :
+$$q = \left(a^{(0)}-\frac{\lambda t}{m}\right)t+\frac{\lambda}{2m}t^2+b^{(0)} = b^{(0)}+a^{(0)}t-\frac{\lambda}{2m}t^2 \tag{54-56}$$
+$$p = ma(t) = ma^{(0)}-\lambda t \tag{57,58}$$
+
+**Ces résultats sont exacts dans ce cas** — un bon test de cohérence de la méthode : le cas le plus simple (perturbation linéaire) donne la solution perturbative *exacte*, sans avoir besoin de série tronquée.
+
+## Récapitulatif de la méthode
+
+**Conditions requises :** perturbation $H=H_0+H_1$ avec $H_1\ll H_0$ ; existence d'une solution connue pour $H_0$.
+
+**Étapes :**
+
+1. Résoudre pour $H_0$ : $q_i^{(0)}(t,a_j^{(0)},b_j^{(0)})$ et $p_i^{(0)}(t,a_j^{(0)},b_j^{(0)})$
+2. Inverser : $a_i^{(0)}(t,q_j^{(0)},p_j^{(0)})$ et $b_i^{(0)}(t,q_j^{(0)},p_j^{(0)})$
+3. Résoudre (série/itération/moyenne) : $\dot a_i=\{a_i,H_1\}$, $\dot b_i=\{b_i,H_1\}$
+4. Solution : $q_i=q_i^{(0)}(t,a_j(t),b_j(t))$, $p_i=p_i^{(0)}(t,a_j(t),b_j(t))$
+
+# 5.5 Méthode canonique de perturbations
+
+## Principe : choisir les $\alpha_i,\beta_i$ de Hamilton-Jacobi
+
+**Principe** : plutôt que de laisser le choix de $a_i,b_i$ arbitraire, on choisit directement les constantes de la méthode de Hamilton-Jacobi (Chapitre 4), $\alpha_i$ et $\beta_i$ :
+$$\alpha_i,\beta_i = \text{cte du mouvement pour } H_0, \qquad \alpha_i,\beta_i \neq \text{cte du mouvement pour } H_1$$
+
+**Avantage** : si on utilise H-J, on prend $q_i(=\alpha_i)$ et $p_i(=\beta_i)$ qui sont **des variables canoniques** — on peut les utiliser directement pour les crochets de Poisson, évitant tous les va-et-vient entre $(a_i,b_i)$ et les anciens $(p_i,q_i)$.
+
+## Reformulation avec les variables H-J {.smaller}
+
+Une fois $H_0$ résolu par H-J : $q_i=q_i(t,\alpha_j,\beta_j)$, $p_i=p_i(t,\alpha_j,\beta_j)$ (59,60), inversées en $\alpha_i=\alpha_i(t,q_j,p_j)$, $\beta_i=\beta_i(t,q_j,p_j)$ (61,62).
+
+C'est la première forme qui est utile, car elle permet d'écrire :
+$$H_1(q_i,p_i) = H_1(q_i(t,\alpha_j,\beta_j),p_i(t,\alpha_j,\beta_j)) \equiv H_1'(\alpha_j,\beta_j,t) \tag{63,64}$$
+
+Tous les crochets de Poisson se calculent alors directement en $(\alpha,\beta)$ :
+$$\{A,B\} = \sum_j\left[\frac{\partial A}{\partial\beta_j}\frac{\partial B}{\partial\alpha_j}-\frac{\partial A}{\partial\alpha_j}\frac{\partial B}{\partial\beta_j}\right] \tag{65}$$
+
+## Les équations canoniques de perturbation {.smaller}
+
+En calculant $\dot\alpha_i=\{\alpha_i,H_1'\}$ directement à partir de la définition (65), la somme sur $j$ se réduit grâce au delta de Kronecker ($\partial\alpha_i/\partial\alpha_j=\delta_{ij}$, $\partial\alpha_i/\partial\beta_j=0$) :
+$$\dot\alpha_i = \{\alpha_i,H_1'\} = \sum_j\left[\frac{\partial\alpha_i}{\partial\beta_j}\frac{\partial H_1'}{\partial\alpha_j}-\frac{\partial\alpha_i}{\partial\alpha_j}\frac{\partial H_1'}{\partial\beta_j}\right] = -\sum_j\delta_{ij}\frac{\partial H_1'}{\partial\beta_j} \tag{66,67}$$
+
+d'où :
+
+::: {.callout-note title="Équations canoniques de la méthode perturbative"}
+$$\dot\alpha_i = -\frac{\partial H_1'}{\partial\beta_i}, \qquad \dot\beta_i = \frac{\partial H_1'}{\partial\alpha_i} \tag{68-71}$$
+:::
+
+**C'est sous cette forme que la théorie des perturbations est généralement présentée dans la littérature** — remarquablement similaire aux équations canoniques originales, mais pour $H_1'$ seul et pour les variables $(\alpha,\beta)$.
+
+## Récapitulatif — méthode canonique
+
+**Conditions requises :** perturbation $H(q_i,p_i,t)\xrightarrow{\text{TC de H-J}}H'(\alpha_j,\beta_j,t)=H_0'+H_1'$ avec $H_1'\ll H_0'$ ; existence d'une solution analytique pour $H_0'$ par H-J.
+
+**Étapes :**
+
+1. Solution analytique $H_0'$ : $\alpha_i^{(0)}=\alpha_i^{(0)}(t,q_j,p_j)=$ cte, $\beta_i^{(0)}=\beta_i^{(0)}(t,q_j,p_j)=$ cte
+2. Résoudre (série/itération/moyenne) : $\dot\alpha_i=-\partial H_1'/\partial\beta_i$, $\dot\beta_i=\partial H_1'/\partial\alpha_i \implies \alpha_j(t),\beta_j(t)$
+3. Solution perturbée : $q_i=q_i^{(0)}(t,\alpha_j(t),\beta_j(t))$, $p_i=p_i^{(0)}(t,\alpha_j(t),\beta_j(t))$
+
+# 5.6 Autre exemple : l'oscillateur quartique
+
+## Mise en place {.smaller}
+
+::: {.callout-tip title="Exemple 5.4"}
+$$H = \frac{p^2}{2m}+\frac{m\omega^2}{2}q^2+\frac{mk}{4}q^4 \tag{72}$$
+:::
+
+Équations canoniques : $\dot q=p/m$ (73), $\dot p=-m\omega^2q-mkq^3$ (74), combinées en :
+$$\ddot q = -\omega^2q-kq^3 \tag{75}$$
+
+**Intégrer cette équation n'est pas trivial !** Décomposons $H=H_0+H_1$ :
+$$H_0 = \frac{p^2}{2m}+\frac{m\omega^2}{2}q^2 \; \text{(oscillateur harmonique)}, \qquad H_1=\frac{mk}{4}q^4 \; \text{(perturbation)} \tag{76,77}$$
+
+## Résolution de $H_0$ par Hamilton-Jacobi {.smaller}
+
+$H_0$ indépendant du temps $\implies S(q,\alpha,t)=-\alpha t+W(q,\alpha)$ (78), et l'équation caractéristique $H_0(q,\partial W/\partial q)=\alpha$ (80) — le nouveau moment canonique $\alpha$ = **énergie du système non perturbé**.
+
+Explicitement :
+$$\frac{1}{2m}\left(\frac{\partial W}{\partial q}\right)^2+\frac{m\omega^2}{2}q^2=\alpha \quad\Longrightarrow\quad \frac{\partial W}{\partial q}=\sqrt{2m\alpha-m^2\omega^2q^2} \tag{81,82}$$
+
+En intégrant, $S(q,\alpha,t)=-\alpha t+\int dq\sqrt{2m\alpha-m^2\omega^2q^2}$. En plus de $p=\partial W/\partial q$, on calcule :
+$$\beta = \frac{\partial S}{\partial\alpha} = -t+\frac{1}{\omega}\sin^{-1}\left(\frac{m\omega q}{\sqrt{2m\alpha}}\right) \tag{84,85}$$
+
+## La solution non perturbée en $(\alpha,\beta)$
+
+En inversant (85) :
+$$q(t) = \sqrt{\frac{2\alpha}{m\omega^2}}\sin\omega(t+\beta), \qquad p(t) = \sqrt{2m\alpha-m^2\omega^2q^2} = \sqrt{2m\alpha}\cos\omega(t+\beta) \tag{86-88}$$
+
+On reconnaît la solution harmonique attendue $q(t)\simeq q_0(t)=A_0\sin\omega_0(t+\beta_0)$, avec $\alpha=\alpha_0$, $\beta=\beta_0$ :
+$$A_0 = \sqrt{\frac{2\alpha_0}{m\omega^2}}, \qquad \omega_0=\omega$$
+
+## Introduction de la perturbation {.smaller}
+
+Réécrivons $H_1$ en fonction des nouvelles variables, en substituant $q(t)$ :
+$$H_1 = \frac{mk}{4}q^4 \quad\Longrightarrow\quad H_1' = \frac{k\alpha^2}{m\omega^4}\sin^4\omega(t+\beta) \tag{89}$$
+
+$\alpha,\beta$ sont constantes sous $H_0$ seul, mais varient dès qu'on introduit $H_1$ (à $t=0$, disons). Leurs équations d'évolution :
+$$\dot\alpha = -\frac{\partial H_1'}{\partial\beta} = -\frac{4k\alpha^2}{m\omega^3}\sin^3\omega(t+\beta)\cos\omega(t+\beta) \tag{90}$$
+$$\dot\beta = \frac{\partial H_1'}{\partial\alpha} = \frac{2k\alpha}{m\omega^4}\sin^4\omega(t+\beta) \tag{91}$$
+
+Pas triviales à résoudre non plus — mais elles se prêtent bien aux méthodes d'approximation : série, itération, ou moyenne.
+
+## 5.6.1 — Développement en série, ordre $O(k)$ {.smaller}
+
+À l'ordre $O(k)$ (avec $\alpha_0,\beta_0=$ cte à droite) :
+$$\dot\alpha_1 = -\frac{4\alpha_0^2}{m\omega^3}\sin^3\omega(t+\beta_0)\cos\omega(t+\beta_0), \qquad \dot\beta_1 = \frac{2\alpha_0}{m\omega^4}\sin^4\omega(t+\beta_0) \tag{110,111}$$
+
+En intégrant (avec $\alpha_0,\beta_0$ constantes, intégration triviale) :
+$$\alpha_1 = -\frac{\alpha_0^2}{m\omega^4}\sin^4\omega(t+\beta_0)+C \tag{112}$$
+$$\beta_1 = \frac{2\alpha_0}{m\omega^5}\left[\frac{3\omega}{8}(t+\beta_0)-\frac{\sin2\omega(t+\beta_0)}{4}+\frac{\sin4\omega(t+\beta_0)}{32}\right]+C' \tag{113}$$
+
+::: {.callout-important title="Remarque"}
+Le paramètre naturel $k$ est dimensionné — on définit plutôt $\lambda=3k\alpha_0/(4m\omega^4)$ (sans dimension) pour un développement plus propre.
+:::
+
+## Résultat de la série à l'ordre $O(k)$ {.smaller}
+
+Après substitution et réarrangement, $q(t)\simeq q_s(t)=A_s\sin\omega_s(t+\beta_s)$, avec :
+$$A_s = \sqrt{\frac{2\alpha_0}{m\omega^2}}\sqrt{1-\frac{k\alpha_0}{m\omega^4}\sin^4\omega t}, \qquad \omega_s = \omega\left[1+\frac{3k\alpha_0}{4m\omega^4}\right] \tag{results}$$
+
+::: {.callout-important title="Remarque"}
+L'exercice se complique rapidement aux ordres $O(k^2)$ et $O(k^3)$ — les expressions deviennent lourdes (nombreux termes trigonométriques croisés), mais la procédure reste directe : substituer systématiquement les séries dans $\dot\alpha,\dot\beta$ et séparer ordre par ordre en $k$.
+:::
+
+## 5.6.2 — Solution itérative : 1ʳᵉ itération {.smaller}
+
+Point de départ identique : $\dot\alpha=f(\alpha,\beta,t)$, $\dot\beta=g(\alpha,\beta,t)$ avec $\alpha_0,\beta_0=$ cte. La suite d'itérations $\dot\alpha_{n+1}=f(\alpha_n,\beta_n,t)$ converge (si tout va bien) vers la solution exacte.
+
+**1ʳᵉ itération** — mêmes équations qu'à l'ordre $O(k)$ de la série :
+$$\alpha_1(t) = \alpha_0-\frac{k\alpha_0^2}{m\omega^4}\sin^4\omega(t+\beta_0)+C, \qquad \beta_1(t) = \beta_0+\frac{2k\alpha_0}{m\omega^5}\left[\cdots\right]+C' \tag{124,125}$$
+
+::: {.callout-important title="Remarque 5.2"}
+Cette 1ʳᵉ itération donne **exactement le même résultat** que le développement en série à l'ordre $O(k)$ — une coïncidence rassurante entre les deux approches à cet ordre.
+:::
+
+En imposant $\alpha_1(0)=\alpha_0$, $\beta_1(0)=\beta_0$ (perturbation allumée à $t=0$), on fixe $C,C'$.
+
+## Amplitude et fréquence modifiées {.smaller}
+
+En posant $\beta_0=0$ pour simplifier :
+$$\alpha_1(t) = \alpha_0-\frac{k\alpha_0^2}{m\omega^4}\sin^4\omega t, \qquad \beta_1(t) = \frac{2k\alpha_0}{m\omega^5}\left[\frac{3\omega t}{8}-\frac{\sin2\omega t}{4}+\frac{\sin4\omega t}{32}\right] \tag{130,131}$$
+
+En substituant dans $q(t)=\sqrt{2\alpha/(m\omega^2)}\sin\omega(t+\beta)$, l'amplitude devient :
+$$A_i = \sqrt{\frac{2\alpha_0}{m\omega^2}}\sqrt{1-\frac{4}{3}\lambda\sin^4\omega t}$$
+
+**Domaine de validité** : puisque $q(t)$ doit rester réel, $1-\frac{4}{3}\lambda\sin^4\omega t>0$, soit $\lambda<3/4$ ou $k<m\omega^4/\alpha_0$ (135) — pour $k>0$, l'amplitude $A_i$ **décroît**.
+
+L'argument du sinus se réorganise en $\omega(1+\lambda)t + \left[\lambda\left(-\frac38+\frac{\sin2\omega t}{4}+\frac{\sin4\omega t}{32}\right)\right]$ — donc la **fréquence effective** devient $\omega_i\approx\omega(1+\lambda)=\omega\left[1+\dfrac{3k\alpha_0}{4m\omega^4}\right]$ (137), et le mouvement **n'est plus strictement harmonique** (modulation en $\sin2\omega t,\sin4\omega t$).
+
+## 5.6.3 — Méthode de la moyenne {.smaller}
+
+Moyennons $\dot\alpha,\dot\beta$ sur une période $\tau=2\pi/\omega$ au lieu de résoudre exactement :
+$$\dot\alpha = -\frac{4k}{m\omega^3}\cdot\frac{1}{\tau}\int_0^\tau \alpha^2\sin^3\omega(t+\beta)\cos\omega(t+\beta)\,dt, \qquad \dot\beta = \frac{2k}{m\omega^4}\cdot\frac{1}{\tau}\int_0^\tau\alpha\sin^4\omega(t+\beta)\,dt \tag{138,139}$$
+
+**Approximation itérative** : remplacer $\alpha,\beta$ par $\alpha_0,\beta_0$ dans les intégrales. Le premier calcul donne :
+$$\dot\alpha_1 = -\frac{4k}{m\omega^3}\alpha_0^2\cdot\frac{1}{\tau}\left[\frac{\sin^4\omega(t+\beta_0)}{4\omega}\right]_0^{2\pi/\omega} \equiv 0 \tag{140}$$
+
+**La moyenne d'un $\sin^4$ sur une période complète, dérivée exactement, s'annule** $\implies \alpha=$ cte $=\alpha_0$ !
+
+## Moyenne pour $\beta$ et résultat final {.smaller}
+
+Pour $\beta$, l'intégrale de $\sin^4$ sur une période ne s'annule pas (c'est une constante non nulle, contrairement à sa dérivée) :
+$$\dot\beta_1 = \frac{2k\alpha_0}{m\omega^4}\cdot\frac{1}{\tau}\left[\frac{3\omega(t+\beta_0)}{8}-\cdots\right]_0^{2\pi/\omega} \approx \frac{3k\alpha_0}{m\omega^4} = \lambda \tag{141}$$
+
+donc $\beta(t)\approx\lambda t+\beta_0$ (142) — une **dérive linéaire**. La solution perturbée :
+$$q(t) \approx \sqrt{\frac{2\alpha_0}{m\omega^2}}\sin\big(\omega[1+\lambda]t+\omega\beta_0\big) \tag{144}$$
+
+**Seul effet de la perturbation ici : une modification pure de la fréquence** $\omega\to\omega_m=\omega(1+\lambda)$ (145) — **l'amplitude n'est PAS modifiée** par la méthode de la moyenne, contrairement à la méthode itérative !
+
+## Comparaison des 3 méthodes {.smaller}
+
+| Approximation | Amplitude | Fréquence |
+|---|---|---|
+| Oscillateur harmonique | $\sqrt{2\alpha_0/m\omega^2}$ | $\omega$ |
+| Série (ordre $O(k)$) | $\sqrt{2\alpha_0/m\omega^2}\sqrt{1-\frac{k\alpha_0}{m\omega^4}\sin^4\omega t}$ | $\omega\left[1+\frac{3k\alpha_0}{4m\omega^4}\right]$ |
+| Itération (1ʳᵉ) | $\sqrt{2\alpha_0/m\omega^2}\sqrt{1-\frac{k\alpha_0}{m\omega^4}\sin^4\omega t}$ | $\omega\left[1+\frac{3k\alpha_0}{4m\omega^4}\right]$ |
+| Moyenne | $\sqrt{2\alpha_0/m\omega^2}$ (inchangée) | $\omega\left[1+\frac{3k\alpha_0}{4m\omega^4}\right]$ |
+
+::: {.callout-important title="Remarque 5.3"}
+Introduire un terme quartique positif diminue l'amplitude d'oscillation instantanée (série/itération) tout en augmentant systématiquement la fréquence (les 3 méthodes s'accordent sur ce point).
+:::
+
+## Comparaison graphique avec la solution exacte
+
+En posant $\sqrt{2\alpha_0/m\omega^2}=1$, $\omega=1$, $\beta_0=0$, $k=0.2$, on peut comparer graphiquement :
+
+- $q_0(t)$ — oscillateur harmonique non perturbé
+- $q_{s,i}(t)$ — méthodes série et itérative (identiques à cet ordre)
+- $q_m(t)$ — méthode de la moyenne
+- $q_\text{exact}(t)$ — solution exacte, obtenue numériquement
+
+**Observations** : les 3 méthodes d'approximation donnent sensiblement le même résultat, mais diffèrent nettement de $q_0(t)$ — la déviation devient importante pour $t$ suffisamment élevé (accumulation de l'erreur de fréquence). Dans tous les cas, les approximations perturbatives sont **meilleures** que d'ignorer complètement la perturbation.
+
+## Quelle méthode d'approximation ne modifie PAS l'amplitude de l'oscillateur quartique perturbé, contrairement aux deux autres ? {.quiz-question}
+
+- La méthode par série
+- La méthode itérative
+- [La méthode de la moyenne]{.correct data-explanation="En moyennant sur une période complète, l'intégrale de dα/dt (qui contient un sin³·cos, dérivée exacte de sin⁴) s'annule identiquement — seule β dérive linéairement, donc seule la fréquence change."}
+- Aucune des trois — elles donnent toutes le même résultat
+
+# 5.7 Résumé
+
+## Formulaire — Théorie des perturbations {.smaller}
+
+**Décomposition** : $H(q_i,p_i)=H_0(q_i,p_i)+H_1(q_i,p_i)$, avec $H_1\ll H_0$.
+
+Avec les solutions connues de $H_0$ : $\dot a_i^{(0)}=\{a_i^{(0)},H_0\}+\dfrac{\partial}{\partial t}a_i^{(0)}\equiv0$ (idem $b_i^{(0)}$), on résout :
+$$\dot a_i = \{a_i,H_1\}, \qquad \dot b_i = \{b_i,H_1\}$$
+
+**Méthode par série** ($H_1=\lambda h(q_i,p_i)$) : séries de puissance $a_i=a_i^{(0)}+\lambda a_i^{(1)}+\lambda^2a_i^{(2)}+\cdots$
+
+**Méthode itérative** : $\dot a_i^{(n+1)}=\{a_i,H_1\}\big|_{a_j^{(n)},b_j^{(n)}}$, idem pour $b_i^{(n+1)}$
+
+**Méthode de la moyenne** (orbite cyclique, période $\tau$) :
+$$\dot a_i = \frac{1}{\tau}\int_0^\tau\{a_i,H_1\}\,dt, \qquad \dot b_i = \frac{1}{\tau}\int_0^\tau\{b_i,H_1\}\,dt$$
+
+**Méthode canonique** (via Hamilton-Jacobi) : $H'(\alpha_j,\beta_j,t)=H_0'+H_1'$, $\dot\alpha_i=-\partial H_1'/\partial\beta_i$, $\dot\beta_i=\partial H_1'/\partial\alpha_i$.
+
+## Liens vers les parties du cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
