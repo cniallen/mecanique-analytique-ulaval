@@ -1,0 +1,441 @@
+---
+title: "Mécanique analytique"
+subtitle: "PHY-2000 — Chapitre 7 : Mécanique lagrangienne des milieux continus"
+author: "Prof. Claudine Allen"
+institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+from: markdown+emoji
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    html-math-method: katex
+    css: |
+      .reveal .slides {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    spotlight:
+      size: 30
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
+      initialPresentationMode: false
+    quiz:
+      checkKey: "c"
+      resetKey: "q"
+      shuffleKey: "t"
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: "Correct !"
+      defaultIncorrect: "Incorrect."
+revealjs-plugins:
+  - quiz
+  - spotlight
+---
+
+## Progression dans le cours
+
+- Chapitre 0 : Plan de cours  :white_check_mark:
+- Chapitre 1 : Rappel  :white_check_mark:
+- Chapitre 2 : Formalisme de Lagrange  :white_check_mark:
+- Chapitre 3 : Applications et propriétés  :white_check_mark:
+- Chapitre 4 : Formalisme canonique  :white_check_mark:  :white_check_mark:
+- Chapitre 5 : Théorie des perturbations  :white_check_mark:
+- Chapitre 6 : Mouvement d'un solide indéformable  :white_check_mark:
+- Chapitre 7 : Mécanique lagrangienne des milieux continus  :arrow_left:
+- Chapitre 8 : Annexes
+
+## SOMMAIRE DU CHAPITRE 7
+
+**Mécanique lagrangienne des milieux continus**
+7.1 Le passage à la limite continue
+7.2 Formulation lagrangienne
+7.3 Théorie classique des champs
+7.4 Densité hamiltonienne
+
+# 7.1 Le passage à la limite continue
+
+## Du solide rigide au milieu continu déformable
+
+Le chapitre précédent traitait un cas particulier de milieu continu : le solide indéformable. La condition de rigidité (la position relative entre 2 parties du solide ne change pas) réduit le nombre de ddl à au plus **6** (3 translation + 3 rotation).
+
+Un milieu continu n'étant pas toujours rigide, on doit décrire la dynamique de **chaque élément infinitésimal de masse** — le système implique donc une **infinité de ddl**.
+
+## Cas simple : corde élastique en 1D {.smaller}
+
+Une corde continue de longueur $l$, tendue à ses 2 extrémités, discrétisée en $N$ masses $m$ reliées par des ressorts de constante $k$ (masse négligeable, interaction harmonique — souvent vraie près de l'équilibre). Coordonnée généralisée $q_i(t)$ = déplacement de la masse $i$ par rapport à l'équilibre ; extrémités $i=0$ et $i=N+1$. Distance d'équilibre : $a=l/(N+1)$.
+
+**Lagrangien discrétisé** :
+$$L = \sum_{i=1}^N\left(\frac12 m\dot q_i^2 - \frac12 k(q_{i+1}-q_i)^2\right)$$
+
+## Équations d'E-L discrètes {.smaller}
+
+$$\frac{d}{dt}\frac{\partial L}{\partial\dot q_i} = m\ddot q_i, \qquad \frac{\partial L}{\partial q_i} = -k(q_i-q_{i-1}-q_{i+1}+q_i)$$
+
+d'où l'équation du mouvement pour chaque masse :
+$$\ddot q_i = \frac{k}{m}(q_{i+1}+q_{i-1}-2q_i)$$
+
+**La limite continue** : $N\to\infty$, la distance $a\to0$ et $m/a\to\mu$ (masse linéique). L'indice $i$ (position de la masse) est remplacé par le paramètre continu $x$ : $q_i(t)=\varphi(x_i,t)\to\varphi(x,t)$ quand $a\to0$. On a aussi :
+$$\lim_{a\to0}\frac{q_{i+1}-q_i}{a} = \lim_{a\to0}\frac{\varphi(x_{i+1},t)-\varphi(x_i,t)}{x_{i+1}-x_i} = \frac{\partial\varphi}{\partial x}$$
+
+## Dérivation de l'équation d'onde {.smaller}
+
+En reprenant l'équation de Lagrange pour la masse $i$ et en faisant $a\to0$ :
+$$\frac{\partial^2\varphi}{\partial t^2} = \lim_{a\to0}\ddot q_i = \lim_{a\to0}\frac{k}{m}(q_{i+1}+q_{i-1}-2q_i) = \lim_{a\to0}\frac{a^2k}{m}\frac{\varphi(x_{i+1},t)+\varphi(x_{i-1},t)-2\varphi(x_i,t)}{a^2}$$
+
+Le membre de droite est la définition même de la dérivée seconde spatiale :
+$$= \lim_{a\to0}\frac{a^2k}{m}\frac{\partial^2\varphi}{\partial x^2} = \lim_{a\to0}\frac{ak}{\mu}\frac{\partial^2\varphi}{\partial x^2}$$
+
+**Identification physique** : la loi de Hooke donne $F=(EA_0/L_0)\Delta L=k\Delta L$, où $E$ = module de Young, $A_0$ = section efficace. En identifiant $a=L_0$ : $\lim_{a\to0}ak = EA_0$. D'où l'**équation d'onde** pour la corde 1D :
+$$\left(\frac{\partial^2}{\partial t^2}-\frac{EA_0}{\mu}\frac{\partial^2}{\partial x^2}\right)\varphi(x,t)=0 \tag{1}$$
+
+avec vitesse de phase $c=\sqrt{EA_0/\mu}$ — plus la corde est rigide ($EA_0$ élevé) et légère ($\mu$ faible), plus $c$ est élevée.
+
+## Du discret au continu : correspondances
+
+| Discret | | Continu |
+|---|---|---|
+| $N\to\infty$ | | nombre de coordonnées généralisées |
+| $i\to x$ | | paramètres désignant la position |
+| $q_i(t)\to\varphi(x,t)$ | | coordonnée généralisée |
+| $a\to0$ | | distance entre 2 masses |
+
+Au lieu d'un nombre élevé ($N\to\infty$) d'équations aux **dérivées ordinaires**, on obtient une seule équation aux **dérivées partielles** — qui contient pourtant la même information que l'infinité d'équations discrètes, puisque $\varphi(x,t)$ définit le déplacement en tout $x$.
+
+::: {.callout-note title="Définition — Champ"}
+On appelle **champ** toute grandeur définie sur l'espace-temps. $\varphi(x,t)$ est le champ (scalaire) de déplacement de la corde 1D — la vraie coordonnée généralisée du système continu.
+:::
+
+## La densité lagrangienne
+
+Le passage à la limite continue pour le lagrangien requiert le changement $q_i(t)\to\varphi(x,t)$, d'où la nécessité de définir une **densité lagrangienne** $\mathcal{L}(\partial\varphi/\partial t,\partial\varphi/\partial x)$ telle que :
+$$L = \int dx\,\mathcal{L}(\partial\varphi/\partial t,\partial\varphi/\partial x) \tag{2}$$
+
+Pour la corde, ceci suggère :
+$$\sum_{i=1}^N\left(\frac12m\dot q_i^2-\frac12k(q_{i+1}-q_i)^2\right) \quad\Longrightarrow\quad L=\int dx\,\mathcal{L} = \int dx\left(\frac{\mu}{2}\left(\frac{\partial\varphi}{\partial t}\right)^2-\frac{EA_0}{2}\left(\frac{\partial\varphi}{\partial x}\right)^2\right)$$
+
+**Problème** : les équations d'E-L $\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot q_i}-\dfrac{\partial L}{\partial q_i}=0$ ne s'appliquent qu'aux systèmes discrets — il faut une forme équivalente pour les systèmes continus, appelées **équations du champ**.
+
+# 7.2 Formulation lagrangienne
+
+## Densité lagrangienne et localité des interactions {.smaller}
+
+Pour un système continu, on postule $L=\displaystyle\int_V\mathcal{L}\,d^3r$ (3), où le volume $V$ est arbitraire (on peut l'étendre à l'infini en posant $\mathcal{L}=0$ hors du système). Les variables $x,y,z$ indexent l'espace, tout comme $t$ indexe le temps — elles se distinguent des coordonnées généralisées $\varphi_i$.
+
+Pour $n$ champs $\varphi_i(x^\mu)$, avec $x^\mu=(t,\mathbf{r})$, on postule :
+$$\mathcal{L} = \mathcal{L}\left(\varphi_i, \frac{\partial\varphi_i}{\partial x^\mu}, x^\mu\right) \tag{4}$$
+
+c.-à-d. sans dérivées d'ordre supérieur. **Ce n'est pas une généralisation triviale** : en mécanique classique, $\ddot q_i$ est superflu car les équations de Newton le déterminent déjà — mais pour les champs, cette hypothèse a de **profondes conséquences** : elle implique une **interaction locale**.
+
+::: {.callout-important title="Localité et causalité"}
+La localité est recherchée car elle assure trivialement le respect du **principe de causalité** — aucune interaction ne peut se propager plus vite que la lumière. Des interactions non locales rendraient très difficile de vérifier ce lien de cause à effet.
+:::
+
+## Dérivée totale vs dérivée partielle
+
+Si $\mathcal{L}=\mathcal{L}(\varphi,x^\mu)$ :
+$$\frac{d\mathcal{L}}{dx^\mu} = \frac{\partial\mathcal{L}}{\partial\varphi}\frac{\partial\varphi}{\partial x^\mu}+\frac{\partial\mathcal{L}}{\partial x^\mu} \tag{5}$$
+
+Pour évaluer la variation de $\mathcal{L}$ entre 2 positions d'espace-temps $x^\mu$ et $x^\mu+dx^\mu$, il faut considérer à la fois la variation liée au changement de position pure ($\partial\mathcal{L}/\partial x^\mu$) **et** celle introduite par la dépendance du champ ($\partial\mathcal{L}/\partial\varphi \cdot \partial\varphi/\partial x^\mu$).
+
+## L'action pour un champ
+
+Les équations du champ découlent, comme dans le cas discret, du **principe de moindre action** — elles déterminent les configurations de champs réalisées dans la nature :
+$$S = \int_{t_1}^{t_2}L\,dt = \int_{t_1}^{t_2}\int_{x_1}^{x_2}\int_{y_1}^{y_2}\int_{z_1}^{z_2}\mathcal{L}\,dx\,dy\,dz\,dt \tag{6}$$
+
+On examine $\delta S=0$, où $\delta S$ laisse intactes les frontières et les valeurs des champs aux frontières : $\delta\varphi_i(x_1^\mu)=0=\delta\varphi_i(x_2^\mu)$.
+
+$$\delta S = \delta\int\cdots\int \mathcal{L}\,dt\,d^3r = \int\cdots\int \delta\mathcal{L}\,dt\,d^3r$$
+
+## Variation de la densité lagrangienne {.smaller}
+
+$$\delta\mathcal{L} = \frac{\partial\mathcal{L}}{\partial\varphi_i}\delta\varphi_i + \sum_{\mu=0}^3\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial x^\mu)}\delta\left(\frac{\partial\varphi_i}{\partial x^\mu}\right)$$
+
+avec $x^0=t, x^1=x, x^2=y, x^3=z$. La contribution du terme en $x^0=t$ :
+$$\delta S_{(t)} = \int dt\,d^3r\,\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial t)}\delta\left(\frac{\partial\varphi_i}{\partial t}\right) = \int d^3r\int dt\,\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial t)}\frac{\partial}{\partial t}(\delta\varphi_i)$$
+
+En intégrant par parties en $t$ :
+$$= \int d^3r\left[\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial t)}\delta\varphi_i\right]_{t_1}^{t_2} - \int d^3r\int dt\,\frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial t)}\right)\delta\varphi_i$$
+
+Le terme de bord s'annule ($\delta\varphi_i=0$ aux frontières $t_1,t_2$).
+
+## Répétition pour x, y, z {.smaller}
+
+En répétant le raisonnement pour $x^1=x$ :
+$$\int dt\,d^3r\,\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial x)}\delta\left(\frac{\partial\varphi_i}{\partial x}\right) = \left[\int dt\,dy\,dz\,\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial x)}\delta\varphi_i\right]_{x_1}^{x_2} - \int dt\,d^3r\,\frac{d}{dx}\left(\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial x)}\right)\delta\varphi_i$$
+
+Le terme de bord s'annule de nouveau — résultat similaire pour $y$ et $z$.
+
+## Les équations d'Euler-Lagrange du champ {.smaller}
+
+En regroupant toutes les contributions à $\delta S$ :
+$$\delta S = \int dt\,d^3r\left[\frac{\partial\mathcal{L}}{\partial\varphi_i} - \sum_{\mu=0}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial x^\mu)}\right]\delta\varphi_i = 0$$
+
+Comme $\delta\varphi_i$ est arbitraire, $\delta S=0$ exige :
+$$\sum_{\mu=0}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial\varphi_i/\partial x^\mu)}-\frac{\partial\mathcal{L}}{\partial\varphi_i}=0$$
+
+::: {.callout-note title="Définition 7.1 — Équations d'E-L du champ, forme quadrivectorielle"}
+$$\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi_i)}-\frac{\partial\mathcal{L}}{\partial\varphi_i}=0 \tag{7}$$
+où $\partial_\mu=\partial/\partial x^\mu$ et l'indice répété $\mu$ sous-entend une somme ($\mu=0,1,2,3$).
+:::
+
+**Notons que le temps et les composantes spatiales apparaissent exactement sous la même forme** — le temps et les coordonnées spatiales jouent le même rôle : décrire le continuum espace-temps.
+
+## Vérification avec la corde élastique {.smaller}
+
+Reprenons la corde avec $\mathcal{L}=\dfrac{\mu}{2}\left(\dfrac{\partial\varphi}{\partial t}\right)^2-\dfrac{EA_0}{2}\left(\dfrac{\partial\varphi}{\partial x}\right)^2$ ($y,z$ inutiles). Calculons les dérivées :
+$$\frac{\partial\mathcal{L}}{\partial\varphi}=0, \qquad \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial(\partial\varphi/\partial t)}=\frac{d}{dt}\left(\mu\frac{\partial\varphi}{\partial t}\right)=\mu\frac{\partial^2\varphi}{\partial t^2}$$
+$$\frac{d}{dx}\frac{\partial\mathcal{L}}{\partial(\partial\varphi/\partial x)}=\frac{d}{dx}\left(-EA_0\frac{\partial\varphi}{\partial x}\right)=-EA_0\frac{\partial^2\varphi}{\partial x^2}$$
+
+On obtient exactement :
+$$\frac{\partial^2\varphi}{\partial t^2}-\frac{EA_0}{\mu}\frac{\partial^2\varphi}{\partial x^2}=0$$
+
+**identique à l'équation (1)** ! Cette équivalence justifie nos conjectures initiales et notre confiance dans la densité lagrangienne choisie.
+
+## Transformations de jauge pour les champs {.smaller}
+
+Rappel discret : $L=L'+dF/dt$ (8). Pour le milieu continu, $\mathcal{L}'$ et $\mathcal{L}$ sont équivalentes si :
+$$\mathcal{L}' = \mathcal{L}+\sum_{\mu=0}^3\frac{\partial}{\partial x^\mu}f_\mu(\varphi_i,x^\nu) \tag{9}$$
+
+où $f_\mu$ sont 4 fonctions scalaires des $x^\nu$ et $\varphi_i$ (pas de leurs dérivées). Le terme ajouté est une **4-divergence** d'un quadrivecteur :
+$$\sum_{\mu=0}^3\frac{\partial}{\partial x^\mu}f_\mu(\varphi_i,x^\mu) = \frac{\partial f_0}{\partial t}+\nabla\cdot\mathbf{f} \tag{10}$$
+
+où $\mathbf{f}=(f_1,f_2,f_3)$. Il est facile de démontrer que $\delta S'=\delta S=0$.
+
+## Démonstration via le théorème de Gauss {.smaller}
+
+$$\delta S' = \delta\int\cdots\int \mathcal{L}'\,dt\,d^3r = \delta S + \delta\int\cdots\int d^3r\,dt\,\frac{\partial f_0}{\partial t} + \delta\int\cdots\int dt\,d^3r\,(\nabla\cdot\mathbf{f}) \tag{11}$$
+
+$$= 0 + \int d^3r\left[\delta f_0\right]_{t_1}^{t_2} + \int dt\,\delta\left(\int d^3r\,\nabla\cdot\mathbf{f}\right) \tag{12}$$
+
+Par le théorème de Gauss, la dernière intégrale = flux de $\mathbf{f}$ à travers la surface $A$ englobant le volume :
+$$\delta S' = \int d^3r\left[\frac{\partial f_0}{\partial\varphi_i}\delta\varphi_i\right]_{t_1}^{t_2} + \int dt\oint_A \delta\mathbf{f}\cdot d\mathbf{A}$$
+
+Le 1er terme est nul ($\delta\varphi_i=0$ aux frontières temporelles). Le 2ᵉ est nul si la transformation laisse intactes les conditions aux frontières spatiales ($\delta\mathbf{f}=0$ sur $A$, ou plus généralement si la variation du flux à travers $A$ est nulle).
+
+# 7.3 Théorie classique des champs
+
+## Cadre général : au-delà de L = T − V {.smaller}
+
+En mécanique non relativiste, $L=T-V$, donc pour un système continu : $L=\displaystyle\int(\mathcal{T}-\mathcal{V})d^3r$, où $\mathcal{T},\mathcal{V}$ sont les densités d'énergie cinétique et potentielle.
+
+**Si le système n'est pas mécanique**, cette identification n'est pas nécessaire — $\mathcal{L}\neq\mathcal{T}-\mathcal{V}$ en général. Il est néanmoins généralement possible de construire $\mathcal{L}$ menant aux équations recherchées. Exemples notoires : l'équation d'Euler en hydrodynamique, l'équation d'Einstein en relativité générale, l'équation de Schrödinger en MQ, ou de Klein-Gordon et Dirac en MQ relativiste.
+
+## Pourquoi la théorie des champs, particulièrement en relativité {.smaller}
+
+En relativité, la vitesse maximale de tout objet est $c$ — le lien de causalité entre 2 événements est soumis à un délai de propagation pendant lequel il y a **déformation du champ d'interaction**. Le champ devient alors un **objet réel** pouvant se propager, pas un simple artifice mathématique.
+
+::: {.callout-important title="Particules ponctuelles et interactions locales"}
+Une interaction locale sur une particule ayant une étendue spatiale impliquerait qu'une partie de la particule acquière une impulsion avant même que d'autres parties puissent le détecter — la particule se déformerait, suggérant une structure interne. D'où l'usage de particules **ponctuelles** en théorie des champs (à l'exception notable de la théorie des cordes).
+:::
+
+**4 interactions fondamentales** : électrodynamique et gravitation (relativité générale) sont décrites par la théorie *classique* des champs ; les interactions faible et forte nécessitent un traitement *quantique* (théorie quantique des champs) — la quantification de la gravitation reste un problème ouvert.
+
+## Les avantages de la formulation lagrangienne {.smaller}
+
+- **Construction de nouveaux modèles** : il suffit d'un nouveau $\mathcal{L}$ invariant de Lorentz (avec de nouveaux champs si nécessaire).
+- **Symétries et conservation** : on peut imposer directement les symétries d'un système via $\mathcal{L}$, ou identifier les symétries d'un $\mathcal{L}$ existant. Le théorème de Noether identifie alors les quantités conservées — une procédure devenue un outil courant en physique théorique.
+- **Passage obligé vers la quantification** : l'utilisation directe des équations d'onde (Schrödinger, Klein-Gordon, Dirac) pose problème dans certains cas ; la théorie quantique des champs, construite à partir du formalisme lagrangien, s'avère plus robuste.
+
+## Exemple : électrodynamique classique — les équations de Maxwell {.smaller}
+
+Proposée par Schwarzschild en 1903, cette formulation code toute l'information des 4 équations de Maxwell (dans le vide) dans une seule densité lagrangienne :
+$$\nabla\cdot\mathbf{B}=0 \tag{13} \qquad \nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t} \tag{14}$$
+$$\nabla\cdot\mathbf{E}=\frac{\rho}{\epsilon_0} \tag{15} \qquad \nabla\times\mathbf{B}=\mu_0\mathbf{j}+\epsilon_0\mu_0\frac{\partial\mathbf{E}}{\partial t} \tag{16}$$
+
+où $c=1/\sqrt{\epsilon_0\mu_0}$. Les 2 premières sont automatiquement satisfaites si :
+$$\mathbf{B}=\nabla\times\mathbf{A}, \qquad \mathbf{E}=-\nabla\varphi-\frac{\partial\mathbf{A}}{\partial t} \tag{17,18}$$
+
+où $\varphi,\mathbf{A}$ sont les potentiels scalaire et vecteur (quadrivecteur $A^\mu=(\varphi/c,\mathbf{A})$). Les 2 dernières équations doivent correspondre aux équations d'E-L des champs.
+
+## La densité lagrangienne électromagnétique {.smaller}
+
+::: {.callout-note title="Densité lagrangienne électromagnétique"}
+$$\mathcal{L} = \frac{\epsilon_0}{2}(E^2-c^2B^2)-\rho\varphi+\mathbf{j}\cdot\mathbf{A} \tag{19}$$
+:::
+
+Sous forme tensorielle : $B_i=\epsilon_{ijk}\partial_jA_k$, $E_i=-\partial_i\varphi-\partial_0A_i$, où $\partial_0=\partial/\partial t$, $\partial_i=\partial/\partial x_i$. Alors :
+$$\mathcal{L} = \frac{\epsilon_0}{2}\sum_i\left[(-\partial_i\varphi-\partial_0A_i)^2-c^2(\epsilon_{ijk}\partial_jA_k)^2\right]-\rho\varphi+\mathbf{j}\cdot\mathbf{A} \tag{20}$$
+
+## Vérification pour le champ φ {.smaller}
+
+L'équation d'E-L pour $\varphi$ requiert :
+$$\frac{\partial\mathcal{L}}{\partial\varphi}=-\rho, \qquad \frac{\partial\mathcal{L}}{\partial(\partial_0\varphi)}=0, \qquad \frac{\partial\mathcal{L}}{\partial(\partial_i\varphi)}=\epsilon_0(\partial_i\varphi+\partial_0A_i)=-\epsilon_0E_i$$
+
+L'équation d'E-L $\sum_\mu \dfrac{d}{dx^\mu}\dfrac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi)}-\dfrac{\partial\mathcal{L}}{\partial\varphi}=0$ donne :
+$$-\sum_{i=1}^3\frac{d}{dx_i}(\epsilon_0E_i)+\rho=0 \tag{21}$$
+
+**qui n'est autre que $\nabla\cdot\mathbf{E}=\rho/\epsilon_0$ !** (éq. 15)
+
+## Vérification pour le champ Aᵢ {.smaller}
+
+De même : $\dfrac{\partial\mathcal{L}}{\partial A_i}=j_i$, $\dfrac{\partial\mathcal{L}}{\partial(\partial_0A_i)}=-\epsilon_0E_i$, et $\dfrac{\partial\mathcal{L}}{\partial(\partial_jA_i)}=-\epsilon_0c^2(\epsilon_{lmn}\partial_mA_n)\epsilon_{lpq}\delta_{jp}\delta_{iq}=\epsilon_0c^2\epsilon_{ijk}B_k$.
+
+L'équation d'E-L pour $A_i$, $\sum_\mu\dfrac{d}{dx^\mu}\dfrac{\partial\mathcal{L}}{\partial(\partial_\mu A_i)}-\dfrac{\partial\mathcal{L}}{\partial A_i}=0$ :
+$$-\frac{\partial}{\partial t}(\epsilon_0E_i)+\sum_j\frac{\partial}{\partial x_j}\frac{1}{\mu_0}\epsilon_{ijk}B_k = j_i$$
+
+soit, sous forme plus compacte :
+$$\epsilon_{ijk}\partial_jB_k=\mu_0j_i+\epsilon_0\mu_0\partial_0E_i$$
+
+**qui n'est autre que l'équation (16)** ! Toute l'information des équations de Maxwell est donc codée dans $\mathcal{L}$ (19).
+
+## Décomposition en champ libre et interaction {.smaller}
+
+En l'absence de source ($\rho=0=\mathbf{j}$) : $\mathcal{L}=\dfrac{\epsilon_0}{2}(E^2-c^2B^2)$ — seul le champ $A^\mu$ contribue. Le reste décrit l'**interaction** du champ avec la matière chargée.
+
+Pour un ensemble de particules chargées ($\alpha$), de densités $\rho_\alpha$ et vitesses $\mathbf{v}_\alpha$ : $\rho=\sum_\alpha\rho_\alpha$, $\mathbf{j}=\sum_\alpha\rho_\alpha\mathbf{v}_\alpha$. Sans interaction électromagnétique, particules libres :
+$$L_\text{mat.} = T = \frac12\sum_\alpha m_\alpha v_\alpha^2 \tag{22}$$
+
+Le lagrangien du champ : $L_\text{champ}=\displaystyle\int\left(\dfrac{\epsilon_0}{2}(E^2-c^2B^2)\right)d^3r$ (23), et l'interaction matière-champ :
+$$L_\text{int.} = -\int\sum_\alpha \rho_\alpha(\varphi-\mathbf{v}_\alpha\cdot\mathbf{A})\,d^3r \tag{24}$$
+
+## Réconciliation avec le lagrangien de particule ponctuelle {.smaller}
+
+Comparons au lagrangien connu (Chapitre 2) d'un système de particules ponctuelles de charge $q_\alpha$ dans un champ électromagnétique extérieur :
+$$L_\text{mat.+int.} = T-V = \sum_\alpha\left(\frac12m_\alpha v_\alpha^2 - q_\alpha(\varphi-\mathbf{v}_\alpha\cdot\mathbf{A})\right)$$
+
+Le 2ᵉ terme décrit l'interaction et doit être équivalent à (24). **Les 2 expressions coïncident** si on pose :
+$$\rho_\alpha = q_\alpha\,\delta(\mathbf{r}-\mathbf{r}_\alpha) \tag{25}$$
+
+où $\delta$ est la fonction de Dirac, soumise à $\int\rho_\alpha\,d^3r=q_\alpha$. Le lagrangien complet de l'électrodynamique :
+$$L_\text{em} = L_\text{mat.}+L_\text{champ}+L_\text{int.} = \sum_\alpha\frac12m_\alpha v_\alpha^2 + \int\frac{\epsilon_0}{2}(E^2-c^2B^2)d^3r - \sum_\alpha\int q_\alpha\delta(\mathbf{r}-\mathbf{r}_\alpha)(\varphi-\mathbf{v}_\alpha\cdot\mathbf{A})d^3r \tag{26,27}$$
+
+::: {.callout-important title="Remarque — Version relativiste"}
+Pour être entièrement correct, $L_\text{mat.}$ devrait être relativiste : $L_\text{mat.\,rel.}=-\sum_\alpha m_\alpha c^2\sqrt{1-v_\alpha^2/c^2}$ (Chapitre 2) plutôt que $T=\sum_\alpha\left(\sqrt{1/(1-v_\alpha^2/c^2)}-1\right)m_\alpha c^2$.
+:::
+
+## Champs cycliques et lois de conservation {.smaller}
+
+Si $\mathcal{L}$ ne dépend pas explicitement de $\varphi_k$ (champ cyclique) :
+$$\sum_{\mu=0}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi_k)} = \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial(\partial_0\varphi_k)}+\sum_{\mu=1}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi_k)}=0 \tag{29}$$
+
+La 4-divergence de $Q_k^\mu = \dfrac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi_k)}$ est nulle — il y a donc **conservation d'un quadrivecteur** associé au champ $\varphi_k$.
+
+## Vers l'analogue de l'hamiltonien {.smaller}
+
+Rappel discret : $\dfrac{dL}{dt}=\displaystyle\sum_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\dot q_i\right)+\dfrac{\partial L}{\partial t} \implies \dfrac{d}{dt}\left(\sum_i\dfrac{\partial L}{\partial\dot q_i}\dot q_i-L\right)=-\dfrac{\partial L}{\partial t}$ (30), où $H=\sum_i\dfrac{\partial L}{\partial\dot q_i}\dot q_i-L$.
+
+Pour un champ continu, temps et espace jouent un rôle similaire — on construit une quantité invariante dans **toutes** les directions d'espace-temps. Pour un seul champ :
+$$\frac{d\mathcal{L}}{dx^\mu} = \frac{\partial\mathcal{L}}{\partial\varphi}\frac{d\varphi}{dx^\mu}+\sum_\nu\frac{\partial\mathcal{L}}{\partial(\partial_\nu\varphi)}\frac{d(\partial_\nu\varphi)}{dx^\mu}+\frac{\partial\mathcal{L}}{\partial x^\mu}$$
+
+## Dérivation du tenseur énergie-impulsion {.smaller}
+
+En utilisant l'équation du champ pour remplacer $\partial\mathcal{L}/\partial\varphi$ :
+$$\frac{d\mathcal{L}}{dx^\mu} = \sum_\nu\left[\frac{d}{dx^\nu}\frac{\partial\mathcal{L}}{\partial(\partial_\nu\varphi)}\right]\frac{d\varphi}{dx^\mu}+\sum_\nu\frac{\partial\mathcal{L}}{\partial(\partial_\nu\varphi)}\frac{d^2\varphi}{dx^\mu dx^\nu}+\frac{\partial\mathcal{L}}{\partial x^\mu}$$
+
+soit, en reconnaissant une dérivée totale de produit :
+$$\sum_{\nu=0}^3\frac{d}{dx^\nu}\left(\frac{\partial\mathcal{L}}{\partial(\partial_\nu\varphi)}\frac{d\varphi}{dx^\mu}-\mathcal{L}\delta_{\mu\nu}\right) = -\frac{\partial\mathcal{L}}{\partial x^\mu} \tag{31}$$
+
+Si $\mathcal{L}$ ne dépend pas explicitement de $x^\mu$, alors :
+
+::: {.callout-note title="Définition — Tenseur énergie-impulsion"}
+$$T_{\mu\nu} = \frac{\partial\mathcal{L}}{\partial(\partial_\nu\varphi)}\frac{d\varphi}{dx^\mu}-\mathcal{L}\delta_{\mu\nu} \tag{32}$$
+est conservé : $\dfrac{dT_{\mu\nu}}{dx^\nu}=0$ (33).
+:::
+
+## Structure et interprétation du tenseur énergie-impulsion {.smaller}
+
+$T_{\mu\nu}$ est un tenseur d'ordre 2 dans l'espace-temps, 16 composantes :
+$$T_{\mu\nu} = \begin{pmatrix}T_{00}&T_{01}&T_{02}&T_{03}\\T_{10}&T_{11}&T_{12}&T_{13}\\T_{20}&T_{21}&T_{22}&T_{23}\\T_{30}&T_{31}&T_{32}&T_{33}\end{pmatrix} = \begin{pmatrix}T_{00}&T_{0j}\\T_{i0}&T_{ij}\end{pmatrix}$$
+
+En général non symétrique, $T_{\mu\nu}\neq T_{\nu\mu}$. On peut démontrer la décomposition :
+
+::: {.callout-note title="Interprétation physique des composantes"}
+- $T_{00} = \dfrac{\partial\mathcal{L}}{\partial\dot\varphi}\dot\varphi-\mathcal{L} = \mathcal{H}$ : densité d'énergie (**densité hamiltonienne**)
+- $T_{i0}$ : vecteur de la densité d'impulsion
+- $T_{0j}$ : vecteur du flux d'énergie
+- $T_{ij}=T_{ji}$ : tenseur des contraintes (flux de moments)
+:::
+
+En mécanique des fluides, la diagonale de $T_{ij}$ correspond à la pression, et les autres composantes aux efforts tangentiels dus à la viscosité.
+
+## Formulation relativiste de la théorie des champs {.smaller}
+
+L'élément infinitésimal de volume d'espace-temps $dt\,dx\,dy\,dz$ dans $S=\displaystyle\int\cdots\int\mathcal{L}\,dt\,dx\,dy\,dz$ (34) est déjà un **invariant de Lorentz**.
+
+::: {.callout-important title="Un résultat remarquable"}
+Une forme covariante de l'action est garantie si $\mathcal{L}$ est invariante par rapport à une transformation de Lorentz — il en sera de même pour toute équation du champ obtenue par le principe de moindre action. **Tout $\mathcal{L}$ scalaire de Lorentz satisfait donc automatiquement au principe de relativité** (bornes d'intégration appropriées).
+:::
+
+C'est précisément pourquoi la construction d'un nouveau modèle relativiste (électrodynamique, chromodynamique quantique, etc.) se réduit à proposer un $\mathcal{L}$ invariant de Lorentz approprié.
+
+## Quelle exigence sur la densité lagrangienne $\mathcal{L}$ garantit automatiquement qu'une théorie des champs respecte le principe de relativité d'Einstein ? {.quiz-question}
+
+- Que $\mathcal{L}$ dépende uniquement du temps
+- [Que $\mathcal{L}$ soit un scalaire de Lorentz (invariant sous les transformations de Lorentz)]{.correct data-explanation="Puisque l'élément de volume d'espace-temps dt·dx·dy·dz est déjà un invariant de Lorentz, il suffit que L le soit aussi pour que l'action S le soit, garantissant que les équations du champ qui en découlent respectent automatiquement la relativité."}
+- Que $\mathcal{L}$ ne dépende que d'un seul champ
+- Que $\mathcal{L}$ soit toujours positif
+
+# 7.4 Densité hamiltonienne
+
+## Le moment conjugué dans la limite continue {.smaller}
+
+Pour la corde 1D discrète, avec $L=\sum_i aL_i$ : le moment conjugué à $\varphi_i$ :
+$$p_i = \frac{\partial L}{\partial\dot\varphi_i} = a\frac{\partial L_i}{\partial\dot\varphi_i}$$
+
+L'hamiltonien discret :
+$$H = \sum_i p_i\dot\varphi_i - L = \sum_i a\left(\frac{\partial L_i}{\partial\dot\varphi_i}\dot\varphi_i-L_i\right) = \sum_i aH_i$$
+
+Dans la limite continue ($a\to0$, $N\to\infty$) :
+$$H = \lim_{a\to0}\sum_i aH_i = \int dx\,\mathcal{H}, \qquad \mathcal{H} = \frac{\partial\mathcal{L}}{\partial(\partial_t\varphi)}\partial_t\varphi - \mathcal{L}$$
+
+## Densité hamiltonienne et densité de moment {.smaller}
+
+::: {.callout-note title="Densité hamiltonienne et densité de moment"}
+$$\pi = \frac{\partial\mathcal{L}}{\partial(\partial_t\varphi)}$$
+présumée ne dépendre que de l'espace-temps, $\pi=\pi(x^\mu)$ — indépendante de $\varphi$ et de ses dérivées.
+:::
+
+Pour $n$ champs indépendants $\varphi_i(t,\mathbf{r})$ :
+$$\mathcal{H} = \sum_i \pi_i\,\partial_t\varphi_i - \mathcal{L} \tag{35}$$
+
+où $\pi_i(t,\mathbf{r})$ sont les densités de moments conjugués. L'hamiltonien complet :
+$$H = \int_{x_1}^{x_2}\int_{y_1}^{y_2}\int_{z_1}^{z_2}\mathcal{H}\,dx\,dy\,dz \tag{36}$$
+
+## Vérification : une transformation de Legendre {.smaller}
+
+La transformation (35) est une transformation de Legendre, construisant $\mathcal{H}(\varphi,\partial_x\varphi,\partial_y\varphi,\partial_z\varphi,\pi,x,y,z,t)$ à partir de $\mathcal{L}(\varphi,\partial_x\varphi,\partial_y\varphi,\partial_z\varphi,\partial_t\varphi,x,y,z,t)$ (37). Pour vérifier, calculons la différentielle totale (1 seul champ, pour simplifier) :
+$$d(\pi\partial_t\varphi-\mathcal{L}) = \partial_t\varphi\,d\pi - \frac{\partial\mathcal{L}}{\partial\varphi}d\varphi - \sum_{\nu=1}^3\frac{\partial\mathcal{L}}{\partial(\partial_\nu\varphi)}d(\partial_\nu\varphi) - \sum_{\nu=1}^3\frac{\partial\mathcal{L}}{\partial x^\mu}dx^\mu$$
+
+Cette différentielle **ne met effectivement plus en jeu $\partial_t\varphi$**, confirmant que $\mathcal{H}$ est bien fonction des variables attendues.
+
+## Les équations canoniques des champs {.smaller}
+
+D'après la définition de $\mathcal{H}$ : $d\mathcal{H} = \dfrac{\partial\mathcal{H}}{\partial\varphi}d\varphi+\displaystyle\sum_\nu\dfrac{\partial\mathcal{H}}{\partial(\partial_\nu\varphi)}d(\partial_\nu\varphi)+\dfrac{\partial\mathcal{H}}{\partial\pi}d\pi+\displaystyle\sum_\mu\dfrac{\partial\mathcal{H}}{\partial x^\mu}dx^\mu$. En égalant les 2 expressions de $d\mathcal{H}$ :
+
+::: {.callout-note title="Relations fondamentales"}
+$$\frac{\partial\varphi}{\partial t}=\frac{\partial\mathcal{H}}{\partial\pi} \tag{38.a} \qquad \frac{\partial\mathcal{H}}{\partial\varphi}=-\frac{\partial\mathcal{L}}{\partial\varphi} \tag{38.b} \qquad \frac{\partial\mathcal{H}}{\partial x^\mu}=-\frac{\partial\mathcal{L}}{\partial x^\mu} \tag{39}$$
+:::
+
+**Interprétation** :
+
+1. (38.a) est l'analogue de $\dot q=\partial H/\partial p$.
+2. (39) généralise $\partial H/\partial t=-\partial L/\partial t$ (discret) à $\partial\mathcal{H}/\partial\varphi=-\partial\mathcal{L}/\partial\varphi$.
+
+## Dérivation de la 2ᵉ équation canonique {.smaller}
+
+Pour l'analogue de $\dot p=-\partial H/\partial q$ : partant de l'équation d'E-L du champ (7) :
+$$\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial(\partial_t\varphi)}+\sum_{\mu=1}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi)}-\frac{\partial\mathcal{L}}{\partial\varphi}=0$$
+
+En substituant $\pi=\partial\mathcal{L}/\partial(\partial_t\varphi)$ et $\partial\mathcal{L}/\partial\varphi=-\partial\mathcal{H}/\partial\varphi$ (38.b) :
+$$\frac{d\pi}{dt} = \frac{\partial\mathcal{L}}{\partial\varphi}-\sum_{\mu=1}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi)} = -\frac{\partial\mathcal{H}}{\partial\varphi}-\sum_{\mu=1}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi)} \tag{40}$$
+
+::: {.callout-note title="Équations canoniques pour les champs"}
+$$\frac{\partial\varphi}{\partial t}=\frac{\partial\mathcal{H}}{\partial\pi}, \qquad \frac{d\pi}{dt}=-\frac{\partial\mathcal{H}}{\partial\varphi}-\sum_{\mu=1}^3\frac{d}{dx^\mu}\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi)}$$
+:::
+
+::: {.callout-important title="Remarque"}
+Ces équations sont un peu moins symétriques que dans le cas discret (le terme supplémentaire vient des dérivées spatiales), mais conservent le même genre de propriétés — on peut les dériver directement du principe de moindre action, exactement comme pour le cas discret.
+:::
+
+## Liens vers les parties du cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
