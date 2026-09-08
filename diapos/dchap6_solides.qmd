@@ -48,16 +48,16 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 6
 
 **Mouvement d'un solide indéformable**
-6.1 Degrés de liberté du solide
-6.2 Énergie cinétique
-6.3 Axes principaux et tenseur d'inertie
-6.4 Moment cinétique d'un solide
-6.5 Approche vectorielle et équations d'Euler
-6.6 Approche lagrangienne et angles d'Euler
-6.7 Toupie symétrique libre
-6.8 Toupie symétrique pesante
-6.9 Toupie asymétrique libre et stabilité
-6.10 Résumé
+6.1 Degrés de liberté du solide\
+6.2 Énergie cinétique\
+6.3 Axes principaux et tenseur d'inertie\
+6.4 Moment cinétique d'un solide\
+6.5 Approche vectorielle et équations d'Euler\
+6.6 Approche lagrangienne et angles d'Euler\
+6.7 Toupie symétrique libre\
+6.8 Toupie symétrique pesante\
+6.9 Toupie asymétrique libre et stabilité\
+6.10 Résumé\
 
 # 6.1 Degrés de liberté du solide
 

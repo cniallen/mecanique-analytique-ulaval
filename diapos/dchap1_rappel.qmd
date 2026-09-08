@@ -50,12 +50,12 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 1
 
 **Rappel**
-1.1 Trajectoire et cinématique d'une particule ponctuelle
-1.2 Plusieurs particules ponctuelles
-1.3 Éléments de dynamique
-1.4 Travail et Énergie
-1.5 Systèmes à N particules et forces extérieures
-1.6 Degrés de liberté
+1.1 Trajectoire et cinématique d'une particule ponctuelle\
+1.2 Plusieurs particules ponctuelles\
+1.3 Éléments de dynamique\
+1.4 Travail et Énergie\
+1.5 Systèmes à N particules et forces\ extérieures\
+1.6 Degrés de liberté\
 
 # 1.1 Trajectoire et cinématique d'une particule ponctuelle
 

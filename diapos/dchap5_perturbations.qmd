@@ -48,13 +48,13 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 5
 
 **Théorie des perturbations**
-5.1 Buts de la méthode
-5.2 L'idée de base : « varier » les constantes
-5.3 Les approximations
-5.4 Exemple : un cas très simple
-5.5 Méthode canonique de perturbations
-5.6 Autre exemple : l'oscillateur quartique
-5.7 Résumé
+5.1 Buts de la méthode\
+5.2 L'idée de base : « varier » les constantes\
+5.3 Les approximations\
+5.4 Exemple : un cas très simple\
+5.5 Méthode canonique de perturbations\
+5.6 Autre exemple : l'oscillateur quartique\
+5.7 Résumé\
 
 # 5.1 Buts de la méthode
 

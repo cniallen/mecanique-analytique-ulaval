@@ -48,16 +48,16 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 2
 
 **Formalisme de Lagrange**
-2.1 Coordonnées généralisées
-2.2 Principe de base
-2.3 Variation fonctionnelle
-2.4 La fonction $L(q_i, \dot q_i, t)$
-2.5 Coordonnées curvilignes
-2.6 Contraintes holonomes et non holonomes
-2.7 Lois de conservation et constantes du mouvement
-2.8 Invariance de jauge
-2.9 Caractéristiques, propriétés, limites
-2.10 Symétrie de l'espace-temps
+2.1 Coordonnées généralisées\
+2.2 Principe de base\
+2.3 Variation fonctionnelle\
+2.4 La fonction $L(q_i, \dot q_i, t)$\
+2.5 Coordonnées curvilignes\
+2.6 Contraintes holonomes et non holonomes\
+2.7 Lois de conservation et constantes du mouvement\
+2.8 Invariance de jauge\
+2.9 Caractéristiques, propriétés, limites\
+2.10 Symétrie de l'espace-temps\
 
 # 2.1 Coordonnées généralisées
 

@@ -48,17 +48,17 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 4
 
 **Formalisme canonique hamiltonien**
-4.1 Transformation de Legendre
-4.2 L'hamiltonien
-4.3 Quelques exemples
-4.4 Crochets de Poisson
-4.5 Moments généralisés
-4.6 Transformations canoniques
-4.7 La méthode de Hamilton-Jacobi
-4.8 $T(q_i,p_i)$ en coordonnées généralisées
-4.9 Interprétation de la fonction $S$
-4.10 Mécanique ondulatoire
-4.11 Résumé
+4.1 Transformation de Legendre\
+4.2 L'hamiltonien\
+4.3 Quelques exemples\
+4.4 Crochets de Poisson\
+4.5 Moments généralisés\
+4.6 Transformations canoniques\
+4.7 La méthode de Hamilton-Jacobi\
+4.8 $T(q_i,p_i)$ en coordonnées généralisées\
+4.9 Interprétation de la fonction $S$\
+4.10 Mécanique ondulatoire\
+4.11 Résumé\
 
 ## Formalisme canonique
 
