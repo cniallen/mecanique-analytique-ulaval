@@ -1,0 +1,700 @@
+---
+title: "Mécanique analytique"
+subtitle: "PHY-2000 — Chapitre 6 : Mouvement d'un solide indéformable"
+author: "Prof. Claudine Allen"
+institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
+from: markdown+emoji
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    html-math-method: katex
+    css: |
+      .reveal .slides {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    spotlight:
+      size: 30
+      toggleSpotlightOnMouseDown: true
+      useAsPointer: true
+      pointerColor: "red"
+      initialPresentationMode: false
+    quiz:
+      checkKey: "c"
+      resetKey: "q"
+      shuffleKey: "t"
+      allowNumberKeys: true
+      shuffleOptions: false
+      defaultCorrect: "Correct !"
+      defaultIncorrect: "Incorrect."
+revealjs-plugins:
+  - quiz
+  - spotlight
+---
+
+## Progression dans le cours
+
+- Chapitre 0 : Plan de cours  :white_check_mark:
+- Chapitre 1 : Rappel  :white_check_mark:
+- Chapitre 2 : Formalisme de Lagrange  :white_check_mark:
+- Chapitre 3 : Applications et propriétés  :white_check_mark:
+- Chapitre 4 : Formalisme canonique  :white_check_mark:
+- Chapitre 5 : Théorie des perturbations  :white_check_mark:
+- Chapitre 6 : Mouvement d'un solide indéformable  :arrow_left:
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
+
+## SOMMAIRE DU CHAPITRE 6
+
+**Mouvement d'un solide indéformable**
+6.1 Degrés de liberté du solide
+6.2 Énergie cinétique
+6.3 Axes principaux et tenseur d'inertie
+6.4 Moment cinétique d'un solide
+6.5 Approche vectorielle et équations d'Euler
+6.6 Approche lagrangienne et angles d'Euler
+6.7 Toupie symétrique libre
+6.8 Toupie symétrique pesante
+6.9 Toupie asymétrique libre et stabilité
+6.10 Résumé
+
+# 6.1 Degrés de liberté du solide
+
+## Du point matériel au solide indéformable
+
+Un corps physique a de véritables dimensions : longueurs, largeurs, épaisseurs, distribution de masse. Le **solide indéformable** = approximation (souvent très valable) où la structure microscopique n'a pas d'intérêt.
+
+::: {.callout-tip title="Exemple 6.1 — Masse d'un corps indéformable"}
+$$M = \sum_i m_i = \int_V \rho(\mathbf{x})\,d^3x \tag{1}$$
+où $\rho(\mathbf{x})$ est la densité de masse.
+:::
+
+**Degrés de liberté** : en 3D, une particule ponctuelle a 3 ddl. Un solide indéformable requiert la position d'un de ses points (3 ddl) **et** son orientation par rapport à un système d'axes fixé en ce point (3 ddl) — **total 6 ddl**.
+
+**Contraintes** : pour $N$ particules, $3N$ ddl $\to$ 6 ddl, soit $3N-6$ contraintes (les positions relatives entre particules sont toujours les mêmes).
+
+## Les référentiels
+
+1. **Référentiel XYZ** : fixé dans le laboratoire, présumé inertiel.
+2. **Référentiel $x_1x_2x_3$** : fixé au corps solide, origine en $O$, se déplace et tourne avec le solide.
+3. Par simplicité, on centre $x_1x_2x_3$ sur le **centre de masse** : $\mathbf{R}$ = position du CM dans XYZ, $\mathbf{x}$ = position d'un point $P$ du solide, mesurée dans $x_1x_2x_3$ (fixe, constante).
+
+Vectoriellement : $\mathbf{r}=\mathbf{R}+\mathbf{x}$. Un déplacement se décompose en translation de $O$ ($d\mathbf{R}$) plus un changement d'orientation ($d\boldsymbol\varphi = \mathbf{e}_\perp d\varphi$) :
+$$d\mathbf{r} = d\mathbf{R}+d\boldsymbol\varphi\times\mathbf{x} \tag{2}$$
+
+d'où la **vitesse d'un point du solide** :
+$$\mathbf{v} = \dot{\mathbf{r}} = \mathbf{V}+\boldsymbol\Omega\times\mathbf{x} \tag{3,4}$$
+
+## Signification de V et Ω
+
+Si $\mathbf{R}$ mesure la position du CM ($O=$CM), $\mathbf{V}$ est la vitesse de translation du solide comme un tout. $\boldsymbol\Omega$ = vitesse angulaire du solide (direction $\parallel$ axe de rotation, $\boldsymbol\Omega\neq$ cte en général).
+
+Comme $x_1x_2x_3$ est fixé au solide, $\boldsymbol\Omega$ = vitesse angulaire de ce référentiel aussi — **indépendamment du choix du point O sur le solide**.
+
+## Indépendance du choix de l'origine {.smaller}
+
+Introduisons une autre origine $O'$, déplacée de $O$ par $\mathbf{a}$ : $\mathbf{x}=\mathbf{x}'+\mathbf{a}$ (5). Puisque $\mathbf{r}=\mathbf{R}'+\mathbf{x}'=\mathbf{R}+\mathbf{x}=\mathbf{R}+(\mathbf{x}'+\mathbf{a})$, alors $\mathbf{R}=\mathbf{R}'-\mathbf{a}$, donc $d\mathbf{R}=d\mathbf{R}'$ (6).
+
+L'éq. (4) devient $\mathbf{v}=\mathbf{V}+\boldsymbol\Omega\times(\mathbf{x}'+\mathbf{a})=\mathbf{V}+\boldsymbol\Omega\times\mathbf{x}'+\boldsymbol\Omega\times\mathbf{a}$. Mais $d\mathbf{R}=d\mathbf{R}'$ impose aussi $\mathbf{v}=\mathbf{V}'+\boldsymbol\Omega'\times\mathbf{x}'$ (7). Puisque $\mathbf{v}$ est identique à lui-même et $\mathbf{a}$ arbitraire :
+$$\mathbf{V}' = \mathbf{V}+\boldsymbol\Omega\times\mathbf{a}, \qquad \boldsymbol\Omega'=\boldsymbol\Omega \tag{8,9}$$
+
+::: {.callout-important title="Remarque 6.1"}
+La vitesse angulaire de rotation est totalement indépendante du système $x_1x_2x_3$ choisi — tous ces systèmes tournent autour d'axes parallèles avec la même $\boldsymbol\Omega$. Cette propriété d'absolu ne se retrouve **pas** dans la translation, puisque $\mathbf{V}'\neq\mathbf{V}$.
+:::
+
+::: {.callout-note title="Définition 6.1 — Axe de rotation instantané"}
+En choisissant $O'$ tel que $\mathbf{V}'=0$, le mouvement devient une pure rotation autour de l'axe passant par $O'$ — l'**axe de rotation instantané**.
+:::
+
+**Convention** : dorénavant, CM = O = origine de $x_1x_2x_3$.
+
+# 6.2 Énergie cinétique
+
+## Décomposition de l'énergie cinétique {.smaller}
+
+Mesurée dans XYZ : $T=\dfrac{1}{2}\sum_a m_av_a^2 \equiv \dfrac{1}{2}\sum m v^2$ (10). Avec $v^2=\mathbf{v}\cdot\mathbf{v}=(\mathbf{V}+\boldsymbol\Omega\times\mathbf{x})\cdot(\mathbf{V}+\boldsymbol\Omega\times\mathbf{x})$ :
+$$T = \frac{1}{2}\sum mV^2 + \sum m\mathbf{V}\cdot(\boldsymbol\Omega\times\mathbf{x}) + \frac{1}{2}\sum m(\boldsymbol\Omega\times\mathbf{x})^2 \tag{11}$$
+
+**1er terme** : $\mathbf{V}$ sort de la somme : $\dfrac{1}{2}\sum mV^2 = \dfrac{MV^2}{2}$, $M=\sum m$ (12).
+
+**2ᵉ terme** : par la propriété des produits triples, $\sum m\mathbf{V}\cdot(\boldsymbol\Omega\times\mathbf{x})=(\mathbf{V}\times\boldsymbol\Omega)\cdot\sum m\mathbf{x} \equiv 0$ (13), car $\sum m\mathbf{x}=0$ dans le CM.
+
+**3ᵉ terme** : en développant le carré du produit vectoriel, $\dfrac{1}{2}\sum m(\boldsymbol\Omega\times\mathbf{x})^2 = \dfrac{1}{2}\sum m[\Omega^2x^2-(\boldsymbol\Omega\cdot\mathbf{x})^2]$ (14).
+
+## $T = T_{CM} + T_{rot}$
+
+Au total, lorsque $x_1x_2x_3$ est centré sur le CM :
+$$T = \underbrace{\frac{MV^2}{2}}_{T_{CM}} + \underbrace{\frac{1}{2}\sum m[\Omega^2x^2-(\boldsymbol\Omega\cdot\mathbf{x})^2]}_{T_{rot}} \tag{15,16}$$
+
+$T_{CM}$ = énergie cinétique de translation (seul terme si toute la masse était concentrée au CM). $T_{rot}$ = énergie cinétique de rotation, impliquant un concept **d'inertie propre au solide**.
+
+## Dérivation du tenseur d'inertie {.smaller}
+
+En composantes selon $x_1x_2x_3$, avec notation d'Einstein (indice répété = sommé) :
+$$T_{rot} = \frac{1}{2}\sum m[\Omega_i\Omega_ix_lx_l - \Omega_i\Omega_kx_ix_k] = \frac{1}{2}\sum m[\Omega_i\Omega_k\delta_{ik}x_lx_l-\Omega_i\Omega_kx_ix_k] \tag{17}$$
+
+Les $x_j$ dépendent de la particule sommée, mais $\Omega_i\Omega_k$ n'en dépend pas — on sort de la somme :
+$$T_{rot} = \frac{1}{2}\Omega_i\Omega_k\sum m[\delta_{ik}x_lx_l-x_ix_k] \equiv \frac{1}{2}\Omega_iI_{ik}\Omega_k \tag{18}$$
+
+::: {.callout-note title="Notation 6.2 — Convention d'Einstein"}
+Dans ce chapitre, un indice répété dans un terme est automatiquement sommé.
+:::
+
+## Le tenseur d'inertie {.smaller}
+
+En notation matricielle, $T_{rot}=\dfrac{1}{2}\Omega^T I \Omega$, où $I$ = matrice $3\times3$ (« tenseur d'inertie », rang 2 car 2 indices) :
+$$I = \begin{pmatrix}I_{11}&I_{12}&I_{13}\\I_{21}&I_{22}&I_{23}\\I_{31}&I_{32}&I_{33}\end{pmatrix}, \qquad I_{ik}=\sum m[x_lx_l\delta_{ik}-x_ix_k]=I_{ki} \tag{19,20}$$
+
+Explicitement (23) :
+$$I = \begin{pmatrix}\sum m(x_2^2+x_3^2) & -\sum mx_1x_2 & -\sum mx_1x_3 \\ -\sum mx_2x_1 & \sum m(x_1^2+x_3^2) & -\sum mx_2x_3 \\ -\sum mx_3x_1 & -\sum mx_3x_2 & \sum m(x_1^2+x_2^2)\end{pmatrix}$$
+
+Pour un solide continu de densité $\rho(\mathbf{x})$ :
+$$I_{ik} = \int_V \rho(\mathbf{x})[x_lx_l\delta_{ik}-x_ix_k]\,dx_1dx_2dx_3 \tag{24}$$
+
+::: {.callout-important title="Remarque 6.3"}
+$x_1x_2x_3$ étant fixé au corps, $I$ est indépendant de la position et de l'orientation du solide dans XYZ.
+:::
+
+## Axes principaux {.smaller}
+
+::: {.callout-note title="Définition 6.2 — Axes principaux"}
+Il est possible d'orienter $x_1x_2x_3$ tel que $I$ est diagonal, $I=\text{diag}(I_1',I_2',I_3')$ — les valeurs propres de (23). Ces 3 directions sont les **axes principaux (d'inertie)** et $I_1',I_2',I_3'$ les **moments principaux d'inertie**.
+:::
+
+Dans ce repère : $T_{rot}=\dfrac{1}{2}I_i'\Omega_i'^2$ (simple somme, plus de matrice !) (26).
+
+::: {.callout-note title="Notation 6.3"}
+Pour alléger : $I_{ii}=I_i$ (axes principaux) et on laisse tomber les primes, ex. $T_{rot}=\dfrac{1}{2}I_i\Omega_i^2$ (27).
+:::
+
+# 6.3 Axes principaux et tenseur d'inertie
+
+## Diagonalisation de I {.smaller}
+
+Soit un système $x_1x_2x_3$ arbitraire : on calcule $I_{ik}$ (symétrique, réel). Les axes principaux s'obtiennent par **diagonalisation** :
+$$I \xrightarrow{\text{diagonalisation}} I_D = \text{diag}(I_1,I_2,I_3)$$
+
+::: {.callout-note title="Définition 6.3 — Diagonalisation"}
+Il existe $U$, inversible, avec $U^{-1}=U^\dagger$ (unitaire), telle que $UIU^{-1}=I_D$ (29).
+:::
+
+::: {.callout-important title="Remarque 6.4"}
+Pour les moments d'inertie, $U$ est une matrice de rotation 3D réelle et orthogonale, $U\in O(3)$, avec $U^{-1}=U^\dagger=U^T$.
+:::
+
+En reprenant $T_{rot}=\frac12\Omega^TI\Omega = \frac12\Omega^\dagger U^\dagger U I U^{-1}U\Omega = \frac12\Omega'^\dagger I_D\Omega'$ (30), où $\boldsymbol\Omega'=U\boldsymbol\Omega$ — $\boldsymbol\Omega'$ correspond à $\boldsymbol\Omega$ après rotation $U$.
+
+## Vecteurs propres et matrice U {.smaller}
+
+Le système prime définit les axes principaux, obtenu du système original par une rotation **ssi** l'origine $O$ = CM (sinon, translation préalable requise).
+
+::: {.callout-tip title="Exercice 6.1 — Vecteurs propres = colonnes de $U^{-1}$"}
+De $UIU^{-1}=I_D$ (33), en multipliant à gauche par $U^{-1}$ : $IU^{-1}=U^{-1}I_D$ (34). En écrivant $U^{-1}=(v_{ij})$ et en isolant la 1ʳᵉ colonne $V_1=(v_{11},v_{21},v_{31})^T$ :
+$$IV_1 = I_1V_1 \tag{38,39}$$
+une équation aux valeurs propres ! Même raisonnement pour les 2ᵉ et 3ᵉ colonnes.
+:::
+
+**Procédure pratique** : (1) centrer sur le CM, calculer $I$ ; (2) trouver les valeurs propres $I_1,I_2,I_3$ ; (3) trouver les vecteurs propres $V_k$ (colonnes de $U^{-1}$) via $IV_k=I_kV_k$ ; (4) obtenir $U$ en inversant $U^{-1}$.
+
+## Moments principaux et classification {.smaller}
+
+Dans le repère des axes principaux : $I_{ij}=0$ pour $i\neq j$, et :
+$$I_i = I_{ii} = \sum m(x_lx_l - x_i^2) \tag{40}$$
+
+d'où trivialement (41) :
+$$I_1=\sum m(x_2^2+x_3^2), \quad I_2=\sum m(x_1^2+x_3^2), \quad I_3=\sum m(x_1^2+x_2^2)$$
+
+On note qu'aucun $I_i$ n'excède la somme des 2 autres : $I_i\le I_j+I_k$ ($i\neq j\neq k$).
+
+::: {.callout-note title="Classification des toupies"}
+- **Toupie sphérique** : $I_1=I_2=I_3$
+- **Toupie symétrique** : 2 des 3 moments égaux ($I_i=I_j\neq I_k$)
+- **Toupie asymétrique** : les 3 différents
+:::
+
+## Théorème des axes parallèles {.smaller}
+
+::: {.callout-important title="Remarque 6.7 — Attention"}
+$T=\frac12MV^2+\frac12I_{ik}\Omega_i\Omega_k$ n'est valide **que si** le référentiel intrinsèque est centré sur le CM.
+:::
+
+Pour calculer $I_{ik}$, il peut être utile d'utiliser un référentiel $S'$ intrinsèque mais centré sur $O'\neq$CM, avec axes $\parallel$ (translation $\mathbf{a}$, pas rotation). Avec $x_i=x_i'+a_i$ (43) :
+$$I_{ik}' = \sum m(x_l'x_l'\delta_{ik}-x_i'x_k') = \sum m[(x_l-a_l)(x_l-a_l)\delta_{ik}-(x_i-a_i)(x_k-a_k)]$$
+
+En développant et en utilisant $\sum mx_i=0$ (CM) et $\sum m=M$ :
+$$I_{ik}' = \underbrace{\sum m[x_lx_l\delta_{ik}-x_ix_k]}_{I_{ik}, \text{ dans le CM}} + M(a_la_l\delta_{ik}-a_ia_k) \tag{45,46}$$
+
+::: {.callout-note title="Théorème 6.1 — Théorème des axes parallèles"}
+$$I_{ik}' = I_{ik} + M(a_la_l\delta_{ik}-a_ia_k) \tag{47}$$
+où $I_{ik}$ est le tenseur d'inertie dans le repère du CM.
+:::
+
+## Lagrangien dans le repère des axes principaux {.smaller}
+
+Avec $S$ = repère des axes principaux : $T=\dfrac{1}{2}MV^2+\dfrac{1}{2}I_i\Omega_i^2$ (48). Avec forces de cohésion internes (nulles globalement, action-réaction) et forces externes dérivant d'un potentiel $U$ :
+$$L = \frac{1}{2}MV^2+\frac{1}{2}I_i\Omega_i^2 - U \tag{49}$$
+
+# 6.4 Moment cinétique d'un solide
+
+## Dérivation de L = IΩ {.smaller}
+
+Choisissons l'origine du moment cinétique au CM. Pour un point $P$ à $\mathbf{x}$ de $O$ : $\mathbf{L}_P=m\mathbf{x}\times\mathbf{v}$, $\mathbf{v}=\boldsymbol\Omega\times\mathbf{x}$ (50). En sommant sur tous les points :
+$$\mathbf{L} = \sum m\,\mathbf{x}\times(\boldsymbol\Omega\times\mathbf{x}) \tag{51}$$
+
+Avec $\mathbf{A}\times(\mathbf{B}\times\mathbf{C})=(\mathbf{A}\cdot\mathbf{C})\mathbf{B}-(\mathbf{A}\cdot\mathbf{B})\mathbf{C}$ :
+$$\mathbf{L} = \sum m[x^2\boldsymbol\Omega-(\boldsymbol\Omega\cdot\mathbf{x})\mathbf{x}] \tag{52}$$
+
+En composantes : $L_i = \sum m[x_lx_l\Omega_i - x_k\Omega_kx_i] = \sum m[x_lx_l\delta_{ik}\Omega_k-x_ix_k\Omega_k] = \Omega_k\sum m[x_lx_l\delta_{ik}-x_ix_k]$ :
+$$L_i = I_{ik}\Omega_k \tag{53-55}$$
+
+## L n'est pas parallèle à Ω en général
+
+Si le référentiel intrinsèque = axes propres : $\mathbf{L}=(I_1\Omega_1,I_2\Omega_2,I_3\Omega_3)$.
+
+::: {.callout-important title="Différence fondamentale avec la particule"}
+En général (sauf toupie sphérique) : $\mathbf{L}\nparallel\boldsymbol\Omega$ — une différence dramatique avec le mouvement d'une particule ponctuelle.
+:::
+
+Étudions 3 cas simples **sans force extérieure**. Le lagrangien se limite à l'énergie cinétique, et on peut faire coïncider les origines des référentiels inertiel et intrinsèque puisque $\mathbf{V}=0$.
+
+## Exemple 6.3 — La toupie sphérique {.smaller}
+
+::: {.callout-tip title="Exemple 6.3"}
+$I_1=I_2=I_3=I \implies \mathbf{L}=I\boldsymbol\Omega$ (56), donc $\mathbf{L}\parallel\boldsymbol\Omega$.
+:::
+
+Rappel : $\dot{\mathbf{L}}=\boldsymbol\tau$. En l'absence de torque, $\mathbf{L}=$cte, $\boldsymbol\Omega=$cte (puisque $\mathbf{L}=I\boldsymbol\Omega$) — **rotation simple** autour d'un axe fixe défini par $\mathbf{L}$ (ou $\boldsymbol\Omega$), à vitesse angulaire constante.
+
+## Exemple 6.4 — La tige de rayon nul {.smaller}
+
+::: {.callout-tip title="Exemple 6.4"}
+Rotateur, masse répartie sur une droite : $I_3=0$, $I_1=I_2=I$.
+:::
+
+$\Omega_3=0$ (la rotation d'une droite sur son axe n'a pas de sens classiquement), donc $\boldsymbol\Omega=(\Omega_1,\Omega_2,0)$, dans le plan $x_1Ox_2$. Alors :
+$$\mathbf{L} = \begin{pmatrix}I&0&0\\0&I&0\\0&0&0\end{pmatrix}\begin{pmatrix}\Omega_1\\\Omega_2\\0\end{pmatrix} = I\begin{pmatrix}\Omega_1\\\Omega_2\\0\end{pmatrix}$$
+
+donc $\mathbf{L}\parallel\boldsymbol\Omega$, $\mathbf{L}\parallel$ plan $x_1Ox_2$. Sans torque : $\mathbf{L}=$cte, $\boldsymbol\Omega=$cte.
+
+## Exemple 6.5 — La toupie symétrique : mise en place {.smaller}
+
+::: {.callout-tip title="Exemple 6.5"}
+$I_1=I_2\neq I_3$, axe de symétrie $Ox_3$ (cylindre, beignet, ballon de football...).
+:::
+
+$$\mathbf{L}=(L_1,L_2,L_3) = I_2\left(\Omega_1,\Omega_2,\frac{I_3}{I_2}\Omega_3\right)$$
+
+Sans torque, $\mathbf{L}=$cte. Figeons le temps et choisissons $Ox_2$ tel que le plan $LOx_3\perp Ox_2$ ; puisque $Ox_1\perp Ox_2$, alors plan $LOx_3=$ plan $x_1Ox_3$. À cet instant, $L_2=0$, or $L_2=I_2\Omega_2$ avec $I_2\neq0 \implies \Omega_2=0$ : donc $\boldsymbol\Omega$ est dans le plan $LOx_3=x_1Ox_3$.
+
+## Précession naturelle de la toupie symétrique {.smaller}
+
+Pour tout point $\mathbf{x}_a$ sur l'axe de symétrie $Ox_3$ : $\mathbf{v}_a=\boldsymbol\Omega\times\mathbf{x}_a \parallel Ox_2$, $\mathbf{v}_a\perp$ plan $\Omega Ox_3=$ plan $LOx_3$.
+
+Puisque $\mathbf{L}=$cte (grandeur et direction), le mouvement force l'axe de symétrie $Ox_3$ à **tourner autour de la direction de $\mathbf{L}$**, dessinant un cône — la **précession naturelle**.
+
+**Décomposition du mouvement** : (1) rotation de la toupie autour de $Ox_3$ + (2) précession de $Ox_3$ autour de $\mathbf{L}$. On décompose $\boldsymbol\Omega$ selon $Ox_3$ et selon $\mathbf{L}$ (non orthogonaux en général) ; on se replace au moment où $Ox_1$ est dans le plan $L\Omega$.
+
+## Calcul de la vitesse de précession {.smaller}
+
+D'après la géométrie : $\cos\chi = \Omega_1/\Omega_{pr} = \cos(\pi/2-\theta)=\sin\theta$ (57), donc :
+$$\Omega_1 = \Omega_{pr}\sin\theta \implies \Omega_{pr}=\frac{\Omega_1}{\sin\theta} \tag{58}$$
+
+Également : $\cos\chi=\sin\theta = L_1/L = I_1\Omega_1/L$ (59), avec $L=|{\mathbf{L}}|=\sqrt{(I_2)^2(\Omega_1^2+\Omega_2^2)+(I_3\Omega_3)^2}$.
+
+En combinant :
+$$\Omega_{pr} = \frac{\Omega_1}{\sin\theta} = \Omega_1\frac{L}{I_1\Omega_1} = \frac{L}{I_1} \tag{60}$$
+
+$$\boxed{\Omega_{pr} = \frac{L}{I_1}} \quad\text{= vitesse angulaire de précession du solide autour de } \mathbf{L}$$
+
+## Quel vecteur, dans le mouvement libre d'une toupie symétrique, décrit systématiquement un cône (précession) autour d'une direction constante ? {.quiz-question}
+
+- Le vecteur vitesse angulaire $\boldsymbol\Omega$ autour de l'axe de symétrie $Ox_3$
+- [L'axe de symétrie $Ox_3$ du solide, autour de la direction constante $\mathbf{L}$]{.correct data-explanation="Puisque L est conservé (aucun torque), et que Ox3 n'est généralement pas parallèle à L, la seule façon de satisfaire L = cte est que l'axe Ox3 précesse autour de L à vitesse Ωpr = L/I1."}
+- Le vecteur $\mathbf{L}$ autour de l'axe $Ox_3$
+- Aucun de ces vecteurs ne bouge dans ce cas
+
+# 6.5 Approche vectorielle et équations d'Euler
+
+## Trois référentiels nécessaires {.smaller}
+
+**Approche** : (1) référence à un référentiel inertiel (CM ou point fixe) ; (2) retour au référentiel intrinsèque. Le solide a 6 ddl $\implies$ 6 équations : 3 pour $\dot{\mathbf{P}}$, 3 pour $\dot{\mathbf{L}}$.
+
+**Mouvement linéaire** : $\mathbf{P}=\sum\mathbf{p}=M\mathbf{V}=\mathbf{P}_{CM}$ (61), $\dot{\mathbf{P}}=\mathbf{F}$ (62) — équivalent au problème d'une particule ponctuelle.
+
+**3 référentiels pour la rotation** :
+
+1. **Référentiel L** : laboratoire, inertiel, axes $XYZ$.
+2. **Référentiel S** : fixé au solide, non inertiel, axes $x_1x_2x_3$, origine = CM.
+3. **Référentiel SF** : inertiel, axes $X_1X_2X_3$, origine = CM, mais **fixe** par rapport à L (ne tourne pas).
+
+## Séparer la contribution du CM {.smaller}
+
+Dans L : $\dot{\mathbf{L}}\big|_L = \dfrac{d\mathbf{L}}{dt}\Big|_L = \boldsymbol\tau$ (63), $\boldsymbol\tau$ = torque extérieur. On décompose :
+$$\mathbf{L}\big|_L = \mathbf{R}\times M\mathbf{V} + \mathbf{L}\big|_{SF} \tag{64}$$
+
+1er terme = moment cinétique associé au CM ; 2ᵉ terme mesuré p/r $O$, mais en composantes fixes (SF, ne tourne pas). En dérivant (avec $\dot{\mathbf{R}}=\mathbf{V}$, donc $\dot{\mathbf{R}}\times M\mathbf{V}=0$) :
+$$\dot{\mathbf{L}}\big|_L = \mathbf{R}\times M\dot{\mathbf{V}} + \dot{\mathbf{L}}\big|_{SF} = \boldsymbol\tau \tag{65}$$
+
+## Rotation seule et référentiel non inertiel {.smaller}
+
+Si $\dot{\mathbf{V}}=0$ (CM sans accélération, ou point fixe) : $\dot{\mathbf{L}}\big|_{SF}=\boldsymbol\tau$ (66). Mais $\dot{\mathbf{L}}\big|_{SF}$ est déterminé par le moment d'inertie qui change constamment dans SF.
+
+On veut plutôt $\mathbf{L}_S$ (moment cinétique p/r $x_1x_2x_3$, tournant avec le solide à $\boldsymbol\Omega$) où le moment d'inertie est **constant**, mais ce référentiel n'est pas inertiel $\implies$ contribution de type Coriolis.
+
+::: {.callout-important title="Remarque 6.8 — Rappel"}
+Si un vecteur a les composantes $\mathbf{A}'$ dans un repère tournant $S'$, ses composantes dans un repère inertiel obéissent à $\dfrac{d\mathbf{A}}{dt}=\dfrac{d\mathbf{A}'}{dt}+\boldsymbol\Omega\times\mathbf{A}'$.
+:::
+
+D'où $\dot{\mathbf{L}}\big|_{SF}=\dot{\mathbf{L}}\big|_S+\boldsymbol\Omega\times\mathbf{L}_S=\boldsymbol\tau$ (67), soit (en laissant tomber l'indice $S$) :
+$$\frac{d\mathbf{L}}{dt}+\boldsymbol\Omega\times\mathbf{L}=\boldsymbol\tau \tag{68}$$
+
+## Dérivation des équations d'Euler {.smaller}
+
+Si les axes intrinsèques = axes principaux, $L_i=I_i\Omega_i$ (pas de somme). L'éq. (68) en composantes, $\forall i$ :
+$$I_i\frac{d\Omega_i}{dt}+\epsilon_{ijk}\Omega_j\Omega_kI_k = \tau_i \tag{70}$$
+
+où $\epsilon_{ijk}$ est le tenseur de Lévi-Civita (pas de somme sur $i$). Explicitement, les **3 équations d'Euler** :
+
+::: {.callout-note title="Équations d'Euler"}
+$$I_1\dot\Omega_1-\Omega_2\Omega_3(I_2-I_3)=\tau_1$$
+$$I_2\dot\Omega_2-\Omega_3\Omega_1(I_3-I_1)=\tau_2 \tag{71}$$
+$$I_3\dot\Omega_3-\Omega_1\Omega_2(I_1-I_2)=\tau_3$$
+:::
+
+Si $\boldsymbol\tau=0$, ces équations se réduisent à (72), système homogène couplé et non linéaire.
+
+## Cas de la toupie symétrique libre {.smaller}
+
+Avec $I_1=I_2\neq I_3\neq0$ et $\boldsymbol\tau=0$, (72) devient :
+$$I_1\dot\Omega_1-\Omega_2\Omega_3(I_1-I_3)=0, \quad I_1\dot\Omega_2-\Omega_3\Omega_1(I_3-I_1)=0, \quad I_3\dot\Omega_3=0 \tag{73}$$
+
+d'où $\Omega_3=$cte, et en posant $\omega \equiv \dfrac{(I_3-I_1)}{I_1}\Omega_3=$cte :
+$$\dot\Omega_1=-\omega\Omega_2, \qquad \dot\Omega_2=\omega\Omega_1 \tag{74}$$
+
+En dérivant la 1ʳᵉ et substituant la 2ᵉ : $\ddot\Omega_1+\omega\dot\Omega_2=0 \implies \ddot\Omega_1+\omega^2\Omega_1=0$ (75,76) — **un oscillateur harmonique** ! Solution :
+$$\Omega_1(t)=A\cos(\omega t+\beta), \qquad \Omega_2(t)=A\sin(\omega t+\beta) \tag{77,78}$$
+
+tel que $\sqrt{\Omega_1^2+\Omega_2^2}=|\boldsymbol\Omega_\perp|=$cte (la projection de $\boldsymbol\Omega$ sur $x_1Ox_2$). $\Omega_3=$cte = projection sur l'axe de la toupie ; $\omega$ = vitesse angulaire du vecteur $\boldsymbol\Omega$ tournant autour de $Ox_3$.
+
+## Exemple 6.6 — Rotation de la Terre {.smaller}
+
+::: {.callout-tip title="Exemple 6.6"}
+Torque Soleil-Terre négligeable ($\boldsymbol\tau=0$, $\mathbf{V}\approx0$). La Terre, légèrement aplatie : $I_1\approx I_2<I_3$, avec $(I_1-I_3)/I_1\approx-0.003$ (80).
+:::
+
+$$\omega = \frac{I_3-I_1}{I_1}\Omega_3 \approx 0.003\,\Omega_3 \tag{82}$$
+
+Avec $T=2\pi/\Omega_3\approx1$ jour, on prédit :
+$$T_{pr} = \frac{2\pi}{\omega} = \frac{2\pi I_1}{\Omega_3(I_3-I_1)} \approx 333 \text{ jours} \tag{83}$$
+
+**Observation** : le mouvement est observé (déplacement du pôle $\sim5$ m), mais avec une période observée $T_{pr}^{obs}\sim427$ jours. La Terre n'étant ni rigide ni uniforme, $T_{pr}\neq T_{pr}^{obs}$ — écart attendu, la Terre n'étant qu'approximativement une toupie symétrique rigide.
+
+# 6.6 Approche lagrangienne et angles d'Euler
+
+## Pourquoi le référentiel tournant est plus simple
+
+::: {.callout-tip title="Pourquoi travailler dans un référentiel tournant ?"}
+Dans le repère intrinsèque, les moments d'inertie sont **constants** et plus simples selon les axes principaux — sinon il faudrait recalculer $I$ continuellement dans le repère immobile.
+:::
+
+Pour une rotation seule, on fait coïncider les origines de $XYZ$ et $x_1x_2x_3$, avec $\mathbf{V}=0$.
+
+::: {.callout-important title="Remarque 6.10"}
+Toute rotation en 3D peut être vue comme une séquence de 3 rotations successives par rapport à des axes dont on garde la trace — **les angles d'Euler**.
+:::
+
+## Définition des angles d'Euler {.smaller}
+
+::: {.callout-note title="Définition 6.4 — Angles d'Euler"}
+- **Ligne nodale** $ON$ : intersection des plans $XOY$ et $x_1Ox_2$.
+- $\varphi$ : angle entre $OX$ et la ligne nodale ; rotation p/r $OZ$, $\dot\varphi\parallel OZ$.
+- $\psi$ : angle entre la ligne nodale et $Ox_1$, mesuré dans $x_1Ox_2$ ; rotation p/r $Ox_3$, $\dot\psi\parallel Ox_3$.
+- $\theta$ : angle entre $OZ$ et $Ox_3$ ; rotation p/r $ON$, $\dot\theta\parallel ON$.
+:::
+
+**3 rotations successives** : $S(x,y,z) \xrightarrow{R_z(\varphi)} S'(x',y',z') \xrightarrow{R_{x'}(\theta)} S''(x'',y'',z'') \xrightarrow{R_{z''}(\psi)} S'''(x_1,x_2,x_3)$
+
+où $S=XYZ$ (fixe), $S'''=x_1x_2x_3$ (tournant), et $R = R_{z''}(\psi)R_{x'}(\theta)R_z(\varphi)$.
+
+## Composantes de Ω en angles d'Euler {.smaller}
+
+Selon les axes mobiles $x_1x_2x_3$, chaque rotation infinitésimale contribue :
+$$\dot\theta_1=\dot\theta\cos\psi,\;\; \dot\varphi_1=\dot\varphi\sin\theta\sin\psi,\;\; \dot\psi_1=0$$
+$$\dot\theta_2=-\dot\theta\sin\psi,\;\; \dot\varphi_2=\dot\varphi\sin\theta\cos\psi,\;\; \dot\psi_2=0$$
+$$\dot\theta_3=0,\;\; \dot\varphi_3=\dot\varphi\cos\theta,\;\; \dot\psi_3=\dot\psi$$
+
+En sommant ($\Omega_i=\dot\theta_i+\dot\varphi_i+\dot\psi_i$) (84) :
+
+::: {.callout-note title="Composantes de la vitesse angulaire"}
+$$\Omega_1 = \dot\theta\cos\psi+\dot\varphi\sin\theta\sin\psi$$
+$$\Omega_2 = -\dot\theta\sin\psi+\dot\varphi\sin\theta\cos\psi \tag{85}$$
+$$\Omega_3 = \dot\varphi\cos\theta+\dot\psi$$
+:::
+
+## Trot en angles d'Euler — 3 cas {.smaller}
+
+Avec les axes principaux : $T_{rot}=\dfrac12I_1\Omega_1^2+\dfrac12I_2\Omega_2^2+\dfrac12I_3\Omega_3^2$.
+
+::: {.callout-tip title="Exemple 6.7 — Toupie asymétrique"}
+$$T_{rot} = \frac12I_1(\dot\theta\cos\psi+\dot\varphi\sin\theta\sin\psi)^2+\frac12I_2(-\dot\theta\sin\psi+\dot\varphi\sin\theta\cos\psi)^2+\frac12I_3(\dot\psi+\dot\varphi\cos\theta)^2 \tag{86}$$
+:::
+
+::: {.callout-tip title="Exemple 6.8 — Toupie symétrique ($I_1=I_2$)"}
+$$T_{rot} = \frac12I_1(\dot\theta^2+\dot\varphi^2\sin^2\theta)+\frac12I_3(\dot\psi+\dot\varphi\cos\theta)^2 \tag{87}$$
+:::
+
+::: {.callout-tip title="Exemple 6.9 — Toupie sphérique ($I_1=I_2=I_3=I$)"}
+$$T_{rot} = \frac12I(\dot\theta^2+\dot\varphi^2+2\dot\varphi\dot\psi\cos\theta+\dot\psi^2) \tag{88}$$
+:::
+
+# 6.7 Toupie symétrique libre
+
+## Mise en place {.smaller}
+
+Toupie symétrique ($I_1=I_2\neq I_3$), libre ($\mathbf{F}_{ext}=0=\boldsymbol\tau_{ext}$), CM au repos. Choisissons $OZ\parallel\mathbf{L}$ : $\mathbf{L}=L\mathbf{e}_Z=$cte (89). Géométriquement, $L_3=L\cos\theta=I_3\Omega_3$ (90).
+
+Sans $T_{CM}$ ni potentiel, le lagrangien = (87) :
+$$L_{toupie} = T_{rot} = \frac12I_1(\dot\theta^2+\dot\varphi^2\sin^2\theta)+\frac12I_3(\dot\psi+\dot\varphi\cos\theta)^2 \tag{91}$$
+
+$\psi$ et $\varphi$ sont **cycliques** $\implies p_\psi, p_\varphi=$cte.
+
+## Les deux moments conservés {.smaller}
+
+**Pour $\psi$** : $p_\psi = \partial L_{toupie}/\partial\dot\psi = I_3(\dot\psi+\dot\varphi\cos\theta) = I_3\Omega_3=$cte (92). Donc $L\cos\theta=I_3\Omega_3=$cte $\implies \theta=$cte (ou $\dot\theta=0$).
+
+**Pour $\varphi$** : $p_\varphi = \partial L_{toupie}/\partial\dot\varphi = I_1\dot\varphi\sin^2\theta+I_3\Omega_3\cos\theta=$cte (93). Puisque $I_1,\theta,I_3\Omega_3=$cte $\implies \dot\varphi=$cte.
+
+::: {.callout-important title="Remarque 6.11"}
+$\dot\varphi=$cte indique une **précession** du solide (ou de l'axe $Ox_3$) autour de l'axe fixe $OZ\parallel\mathbf{L}$ — la même précession qu'à la section 6.4 :
+$$\dot\varphi = \Omega_{pr} = \frac{L}{I_1} \tag{94}$$
+:::
+
+## La Terre comme toupie symétrique libre {.smaller}
+
+En choisissant l'axe principal comme référentiel : $\mathbf{L}=I_1\boldsymbol\Omega_1+I_2\boldsymbol\Omega_2+I_3\boldsymbol\Omega_3$ (98), avec $I_2=I_1$ :
+$$L^2 = I_1^2(\Omega_1^2+\Omega_2^2)+I_3^2\Omega_3^2=\text{cte} = I_1^2\dot\varphi^2\sin^2\theta+L_3^2 \tag{99-101}$$
+
+En isolant $\dot\varphi^2$ avec $L_3=L\cos\theta$ :
+$$\dot\varphi^2 = \frac{L^2-L_3^2}{I_1^2\sin^2\theta} = \frac{L^2(1-\cos^2\theta)}{I_1^2\sin^2\theta} = \frac{L^2}{I_1^2} \quad\Longrightarrow\quad \dot\varphi = \frac{L}{I_1}=\frac{L_3}{I_1\cos\theta}=\frac{I_3\Omega_3}{I_1\cos\theta} \tag{102-104}$$
+
+::: {.callout-tip title="Exemple 6.10"}
+Pour la Terre, $I_1\approx I_3$ et $\omega\approx\Omega_3 \implies \dot\varphi\approx\omega\approx2\pi\,\text{rad/j}$ (105).
+:::
+
+## Réconciliation des deux périodes de précession {.smaller}
+
+**Constat apparent** : deux précessions différentes ont été trouvées pour la Terre — $T_{Ox_3/L}=1$ jour (précession de $Ox_3$ autour de $\mathbf{L}$) contre $T_{\Omega_\perp/Ox_3}=T_{pr}\approx1$ an (précession de $\boldsymbol\Omega_\perp$ autour de $Ox_3$, section 6.5).
+
+**Sont-ils cohérents ? OUI !** Étudions $\Omega_1(t)$ explicitement. De (85), avec $\theta=\theta_0=$cte et $\dot\varphi=L/I_1$ :
+$$\Omega_1 = \dot\varphi\sin\theta\sin\psi = \frac{L}{I_1}\sin\theta_0\sin\psi \tag{109}$$
+
+**Trouver $\psi(t)$** : de $p_\psi=I_3(\dot\psi+\dot\varphi\cos\theta)=L_3=L\cos\theta$ (110), en isolant $\dot\psi$ (avec $\dot\varphi=L/I_1$) :
+$$\dot\psi = \frac{L\cos\theta(I_1-I_3)}{I_3 I_1} = \Omega_3\frac{I_1-I_3}{I_1} = \omega =\text{cte} \tag{111-113}$$
+
+## Identification finale {.smaller}
+
+D'où $\psi(t)=\omega t+\psi_0$, et donc :
+$$\Omega_1(t) = \frac{L\sin\theta_0}{I_1}\sin(\omega t+\psi_0) \tag{114}$$
+
+En comparant à la forme attendue $\Omega_1(t)=A\sin(\Omega_{pr}t+\delta)$ (115) :
+$$A = \frac{L\sin\theta_0}{I_1}, \qquad \delta=\psi_0, \qquad |\Omega_{pr}| = \omega = \Omega_3\frac{I_1-I_3}{I_1} \tag{116-118}$$
+
+**Conclusion** : la composante transverse $\boldsymbol\Omega_\perp$ tourne autour de l'axe $Ox_3$ (mobile !) avec fréquence $|\Omega_{pr}|=\omega$ (période $\sim1$ an) — c'est **différent** de la précession de $Ox_3$ lui-même autour de $\mathbf{L}$ (fixe), qui se fait à $\dot\varphi\approx2\pi$ rad/j (période $\sim1$ jour). **Les deux résultats coexistent sans contradiction**, décrivant deux mouvements superposés distincts.
+
+# 6.8 Toupie symétrique pesante
+
+## Mise en place et énergie cinétique {.smaller}
+
+Cas le plus simple : pointe fixe dans un champ gravitationnel uniforme. Origine = la pointe fixe, pour XYZ **et** $x_1x_2x_3$. Puisque $\mathbf{R}=0=\mathbf{V}$, seul $T_{rot}$ contribue :
+$$T_{rot} = \frac12I_1(\Omega_1^2+\Omega_2^2)+\frac12I_3\Omega_3^2 \tag{119}$$
+
+avec $I_1=I_2$, mais maintenant $I_1\neq I_1^{princ}$ (moment par rapport à l'axe principal passant par le CM) ! Par le théorème des axes parallèles :
+$$I_1 = I_1^{princ} + Mh^2 \tag{120}$$
+
+où $h$ = distance pointe-CM. En angles d'Euler (identique à (87)) :
+$$T_{rot} = \frac12I_1(\dot\theta^2+\dot\varphi^2\sin^2\theta)+\frac12I_3(\dot\psi+\dot\varphi\cos\theta)^2 \tag{122}$$
+
+## Le lagrangien complet {.smaller}
+
+Le champ gravitationnel produit une force $\mathbf{F}=-Mg\mathbf{e}_Z$ au CM, et un torque $\boldsymbol\tau\neq0 \implies \mathbf{L}\neq$cte. Énergie potentielle : $V=Mgz=Mgh\cos\theta$ (123), $z=h\cos\theta$ = hauteur du CM. Donc :
+$$L_{toupie} = \frac12I_1(\dot\theta^2+\dot\varphi^2\sin^2\theta)+\frac12I_3(\dot\psi+\dot\varphi\cos\theta)^2 - Mgh\cos\theta \tag{124}$$
+
+**Variables cycliques** : $\varphi$ et $\psi$ (mais pas $\theta$, à cause du potentiel).
+
+## Conservation de $L_Z$ et $L_3$ par Newton {.smaller}
+
+Rappel : $\dot{\mathbf{L}}=\boldsymbol\tau=\mathbf{r}\times\mathbf{F}$. Ici, $\mathbf{r}=h\mathbf{e}_{x_3}$ (CM sur l'axe de symétrie), $\mathbf{F}=-Mg\mathbf{e}_Z$.
+
+**Selon $Z$** : $\boldsymbol\tau\perp OZ$ (car $\mathbf{F}\parallel OZ$ et $\mathbf{r}$ a une composante $\perp OZ$ qui varie, mais $\tau_Z=(\mathbf{r}\times\mathbf{F})_Z=0$) $\implies L_Z=$cte.
+
+**Selon $Ox_3$** : puisque $\mathbf{r}\parallel Ox_3$, $\boldsymbol\tau\perp Ox_3$, donc $\tau_3=0 \implies L_3=$cte.
+
+## Résolution par Lagrange — 1ʳᵉ méthode {.smaller}
+
+$$p_\psi = \frac{\partial L_{toupie}}{\partial\dot\psi} = I_3(\dot\psi+\dot\varphi\cos\theta) = I_3\Omega_3 = L_3 = \text{cte} \tag{125}$$
+$$p_\varphi = \frac{\partial L_{toupie}}{\partial\dot\varphi} = I_1\dot\varphi\sin^2\theta+\underbrace{I_3(\dot\psi+\dot\varphi\cos\theta)}_{L_3}\cos\theta = I_1\dot\varphi\sin^2\theta+L_3\cos\theta = L_Z=\text{cte} \tag{126,127}$$
+
+En combinant $p_\varphi-p_\psi\cos\theta=L_Z-L_3\cos\theta=I_1\dot\varphi\sin^2\theta$ :
+$$\dot\varphi = \frac{L_Z-L_3\cos\theta}{I_1\sin^2\theta} \tag{128}$$
+
+En substituant dans $L_3=I_3(\dot\psi+\dot\varphi\cos\theta)$ et isolant $\dot\psi$ :
+$$\dot\psi = \frac{L_3}{I_3}-\frac{\cos\theta}{I_1\sin^2\theta}(L_Z-L_3\cos\theta) \tag{129}$$
+
+Si $\theta(t)$ est connu, on intègre (128),(129) pour $\varphi(t),\psi(t)$ — solution complète.
+
+## L'équation en θ {.smaller}
+
+Pour $\theta(t)$, on utilise l'équation d'E-L $\dfrac{d}{dt}\left(\dfrac{\partial L_{toupie}}{\partial\dot\theta}\right)-\dfrac{\partial L_{toupie}}{\partial\theta}=0$ (130). Après calcul de $\partial L_{toupie}/\partial\theta$ et substitution de $\dot\varphi,\dot\psi$ (128,129) :
+$$I_1\ddot\theta = \frac{(L_3-L_Z\cos\theta)(L_Z-L_3\cos\theta)}{I_1\sin^3\theta}+Mgh\sin\theta$$
+
+::: {.callout-important title="Remarque 6.13 — 2ᵉ méthode"}
+Alternative : éliminer $\dot\varphi,\dot\psi$ du lagrangien directement à l'aide de (128),(129), pour obtenir un lagrangien effectif en $\theta,\dot\theta$ seulement :
+$$L_{toupie} = \frac12I_1\dot\theta^2+\frac{(L_Z-L_3\cos\theta)^2}{2I_1\sin^2\theta}+\frac{L_3^2}{2I_3}-Mgh\cos\theta \tag{131}$$
+L'équation d'E-L pour ce lagrangien redonne exactement le même résultat pour $\ddot\theta$.
+:::
+
+## Potentiel efficace $V_{eff}(\theta)$ — via l'énergie {.smaller}
+
+La 1ʳᵉ approche identifie $V_{eff}$ directement du membre de droite — mais son intégration est difficile. **2ᵉ approche**, plus féconde : bien que $\mathbf{L}\neq$cte, **l'énergie $E=T+V$ reste conservée** (le torque ne fait pas de travail). En utilisant (122),(123),(125) :
+$$E = T_{rot}+V = \frac{I_1}{2}\dot\theta^2+\frac{I_1}{2}\dot\varphi^2\sin^2\theta+\frac{L_3^2}{2I_3}+Mgh\cos\theta \tag{134,135}$$
+
+En redéfinissant $E_0=E-L_3^2/(2I_3)-Mgh$ (une constante additive sans conséquence), et en substituant $\dot\varphi$ (128) :
+$$E_0 = \frac{I_1}{2}\dot\theta^2+\frac{(L_Z-L_3\cos\theta)^2}{2I_1\sin^2\theta}-Mgh(1-\cos\theta) \equiv T_\theta+V_\theta \tag{136,137}$$
+
+$$T_\theta=\frac{I_1}{2}\dot\theta^2, \qquad V_\theta=\frac{(L_Z-L_3\cos\theta)^2}{2I_1\sin^2\theta}-Mgh(1-\cos\theta)$$
+
+Isolant : $\dot\theta=\sqrt{\dfrac{2}{I_1}(E_0-V_\theta)}$, intégrable « en principe » — mais mène à des **intégrales elliptiques**.
+
+## Le changement de variable u = cos θ {.smaller}
+
+Avec $u=\cos\theta$, $\dot u=-\dot\theta\sin\theta \implies \dot\theta=-\dot u/\sqrt{1-u^2}$ (138-140). En substituant dans (137) et isolant $\dot u^2$ :
+$$\dot u^2 = \frac{2(1-u^2)}{I_1}\big(E_0+Mgh(1-u)\big)-\left(\frac{L_Z-L_3u}{I_1}\right)^2 \tag{141,142}$$
+
+Cette équation se met sous la forme (avec des constantes $\alpha,\beta,a,b$) :
+$$\dot u^2 = (\alpha-\beta u)(1-u^2)-(b-au)^2 \equiv f(u) \tag{143}$$
+$$\alpha = \frac{2(E_0+Mgh)}{I_1}, \quad \beta=\frac{2Mgh}{I_1}, \quad b=\frac{L_Z}{I_1}, \quad a=\frac{L_3}{I_1} \tag{144-147}$$
+
+$f(u)$ est un **polynôme cubique**, coefficient de $u^3$ égal à $\beta>0$ : $f(-\infty)\to-\infty$, $f(+\infty)\to+\infty$ — donc $f(u)$ a soit 2 extrema, soit aucun, entre ces limites.
+
+## Domaine physique et nutation {.smaller}
+
+**Contraintes physiques** : $u=\cos\theta \implies -1\le u\le1$ ; et $\dot u^2=f(u)\ge0$. Le polynôme cubique $f(u)$ a 3 racines réelles $u_1,u_2,u_3$ ; le domaine physiquement permis est $u_1\le u\le u_2$.
+
+::: {.callout-important title="Remarque 6.14"}
+Pour qu'une situation physique existe : $-1\le u\le1$ **et** $f(u)\ge0$.
+:::
+
+$\theta$ oscille donc entre $\theta_1$ et $\theta_2$ (où $\cos\theta_{1,2}=u_{1,2}$) — c'est la **nutation**.
+
+## Les 3 scénarios de précession {.smaller}
+
+Rappelons $\dot\varphi = \dfrac{L_Z-L_3\cos\theta}{I_1\sin^2\theta}$ (150). Selon les conditions initiales (qui fixent $L_Z,L_3$) et le domaine $[\theta_1,\theta_2]$, **3 scénarios** :
+
+1. **$L_Z-L_3\cos\theta$ ne change pas de signe** sur tout le domaine : $\dot\varphi$ ne change pas de signe $\implies$ précession continue (vitesse variable).
+2. **$L_Z-L_3\cos\theta$ change de signe** entre $\theta_1$ et $\theta_2$ : $\dot\varphi(\theta_2)$ a le signe inverse de $\dot\varphi(\theta_1)$ $\implies$ précession avec mouvements de va-et-vient (boucles).
+3. **$L_Z-L_3\cos\theta$ ne change pas de signe mais s'annule** à $\theta_1$ ou $\theta_2$ : précession toujours dans la même direction, mais avec un temps d'arrêt (**cusp**) à la limite de nutation où $\dot\varphi=0$.
+
+On représente ces 3 situations en traçant la trajectoire de la pointe libre de la toupie sur une sphère.
+
+## Stabilité de la toupie qui dort {.smaller}
+
+**Observation empirique** : une toupie lancée vite et peu inclinée « dort » (axe quasi vertical), puis devient brutalement instable quand la friction la ralentit.
+
+Rappel $V_\theta=\dfrac{(L_Z-L_3\cos\theta)^2}{2I_1\sin^2\theta}-Mgh(1-\cos\theta)$ (151). $V_\theta(0)=0$ et le 2ᵉ terme est répulsif ($\cos\theta$ max à $\theta=0$). Si $\theta\approx0$ est stable, $V_\theta$ doit y avoir un **minimum**.
+
+**Développement de Taylor** autour de $\theta=0$ (avec $L_3=L_Z$ à $\theta=0$) : après application répétée de la règle de l'Hôpital (l'expression étant indéterminée $0/0$), on trouve $\left.\partial V_\theta/\partial\theta\right|_0=0$ (extremum confirmé), et :
+$$\lim_{\theta\to0}\frac{\partial^2V_\theta}{\partial\theta^2} = \frac{L_3^2}{I_1}\cdot\frac14 - Mgh \tag{158}$$
+
+## Le critère de stabilité {.smaller}
+
+Donc, lorsque $\theta\to0$ :
+$$V_\theta \approx \frac{\theta^2}{2}\left(\frac{L_3^2}{4I_1}-Mgh\right)+O(\theta^3) \tag{159}$$
+
+L'extremum est un **minimum** (stabilité) ssi :
+$$\frac{L_3^2}{4I_1}-Mgh>0 \quad\Longleftrightarrow\quad L_3^2=I_3^2\Omega_3^2>4I_1Mgh \quad\Longleftrightarrow\quad \Omega_3^2 > \frac{4I_1Mgh}{I_3^2} \tag{160}$$
+
+::: {.callout-note title="Condition de stabilité de la toupie qui dort"}
+$$\Omega_3 > \sqrt{\frac{4I_1Mgh}{I_3^2}}$$
+:::
+
+Tant que $\Omega_3$ satisfait cette condition, la position verticale est stable. Quand la friction fait chuter $\Omega_3$ sous cette limite, l'extremum devient instable et le mouvement devient rapidement désordonné.
+
+**Interprétation** : compétition entre le terme dû à la gravité (déstabilisant) et le terme dû à la rotation (stabilisant). À grande vitesse $\Omega_3$, la gravité devient négligeable et la situation ressemble au cas libre.
+
+## Est-il vrai que la stabilité de la « toupie qui dort » ne dépend que de sa vitesse de rotation propre $\Omega_3$ ? {.quiz-question}
+
+- Faux — elle ne dépend que de l'angle d'inclinaison initial θ
+- [Vrai, à condition que $\Omega_3^2$ dépasse le seuil $4I_1Mgh/I_3^2$]{.correct data-explanation="La condition de stabilité dérivée du développement de Taylor de V_θ autour de θ=0 ne dépend que de Ω₃ (via L₃=I₃Ω₃) comparé aux paramètres fixes I₁, M, g, h du solide — d'où le comportement caractéristique où la toupie devient soudainement instable en ralentissant."}
+- Faux — une toupie symétrique est toujours stable, peu importe sa vitesse
+- Vrai, mais seulement si le moment d'inertie I₃ est nul
+
+# 6.9 Toupie asymétrique libre et stabilité
+
+## Construction de Poinsot {.smaller}
+
+Toupie asymétrique libre : $I_1<I_2<I_3$. Sans potentiel, $L_{toupie}=T_{toupie}$ — conservation de $\mathbf{L}$, de $L^2$, et de $E$. Selon les axes principaux :
+$$L^2 = I_1^2\Omega_1^2+I_2^2\Omega_2^2+I_3^2\Omega_3^2 = \text{cte} \tag{161}$$
+$$E = \frac12I_1\Omega_1^2+\frac12I_2\Omega_2^2+\frac12I_3\Omega_3^2 = \text{cte} \tag{162}$$
+
+En termes de $L_1,L_2,L_3$ :
+$$L^2=L_1^2+L_2^2+L_3^2 \tag{163}, \qquad E = \frac{L_1^2}{2I_1}+\frac{L_2^2}{2I_2}+\frac{L_3^2}{2I_3} \tag{164}$$
+
+## Intersection sphère-ellipsoïde {.smaller}
+
+Sur des axes orthogonaux $(L_1,L_2,L_3)$ : l'éq. (163) définit une **sphère** de rayon $L$ ; l'éq. (164) définit un **ellipsoïde** de demi-axes $\sqrt{2EI_1},\sqrt{2EI_2},\sqrt{2EI_3}$. Les deux doivent être satisfaites simultanément $\implies$ l'extrémité de $\mathbf{L}$ suit les **courbes d'intersection** de ces 2 surfaces.
+
+Puisque $I_1<I_2<I_3$ :
+$$2I_1E = L_1^2+\frac{I_1}{I_2}L_2^2+\frac{I_1}{I_3}L_3^2 \le L^2, \qquad 2I_3E = \frac{I_3}{I_1}L_1^2+\frac{I_3}{I_2}L_2^2+L_3^2 \ge L^2$$
+
+d'où :
+$$2EI_1 \le L^2 \le 2EI_3 \tag{167}$$
+
+## Les orbites limites et l'instabilité de l'axe intermédiaire {.smaller}
+
+Si $L^2=2EI_1$ : $L_2=L_3=0$, $\mathbf{L}$ minimum, selon l'axe 1. Si $L^2=2EI_3$ : $L_1=L_2=0$, $\mathbf{L}$ maximum, selon l'axe 3. Toutes les valeurs intermédiaires sont permises, donnant une **famille de trajectoires** tracées par la pointe de $\mathbf{L}$ pour différentes valeurs de $L$.
+
+::: {.callout-important title="Théorème de la raquette de tennis"}
+Cette construction géométrique (de Poinsot) révèle un résultat classique bien connu : la rotation autour des axes principaux 1 (minimum de $I$) ou 3 (maximum de $I$) est **stable**, alors que la rotation autour de l'axe intermédiaire 2 est **instable** — les courbes d'intersection près de l'axe 2 s'écartent rapidement, contrairement à celles autour des axes 1 et 3 qui restent fermées et proches.
+:::
+
+# 6.10 Résumé
+
+## Formulaire — Solides indéformables {.smaller}
+
+- **Tenseur d'inertie** : $I_{ik} = \sum_{part.} m[\delta_{ik}x_lx_l-x_ix_k]$
+- **Dynamique de rotation** : torque $\tau_i = \dfrac{dL_i}{dt}=I_{ik}\alpha_k$ ; moment cinétique $L_i=I_{ik}\Omega_k$ ; $T_{rot}=\dfrac12\Omega_iI_{ik}\Omega_k$
+- **Diagonalisation** : $UIU^{-1}=I_D=\text{diag}(I_1,I_2,I_3)$
+- **Équations d'Euler** : $I_i\dfrac{d\Omega_i}{dt}+\epsilon_{ijk}\Omega_j\Omega_kI_k=\tau_i$ (pas de somme sur $i$)
+- **Classification** : sphérique $I_1=I_2=I_3$ ; symétrique $I_1=I_2\neq I_3$ ; asymétrique : les 3 différents
+- **Théorème des axes parallèles** : $I=I_{CM}+Md^2$
+- **Théorème des plaques minces** : $I_z=I_x+I_y$
+- **Roulement sans glissement** : $v=\Omega R$
+
+## Formulaire — Moments d'inertie usuels et angles d'Euler {.smaller}
+
+| Solide | $I$ (axe de symétrie) |
+|---|---|
+| Masse ponctuelle | $MR^2$ |
+| Disque ou cylindre plein | $\frac12MR^2$ |
+| Tige (par rapport au centre) | $\frac{1}{12}ML^2$ |
+| Tige (par rapport à l'extrémité) | $\frac13ML^2$ |
+| Sphère pleine | $\frac25MR^2$ |
+| Sphère creuse | $\frac23MR^2$ |
+
+**Constantes usuelles** : $g=9.8\;\text{m·s}^{-2}$, $R_\text{Terre}=6378$ km, $\omega_\text{Terre}=7.27\times10^{-5}\;\text{rad·s}^{-1}$.
+
+**Composantes de $\boldsymbol\Omega$ en angles d'Euler** :
+$$\Omega_1=\dot\theta\cos\psi+\dot\varphi\sin\theta\sin\psi, \quad \Omega_2=-\dot\theta\sin\psi+\dot\varphi\sin\theta\cos\psi, \quad \Omega_3=\dot\varphi\cos\theta+\dot\psi$$
+
+## Liens vers les parties du cours
+
+- Chapitre 0 : Plan de cours
+- Chapitre 1 : Rappel
+- Chapitre 2 : Formalisme de Lagrange
+- Chapitre 3 : Applications et propriétés
+- Chapitre 4 : Formalisme canonique
+- Chapitre 5 : Théorie des perturbations
+- Chapitre 6 : Mouvement d'un solide indéformable
+- Chapitre 7 : Mécanique lagrangienne des milieux continus
+- Chapitre 8 : Annexes
