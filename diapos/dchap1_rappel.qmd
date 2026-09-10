@@ -159,7 +159,8 @@ $$
 
 Puisque $\mathbf{e}_\parallel \cdot \mathbf{e}_\parallel = 1$, on a $\dfrac{d(\mathbf{e}_\parallel \cdot \mathbf{e}_\parallel)}{dt} = 2\mathbf{e}_\parallel \cdot \dfrac{d\mathbf{e}_\parallel}{dt} = 0$, donc $\dfrac{d\mathbf{e}_\parallel}{dt} \perp \mathbf{e}_\parallel$.
 
-On appelle $\mathbf{e}_\perp$ le vecteur unitaire normal à la trajectoire (dans le plan instantané de la trajectoire), et on définit par $\dfrac{d\mathbf{e}_k}{ds} = \dfrac{1}{\rho}$.
+On appelle $\mathbf{e}_\perp$ le vecteur unitaire normal à la trajectoire (dans le plan instantané de la trajectoire), et on définit par $\dfrac{1}{\rho} \equiv \lVert\dfrac{d\mathbf{e}_\parallel}{ds}\rVert$.
+
 
 ## Accélération
 
@@ -199,7 +200,7 @@ Par un léger abus de notation, on note les coordonnées de ce point $\{x_i ; i 
 :::
 
 ::: {.callout-tip title="Exemple 1.2"}
-La force nécessite $n = 3N$ composantes : $F_i(x_j, t)$ est la $i$-ième composante de la force, avec $i, j = 1, 2, \dots, n$. $\tag{13}$
+La force nécessite $n = 3N$ composantes : $F_i(x_j, t)$ est la $i$-ième composante de la force, avec $i, j = 1, 2, \dots, n. \tag{13}$
 :::
 
 # 1.3 Éléments de dynamique
@@ -384,7 +385,7 @@ $$\nabla \times \mathbf{F} = 0 \;:\; \text{force conservative.} \tag{58}$$
 ## Forces conservatives
 
 ::: {.callout-note title="Définition 1.2 — Force conservative"}
-Il est toujours possible d'écrire $\mathbf{F}$ comme le gradient d'une fonction scalaire : $\mathbf{F} = -\nabla V(\mathbf{x})$ où $V(\mathbf{x})$ est l'**énergie potentielle**. $\tag{59}$
+Il est toujours possible d'écrire $\mathbf{F}$ comme le gradient d'une fonction scalaire : $\mathbf{F} = -\nabla V(\mathbf{x})$ où $V(\mathbf{x})$ est l'**énergie potentielle**. 
 :::
 
 ## Forces conservatives $\rightarrow$ Conservation de l'énergie
@@ -458,8 +459,7 @@ Introduisons les coordonnées primes, qui sont relatives à la position du centr
 
 ## Coordonnées relatives
 
-[Position de la particule de masse $m_i$ dans le système $S$ et dans le système du centre de masse $CM$,](./assets/chap1_fig6.png){#fig-trajectoire width="70%" fig-align="center"}
-
+![Position de la particule de masse $m_i$ dans le système $S$ et dans le système du centre de masse $CM$,](./assets/chap1_fig6.png){#fig-trajectoire width="70%" fig-align="center"}
 
 ## Moment angulaire du système
 
@@ -519,9 +519,15 @@ Correspondances : $x_i \leftrightarrow$ fonctions de la position $\mathbf{x}(x)$
 | $\mathbf{P} = \sum_i m_i \mathbf{v}_i$ | $\mathbf{P} = \int \mathbf{v}\,\rho(\mathbf{x})\,d^3x$ |
 | $\mathbf{L} = \sum_i m_i \mathbf{x}_i\times\mathbf{v}_i$ | $\mathbf{L} = \int \mathbf{x}\times\mathbf{v}\,\rho(\mathbf{x})\,d^3x$ |
 
-## Exemple 1.3 — Particule dans un potentiel 1D
+## Exemple 1.3 — Système simple unidimensionnel
 
-Soit $F(x) = -\dfrac{\partial V}{\partial x}$ agissant sur une particule en 1D. La force étant conservative :
+Soit une force $F(x) = -\dfrac{\partial V}{\partial x}$ agissant sur une particule, avec la fonction de potentiel $V(x)$ représentée à la figure @fig-potentiel1D suivante.
+
+![Potentiel 1D auquel est soumis une particule](./assets/chap1_fig7.png){#fig-potentiel1D width="70%" fig-align="center"}
+
+## Exemple 1.3 — Système simple unidimensionnel
+
+La force étant conservative :
 $$E = \frac{m}{2}\dot{x}^2 + V(x) = T + V = \text{cte.} \tag{79}$$
 
 Puisque $T \ge 0$, on a toujours $E \ge V(x)$, ce qui **contraint le mouvement** : selon la valeur de $E$, le mouvement peut être limité à une région bornée (état lié) ou permettre un mouvement non borné.
@@ -538,79 +544,98 @@ d'où la solution générale $x = x(t - t_0, E, x_0)$ — unique si l'on connaî
 
 ## Degrés de liberté (ddl)
 
-Un **degré de liberté** (ddl) généralise le nombre de directions indépendantes selon lesquelles une particule peut se déplacer. Propriété clé : les ddl **se comptent**.
+Un **degré de liberté (ddl)** généralise le nombre de directions indépendantes selon lesquelles les particules d'un système peuvent se déplacer. Propriété clef : les ddl **se comptent**.
 
 - 1 particule ponctuelle dans 1 direction → 1 ddl
 - 1 particule ponctuelle dans 2 directions → 2 ddl
 - 2 particules ponctuelles dans 2 directions → 4 ddl
-- $m$ particules ponctuelles dans $n$ directions → $mn$ ddl
+- $m$ particules ponctuelles dans $n$ directions → $m\dotn$ ddl
 
-Des forces peuvent limiter le mouvement à un domaine fini selon ces directions **sans faire disparaître le ddl**.
 
-::: {.callout-tip title="Exemple 1.4 — Mouvement à 1 ddl"}
-Une particule libre selon $Ox$ a 1 ddl. Sous une force harmonique $F_x = -kx$, son domaine de variation est réduit à $[-x_0, x_0]$ selon son énergie $E = kx_0^2/2$ — mais elle conserve toujours **1 ddl**.
-:::
+## Exemple 1.5 — Mouvement à 1 degré de liberté
+![Trajectoires de particules contraintes à se déplacer le long des lignes bleues](./assets/chap1_fig8.png){#fig-exemple1ddl width="70%" fig-align="center"}
 
-::: {.callout-important title="Remarque 1.9"}
-Si cette force est plutôt une tige rigide empêchant tout mouvement, le domaine de variation est réduit à zéro → **0 ddl**.
-:::
+**Dans les deux cas, la particule a un seul ddl en #x_i=x$.**\
+Au haut de la figure, la direction du mouvement est une droite → 1 ddl physique.
 
 ## Exemple 1.5 — Mouvement à 1 ddl, trajectoire courbe
-
-::: {.callout-tip title="Exemple 1.5"}
-Dans l'exemple précédent, la direction du mouvement est une droite (cartésienne) → 1 ddl physique.
 
 Mais le mouvement d'une particule peut tout aussi bien se limiter à une **courbe quelconque** plutôt qu'à une droite.
 
 Ici encore : 1 ddl ⟵ courbe = un espace à 1 dimension $\Longrightarrow$ un seul nombre (ou coordonnée) est suffisant pour déterminer la position de tout point sur la courbe — peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D.
+
+## Exemple 1.6 Dénombrer les degrés de liberté {.quiz-question}
+
+Deux particules ponctuelles évoluent librement dans un espace à 3 dimensions, sans aucune contrainte entre elles. Combien de degrés de liberté le système possède-t-il ?
+
+- 1. deux ddl
+- 2. trois ddl
+- [3. six ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
+- 4. douze ddl
+
+## Distinction entre domaine et degré de liberté du mouvement 
+
+Des forces extérieures ou des interactions entre particules peuvent limiter le mouvement à un domaine fini dans une direction donnée.\
+**Cela ne fait PAS disparaître le ddl.**
+
+Par exemple, une masse attachée à un ressort est soumise à une force harmonique unidimensionnelle $F_x = -kx$\
+- déplacement réduit à $[-x_1, x_1]$ 
+- domaine limité p/r à celui de la particule libre $[-\infty, \infty]$
+- le système conserve **1 ddl**. 
+
+::: {.callout-important title="Remarque 1.9"}
+Si cette force provient plutôt de la réaction d'une tige rigide empêchant tout mouvement, le domaine de variation est réduit à zéro → **0 ddl** dans ce cas.
+:::
+
+## Le nombre de ddl est-il une propriété de la solution ?
+
+Pour des conditions initiales fixant une solution constante (ex. $\mathbf{r}(t_0)$ est au creux d'un puits de potentiel), le domaine de variation de la coordonnée correspondante pourrait sembler réduit à zéro.
+
+::: {.callout-warning}
+Ce n'est par le cas!
+:::
+
+## Le nombre de ddl est une propriété du système physique
+
+Ce système continue d'avoir 3 degrés de liberté et 4 coordonnées, une seule solution particulière déterminée par des conditions initiales singulières est affectée. 
+## Espaces du mouvement
+
+::: {.callout-important title="Remarque 1.11"}
+Le nombre de ddl ne dépend pas de solutions à un problème; c'est une **propriété intrinsèque** du système physique, dénombrable dès le départ.
 :::
 
 ## Définition formelle des degrés de liberté
 
 ::: {.callout-note title="Définition 1.4"}
-Le nombre de ddl d'une particule est égal au nombre de coordonnées nécessaires et suffisantes pour déterminer sa position.
+Le nombre de ddl d'une particule est égal au nombre de coordonnées nécessaires et suffisantes pour déterminer sa position, ou plus généralement celles d'un système pour déterminer sa configuration.
 :::
 
-Un système physique comptant $n$ particules pouvant se déplacer dans un espace à $D$ dimensions a $nD$ ddl — même en interaction, tant que les domaines de variation ne sont pas limités à zéro.
+Un système physique comptant $N$ particules pouvant se déplacer dans un espace à $D$ dimensions a $nD$ ddl, même en interaction, tant que les domaines de variation ne sont pas limités à zéro.
 
-::: {.callout-tip title="Exemple 1.6 — Deux particules reliées par un ressort"}
-2 particules en 3D → $2 \times 3 = 6$ ddl. Avec deux contraintes $z_1 = \text{cte}$, $z_2 = \text{cte}$ (mouvement dans un plan) :
-$$6 \text{ ddl} - 2 \text{ cont.} = 4 \text{ ddl}$$
-:::
+## Exemple 1.7 — Mouvement harmonique dans un plan
+Soit deux particules ponctuelles reliées par un ressort, le tout se déplaçant dans un plan.
+![Système masses-ressort](./assets/chap1_fig9.png){#fig-exemple1ddl width="70%" fig-align="center"}
 
-::: {.callout-tip title="Exemple 1.7 — Masses reliées par une tige rigide"}
+## Exemple 1.7 — Mouvement harmonique dans un plan {.quiz-question}
+
+Quel est le nombre de degrés de liberté de ce système?
+
+- [1. quatre ddl]{.correct data-explanation="2 particules en 3D → $2 \times 3 = 6$ ddl. Le mouvement dans un plan impose 3 contraintes: $z_1 = \text{cte}$, $z_2 = \text{cte}$, donc
+$$6 \text{ ddl} - 2 \text{ cte} = 4 \text{ ddl}$$"}
+- 2. deux ddl
+- 3. zéro ddl
+- 4. six ddl
+
+## Exemple 1.8 — Masses reliées par une tige rigide"}
 Même système, mais avec une contrainte supplémentaire $r = l$ (tige rigide, $dr=0$) :
 $$6 \text{ ddl} - 3 \text{ cont.} = 3 \text{ ddl}$$
 :::
 
-## Combien de degrés de liberté ? {.quiz-question}
-
-Deux particules ponctuelles évoluent librement dans un espace à 3 dimensions, sans aucune contrainte entre elles. Combien de degrés de liberté le système possède-t-il ?
-
-- 2 ddl
-- 3 ddl
-- [6 ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl, comme dans l'Exemple 1.6 avant l'ajout des contraintes de plan."}
-- 12 ddl
-
-## Le nombre de ddl est-il une propriété de la solution ?
-
-::: {.callout-important title="Remarque 1.10 — Cas particuliers"}
-Pour certaines conditions initiales spéciales (ex. $\theta = \text{cte}$ ou $r = \text{cte}$), le domaine de variation de certaines coordonnées pourrait sembler réduit à zéro.
-:::
-
-**Question** : le nombre de ddl est-il alors < 4 ?
-
-**Réponse** : **NON !** Le système continue d'avoir 4 ddl — seule la solution (les conditions initiales) a changé ; il faut toujours 4 coordonnées pour décrire le mouvement en général.
-
-::: {.callout-important title="Remarque 1.11"}
-Le nombre de ddl ne se compte pas dans la solution, mais est une **propriété intrinsèque** du système physique.
-:::
-
+## Espaces du mouvement
 ::: {.callout-important title="Remarque 1.12"}
 Nous comptons ici les ddl dans l'espace physique (3D, ou sous-espaces à 2D/1D).
 :::
-
 ::: {.callout-important title="Remarque 1.13 — Espace des phases"}
-Certains domaines de la physique préfèrent l'espace des phases, qui inclut les vitesses en plus des coordonnées — par exemple $x,y,z,\dot x,\dot y,\dot z$ forme un espace à 6D. Nous garderons ici la notion de ddl définie dans l'espace physique seulement (simple convention).
+Certains domaines de la physique préfèrent l'espace des phases, qui inclut les vitesses en plus des coordonnées — par exemple $x,y,z,\dot x,\dot y,\dot z$ forme un espace à 6D. Nous garderons ici la notion de ddl définie dans l'espace physique.
 :::
 
