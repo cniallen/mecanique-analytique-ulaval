@@ -534,7 +534,7 @@ selon la valeur de $E$, le mouvement peut être limité à une région bornée (
 ## Exemple 1.3 — Système simple unidimensionnel
 Isolant $\dot{x} = dx/dt$ à partir de l'équation de l'énergie :
 \begin{align}
-\frac{dx}{dt} &= \sqrt{\frac{2}{m}(E - V(x))} \quad\Longrightarrow\quad \\ 
+\frac{dx}{dt} &= \sqrt{\frac{2}{m}(E - V(x))}\\ 
 \sqrt{\frac{m}{2}}\frac{dx}{\sqrt{E - V(x)}} &= dt \tag{82,83}
 \end{align}
 
@@ -554,7 +554,7 @@ Un **degré de liberté (ddl)** généralise le nombre de directions indépendan
 - 1 particule ponctuelle dans 1 direction → 1 ddl
 - 1 particule ponctuelle dans 2 directions → 2 ddl
 - 2 particules ponctuelles dans 2 directions → 4 ddl
-- $m$ particules ponctuelles dans $n$ directions → $m\dot n$ ddl
+- $m$ particules ponctuelles dans $n$ directions → $mn$ ddl
 
 
 ## Exemple 1.5 — Mouvement à 1 degré de liberté
@@ -566,22 +566,19 @@ Un **degré de liberté (ddl)** généralise le nombre de directions indépendan
 ## Exemple 1.5 — Mouvement à 1 ddl, trajectoire courbe
 
 Mais le mouvement d'une particule peut tout aussi bien se limiter à une **courbe quelconque** plutôt qu'à une droite.
-\
-\
+
 Ici encore 1 ddl : courbe = un espace à 1 dimension $\Longrightarrow$ un seule variable est suffisante pour déterminer la position de tout point sur la courbe — peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D.
 
 ::: {.notes}
 Montrer le déplacement 3D le long d'un fil qui se trouve en classe.
 :::
 
-## Exemple 1.6 Dénombrer les degrés de liberté {.quiz-question}
+## Exemple 1.6 Deux particules ponctuelles évoluent librement dans un espace à 3 dimensions, sans aucune contrainte entre elles. Combien de degrés de liberté le système possède-t-il ? {.quiz-question}
 
-Deux particules ponctuelles évoluent librement dans un espace à 3 dimensions, sans aucune contrainte entre elles. Combien de degrés de liberté le système possède-t-il ?
-
-1. deux ddl
-2. trois ddl
-3. [six ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
-4. douze ddl
+- 1 deux ddl
+- 2 trois ddl
+- 3 [six ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
+- 4 douze ddl
 
 ## Distinction entre domaine et degré de liberté du mouvement 
 
@@ -593,15 +590,10 @@ Par exemple, une masse attachée à un ressort est soumise à une force harmoniq
 - domaine limité p/r à celui de la particule libre $[-\infty, \infty]$
 - le système conserve **1 ddl**. 
 
-::: {.callout-important title="Remarque 1.9"}
-Si cette force provient plutôt de la réaction d'une tige rigide empêchant tout mouvement, le domaine de variation est réduit à zéro → **0 ddl** dans ce cas.
-:::
-
 ## Le nombre de ddl est-il une propriété de la solution ?
 
 Pour des conditions initiales fixant une solution constante (ex. $\mathbf{r}(t_0)$ est au creux d'un puits de potentiel), le domaine de variation de la coordonnée correspondante pourrait sembler réduit à zéro.
-\
-\
+
 ::: {.callout-warning}
 Ce n'est par le cas!
 :::
@@ -626,9 +618,7 @@ Un système physique comptant $N$ particules pouvant se déplacer dans un espace
 Soit deux particules ponctuelles reliées par un ressort, le tout se déplaçant dans un plan.
 ![Système masses-ressort](./assets/chap1_fig9.png){#fig-exemple1ddl width="70%" fig-align="center"}
 
-## Exemple 1.7 — Mouvement harmonique planaire {.quiz-question}
-
-Quel est le nombre de degrés de liberté de ce système?
+## Exemple 1.7 — Quel est le nombre de degrés de liberté de ce système? {.quiz-question}
 
 - [quatre ddl]{.correct data-explanation="2 particules en 3D → $2 \times 3 = 6$ ddl. Le mouvement dans un plan impose 2 contraintes: $z_1 = \text{cte}$, $z_2 = \text{cte}$, donc
 $$6 \text{ ddl} - 2 \text{ cte} = 4 \text{ ddl}$$"}
@@ -637,7 +627,10 @@ $$6 \text{ ddl} - 2 \text{ cte} = 4 \text{ ddl}$$"}
 - six ddl
 
 ## Exemple 1.8 — Masses reliées par une tige rigide
-Même système, mais avec une contrainte supplémentaire $r = l$ (tige rigide, $dr=0$) :
+::: {.callout-important title="Remarque 1.9"}
+Si la force provient d'une réaction par exemple d'une tige rigide empêchant tout mouvement, le domaine de variation est réduit à zéro → **0 ddl** pour la coordonnée correspondante.
+:::
+En remplaçant le ressort par une tige rigide $dr=0$ dans le système de l'exemple 1.7, le système subit une contrainte supplémentaire, d'où
 $$6 \text{ ddl} - 3 \text{ cont.} = 3 \text{ ddl}$$
 
 
