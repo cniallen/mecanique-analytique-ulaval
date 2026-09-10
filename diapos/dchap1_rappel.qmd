@@ -482,7 +482,7 @@ $$\mathbf{L} = \underbrace{\sum_i m_i \mathbf{x}'_i \times \dot{\mathbf{x}}'_i}_
 ## Moment angulaire du système
 
 ::: {.callout-important title="Remarque 1.8"}
-Le moment angulaire total $\mathbf{L}$ par rapport à l'origine d'un système inertiel est la somme du moment angulaire relatif $\mathbf{L}'$ des particules par rapport au CM, et du moment angulaire $\mathbf{L}_{CM} = \mathbf{X}\times\mathbf{P} \tag{76}$ correspondant à la masse totale concentrée au CM.
+Le moment angulaire total $\mathbf{L}$ par rapport à l'origine d'un système inertiel est la somme du moment angulaire relatif $\mathbf{L}'$ des particules par rapport au CM, et du moment angulaire $\mathbf{L}_{CM} = \mathbf{X}\times\mathbf{P}$ correspondant à la masse totale concentrée au CM.
 :::
 
 ## Sommaire des propriétés globales
