@@ -14,7 +14,6 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
-      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -483,7 +482,7 @@ $$\mathbf{L} = \underbrace{\sum_i m_i \mathbf{x}'_i \times \dot{\mathbf{x}}'_i}_
 ## Moment angulaire du système
 
 ::: {.callout-important title="Remarque 1.8"}
-Le moment angulaire total $\mathbf{L}$ par rapport à l'origine d'un système inertiel est la somme du moment angulaire relatif $\mathbf{L}'$ des particules par rapport au CM, et du moment angulaire $\mathbf{L}_{CM} = \mathbf{X}\times\mathbf{P}$ correspondant à la masse totale concentrée au CM. $\tag{76}$
+Le moment angulaire total $\mathbf{L}$ par rapport à l'origine d'un système inertiel est la somme du moment angulaire relatif $\mathbf{L}'$ des particules par rapport au CM, et du moment angulaire $\mathbf{L}_{CM} = \mathbf{X}\times\mathbf{P} \tag{76}$ correspondant à la masse totale concentrée au CM.
 :::
 
 ## Sommaire des propriétés globales
@@ -521,8 +520,7 @@ Correspondances : $x_i \leftrightarrow$ fonctions de la position $\mathbf{x}(x)$
 
 ## Exemple 1.3 — Système simple unidimensionnel
 
-Soit une force $F(x) = -\dfrac{\partial V}{\partial x}$ agissant sur une particule, avec la fonction de potentiel $V(x)$ représentée à la figure @fig-potentiel1D suivante.
-
+Soit une force $F(x) = -\dfrac{\partial V}{\partial x}$ agissant sur une particule, avec la fonction de potentiel $V(x)$
 ![Potentiel 1D auquel est soumis une particule](./assets/chap1_fig7.png){#fig-potentiel1D width="70%" fig-align="center"}
 
 ## Exemple 1.3 — Système simple unidimensionnel
@@ -530,15 +528,22 @@ Soit une force $F(x) = -\dfrac{\partial V}{\partial x}$ agissant sur une particu
 La force étant conservative :
 $$E = \frac{m}{2}\dot{x}^2 + V(x) = T + V = \text{cte.} \tag{79}$$
 
-Puisque $T \ge 0$, on a toujours $E \ge V(x)$, ce qui **contraint le mouvement** : selon la valeur de $E$, le mouvement peut être limité à une région bornée (état lié) ou permettre un mouvement non borné.
+Puisque $T \ge 0$, on a toujours $E \ge V(x)$, ce qui **contraint le mouvement** :\
+selon la valeur de $E$, le mouvement peut être limité à une région bornée (_configuration ou état lié_) ou permettre un mouvement non borné.
 
+## Exemple 1.3 — Système simple unidimensionnel
 Isolant $\dot{x} = dx/dt$ à partir de l'équation de l'énergie :
-$$\frac{dx}{dt} = \sqrt{\frac{2}{m}(E - V(x))} \quad\Longrightarrow\quad \sqrt{\frac{m}{2}}\frac{dx}{\sqrt{E - V(x)}} = dt \tag{82,83}$$
+\begin{align}
+\frac{dx}{dt} &= \sqrt{\frac{2}{m}(E - V(x))} \quad\Longrightarrow\quad \\ 
+\sqrt{\frac{m}{2}}\frac{dx}{\sqrt{E - V(x)}} &= dt \tag{82,83}
+\end{align}
 
+## Exemple 1.3 — Système simple unidimensionnel
 En intégrant des deux côtés :
-$$f(x, E) - f(x_0, E) = t - t_0, \qquad \text{où } f(x,E) = \sqrt{\frac{m}{2}}\int \frac{dx}{\sqrt{E-V(x)}}$$
+$$f(x, E) - f(x_0, E) = t - t_0,$$
+où $f(x,E) = \sqrt{\frac{m}{2}}\int \frac{dx}{\sqrt{E-V(x)}}$
 
-d'où la solution générale $x = x(t - t_0, E, x_0)$ — unique si l'on connaît $E$ et $x_0 = x(t_0)$.
+d'où la solution générale $x = x(t - t_0, E, x_0)$ — est unique si l'on connaît $E$ et $x_0 = x(t_0)$.
 
 # 1.6 Degrés de liberté
 
@@ -549,29 +554,34 @@ Un **degré de liberté (ddl)** généralise le nombre de directions indépendan
 - 1 particule ponctuelle dans 1 direction → 1 ddl
 - 1 particule ponctuelle dans 2 directions → 2 ddl
 - 2 particules ponctuelles dans 2 directions → 4 ddl
-- $m$ particules ponctuelles dans $n$ directions → $m\dotn$ ddl
+- $m$ particules ponctuelles dans $n$ directions → $m\dot n$ ddl
 
 
 ## Exemple 1.5 — Mouvement à 1 degré de liberté
 ![Trajectoires de particules contraintes à se déplacer le long des lignes bleues](./assets/chap1_fig8.png){#fig-exemple1ddl width="70%" fig-align="center"}
 
-**Dans les deux cas, la particule a un seul ddl en #x_i=x$.**\
-Au haut de la figure, la direction du mouvement est une droite → 1 ddl physique.
+**Dans les deux cas, la particule a un seul ddl en $x_i=x$.**\
+- Au haut de la figure, la direction du mouvement est une droite → 1 ddl physique.
 
 ## Exemple 1.5 — Mouvement à 1 ddl, trajectoire courbe
 
 Mais le mouvement d'une particule peut tout aussi bien se limiter à une **courbe quelconque** plutôt qu'à une droite.
+\
+\
+Ici encore 1 ddl : courbe = un espace à 1 dimension $\Longrightarrow$ un seule variable est suffisante pour déterminer la position de tout point sur la courbe — peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D.
 
-Ici encore : 1 ddl ⟵ courbe = un espace à 1 dimension $\Longrightarrow$ un seul nombre (ou coordonnée) est suffisant pour déterminer la position de tout point sur la courbe — peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D.
+::: {.notes}
+Montrer le déplacement 3D le long d'un fil qui se trouve en classe.
+:::
 
 ## Exemple 1.6 Dénombrer les degrés de liberté {.quiz-question}
 
 Deux particules ponctuelles évoluent librement dans un espace à 3 dimensions, sans aucune contrainte entre elles. Combien de degrés de liberté le système possède-t-il ?
 
-- 1. deux ddl
-- 2. trois ddl
-- [3. six ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
-- 4. douze ddl
+1. deux ddl
+2. trois ddl
+3. [six ddl]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
+4. douze ddl
 
 ## Distinction entre domaine et degré de liberté du mouvement 
 
@@ -590,7 +600,8 @@ Si cette force provient plutôt de la réaction d'une tige rigide empêchant tou
 ## Le nombre de ddl est-il une propriété de la solution ?
 
 Pour des conditions initiales fixant une solution constante (ex. $\mathbf{r}(t_0)$ est au creux d'un puits de potentiel), le domaine de variation de la coordonnée correspondante pourrait sembler réduit à zéro.
-
+\
+\
 ::: {.callout-warning}
 Ce n'est par le cas!
 :::
@@ -598,7 +609,6 @@ Ce n'est par le cas!
 ## Le nombre de ddl est une propriété du système physique
 
 Ce système continue d'avoir 3 degrés de liberté et 4 coordonnées, une seule solution particulière déterminée par des conditions initiales singulières est affectée. 
-## Espaces du mouvement
 
 ::: {.callout-important title="Remarque 1.11"}
 Le nombre de ddl ne dépend pas de solutions à un problème; c'est une **propriété intrinsèque** du système physique, dénombrable dès le départ.
@@ -612,24 +622,24 @@ Le nombre de ddl d'une particule est égal au nombre de coordonnées nécessaire
 
 Un système physique comptant $N$ particules pouvant se déplacer dans un espace à $D$ dimensions a $nD$ ddl, même en interaction, tant que les domaines de variation ne sont pas limités à zéro.
 
-## Exemple 1.7 — Mouvement harmonique dans un plan
+## Exemple 1.7 — Mouvement harmonique planaire
 Soit deux particules ponctuelles reliées par un ressort, le tout se déplaçant dans un plan.
 ![Système masses-ressort](./assets/chap1_fig9.png){#fig-exemple1ddl width="70%" fig-align="center"}
 
-## Exemple 1.7 — Mouvement harmonique dans un plan {.quiz-question}
+## Exemple 1.7 — Mouvement harmonique planaire {.quiz-question}
 
 Quel est le nombre de degrés de liberté de ce système?
 
-- [1. quatre ddl]{.correct data-explanation="2 particules en 3D → $2 \times 3 = 6$ ddl. Le mouvement dans un plan impose 3 contraintes: $z_1 = \text{cte}$, $z_2 = \text{cte}$, donc
+- [quatre ddl]{.correct data-explanation="2 particules en 3D → $2 \times 3 = 6$ ddl. Le mouvement dans un plan impose 2 contraintes: $z_1 = \text{cte}$, $z_2 = \text{cte}$, donc
 $$6 \text{ ddl} - 2 \text{ cte} = 4 \text{ ddl}$$"}
-- 2. deux ddl
-- 3. zéro ddl
-- 4. six ddl
+- deux ddl
+- zéro ddl
+- six ddl
 
-## Exemple 1.8 — Masses reliées par une tige rigide"}
+## Exemple 1.8 — Masses reliées par une tige rigide
 Même système, mais avec une contrainte supplémentaire $r = l$ (tige rigide, $dr=0$) :
 $$6 \text{ ddl} - 3 \text{ cont.} = 3 \text{ ddl}$$
-:::
+
 
 ## Espaces du mouvement
 ::: {.callout-important title="Remarque 1.12"}
