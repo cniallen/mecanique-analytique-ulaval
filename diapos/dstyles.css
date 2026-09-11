@@ -1,0 +1,11 @@
+@media print {
+  .reveal .slides section {
+    padding-right: 34%;
+    box-sizing: border-box;
+  }
+}
+
+.reveal .slides {
+  user-select: none;
+  -webkit-user-select: none;
+}

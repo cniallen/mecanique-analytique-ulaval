@@ -9,17 +9,12 @@ format:
     theme: moon
     slide-number: c/t
     html-math-method: katex
-    css: |
-      .reveal .slides {
-        user-select: none;
-        -webkit-user-select: none;
-      }
+    css: dstyles.css
     spotlight:
       size: 30
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
-      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"

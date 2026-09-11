@@ -9,12 +9,12 @@ format:
     theme: moon
     slide-number: c/t
     html-math-method: katex
+    css: dstyles.css
     spotlight:
       size: 30
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
-      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -23,13 +23,6 @@ format:
       shuffleOptions: false
       defaultCorrect: "Correct !"
       defaultIncorrect: "Incorrect."
-    css: |
-      @media print {
-        .reveal .slides section {
-          padding-right: 34%;
-          box-sizing: border-box;
-        }
-      } 
 revealjs-plugins:
   - quiz
   - spotlight
