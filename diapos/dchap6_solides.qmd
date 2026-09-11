@@ -7,7 +7,7 @@ from: markdown+emoji
 format:
   revealjs:
     theme: moon
-    slide-number: c/t
+    slide-number: c
     html-math-method: katex
     css: dstyles.css
     spotlight:
