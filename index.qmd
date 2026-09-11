@@ -1,0 +1,142 @@
+---
+title: "Mécanique analytique — PHY-2000"
+subtitle: "Prof. Claudine Allen — Département de physique, génie physique et d'optique, Université Laval"
+format:
+  html:
+    theme: none
+    page-layout: full
+    css: |
+      body {
+        font-family: -apple-system, "Lato", "Helvetica Neue", Arial, sans-serif;
+        background: #1b2a3a;
+        color: #eef2f6;
+        margin: 0;
+        padding: 0;
+      }
+      .quarto-title-block { display: none; }
+      .content-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2.5em 1.4em 4em 1.4em;
+      }
+      h1.page-title {
+        font-size: 1.6em;
+        margin-bottom: 0.1em;
+        color: #ffffff;
+      }
+      p.page-subtitle {
+        font-size: 0.85em;
+        color: #a9b8c8;
+        margin-top: 0;
+        margin-bottom: 2em;
+        line-height: 1.5em;
+      }
+      .chapter-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8em;
+      }
+      a.chapter-card {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        text-decoration: none;
+        background: #24384c;
+        border: 1px solid #34506a;
+        border-radius: 10px;
+        padding: 1em 1.2em;
+        color: #eef2f6;
+        transition: background 0.15s ease, transform 0.1s ease;
+      }
+      a.chapter-card:hover, a.chapter-card:active {
+        background: #2e4a63;
+        transform: translateY(-1px);
+      }
+      .chapter-num {
+        flex: 0 0 auto;
+        width: 2.4em;
+        height: 2.4em;
+        border-radius: 50%;
+        background: #4f7fab;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1em;
+      }
+      .chapter-title {
+        font-size: 0.95em;
+        line-height: 1.3em;
+      }
+      .chapter-arrow {
+        margin-left: auto;
+        color: #7fa8cc;
+        font-size: 1.2em;
+      }
+      footer.page-footer {
+        margin-top: 3em;
+        font-size: 0.7em;
+        color: #7d8fa1;
+        text-align: center;
+      }
+      footer.page-footer a { color: #9fc1e0; }
+---
+
+```{=html}
+<div class="content-wrap">
+  <h1 class="page-title">Mécanique analytique — PHY-2000</h1>
+  <p class="page-subtitle">
+    Prof. Luc Marleau · Département de physique, génie physique et d'optique · Université Laval
+  </p>
+
+  <div class="chapter-grid">
+    <a class="chapter-card" href="diapos/chapitre0-plan-de-cours.html">
+      <div class="chapter-num">0</div>
+      <div class="chapter-title">Plan de cours</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre1-rappel.html">
+      <div class="chapter-num">1</div>
+      <div class="chapter-title">Rappel</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre2-lagrange.html">
+      <div class="chapter-num">2</div>
+      <div class="chapter-title">Formalisme de Lagrange</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre3-applications.html">
+      <div class="chapter-num">3</div>
+      <div class="chapter-title">Applications et propriétés</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre4-canonique.html">
+      <div class="chapter-num">4</div>
+      <div class="chapter-title">Formalisme canonique</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre5-perturbations.html">
+      <div class="chapter-num">5</div>
+      <div class="chapter-title">Théorie des perturbations</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre6-solide.html">
+      <div class="chapter-num">6</div>
+      <div class="chapter-title">Mouvement d'un solide indéformable</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+    <a class="chapter-card" href="diapos/chapitre7-milieux-continus.html">
+      <div class="chapter-num">7</div>
+      <div class="chapter-title">Mécanique lagrangienne des milieux continus</div>
+      <div class="chapter-arrow">›</div>
+    </a>
+  </div>
+
+  <footer class="page-footer">
+    Diapositives générées avec <a href="https://quarto.org" target="_blank">Quarto</a> +
+    <a href="https://revealjs.com" target="_blank">reveal.js</a> ·
+    <a href="https://github.com/cniallen/mecanique-analytique-ulaval" target="_blank">Code source sur GitHub</a>
+  </footer>
+</div>
+```
