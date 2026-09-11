@@ -1,5 +1,5 @@
 ---
-title: "Mécanique analytique"
+title: "Mécanique analytique test"
 subtitle: "PHY-2000 — Plan de cours"
 author: "Prof. Claudine Allen"
 institute: "Département de physique, génie physique et d'optique, Université Laval, Québec, Canada"
@@ -16,6 +16,10 @@ format:
       disablingUserSelect: false
       useAsPointer: true
       pointerColor: "red"
+    keyboard:	
+	  80: function() { 
+        RevealSpotlight.togglePresentationMode(); 
+		}
     quiz:
       checkKey: "c"
       resetKey: "q"
