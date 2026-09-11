@@ -16,10 +16,6 @@ format:
       disablingUserSelect: false
       useAsPointer: true
       pointerColor: "red"
-    keyboard:	
-	  80: function() { 
-        RevealSpotlight.togglePresentationMode(); 
-		}
     quiz:
       checkKey: "c"
       resetKey: "q"
