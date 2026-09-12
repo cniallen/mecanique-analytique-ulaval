@@ -44,6 +44,7 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 5
 
 **Théorie des perturbations**
+
 5.1 Buts de la méthode\
 5.2 L'idée de base : « varier » les constantes\
 5.3 Les approximations\

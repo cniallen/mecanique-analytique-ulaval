@@ -44,6 +44,7 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 3
 
 **Applications et propriétés du formalisme lagrangien**
+
 3.1 Cas simples en mécanique\
 3.2 Exemples non mécaniques\
 3.3 Problème à 2 corps\

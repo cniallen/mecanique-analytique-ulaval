@@ -44,6 +44,7 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 7
 
 **Mécanique lagrangienne des milieux continus**
+
 7.1 Le passage à la limite continue\
 7.2 Formulation lagrangienne\
 7.3 Théorie classique des champs\

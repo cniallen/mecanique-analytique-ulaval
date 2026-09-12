@@ -44,6 +44,7 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 2
 
 **Formalisme de Lagrange**
+
 2.1 Coordonnées généralisées\
 2.2 Principe de base\
 2.3 Variation fonctionnelle\
@@ -61,15 +62,23 @@ revealjs-plugins:
 
 Le formalisme de Lagrange couvre une vaste gamme de problèmes en mécanique et est équivalent au formalisme de Newton, mais possède plusieurs avantages :
 
-- principe théorique fondamental et élégant
+- principe théorique fondamental et puissant par sa généralité
 - quantités **scalaires** plutôt que vectorielles
 - forme **indépendante** des coordonnées utilisées
 - base à une foule de méthodes en physique moderne : physique statistique, mécanique quantique, théorie des champs (classique ou quantique)
 
-Nous utiliserons des coordonnées généralisées $q_i$ : invariance de forme par rapport aux types de coordonnées utilisées. Les $q_i$ sont quelconques (distance, angle, etc.), sauf pour des limitations à venir.
+::: {.notes}
+Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en principe générées directement dans des dimensions-unités cohérentes.
+:::
+
+## Coordonnées généralisées
+
+Nous utiliserons des coordonnées généralisées, notées $q_i$, qui sont quelconques en faisant abstraction de leur grandeur (distance, angle, etc.) et unités associées. Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées.
+
 
 ::: {.notes}
-Mentionner rapidement Joseph-Louis Lagrange : calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange).
+- Mentionner rapidement Joseph-Louis Lagrange en mettant sa photo: calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange).
+- Vérifier s'il y a des limitations sur le type de coordonnées couvertes par $q_i$
 :::
 
 # 2.2 Principe de base

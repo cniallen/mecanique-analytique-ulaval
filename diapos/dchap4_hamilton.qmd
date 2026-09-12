@@ -44,6 +44,7 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 4
 
 **Formalisme canonique hamiltonien**
+
 4.1 Transformation de Legendre\
 4.2 L'hamiltonien\
 4.3 Quelques exemples\

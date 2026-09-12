@@ -44,6 +44,7 @@ revealjs-plugins:
 ## SOMMAIRE DU CHAPITRE 6
 
 **Mouvement d'un solide indéformable**
+
 6.1 Degrés de liberté du solide\
 6.2 Énergie cinétique\
 6.3 Axes principaux et tenseur d'inertie\
