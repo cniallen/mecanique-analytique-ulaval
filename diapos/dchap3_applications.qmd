@@ -15,6 +15,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -421,3 +422,11 @@ Où $L\equiv L(q_i,\dot q_i,t)$ :
 - Chapitre 6 : Mouvement d'un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>

@@ -15,6 +15,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -1004,3 +1005,11 @@ $$\frac{\hbar^2}{2m}\nabla^2\Psi + (E-V)\Psi = 0 \quad\Longrightarrow\quad \left
 - Chapitre 6 : Mouvement d'un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>

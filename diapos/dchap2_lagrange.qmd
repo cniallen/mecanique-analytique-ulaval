@@ -15,6 +15,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -777,3 +778,11 @@ On peut noter que la même procédure (principe de moindre action + exigence de 
 - Chapitre 6 : Mouvement d'un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>

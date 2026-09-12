@@ -15,6 +15,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -443,3 +444,11 @@ $$\dot a_i = \frac{1}{\tau}\int_0^\tau\{a_i,H_1\}\,dt, \qquad \dot b_i = \frac{1
 - Chapitre 6 : Mouvement d'un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>

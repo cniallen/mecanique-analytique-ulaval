@@ -16,6 +16,7 @@ format:
       disablingUserSelect: false
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -647,3 +648,10 @@ Nous comptons ici les ddl dans l'espace physique (3D, ou sous-espaces à 2D/1D).
 Certains domaines de la physique préfèrent l'espace des phases, qui inclut les vitesses en plus des coordonnées — par exemple $x,y,z,\dot x,\dot y,\dot z$ forme un espace à 6D. Nous garderons ici la notion de ddl définie dans l'espace physique.
 :::
 
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>

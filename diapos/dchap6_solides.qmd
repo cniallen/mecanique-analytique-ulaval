@@ -15,6 +15,7 @@ format:
       toggleSpotlightOnMouseDown: true
       useAsPointer: true
       pointerColor: "red"
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -693,3 +694,11 @@ $$\Omega_1=\dot\theta\cos\psi+\dot\varphi\sin\theta\sin\psi, \quad \Omega_2=-\do
 - Chapitre 6 : Mouvement d'un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>
