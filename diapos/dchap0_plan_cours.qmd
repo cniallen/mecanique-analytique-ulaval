@@ -16,6 +16,8 @@ format:
       disablingUserSelect: false
       useAsPointer: true
       pointerColor: "red"
+      spotlight:
+      initialPresentationMode: false
     quiz:
       checkKey: "c"
       resetKey: "q"
@@ -189,3 +191,12 @@ qualité de la langue est aussi un critère de correction.
 - Chapitre 6 : Mouvement d'un solide indéformable
 - Chapitre 7 : Mécanique lagrangienne des milieux continus
 - Chapitre 8 : Annexes
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'p' && typeof RevealSpotlight !== 'undefined') {
+    RevealSpotlight.togglePresentationMode();
+  }
+});
+</script>
+
