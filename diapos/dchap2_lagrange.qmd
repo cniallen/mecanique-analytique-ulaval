@@ -77,33 +77,56 @@ Nous utiliserons des coordonnées généralisées, notées $q_i$, qui sont quelc
 
 
 ::: {.notes}
+- Changement de coordonnées avec la 2e de Newton introduits des termes centrifuges, de Coriolis, etc.
 - Mentionner rapidement Joseph-Louis Lagrange en mettant sa photo: calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange).
 - Vérifier s'il y a des limitations sur le type de coordonnées couvertes par $q_i$
 :::
 
 # 2.2 Principe de base
 
-## Principe de base
+## Notation
 
 Soit une particule ponctuelle dont la position instantanée est donnée par les coordonnées généralisées $\{q_i \mid i=1,2,3\}$. On cherche la trajectoire :
-$$q_i = q_i(t), \quad i=1,2,3 \tag{1}$$
+$$q_i \equiv q_i(t), \quad i=1,2,3 \tag{1}$$
 
 Le long de la trajectoire, on définit les **vitesses généralisées** :
-$$\dot q_i = \frac{d}{dt}q_i(t), \quad i=1,2,3 \tag{2}$$
+$$\dot q_i \equiv \frac{d}{dt}q_i(t), \quad i=1,2,3 \tag{2}$$
 
-::: {.callout-tip title="Expérience de pensée"}
-Une source de particules au point $P_1$ émet à $t_1$ ; un détecteur en $P_2$ détecte à $t_2$. En répétant l'expérience avec les mêmes conditions ($P_1$, $P_2$, $t_2-t_1$ fixes), il existe *a priori* une infinité de trajectoires possibles $C_0, C_1, C_2, \dots$ satisfaisant ces contraintes. Pourtant, en laboratoire, on observe toujours une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
-:::
+
+## Expérience par la pensée
+
+Soit une particule au départ de $P_1$ à un temps $t_1$ (ou plus généralement une source de particules émises à ce point) puis son arrivée au point $P_2$ à un temps $t_2$ où un détecteur pourrait être placé pour enregistrer l'événement. 
+
+En répétant l'expérience avec les mêmes conditions ($P_1$, $P_2$, $t_2-t_1$ fixes), il existe _a priori_ une infinité de trajectoires possibles $C_0, C_1, C_2, \dots$ satisfaisant ces contraintes. Pourtant, en laboratoire, on observe classiquement une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
 
 ## L'action
 
-Paramétrons les trajectoires par $\alpha$ : $q_i^{(\alpha)} = q_i^{(\alpha)}(t)$, telles que $\alpha=\bar\alpha$ corresponde à la trajectoire physique $C_0$. Le formalisme de Lagrange propose un critère pour sélectionner cette trajectoire en assignant à chacune une quantité $S(\alpha)$ :
+Paramétrons les trajectoires par $\alpha$ : 
+$$q_i^{(\alpha)} = q_i^{(\alpha)}(t)$$,
+ telles que $\alpha=\bar\alpha$ corresponde à la trajectoire physique $C_0$. 
+
+Assignons à chacune une quantité $S(\alpha)$ :
 $$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)dt \tag{4}$$
 
-où $L$ est appelée la **fonction de Lagrange** ou **lagrangien**, dépendant en général de $q_i(t)$, $\dot q_i(t)$ et possiblement explicitement de $t$ (mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur — l'expérience l'indique).
-
 ::: {.callout-note title="Définition 2.1 — Action"}
-La quantité $S$ s'appelle l'**action**.
+La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdot$s.
+:::
+
+::: {.notes}
+Ajouter un quiz pour demander si l'action est scalaire ou vectorielle
+:::
+
+## Le lagrangien
+
+En mécanique classique, $L$ est appelée **lagrangien** ou la **fonction de Lagrange** qui dépend dans le cas le plus général de $q_i(t)$, $\dot q_i(t)$ et de $t$. (mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur — l'expérience l'indique). 
+
+Il s'agit d'une fonction d'autres fonctions et dérivées, c'est donc un nouvel objet mathématique globalement nommé **fonctionnelle**.
+
+Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire physique, soit un principe variationnel.
+
+:::{.notes}
+- Montrer le vidéo de Prof. Sabine Hossefelder, relire fin du Born & Wolf pour principe variationnel.
+- ToDo: mettre un fragment pour la 2e partie de la diapo ⬆️
 :::
 
 ## Le principe de moindre action
@@ -114,12 +137,12 @@ $$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\ba
 Ce critère porte le nom de **principe de moindre action** — bien que « moindre » suggère un minimum, le critère mathématique exact n'exige qu'un point stationnaire (qui peut être un minimum, un maximum, ou un point-selle).
 
 ::: {.callout-important title="Remarque 2.1 — Principe variationnel"}
-C'est un principe variationnel : nous recherchons un point fixe de $S$ tel que $dS=0$, analogue à chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule. Aujourd'hui, on tend à baser toutes les lois fondamentales de la physique sur de tels principes.
+C'est un principe variationnel : nous recherchons un point fixe de $S$ tel que $dS=0$, analogue à chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule. De nombreuses lois fondamentales de la physique sont basées sur de tels principes.
 :::
 
 # 2.3 Variation fonctionnelle
 
-## Notation : différence vs variation {.smaller}
+## Notation : nuance rigoureuse entre différence et variation {.smaller}
 
 La variation de $S$ n'est pas une variation habituelle (par rapport à un point le long d'une trajectoire) — elle est faite en **comparant des trajectoires entières entre elles**, en variant les fonctions $q_i^{(\alpha)}(t)$ elles-mêmes (paramétrées par $\alpha$).
 
