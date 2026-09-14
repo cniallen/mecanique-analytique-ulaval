@@ -73,12 +73,12 @@ Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en pr
 
 ## Coordonnées généralisées
 
-Nous utiliserons des coordonnées généralisées, notées $q_i$, qui sont quelconques en faisant abstraction de leur grandeur (distance, angle, etc.) et unités associées. Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées.
+Nous utiliserons des coordonnées généralisées, **notées $q_i$**, qui sont quelconques (distance, angle, etc.) et leurs unités associées. Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées comme nous le verrons.
 
 
 ::: {.notes}
 - Changement de coordonnées avec la 2e de Newton introduits des termes centrifuges, de Coriolis, etc.
-- Mentionner rapidement Joseph-Louis Lagrange en mettant sa photo: calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange).
+- Mentionner rapidement Joseph-Louis Lagrange en mettant sa photo: calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange). ToDo: j'aimerais fragment de note historique (titre: Un peu d'histoire...), idéalement à commande pré-configurée, avec image da la personne à gauche et texte ou bullets à droite.
 - Vérifier s'il y a des limitations sur le type de coordonnées couvertes par $q_i$
 :::
 
@@ -95,9 +95,25 @@ $$\dot q_i \equiv \frac{d}{dt}q_i(t), \quad i=1,2,3 \tag{2}$$
 
 ## Expérience par la pensée
 
-Soit une particule au départ de $P_1$ à un temps $t_1$ (ou plus généralement une source de particules émises à ce point) puis son arrivée au point $P_2$ à un temps $t_2$ où un détecteur pourrait être placé pour enregistrer l'événement. 
+Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus généralement une source de particules émises à ce point) puis son arrivée au point $P_2$ à un temps $t_2$ où un détecteur pourrait être placé pour enregistrer l'événement. 
 
-En répétant l'expérience avec les mêmes conditions ($P_1$, $P_2$, $t_2-t_1$ fixes), il existe _a priori_ une infinité de trajectoires possibles $C_0, C_1, C_2, \dots$ satisfaisant ces contraintes. Pourtant, en laboratoire, on observe classiquement une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
+- Coordonnées à $t=t_1$ : $q_i(t_1)$
+- Coordonnées à $t=t_2$ : $q_i(t_2)$
+
+## Expérience par la pensée
+
+Répétons l’expérience  
+- avec des particules identiques,
+- sous les mêmes conditions initiales,
+- et tel que $P-1$, $P-$2 et l'intervalle $t_2−t_1$ est le même pour toutes les expériences.
+
+
+## Expérience par la pensée 
+
+Il $\exists$ _a priori_ une infinité de trajectoires possibles $C_0, C_1, C_2, C3 \dots$ satisfaisant ces contraintes. Pourtant, en laboratoire, on observe classiquement une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
+
+## Expérience par la pensée 
+Figure
 
 ## L'action
 
@@ -112,33 +128,81 @@ $$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t),
 La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdot$s.
 :::
 
-::: {.notes}
-Ajouter un quiz pour demander si l'action est scalaire ou vectorielle
+## Quiz intégral
+
+**Question 1** — Quel est le domaine d'entrée de la fonction $L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)dt$?
+
+::: {.fragment}
+1) Une trajectoire complète $q_i(t)$ sur $[t_1, t_2]$  
+2) **Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ à un instant donné** ✅  
+3) Les positions $P_1$ et $P_2$ seulement  
+4) L'intervalle de temps $[t_2 - t_1]$
 :::
+
+. . .
+
+**Question 2** — Quel est le domaine d'entrée de l'action $S[q_i(t)]$?
+
+::: {.fragment}
+a) Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$  
+b) **Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$** ✅  
+c) Un point $(P_1, P_2)$ dans l'espace  
+d) Le lagrangien $L$ lui-même
+:::
+
+. . .
+
+**Question 3** — Et la sortie de $S[q_i(t)]$ — qu'obtient-on une fois l'intégrale calculée?
+
+::: {.fragment}
+1) **Un scalaire** ✅   
+2) Une fonction de $t$  
+3) Un ensemble de nombres, un pour chaque instant $t$
+:::
+
+## Synthèse de variation d'intégrales
+
+| Objet | Entrée | Sortie | Variable indépendante | Variable dépendante | Paramètres fixes | Nom |
+|---|---|---|---|---|---|---|
+| $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | un nombre | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
+| $S[q_i(t)]$ | espace de fonctions | un nombre | la fonction $q_i(\cdot)$ elle-même | $S$ | $t_1, t_2$ | **fonctionnelle** |
+| $I(b) = \displaystyle\int_a^b f(x)\,dx$ ($f$ fixée, $b$ varie) | $\mathbb{R}$ (la borne $b$) | un nombre | $b$ | $I$ | $a$, $f$ | **fonction** |
+| $I[f] = \displaystyle\int_a^b f(x)\,dx$ ($a, b$ fixés, $f$ varie) | espace de fonctions | un nombre | la fonction $f(\cdot)$ elle-même | $I$ | $a$, $b$ | **fonctionnelle** |
+:::
+
 
 ## Le lagrangien
 
-En mécanique classique, $L$ est appelée **lagrangien** ou la **fonction de Lagrange** qui dépend dans le cas le plus général de $q_i(t)$, $\dot q_i(t)$ et de $t$. (mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur — l'expérience l'indique). 
-
-Il s'agit d'une fonction d'autres fonctions et dérivées, c'est donc un nouvel objet mathématique globalement nommé **fonctionnelle**.
+En mécanique classique, $L$ est appelée **lagrangien** ou la **fonction de Lagrange** qui dépend dans le cas le plus général de $q_i(t)$, $\dot q_i(t)$ et de $t$, mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur — l'expérience l'indique. 
 
 Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire physique, soit un principe variationnel.
 
 :::{.notes}
+- Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat 
 - Montrer le vidéo de Prof. Sabine Hossefelder, relire fin du Born & Wolf pour principe variationnel.
+- Je pense qu'il y a qqch de plus fondamental sur l'absence de dérivées d'ordre supérieur en dynamique, mécanique, faisant en sorte que l'espace de phase suffit à décrire tout système physique. À investiguer et remettre dans une section de ingrédients-blocs de base au formalisme lagrangien avec ddl, espace de configuration (ddl du solide, pas juste particule ponctuelles) et espace de phase.
 - ToDo: mettre un fragment pour la 2e partie de la diapo ⬆️
 :::
 
-## Le principe de moindre action
+## Le principe d'action stationnaire {.smaller}
 
-Le choix le plus simple à identifier pour sélectionner la trajectoire physique parmi toutes les $S(\alpha)$ : un point **stationnaire**, là où $S$ atteint un extremum :
+Le critère proposé dans la méthode de Lagrange est de sélectionner la trajectoire physique parmi toutes les $S(\alpha)$ là où $S$ atteint un extremum, _i.e._
 $$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\bar\alpha} = 0 \tag{6}$$
 
-Ce critère porte le nom de **principe de moindre action** — bien que « moindre » suggère un minimum, le critère mathématique exact n'exige qu'un point stationnaire (qui peut être un minimum, un maximum, ou un point-selle).
-
+## 
 ::: {.callout-important title="Remarque 2.1 — Principe variationnel"}
-C'est un principe variationnel : nous recherchons un point fixe de $S$ tel que $dS=0$, analogue à chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule. De nombreuses lois fondamentales de la physique sont basées sur de tels principes.
+Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe variationnel, soit de rechercher un point fixe d'une fonctionnelle. C'est l'analogue de chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule.
 :::
+
+De nombreuses lois fondamentales de la physique sont basées sur un principe variationnel.
+
+## Le principe d'action stationnaire
+
+Figure
+Caption:
+Ce critère porte le nom de **principe de moindre action** — bien que « moindre » suggère un minimum, le critère mathématique exact n'exige qu'un point **stationnaire** (qui peut être un minimum, un maximum, ou un point-selle).
+
+
 
 # 2.3 Variation fonctionnelle
 
