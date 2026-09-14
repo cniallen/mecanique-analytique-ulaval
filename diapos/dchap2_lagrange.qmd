@@ -103,22 +103,28 @@ Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus gé
 ## Expérience par la pensée
 
 Répétons l’expérience  
-- avec des particules identiques,
-- sous les mêmes conditions initiales,
-- et tel que $P-1$, $P-$2 et l'intervalle $t_2−t_1$ est le même pour toutes les expériences.
+- avec des particules identiques,\
+- sous les mêmes conditions initiales,\
+- permettant des accélérations et décélérations,\
+- mais tel que $P-1$, $P-$2 et l'intervalle $t_2−t_1$ est le même pour toutes les expériences.
 
+:::{.notes}
+Sous les même conditions initiales entend même vitesse ce qui fixerait le choix de trajectoire non?
+:::
 
 ## Expérience par la pensée 
 
-Il $\exists$ _a priori_ une infinité de trajectoires possibles $C_0, C_1, C_2, C3 \dots$ satisfaisant ces contraintes. Pourtant, en laboratoire, on observe classiquement une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
+Il $\exists$ _a priori_ une infinité de trajectoires possibles $C_0, C_1, C_2, C3 \dots$ satisfaisant ces contraintes. 
+
+Pourtant, en laboratoire, on observe classiquement une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
 
 ## Expérience par la pensée 
-Figure
+![Exemples parmi $\infty$ trajectoires de même durée $t_2−t_1$ entre des points $P_1$ et $P_2$ fixes.](./assets/chap2_fig1.png){#fig-diversestrajectoires width="70%" fig-align="center"}
 
-## L'action
+## L'action {.smaller}
 
 Paramétrons les trajectoires par $\alpha$ : 
-$$q_i^{(\alpha)} = q_i^{(\alpha)}(t)$$,
+$$q_i^{(\alpha)} = q_i^{(\alpha)}(t),$$
  telles que $\alpha=\bar\alpha$ corresponde à la trajectoire physique $C_0$. 
 
 Assignons à chacune une quantité $S(\alpha)$ :
@@ -160,14 +166,14 @@ d) Le lagrangien $L$ lui-même
 3) Un ensemble de nombres, un pour chaque instant $t$
 :::
 
-## Synthèse de variation d'intégrales
+## Synthèse de variation d'intégrales {.smaller}
 
 | Objet | Entrée | Sortie | Variable indépendante | Variable dépendante | Paramètres fixes | Nom |
 |---|---|---|---|---|---|---|
-| $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | un nombre | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
-| $S[q_i(t)]$ | espace de fonctions | un nombre | la fonction $q_i(\cdot)$ elle-même | $S$ | $t_1, t_2$ | **fonctionnelle** |
-| $I(b) = \displaystyle\int_a^b f(x)\,dx$ ($f$ fixée, $b$ varie) | $\mathbb{R}$ (la borne $b$) | un nombre | $b$ | $I$ | $a$, $f$ | **fonction** |
-| $I[f] = \displaystyle\int_a^b f(x)\,dx$ ($a, b$ fixés, $f$ varie) | espace de fonctions | un nombre | la fonction $f(\cdot)$ elle-même | $I$ | $a$, $b$ | **fonctionnelle** |
+| $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | scalaire | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
+| $S[q_i(t)]$ | espace de fonctions | scalaire | la fonction $q_i(\cdot)$ elle-même | $S$ | $t_1, t_2$ | **fonctionnelle** |
+| $I(b) = \displaystyle\int_a^b f(x)\,dx$ ($f$ fixée, $b$ varie) | $\mathbb{R}$ (la borne $b$) | scalaire | $b$ | $I$ | $a$, $f$ | **fonction** |
+| $I[f] = \displaystyle\int_a^b f(x)\,dx$ ($a, b$ fixés, $f$ varie) | espace de fonctions | scalaire | la fonction $f(\cdot)$ elle-même | $I$ | $a$, $b$ | **fonctionnelle** |
 :::
 
 
@@ -196,13 +202,17 @@ Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe 
 
 De nombreuses lois fondamentales de la physique sont basées sur un principe variationnel.
 
+:::{.notes}
+Je commence à avoir un doute si c'est n'importe quel extremum ou le minimum global qu'il faut trouver...
+:::
+
 ## Le principe d'action stationnaire
-
-Figure
-Caption:
-Ce critère porte le nom de **principe de moindre action** — bien que « moindre » suggère un minimum, le critère mathématique exact n'exige qu'un point **stationnaire** (qui peut être un minimum, un maximum, ou un point-selle).
+![Bien que souvent aussi appelé **principe de moindre action**, le critère mathématique n'exige qu'un point **stationnaire** qui peut être un minimum $\alpha_1$, un maximum minimum $\alpha_2$, ou un point-selle.](./assets/chap2_fig2.png){#fig-actionstationnaire width="70%" fig-align="center"}
 
 
+:::{.notes}
+Revoir les notes de Stephania pour son approche p-e mieux exemplifiée
+:::
 
 # 2.3 Variation fonctionnelle
 
