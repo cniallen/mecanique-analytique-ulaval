@@ -566,7 +566,7 @@ Propriété clef : les ddl **se comptent**.
 
 
 ## Exemple 1.5 — Mouvement à 1 degré de liberté
-![Trajectoires de particules contraintes à se déplacer le long des lignes bleues](./assets/chap1_fig8.png){#fig-exemple1ddl width="70%" fig-align="center"}
+![Trajectoires de particules contraintes à se déplacer le long des lignes bleues.](./assets/chap1_fig8.png){#fig-exemple1ddl width="70%" fig-align="center"}
 
 **Dans les deux cas, la particule a un seul ddl en $x_i=x$.**
 
@@ -576,33 +576,40 @@ Propriété clef : les ddl **se comptent**.
 
 Mais le mouvement d'une particule peut tout aussi bien se limiter à une **courbe quelconque** plutôt qu'à une droite.
 
-- Au bas de la @fig-exemple1ddl, courbe = un espace à 1 dimension $\rightarrow$ une seule variable est suffisante pour déterminer la position de tout point sur la courbe — peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D → aussi 1 ddl physique.
+- Au bas de la @fig-exemple1ddl, courbe = un espace à 1 dimension $\rightarrow$ une seule variable est suffisante pour déterminer la position de tout point sur la courbe, peu importe que la courbe elle-même soit tracée dans un espace à 2D ou 3D → aussi 1 ddl physique.
 
 ::: {.notes}
-Montrer le déplacement 3D le long d'un fil qui se trouve en classe.
+- Montrer le déplacement 3D le long d'un fil qui se trouve en classe.
+- Puis le long d'une feuille de papier courbée en 3D.
 :::
 
 ## Exemple 1.6 - 2 particules évoluent librement dans un espace physique 3D. Combien de ddl ce système possède-t-il ? {.quiz-question}
 
-- 1) deux degrés de liberté
-- 2) trois degrés de liberté
-- 3) [six degrés de liberté]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
-- 4) douze degrés de liberté
+- deux degrés de liberté
+- trois degrés de liberté
+- [six degrés de liberté]{.correct data-explanation="2 particules × 3 ddl chacune (aucune contrainte) = 6 ddl"}
+
+:::{.notes}
+- douze degrés de liberté
+Je n'arrive toujours pas à numéroter les options des quiz... et katex ne fonctionne pas en explication. Investiguer et p-e ouvrir une issue
+:::
 
 ## Distinction entre domaine et degré de liberté du mouvement {.smaller}
 
 Des forces extérieures ou des interactions entre particules peuvent limiter le mouvement à un domaine fini dans une direction donnée.
 
-**Cela ne fait PAS disparaître le ddl.**
+:::{.callout-warning}
+Cela ne fait PAS disparaître le ddl.
+:::
 
 Par exemple, une masse attachée à un ressort est soumise à une force harmonique unidimensionnelle $F_x = -kx$\
-- déplacement réduit à $[-x_1, x_1]$\
-- domaine limité p/r à celui de la particule libre $[-\infty, \infty]$\
-- le système conserve **1 ddl**. 
+- déplacement réduit à $[-x_1, x_1]$,\
+- domaine limité p/r à celui de la particule libre $[-\infty, \infty]$,\
+- mais le système conserve **1 ddl**. 
 
 ## Le nombre de ddl est-il une propriété de la solution ?
 
-Pour des conditions initiales fixant une solution constante (ex. $\mathbf{r}(t_0)$ d'une particule au creux d'un puits de potentiel 3D), le domaine de variation de la coordonnée correspondante pourrait sembler réduit à zéro.
+Pour des conditions initiales fixant une solution constante (ex. $\mathbf{r}(t_0)$ d'une particule au creux d'un puits de potentiel 3D), le domaine de variation de la coordonnée correspondante pourrait sembler réduit à zéro et ainsi éliminer un ddl.
 
 ::: {.callout-warning}
 Ce n'est par le cas!
@@ -610,33 +617,39 @@ Ce n'est par le cas!
 
 ## Le nombre de ddl est une propriété du système physique
 
-Ce système continue d'avoir 3 degrés de liberté et 4 coordonnées lorsqu'on considère le temps comme variable indépendante, une seule solution particulière déterminée par des conditions initiales singulières est affectée. 
+Ce système $\mathbf{r}(t_0) = $ min continue d'avoir 3 degrés de liberté, et 4 coordonnées si le temps est inclut comme variable indépendante.
+
+Une seule solution particulière déterminée par des conditions initiales singulières est affectée. 
 
 ::: {.callout-important title="Remarque 1.11"}
 Le nombre de ddl ne dépend pas de solutions à un problème; c'est une **propriété intrinsèque** du système physique, **dénombrable dès le départ**.
 :::
 
+::: {.notes}
+Le temps n'est jamais ddl même s'il embarque ou pas comme coordonnée selon la théorie ou modèle.
+:::
+
 ## Définition formelle des degrés de liberté
 
 ::: {.callout-note title="Définition 1.4"}
-Le nombre de ddl d'une particule est égal au nombre de coordonnées nécessaires et suffisantes pour déterminer sa position, ou plus généralement celles d'un système pour déterminer sa configuration.
+Le nombre de ddl d'une particule est égal au nombre de coordonnées spatiales nécessaires et suffisantes pour déterminer sa position, ou plus généralement celles d'un système étendu pour déterminer sa configuration.
 :::
 
 Un système physique comptant $N$ particules pouvant se déplacer dans un espace à $D$ dimensions a $nD$ ddl, même en interaction, tant que les domaines de variation ne sont pas limités à zéro par une contrainte comme il sera illustré à l'exemple 1.8.
 
 ## Exemple 1.7 — Mouvement harmonique planaire
 Soit deux particules ponctuelles reliées par un ressort, le tout se déplaçant dans un plan.
-![Système masses-ressort](./assets/chap1_fig9.png){#fig-ddlressortplan width="60%" fig-align="center"}
+![Système masses-ressort](./assets/chap1_fig9.png){#fig-ddlressortplan width="50%" fig-align="center"}
 
 ## Exemple 1.7 — Quel est le nombre de degrés de liberté de ce système? {.quiz-question}
 
-- [1) quatre degrés de liberté]{.correct data-explanation="2 particules en 3D → $2 \times 3 = 6$ ddl. Le mouvement dans un plan impose 2 contraintes: $z_1 = \text{cte}$, $z_2 = \text{cte}$, donc
+- [quatre degrés de liberté]{.correct data-explanation="2 particules en 3D → $2 \times 3 = 6$ ddl. Le mouvement dans un plan impose 2 contraintes: $z_1 = \text{cte}$, $z_2 = \text{cte}$, donc
 $$6 \text{ ddl} - 2 \text{ ctes} = 4 \text{ ddl}$$"}
-- 2) deux degrés de liberté
-- 3) zéro degré de liberté
-- 4) six degrés de liberté
+- deux degrés de liberté
+- zéro degré de liberté
+- six degrés de liberté
 
-## Espaces du mouvement {.smaller}
+## Espaces du mouvement
 
 Nous comptons ici les ddl dans l'espace physique 3D, ou des sous-espaces à 2D ou à 1D.
 
@@ -649,7 +662,8 @@ Nous garderons ici la notion de ddl définie dans l'espace physique.
 ## Exemple 1.8 — Masses reliées par une tige rigide
 ![En remplaçant le ressort par une tige rigide $dr=0$ dans le système de l'exemple 1.7, le système subit une contrainte supplémentaire sur son mouvement.](./assets/chap1_fig10.png){#fig-exempletige width="60%" fig-align="center"}
 
-$$6 \text{ ddl en 3D} - 1 \text{ cte en} z_1 - 1 \text{ cte en} z_2 - 1 \text{ cte le long de la tige en} r  = 3 \text{ ddl}$$
+$$6 \text{ ddl en 3D} - 1 \text{ cte en} z_1 - 1 \text{ cte en} z_2$$
+$$ - 1 \text{ cte le long de la tige en} r  = 3 \text{ ddl}$$
 
 :::{.notes}
 Faire bouger tout le monde avec mes tuteurs de bambou!
@@ -657,12 +671,12 @@ Faire bouger tout le monde avec mes tuteurs de bambou!
 
 ## Introduction aux contraintes
 
-Le sujet des contraintes sera approfondi au chapitre 2, mais nous voyons déjà des exemples :
+Le sujet des contraintes sera approfondi au chapitre 2, mais nous voyons déjà dans les exemples :
 
 ::: {.callout-important title="Remarque 1.9"}
 Lorsque le domaine de variation selon une coordonnée quelconque est réduit à zéro $\forall$ conditions initiales,
 
-→ c'est une contrainte
+→ c'est une contrainte\
 → **0 ddl** pour cette coordonnée
 :::
 
