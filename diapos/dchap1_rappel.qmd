@@ -617,7 +617,7 @@ Ce n'est par le cas!
 
 ## Le nombre de ddl est une propriété du système physique
 
-Ce système $\mathbf{r}(t_0) = $ min continue d'avoir 3 degrés de liberté, et 4 coordonnées si le temps est inclut comme variable indépendante.
+Ce système $\mathbf{r}(t_0) = \text{ min}$ continue d'avoir 3 degrés de liberté, et 4 coordonnées si le temps est inclut comme variable indépendante.
 
 Une seule solution particulière déterminée par des conditions initiales singulières est affectée. 
 
@@ -639,7 +639,7 @@ Un système physique comptant $N$ particules pouvant se déplacer dans un espace
 
 ## Exemple 1.7 — Mouvement harmonique planaire
 Soit deux particules ponctuelles reliées par un ressort, le tout se déplaçant dans un plan.
-![Système masses-ressort](./assets/chap1_fig9.png){#fig-ddlressortplan width="50%" fig-align="center"}
+![Système masses-ressort](./assets/chap1_fig9.png){#fig-ddlressortplan width="40%" fig-align="center"}
 
 ## Exemple 1.7 — Quel est le nombre de degrés de liberté de ce système? {.quiz-question}
 
@@ -663,7 +663,7 @@ Nous garderons ici la notion de ddl définie dans l'espace physique.
 ![En remplaçant le ressort par une tige rigide $dr=0$ dans le système de l'exemple 1.7, le système subit une contrainte supplémentaire sur son mouvement.](./assets/chap1_fig10.png){#fig-exempletige width="60%" fig-align="center"}
 
 $$6 \text{ ddl en 3D} - 1 \text{ cte en} z_1 - 1 \text{ cte en} z_2$$
-$$ - 1 \text{ cte le long de la tige en} r  = 3 \text{ ddl}$$
+$$ - 1 \text{ cte le long de la tige en } r  = 3 \text{ ddl}$$
 
 :::{.notes}
 Faire bouger tout le monde avec mes tuteurs de bambou!
@@ -676,8 +676,8 @@ Le sujet des contraintes sera approfondi au chapitre 2, mais nous voyons déjà 
 ::: {.callout-important title="Remarque 1.9"}
 Lorsque le domaine de variation selon une coordonnée quelconque est réduit à zéro $\forall$ conditions initiales,
 
-→ c'est une contrainte\
-→ **0 ddl** pour cette coordonnée
+→ c'est une contrainte,\
+→ **0 ddl** pour cette coordonnée.
 :::
 
 <script>
