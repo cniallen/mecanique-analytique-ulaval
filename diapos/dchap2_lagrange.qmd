@@ -161,7 +161,7 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 ## Quel est le domaine d'entrée de l'action $S[\alpha]$? {.quiz-question}
 
 - Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
-- [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$] {.correct data-explanation="puisque $\alpha$ est un paramètre désignant une trajectoire."}
+- [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$]{.correct data-explanation="puisque $\alpha$ est un paramètre désignant une trajectoire."}
 - Des points $(P_1, P_2)$ dans l'espace
 - La fonction $LL\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)$
 
@@ -172,7 +172,7 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 
 ## Et pour la sortie de l'action $S[\alpha]$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
 
-- [Un scalaire] {.correct data-explanation="Il s'agit d'une intégrale définie"}
+- [Un scalaire]{.correct data-explanation="Il s'agit d'une intégrale définie"}
 - Une fonction de $t$  
 - Un ensemble de nombres, un pour chaque instant $t$
 
