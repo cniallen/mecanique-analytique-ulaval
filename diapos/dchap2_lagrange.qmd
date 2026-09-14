@@ -69,17 +69,10 @@ Le formalisme de Lagrange couvre une vaste gamme de problèmes en mécanique et 
 Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en principe générées directement dans des dimensions-unités cohérentes.
 :::
 
-# 2.1 Coordonnées généralisées
-
-## Coordonnées généralisées
-
-Nous utiliserons des coordonnées généralisées,\ 
-**notées $q_i$**,\
-qui sont quelconques (distance, angle, etc.) et leurs unités associées. Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées comme nous le verrons.
-
-::: {layout-ncol=2 style="font-size: 0.6em;"}
+## Contexte historique
+::: {layout-ncol=2}
 ### Joseph Louis de Lagrange
-![(./assets/chap2_fig1.png){#fig-lagrange width="30%" fig-align="center"}
+![](./assets/chap2_fig1.png){#fig-lagrange width="30%" fig-align="center"}
 
 ### Contributions
 - calcul des variations + théorie des formes quadratiques
@@ -87,29 +80,42 @@ qui sont quelconques (distance, angle, etc.) et leurs unités associées. Ceci m
 - thm. de Lagrange en théorie des groupes + sur fractions continues ;
 - principe de moindre action + Lagrangien + éqs. de Lagrange + multiplicateurs de Lagrange ;
 - problème des 3 corps en astronomie, points de Lagrange.
-
 :::
+
+# 2.1 Coordonnées généralisées
+
+## Coordonnées généralisées
+
+Nous utiliserons des coordonnées généralisées,\ 
+**notées $q_i$**,\
+qui sont quelconques (distance, angle, etc.) et leurs unités associées. 
+
+Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées comme nous le verrons.
+
 
 ::: {.notes}
 - Changement de coordonnées avec la 2e de Newton introduits des termes centrifuges, de Coriolis, etc.
-- Mentionner rapidement Joseph-Louis Lagrange en mettant sa photo: calcul des variations, théorie des groupes, principe de moindre action, multiplicateurs de Lagrange, problème des 3 corps (points de Lagrange). ToDo: j'aimerais fragment de note historique (titre: Un peu d'histoire...), idéalement à commande pré-configurée, avec image da la personne à gauche et texte ou bullets à droite.
-- Vérifier s'il y a des limitations sur le type de coordonnées couvertes par $q_i$
+à gauche et texte ou bullets à droite.
+- Vérifier s'il y a des limitations sur le type de coordonnées physiques couvertes par $q_i$
 :::
-
-# 2.2 Principe de base
 
 ## Notation
 
-Soit une particule ponctuelle dont la position instantanée est donnée par les coordonnées généralisées $\{q_i \mid i=1,2,3\}$. On cherche la trajectoire :
+Soit une particule ponctuelle dont la position instantanée est donnée dans l'espace physique 3D par les coordonnées généralisées $\{q_i \mid i=1,2,3\}$. On cherche la trajectoire :
 $$q_i \equiv q_i(t), \quad i=1,2,3 \tag{1}$$
 
 Le long de la trajectoire, on définit les **vitesses généralisées** :
 $$\dot q_i \equiv \frac{d}{dt}q_i(t), \quad i=1,2,3 \tag{2}$$
 
+::: {.notes}
+Est-ce qu'un problème historique géométrique à la brachistochrone de longueur d'arc aiderait à placer le sujet? Voir notes de Pierre Mathieu d'évolution des idées en physique pour me faire une tête.
+:::
+
+# 2.2 Principe de base
 
 ## Expérience par la pensée
 
-Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus généralement une source de particules émises à ce point) puis son arrivée au point $P_2$ à un temps $t_2$ où un détecteur pourrait être placé pour enregistrer l'événement. 
+Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus généralement une source de particules émises à ce point) puis son arrivée au point $P_2$ à un temps $t_2$ où un détecteur enregistre l'événement. 
 
 - Coordonnées à $t=t_1$ : $q_i(t_1)$
 - Coordonnées à $t=t_2$ : $q_i(t_2)$
@@ -119,69 +125,56 @@ Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus gé
 Répétons l’expérience  
 - avec des particules identiques,\
 - sous les mêmes conditions initiales,\
-- $P_1$, $P_2$ restent fixes,\
-- en permettant des accélérations et décélérations,\
-- mais telle que et **l'intervalle $t_2−t_1$ est le même** pour toutes les expériences.
+- $P_1$ et $P_2$ restent fixes,\
+- **l'intervalle de temps $t_2−t_1$ est le même** pour toutes les expériences.
+
+_N.B. Des accélérations et décélérations de la particule sont permises_
 
 :::{.notes}
-Sous les même conditions initiales entend même vitesse ce qui fixerait le choix de trajectoire non?
+Sous les même conditions initiales entend même vitesse ce qui fixerait le choix de trajectoire, problématique non?
 :::
 
 ## Expérience par la pensée 
 
-Il $\exists$ _a priori_ une infinité de trajectoires possibles $C_0, C_1, C_2, C3 \dots$ satisfaisant ces contraintes. 
+Tel qu'illustré en partie à la @fig-diversestrajectoires, _a priori_ il $\exists$ une infinité de trajectoires possibles $C_0, C_1, C_2, C3 \dots$ satisfaisant ces restrictions observables. 
 
 Pourtant, en laboratoire, on observe classiquement une seule trajectoire physique $C_0$ — la Nature « choisit » toujours celle-ci.
 
 ## Expérience par la pensée 
-![Exemples parmi $\infty$ trajectoires de même durée $t_2−t_1$ entre des points $P_1$ et $P_2$ fixes.](./assets/chap2_fig1.png){#fig-diversestrajectoires width="70%" fig-align="center"}
+![Exemples parmi un nombre $\infty$ de trajectoires de même durée $t_2−t_1$ entre des points $P_1$ et $P_2$ fixes.](./assets/chap2_fig1.png){#fig-diversestrajectoires width="70%" fig-align="center"}
 
 ## L'action {.smaller}
 
 Paramétrons les trajectoires par $\alpha$ : 
-$$q_i^{(\alpha)} = q_i^{(\alpha)}(t),$$
- telles que $\alpha=\bar\alpha$ corresponde à la trajectoire physique $C_0$. 
+$$q_i^{(\alpha)} = q_i^{(\alpha)}(t),$$ telles que $\alpha=\bar\alpha$ corresponde à la trajectoire physique réel $C_0$ avec les parenthèses clarifiant que $\alpha$ n'est pas une puissance. 
 
 Assignons à chacune une quantité $S(\alpha)$ :
 $$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)dt \tag{4}$$
 
-::: {.callout-note title="Définition 2.1 — Action"}
+::: {.callout-note title="Définition 2.1 — Action" style="font-size: 1em;"}
 La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdot$s.
 :::
 
-## Quiz intégral
+## Quel est le domaine d'entrée de l'action $S[\alpha]$? {.quiz-question}
 
-**Question 1** — Quel est le domaine d'entrée de la fonction $L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)dt$?
+- Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
+- [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$] {.correct puisque $\alpha$ est un paramètre désignant une trajectoire.}
+- Des points $(P_1, P_2)$ dans l'espace
+- La fonction $L$
 
-::: {.fragment}
-1) Une trajectoire complète $q_i(t)$ sur $[t_1, t_2]$  
-2) **Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ à un instant donné** ✅  
-3) Les positions $P_1$ et $P_2$ seulement  
-4) L'intervalle de temps $[t_2 - t_1]$
+::: {.notes}
+- Voir pour le symbole L stylisé de lagrangien
+- Vérifier que paramètre est bien pris au sens de variable tenue temporairement constante ici
 :::
 
-. . .
+## Et pour la sortie de l'action $S[\alpha]$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
 
-**Question 2** — Quel est le domaine d'entrée de l'action $S[q_i(t)]$?
+- [Un scalaire] {.correct puisque c'est une intégrale définie}
+- Une fonction de $t$  
+- Un ensemble de nombres, un pour chaque instant $t$
 
-::: {.fragment}
-a) Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$  
-b) **Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$** ✅  
-c) Un point $(P_1, P_2)$ dans l'espace  
-d) Le lagrangien $L$ lui-même
-:::
 
-. . .
-
-**Question 3** — Et la sortie de $S[q_i(t)]$ — qu'obtient-on une fois l'intégrale calculée?
-
-::: {.fragment}
-1) **Un scalaire** ✅   
-2) Une fonction de $t$  
-3) Un ensemble de nombres, un pour chaque instant $t$
-:::
-
-## Synthèse de variation d'intégrales {.smaller}
+## Synthèse de variation d'intégrales {.scrollable}
 
 | Objet | Entrée | Sortie | Variable indépendante | Variable dépendante | Paramètres fixes | Nom |
 |---|---|---|---|---|---|---|
