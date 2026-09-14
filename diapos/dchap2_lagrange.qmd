@@ -56,9 +56,7 @@ revealjs-plugins:
 2.9 Caractéristiques, propriétés, limites\
 2.10 Symétrie de l'espace-temps\
 
-# 2.1 Coordonnées généralisées
-
-## Coordonnées généralisées
+## Introduction
 
 Le formalisme de Lagrange couvre une vaste gamme de problèmes en mécanique et est équivalent au formalisme de Newton, mais possède plusieurs avantages :
 
@@ -71,10 +69,26 @@ Le formalisme de Lagrange couvre une vaste gamme de problèmes en mécanique et 
 Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en principe générées directement dans des dimensions-unités cohérentes.
 :::
 
+# 2.1 Coordonnées généralisées
+
 ## Coordonnées généralisées
 
-Nous utiliserons des coordonnées généralisées, **notées $q_i$**, qui sont quelconques (distance, angle, etc.) et leurs unités associées. Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées comme nous le verrons.
+Nous utiliserons des coordonnées généralisées,\ 
+**notées $q_i$**,\
+qui sont quelconques (distance, angle, etc.) et leurs unités associées. Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées comme nous le verrons.
 
+::: {layout-ncol=2 style="font-size: 0.6em;"}
+### Joseph Louis de Lagrange
+![(./assets/chap2_fig1.png){#fig-lagrange width="30%" fig-align="center"}
+
+### Contributions
+- calcul des variations + théorie des formes quadratiques
+- thm. de Wilson + conjecture de Bachet ;
+- thm. de Lagrange en théorie des groupes + sur fractions continues ;
+- principe de moindre action + Lagrangien + éqs. de Lagrange + multiplicateurs de Lagrange ;
+- problème des 3 corps en astronomie, points de Lagrange.
+
+:::
 
 ::: {.notes}
 - Changement de coordonnées avec la 2e de Newton introduits des termes centrifuges, de Coriolis, etc.
@@ -105,8 +119,9 @@ Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus gé
 Répétons l’expérience  
 - avec des particules identiques,\
 - sous les mêmes conditions initiales,\
-- permettant des accélérations et décélérations,\
-- mais tel que $P-1$, $P-$2 et l'intervalle $t_2−t_1$ est le même pour toutes les expériences.
+- $P_1$, $P_2$ restent fixes,\
+- en permettant des accélérations et décélérations,\
+- mais telle que et **l'intervalle $t_2−t_1$ est le même** pour toutes les expériences.
 
 :::{.notes}
 Sous les même conditions initiales entend même vitesse ce qui fixerait le choix de trajectoire non?

@@ -674,7 +674,7 @@ Faire bouger tout le monde avec mes tuteurs de bambou!
 Le sujet des contraintes sera approfondi au chapitre 2, mais nous voyons déjà dans les exemples :
 
 ::: {.callout-important title="Remarque 1.9"}
-Lorsque le domaine de variation selon une coordonnée quelconque est réduit à zéro $\forall$ conditions initiales,
+Lorsque le domaine de variation selon une coordonnée quelconque est réduit en tout temps à zéro $\forall$ conditions initiales,
 
 → c'est une contrainte,\
 → **0 ddl** pour cette coordonnée.
