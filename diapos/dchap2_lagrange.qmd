@@ -70,9 +70,10 @@ Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en pr
 :::
 
 ## Contexte historique
-::: {layout-ncol=2}
+::: {layout-ncol=2 style="font-size: 0.6em;"}
+
 ### Joseph Louis de Lagrange
-![](./assets/chap2_fig1.png){#fig-lagrange width="30%" fig-align="center"}
+![](./assets/Joseph Louis de Lagrange.png){width="40%" fig-align="center"}
 
 ### Contributions
 - calcul des variations + théorie des formes quadratiques
@@ -86,8 +87,10 @@ Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en pr
 
 ## Coordonnées généralisées
 
-Nous utiliserons des coordonnées généralisées,\ 
-**notées $q_i$**,\
+Nous utiliserons des coordonnées généralisées,
+
+**notées $q_i$**,
+
 qui sont quelconques (distance, angle, etc.) et leurs unités associées. 
 
 Ceci met l'accent sur l'invariance de forme du formalisme de Lagrange par rapport aux types de coordonnées comme nous le verrons.
@@ -158,9 +161,9 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 ## Quel est le domaine d'entrée de l'action $S[\alpha]$? {.quiz-question}
 
 - Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
-- [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$] {.correct puisque $\alpha$ est un paramètre désignant une trajectoire.}
+- [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$] {.correct data-explanation="puisque $\alpha$ est un paramètre désignant une trajectoire."}
 - Des points $(P_1, P_2)$ dans l'espace
-- La fonction $L$
+- La fonction $LL\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)$
 
 ::: {.notes}
 - Voir pour le symbole L stylisé de lagrangien
@@ -169,33 +172,37 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 
 ## Et pour la sortie de l'action $S[\alpha]$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
 
-- [Un scalaire] {.correct puisque c'est une intégrale définie}
+- [Un scalaire] {.correct data-explanation="Il s'agit d'une intégrale définie"}
 - Une fonction de $t$  
 - Un ensemble de nombres, un pour chaque instant $t$
 
 
 ## Synthèse de variation d'intégrales {.scrollable}
 
-| Objet | Entrée | Sortie | Variable indépendante | Variable dépendante | Paramètres fixes | Nom |
+| Objet | Entrée | Sortie | Variable(s) indépendante | Variable dépendante | Paramètres fixes | Nom |
 |---|---|---|---|---|---|---|
-| $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | scalaire | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
+| $I(b) = \displaystyle\int_a^b f(x)\,dx$ | $\mathbb{R}$ (la borne $b$) | scalaire | $b$ | $I$ | $a$, $f$ | **fonction** |
+| $I[f] = \displaystyle\int_a^b f(x)\,dx$ | espace de fonctions | scalaire | la fonction $f(\cdot)$ elle-même | $I$ | $a$, $b$ | **fonctionnelle** |
 | $S[q_i(t)]$ | espace de fonctions | scalaire | la fonction $q_i(\cdot)$ elle-même | $S$ | $t_1, t_2$ | **fonctionnelle** |
-| $I(b) = \displaystyle\int_a^b f(x)\,dx$ ($f$ fixée, $b$ varie) | $\mathbb{R}$ (la borne $b$) | scalaire | $b$ | $I$ | $a$, $f$ | **fonction** |
-| $I[f] = \displaystyle\int_a^b f(x)\,dx$ ($a, b$ fixés, $f$ varie) | espace de fonctions | scalaire | la fonction $f(\cdot)$ elle-même | $I$ | $a$, $b$ | **fonctionnelle** |
+| $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | scalaire | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
 :::
 
+:::{.notes}
+Réviser
+:::
 
 ## Le lagrangien
 
-En mécanique classique, $L$ est appelée **lagrangien** ou la **fonction de Lagrange** qui dépend dans le cas le plus général de $q_i(t)$, $\dot q_i(t)$ et de $t$, mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur — l'expérience l'indique. 
+En mécanique classique, $L$ est appelée **lagrangien** ou la **fonction de Lagrange** qui dépend dans le cas le plus général de $q_i(t)$, $\dot q_i(t)$ et de $t$, mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur, l'expérience l'indique. 
 
+:::{.fragment}
 Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire physique, soit un principe variationnel.
+:::
 
 :::{.notes}
-- Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat 
+- ToDo : Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat 
 - Montrer le vidéo de Prof. Sabine Hossefelder, relire fin du Born & Wolf pour principe variationnel.
 - Je pense qu'il y a qqch de plus fondamental sur l'absence de dérivées d'ordre supérieur en dynamique, mécanique, faisant en sorte que l'espace de phase suffit à décrire tout système physique. À investiguer et remettre dans une section de ingrédients-blocs de base au formalisme lagrangien avec ddl, espace de configuration (ddl du solide, pas juste particule ponctuelles) et espace de phase.
-- ToDo: mettre un fragment pour la 2e partie de la diapo ⬆️
 :::
 
 ## Le principe d'action stationnaire {.smaller}
@@ -203,7 +210,6 @@ Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire 
 Le critère proposé dans la méthode de Lagrange est de sélectionner la trajectoire physique parmi toutes les $S(\alpha)$ là où $S$ atteint un extremum, _i.e._
 $$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\bar\alpha} = 0 \tag{6}$$
 
-## 
 ::: {.callout-important title="Remarque 2.1 — Principe variationnel"}
 Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe variationnel, soit de rechercher un point fixe d'une fonctionnelle. C'est l'analogue de chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule.
 :::
