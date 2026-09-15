@@ -1,0 +1,106 @@
+%----------------------------------------------------------------
+%### Loading Packages ###
+%
+%## Encoding, Typography & Language ##
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel} 
+\usepackage{lmodern,csquotes}
+\PassOptionsToPackage{mathscr}{eucal}\usepackage{amsfonts,eucal,mathrsfs,textcomp} 
+\usepackage{ulem}
+\normalem
+%\usepackage{newtxtext}
+
+%## Colors, Boxes & Figures ##
+\usepackage[usenames,x11names,table]{xcolor} %%colour names in 'xcolor-palettes.pdf' of the 'Templates_labOMC' repo. For printing, the [cmyk,dvipsnames] colour model is preferred.
+\usepackage{fancybox} %%more framed boxes
+\usepackage[breakable]{tcolorbox} %%coloured boxes with optional title
+\usepackage{float} %%more control on any floating environments 
+\usepackage{array,dcolumn,tabularx,multirow,longtable,booktabs} %%more control of 'tabular' and 'array' environments
+\usepackage{graphicx,wrapfig,caption,sidecap} %% Compiling with 'pdfLaTeX' supports .pdf,.pdf_tex .png, .jpg and .eps(indirectly) files. %Use '\includeinkscape' for .pdf_tex files exported from Inkscape or convert directly to TiKZ code with the 'svg2tikz' extension.
+
+%## Maths & Physics ##
+\usepackage{amsmath,amsthm,amssymb}
+%\usepackage{cancel,trfsigns} %%math simplifications & signs for transforms respectively
+%\usepackage[all]{xy} %%nice math diagrams
+\usepackage{siunitx} %scientific & complex numbers, measurement & uncertainty, see 'latex-SIunitx.pdf' in the 'Templates_labOMC' repo.
+\usepackage{physics} %typesetting for mathematical physics, see 'latex-PhysicsPack.pdf' in the 'Templates_labOMC' repo.
+\usepackage{pgfplots} %graphs of symbolic functions and equations
+%\usepackage{tikz-network} %%crystal lattice & complex networks drawing
+%\usepackage{tikz-optics} %%optical drawing
+%\usepackage{pstricks,pst-optexp,pst-optic} %%neat PSTricks optical drawing
+%\usepackage{tikzorbital,chemfig,chemmacros,mhchem} %%chemical drawings/diagrams and formulae & safety
+%\usepackage{pstricks,pst-labo} %%laboratory chemical glassware
+%\usepackage{pstricks,dsptricks,pst-sigsys} %%signal processing plots/drawings
+%\usepackage[RPvoltages,americanvoltages,americancurrents]{circuitikz} %%electrical circuit drawing with Rising Potential voltages
+%\usetikzlibrary{babel} %%needed for electrical circuit drawing when running babel-french
+%\usepackage{yquant} %%quantum circuit drawing
+
+%## Miscellaneous Nice Tools ##
+\usepackage{ccicons} %%Creative Commons icons, reusable content at <https://search.creativecommons.org/>
+%\usepackage[draft]{showkeys} %%uncomment to display the label of each '\ref' key in the document output
+%\setlength{\marginparwidth}{2cm} %%uncomment to force a temporary resolution of 'todonotes' margin warning
+\usepackage{lipsum,todonotes} %%'\lipsum[_a-b_][_c-d_]' for dummy text paragraph #_a-b_, line #_c-d_ ; standard margin notes with '\marginpar{}' & colored ones with '\todo{}'
+%\usepackage{media9,animate,tikz} %%tools for multimedia and general drawing
+%\usepackage{pythontex} %%runs Python code in the LaTeX source files and typeset the output
+
+%## Bibliography ##
+%\usepackage[backend=biber,sorting=none]{biblatex} %%see 'cheatsheet-BibLaTeX.tex' in the 'Templates_labOMC' repo.
+%\addbibresource{} %%import your .bib file in BibLaTeX format from Zotero
+
+%## Hyperlinks ##
+\usepackage{hyperref,xurl} %%'\href{_URL_}{_hypertext_}' to link the hypertext & '\url{_URL_}' to link the displayed web address, each internal '~\ref{_label_}' is also hyperlinked ; xurl for more line breaks.
+\usepackage{doi} %%automatically resolves object identifiers such as IDs from doi, arXiv, OCLC, etc., use '\doi{}' if the former bugs.
+
+%## Layout ##
+%%Watch for conflicts with the overall document class.
+\usepackage{geometry} %%page layout, see configuration below
+\usepackage{fancyhdr} %%headers & footers, see configuration below
+\usepackage{setspace} %%interline spacing tools ; unit relative to current font: em ~width of an 'M' (uppercase), typically equal to the font size in pt
+\usepackage{enumitem} %%tools to change list format
+%\usepackage{tasks,epigraph,boxedminipage,multicol,lscape,rotating,makeidx,showidx,glossaries}
+
+%## Subdividing a document ##
+\usepackage{import} %%\import{_path_}{_filename_} includes the desired file.
+%\usepackage{subfiles} %also allows standalone compilation.
+%\newcommand{\onlyinsubfile}[1]{#1} %%for content compiled only in the subfile.
+%\graphicspath{{folder/}{../folder/}{folder/}{../folder/}} %The relative path to images, starting from each compilation file call, must be listed here otherwise the \includegraphics command will not work. The ../ stipulate one level up in the file tree.
+%\usepackage[active,tightpage]{preview} %output cropped just around the content. For the whole document, option active->inactive.
+%\setlength\PreviewBorder{20pt}
+
+%---------------------------------------------------------
+%## Global settings for packages ##
+\sisetup{separate-uncertainty=true} %%for SIunitx package
+\hypersetup{   %%for hyperref package
+    breaklinks=true,
+    linktocpage=true,
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue}
+\pgfplotsset{compat=1.18,width=5cm} %%for pgfplots package, backwards compatibility with 'compat'
+\usetikzlibrary{arrows} %%for PGF/TikZ
+
+%---------------------------------------------------------
+%### Defining command shortcuts & macros ###
+%
+\newcommand{\be}{\begin{equation}} %%for numbered equations, use instead \[...\] to display without numbering or $...$ to include directly inline.
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{align}} %%number each equation and align them on &= the equal sign and more generally on the ampersand & character. 
+\newcommand{\eea}{\end{align}}
+\newenvironment{eqsplit}{\equation\aligned}{\endaligned\endequation}
+\newcommand{\bes}{\begin{eqsplit}} %%defined the same way as the align environment, but considered as one equation on multiple lines with one number overall.
+\newcommand{\ees}{\end{eqsplit}}
+\newcommand{\beg}{\begin{gather}} %%gathering equations one below another without aligning.
+\newcommand{\eeg}{\end{gather}}
+\DeclareMathOperator{\TLs}{\mathscr{L}} %%Laplace transform symbol \TLs
+\newcommand{\TLd}[1]{\TLs\!\left[#1\right]} %%Laplace transform operator \TLd{}
+\DeclareMathOperator{\TLsi}{\mathscr{L}^{-1}} %%inverse Laplace transform symbol \TLsi
+\newcommand{\TLi}[1]{\TLsi\!\left[#1\right]} %%inverse Laplace transform operator \TLi{}
+\DeclareMathOperator{\TFsi}{\mathscr{F}^{-1}} %%inverse Fourier transform \TFsi
+\newcommand{\TFi}[1]{\TFsi\!\left[#1\right]} %%inverse Fourier transform operator \TFi{}
+\DeclareMathOperator{\TFs}{\mathscr{F}} %%Fourier transform \TFs
+\newcommand{\TFd}[1]{\TFs\!\left[#1\right]} %%Fourier transform operator \TFd{}
+\renewcommand*{\Re}{\mathop{}\!\mathfrak{Re}} %%Real part \Re redefined with 2 characters fraktur typesetting
+\renewcommand*{\Im}{\mathop{}\!\mathfrak{Im}} %%Imaginary part \Im redefined with 2 characters fraktur typesetting
