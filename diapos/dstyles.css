@@ -1,6 +1,33 @@
+/* Version of slides for annotation when printed PDF */
 @media print {
   .reveal .slides section {
     padding-right: 34%;
     box-sizing: border-box;
   }
+}
+
+/* Preventing KaTeX to transform in quiz title=question */
+.reveal h1 .katex, .reveal h2 .katex, .reveal h3 .katex,
+.reveal h1 .katex *, .reveal h2 .katex *, .reveal h3 .katex * {
+  text-transform: none;
+}
+
+/* Numbering of choices in answer to the quiz */
+.quiz-question ~ ul {
+  list-style: none;
+  counter-reset: quiz-counter;
+  padding-left: 0;
+}
+
+.quiz-question ~ ul li {
+  counter-increment: quiz-counter;
+  position: relative;
+  padding-left: 2em;
+}
+
+.quiz-question ~ ul li::before {
+  content: counter(quiz-counter) ". ";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }

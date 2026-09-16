@@ -73,7 +73,7 @@ Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en pr
 ::: {layout-ncol=2 style="font-size: 0.6em;"}
 
 ### Joseph Louis de Lagrange
-![](./assets/Joseph Louis de Lagrange.png){width="40%" fig-align="center"}
+![](./assets/Joseph Louis de Lagrange.png){width="40%" fig-align="left"}
 
 ### Contributions
 - calcul des variations + théorie des formes quadratiques
@@ -89,7 +89,7 @@ Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en pr
 
 Nous utiliserons des coordonnées généralisées,
 
-**notées $q_i$**,
+$$\text{notées} \mathbf{q_i},$$
 
 qui sont quelconques (distance, angle, etc.) et leurs unités associées. 
 
@@ -126,10 +126,10 @@ Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus gé
 ## Expérience par la pensée
 
 Répétons l’expérience  
-- avec des particules identiques,\
-- sous les mêmes conditions initiales,\
-- $P_1$ et $P_2$ restent fixes,\
-- **l'intervalle de temps $t_2−t_1$ est le même** pour toutes les expériences.
++ avec des particules identiques,
++ sous les mêmes conditions initiales,
++ $P_1$ et $P_2$ restent fixes,
++ **l'intervalle de temps $t_2−t_1$ est le même** pour toutes les expériences.
 
 _N.B. Des accélérations et décélérations de la particule sont permises_
 
@@ -158,26 +158,26 @@ $$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t),
 La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdot$s.
 :::
 
-## Quel est le domaine d'entrée de l'action $S[\alpha]$? {.quiz-question}
+## Quel est le domaine d'entrée de l'action $S\left[\alpha \right]$? {.quiz-question}
 
 - Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
 - [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$]{.correct data-explanation="puisque $\alpha$ est un paramètre désignant une trajectoire."}
 - Des points $(P_1, P_2)$ dans l'espace
-- La fonction $LL\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)$
+- La fonction $L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)$
 
 ::: {.notes}
 - Voir pour le symbole L stylisé de lagrangien
 - Vérifier que paramètre est bien pris au sens de variable tenue temporairement constante ici
 :::
 
-## Et pour la sortie de l'action $S[\alpha]$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
+## Et pour la sortie de l'action $S\left[\alpha \right]$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
 
 - [Un scalaire]{.correct data-explanation="Il s'agit d'une intégrale définie"}
 - Une fonction de $t$  
 - Un ensemble de nombres, un pour chaque instant $t$
 
 
-## Synthèse de variation d'intégrales {.scrollable}
+## Synthèse de variation d'intégrales {.smaller .scrollable}
 
 | Objet | Entrée | Sortie | Variable(s) indépendante | Variable dépendante | Paramètres fixes | Nom |
 |---|---|---|---|---|---|---|
@@ -191,30 +191,35 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 Réviser
 :::
 
-## Le lagrangien
+## Le lagrangien {.center}
 
 En mécanique classique, $L$ est appelée **lagrangien** ou la **fonction de Lagrange** qui dépend dans le cas le plus général de $q_i(t)$, $\dot q_i(t)$ et de $t$, mais pas de $\ddot q_i$ ou de dérivées d'ordre supérieur, l'expérience l'indique. 
 
-:::{.fragment}
-Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire physique, soit un principe variationnel.
+:::{.fragment style="font-size: 0.7em;"}
+_Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire physique, soit un principe variationnel._
 :::
 
 :::{.notes}
-- ToDo : Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat 
+- ToDo : Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus cout et rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat 
 - Montrer le vidéo de Prof. Sabine Hossefelder, relire fin du Born & Wolf pour principe variationnel.
 - Je pense qu'il y a qqch de plus fondamental sur l'absence de dérivées d'ordre supérieur en dynamique, mécanique, faisant en sorte que l'espace de phase suffit à décrire tout système physique. À investiguer et remettre dans une section de ingrédients-blocs de base au formalisme lagrangien avec ddl, espace de configuration (ddl du solide, pas juste particule ponctuelles) et espace de phase.
 :::
 
-## Le principe d'action stationnaire {.smaller}
+## Le principe d'action stationnaire
 
 Le critère proposé dans la méthode de Lagrange est de sélectionner la trajectoire physique parmi toutes les $S(\alpha)$ là où $S$ atteint un extremum, _i.e._
 $$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\bar\alpha} = 0 \tag{6}$$
 
-::: {.callout-important title="Remarque 2.1 — Principe variationnel"}
+:::{.notes}
+Aux extrema avec une pente de tangente nulle, d\alpha peut arbitrairement prendre n'importe quelle valeur, même non-infinitésimale, et dS(\alpha) reste toujours zéro pour cette droite horizontale. Donc équivalence stricte si et seulement si.
+
+:::{.callout-important title="Remarque 2.1 — Principe variationnel"}
 Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe variationnel, soit de rechercher un point fixe d'une fonctionnelle. C'est l'analogue de chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule.
 :::
 
+:::{style="font-size: 0.7em;"}
 De nombreuses lois fondamentales de la physique sont basées sur un principe variationnel.
+:::
 
 :::{.notes}
 Je commence à avoir un doute si c'est n'importe quel extremum ou le minimum global qu'il faut trouver...
