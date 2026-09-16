@@ -89,7 +89,7 @@ Revoir le rôle de la métrique, mais les équations d'Euler-Lagrange sont en pr
 
 Nous utiliserons des coordonnées généralisées,
 
-$$\text{notées} \mathbf{q_i},$$
+$$\text{notées }\mathbf{q_i},$$
 
 qui sont quelconques (distance, angle, etc.) et leurs unités associées. 
 
@@ -125,11 +125,12 @@ Soit une particule dont la trajectoire part de $P_1$ au temps $t_1$ (ou plus gé
 
 ## Expérience par la pensée
 
-Répétons l’expérience  
-+ avec des particules identiques,
-+ sous les mêmes conditions initiales,
-+ $P_1$ et $P_2$ restent fixes,
-+ **l'intervalle de temps $t_2−t_1$ est le même** pour toutes les expériences.
+Répétons l’expérience 
+ 
+- avec des particules identiques,
+- sous les mêmes conditions initiales,
+- $P_1$ et $P_2$ restent fixes,
+- **l'intervalle de temps $t_2−t_1$ est le même** pour toutes les expériences.
 
 _N.B. Des accélérations et décélérations de la particule sont permises_
 
@@ -158,23 +159,23 @@ $$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t),
 La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdot$s.
 :::
 
-## Quel est le domaine d'entrée de l'action $S\left[\alpha \right]$? {.quiz-question}
+## Quel est le domaine d'entrée de l'action $S(\alpha)$? {.quiz-question}
 
-- Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
-- [Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$]{.correct data-explanation="puisque $\alpha$ est un paramètre désignant une trajectoire."}
-- Des points $(P_1, P_2)$ dans l'espace
-- La fonction $L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)$
+- "1)" Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
+- ["2)" Une trajectoire entière $q_i(t)$ sur $[t_1, t_2]$]{.correct data-explanation="puisque $\alpha$ est un paramètre désignant une trajectoire."}
+- "3)" Des points $(P_1, P_2)$ dans l'espace
+- "4)" La fonction $L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t), t\right)$
 
 ::: {.notes}
 - Voir pour le symbole L stylisé de lagrangien
-- Vérifier que paramètre est bien pris au sens de variable tenue temporairement constante ici
+- Vérifier que le mot paramètre est bien pris au sens de variable tenue temporairement constante ici
 :::
 
-## Et pour la sortie de l'action $S\left[\alpha \right]$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
+## Et pour la sortie de l'action $S(\alpha)$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
 
-- [Un scalaire]{.correct data-explanation="Il s'agit d'une intégrale définie"}
-- Une fonction de $t$  
-- Un ensemble de nombres, un pour chaque instant $t$
+- ["1)" Un scalaire]{.correct data-explanation="Il s'agit d'une intégrale définie"}
+- "2)" Une fonction de $t$  
+- "3)" Un ensemble de nombres, un pour chaque instant $t$
 
 
 ## Synthèse de variation d'intégrales {.smaller .scrollable}
@@ -185,10 +186,9 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 | $I[f] = \displaystyle\int_a^b f(x)\,dx$ | espace de fonctions | scalaire | la fonction $f(\cdot)$ elle-même | $I$ | $a$, $b$ | **fonctionnelle** |
 | $S[q_i(t)]$ | espace de fonctions | scalaire | la fonction $q_i(\cdot)$ elle-même | $S$ | $t_1, t_2$ | **fonctionnelle** |
 | $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | scalaire | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
-:::
 
 :::{.notes}
-Réviser
+Réviser et réordonner
 :::
 
 ## Le lagrangien {.center}
@@ -212,6 +212,7 @@ $$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\ba
 
 :::{.notes}
 Aux extrema avec une pente de tangente nulle, d\alpha peut arbitrairement prendre n'importe quelle valeur, même non-infinitésimale, et dS(\alpha) reste toujours zéro pour cette droite horizontale. Donc équivalence stricte si et seulement si.
+:::
 
 :::{.callout-important title="Remarque 2.1 — Principe variationnel"}
 Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe variationnel, soit de rechercher un point fixe d'une fonctionnelle. C'est l'analogue de chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule.
