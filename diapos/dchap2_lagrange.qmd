@@ -237,9 +237,9 @@ Revoir les notes de Stephania pour son approche p-e mieux exemplifiée
 
 # 2.3 Variation fonctionnelle
 
-## Nuance rigoureuse entre différence et variation {.smaller}
+## Nuance rigoureuse entre différence et variation
 
-La variation de $S$ n'est PAS le taux de variation, la différence habituelle, de la position le long d'une trajectoire. La variation de l'action
+La variation de $S$ n'est PAS le taux de variation, pas la différence habituelle, de la position le long d'une trajectoire. La variation de l'action
 
 ::: {style="text-align: center;"}
  **compare des trajectoires entières entre elles**,
@@ -260,8 +260,11 @@ $$\delta q_i^{(\alpha)}(t) = q_i^{(\alpha)}(t) - q_i^{(\alpha')}(t) \tag{9}$$
 
 Les variations sont calculées **« à temps constant »** : $t$ ne varie pas dans cette comparaison entre les trajectoires.
 
-![Variation des trajectoires.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
+![Variation des trajectoires où les règles mathématiques de dérivation par rapport à $\alpha$ restent les mêmes.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
 
+:::{.notes}
+ToDo: Trouver une source pour confirmer ce commentaire en figure caption.
+:::
 
 ## Indépendance des variations de vitesse {.scrollable}
 
