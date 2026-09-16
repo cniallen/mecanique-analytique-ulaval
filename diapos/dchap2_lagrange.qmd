@@ -215,10 +215,10 @@ Aux extrema avec une pente de tangente nulle, d\alpha peut arbitrairement prendr
 :::
 
 :::{.callout-important title="Remarque 2.1 — Principe variationnel"}
-Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe variationnel, soit de rechercher un point fixe d'une fonctionnelle. C'est l'analogue de chercher un extremum d'une fonction ordinaire en imposant que sa dérivée s'annule.
+Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe variationnel, soit de rechercher un point fixe d'une fonctionnelle. Ceci est analogue aux extrema d'une fonction ordinaire où la dérivée s'annule.
 :::
 
-:::{style="font-size: 0.7em;"}
+:::{style="font-size: 0.5em;"}
 De nombreuses lois fondamentales de la physique sont basées sur un principe variationnel.
 :::
 
@@ -227,7 +227,8 @@ Je commence à avoir un doute si c'est n'importe quel extremum ou le minimum glo
 :::
 
 ## Le principe d'action stationnaire
-![Bien que souvent aussi appelé **principe de moindre action**, le critère mathématique n'exige qu'un point **stationnaire** qui peut être un minimum $\alpha_1$, un maximum minimum $\alpha_2$, ou un point-selle.](./assets/chap2_fig2.png){#fig-actionstationnaire width="70%" fig-align="center"}
+
+![Bien que souvent aussi appelé **principe de moindre action**, le critère mathématique n'exige qu'un point **stationnaire** qui peut être un minimum $\alpha_1$, un maximum $\alpha_2$, ou un point-selle.](./assets/chap2_fig2.png){#fig-actionstationnaire width="70%" fig-align="center"}
 
 
 :::{.notes}
@@ -236,23 +237,33 @@ Revoir les notes de Stephania pour son approche p-e mieux exemplifiée
 
 # 2.3 Variation fonctionnelle
 
-## Notation : nuance rigoureuse entre différence et variation {.smaller}
+## Nuance rigoureuse entre différence et variation {.smaller}
 
-La variation de $S$ n'est pas une variation habituelle (par rapport à un point le long d'une trajectoire) — elle est faite en **comparant des trajectoires entières entre elles**, en variant les fonctions $q_i^{(\alpha)}(t)$ elles-mêmes (paramétrées par $\alpha$).
+La variation de $S$ n'est PAS le taux de variation, la différence habituelle, de la position le long d'une trajectoire. La variation de l'action
 
-::: {.callout-note title="Notation 2.1"}
-On note ces variations avec le symbole $\delta$ plutôt que $d$, pour bien les distinguer :
+::: {style="text-align: center;"}
+ **compare des trajectoires entières entre elles**,
+::: 
+ 
+en variant les fonctions $q_i^{(\alpha)}(t)$ elles-mêmes avec le paramétre $\alpha$).
 
-**Différence ordinaire** $d$ (le long d'une même trajectoire $\alpha$, entre deux instants voisins) :
+::: {.callout-note title="Notation 2.1 - Distinction du calcul de variation avec $\delta$"}
+
+- **Différence ordinaire** $d$ le long d'une même trajectoire $\alpha$, entre deux instants voisins :
 $$dq_i^{(\alpha)}(t) = q_i^{(\alpha)}(t+dt) - q_i^{(\alpha)}(t) \tag{8}$$
 
-**Variation** $\delta$ (au même instant $t$, entre deux trajectoires voisines $\alpha$ et $\alpha'$) :
+- **Variation** $\delta$ au même instant $t$, entre deux trajectoires voisines $\alpha$ et $\alpha'$ :
 $$\delta q_i^{(\alpha)}(t) = q_i^{(\alpha)}(t) - q_i^{(\alpha')}(t) \tag{9}$$
 :::
 
-Ces variations sont dites **« à temps constant »** — $t$ ne varie pas quand on compare les trajectoires.
+## Calcul variationnel
 
-## Indépendance des variations de vitesse {.smaller}
+Les variations sont calculées **« à temps constant »** : $t$ ne varie pas dans cette comparaison entre les trajectoires.
+
+![Variation des trajectoires.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
+
+
+## Indépendance des variations de vitesse {.scrollable}
 
 Une conséquence importante : au temps $t$, $\delta q^{(\alpha)}(t)$ est le même peu importe qu'on compare $\alpha$ à $\alpha'$ ou à $\alpha''$ — mais ce n'est *pas* vrai des $\delta\dot q^{(\alpha)}(t)$, puisque les trajectoires $\alpha'$ et $\alpha''$ peuvent avoir des pentes différentes au même point.
 
