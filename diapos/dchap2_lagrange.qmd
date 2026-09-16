@@ -111,7 +111,7 @@ Le long de la trajectoire, on définit les **vitesses généralisées** :
 $$\dot q_i \equiv \frac{d}{dt}q_i(t), \quad i=1,2,3 \tag{2}$$
 
 ::: {.notes}
-Est-ce qu'un problème historique géométrique à la brachistochrone de longueur d'arc aiderait à placer le sujet? Voir notes de Pierre Mathieu d'évolution des idées en physique pour me faire une tête.
+Est-ce qu'un problème historique géométrique à la brachistochrone de longueur d'arc aiderait à placer le sujet? Voir notes de Pierre Mathieu d'évolution des idées en physique et Veritaserum pour me faire une tête.
 :::
 
 # 2.2 Principe de base
@@ -159,6 +159,10 @@ $$S(\alpha) = \int_{t_1}^{t_2} L\left(q_i^{(\alpha)}(t), \dot q_i^{(\alpha)}(t),
 La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdot$s.
 :::
 
+:::{.notes}
+Voir l'idée de Maupertuis dans le vidéo de Veritaserum: + d'action va avec plus de distance, plus... et plus de masse
+:::
+
 ## Quel est le domaine d'entrée de l'action $S(\alpha)$? {.quiz-question}
 
 - "1)" Un ensemble de nombres réels : $q_i$, $\dot q_i$, $t$ 
@@ -168,7 +172,7 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 
 ::: {.notes}
 - Voir pour le symbole L stylisé de lagrangien
-- Vérifier que le mot paramètre est bien pris au sens de variable tenue temporairement constante ici
+- Vérifier que le mot paramètre est bien pris au sens de variable tenue temporairement "stroboscope" constante ici
 :::
 
 ## Et pour la sortie de l'action $S(\alpha)$, qu'obtient-on une fois l'intégrale calculée? {.quiz-question}
@@ -188,7 +192,8 @@ La quantité $S$ est nommée **action** et ses unités SI sont le produit J$\cdo
 | $L(q_i, \dot q_i, t)$ | $\mathbb{R}^{2n+1}$ | scalaire | $q_i, \dot q_i, t$ | $L$ | — | **fonction** |
 
 :::{.notes}
-Réviser et réordonner
+- Réviser et réordonner
+- Contacter Stephania Sciara ETS pour son approche de Lagrange p-e mieux exemplifiée, j'arrive pas à retrouver dans mes notes de juin 2025 =(
 :::
 
 ## Le lagrangien {.center}
@@ -200,7 +205,7 @@ _Il ne manque plus qu'un critère sur l'action pour sélectionner la trajectoire
 :::
 
 :::{.notes}
-- ToDo : Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus cout et rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat 
+- ToDo : Quiz sur est-ce que la trajectoire choisie prend toujours le chemin le plus cout et rapide qui minimise l'intervalle de temps de P_1 à P_2? toujours vrai, toujours faux, vrai pour la matière,vrai pour les champs (de force..?) : Principe de Fermat mais c'est extremal au final... soit restreindre le 
 - Montrer le vidéo de Prof. Sabine Hossefelder, relire fin du Born & Wolf pour principe variationnel.
 - Je pense qu'il y a qqch de plus fondamental sur l'absence de dérivées d'ordre supérieur en dynamique, mécanique, faisant en sorte que l'espace de phase suffit à décrire tout système physique. À investiguer et remettre dans une section de ingrédients-blocs de base au formalisme lagrangien avec ddl, espace de configuration (ddl du solide, pas juste particule ponctuelles) et espace de phase.
 :::
@@ -219,35 +224,50 @@ Ce principe d'action stationnaire où $dS=0$ est un cas particulier de principe 
 :::
 
 :::{style="font-size: 0.5em;"}
-De nombreuses lois fondamentales de la physique sont basées sur un principe variationnel.
+De nombreuses lois fondamentales de la physique sont basées sur un principe variationnel, comme le principe de Fermat du moindre temps en optique.
 :::
 
 :::{.notes}
-Je commence à avoir un doute si c'est n'importe quel extremum ou le minimum global qu'il faut trouver...
+- Point stationnaire de la fonctionnelle $S$: une trajectoire pour laquelle une variation infinitésimale $\delta q_i(t)$ (tout le long mais à extrémités fixes) ne change pas $S$ **au premier ordre** : $\delta S = 0$ (voir animations Veritaserum). Analogie avec un point critique d'une fonction ordinaire où $\frac{df}{dx} = 0$.
 :::
 
 ## Le principe d'action stationnaire
 
-![Bien que souvent aussi appelé **principe de moindre action**, le critère mathématique n'exige qu'un point **stationnaire** qui peut être un minimum $\alpha_1$, un maximum $\alpha_2$, ou un point-selle.](./assets/chap2_fig2.png){#fig-actionstationnaire width="70%" fig-align="center"}
-
+![Bien que souvent appelé **principe de moindre action**, le critère mathématique n'exige qu'un point **stationnaire** qui peut être un minimum $\alpha_1$, un maximum $\alpha_2$, un point d'inflexion ou un point-selle.](./assets/chap2_fig2.png){#fig-actionstationnaire width="70%" fig-align="center"}
 
 :::{.notes}
-Revoir les notes de Stephania pour son approche p-e mieux exemplifiée
+- Contres-exemples en optique géométrique milieu homogène à faire au tableau (source https://phys.libretexts.org/Bookshelves/University_Physics/Radically_Modern_Introductory_Physics_Text_I_(Raymond)/03:_Geometrical_Optics/3.05:_Fermats_Principle ) :
+- Ellipse avec source au centre: chemins possibles de rayons qui reviennent au centre? Petit axe ET Grand axe.
+- Réflexion sur un miroir plan est techniquement un maximum local p/r au chemin direct ligne droite entre un point de départ-source et un point d'arrivée.
+- Mécanique n'aurait pas de maxima, juste mins et selles. Preuve par Jacobi, voir ../Développement pour une référence.
+- With variational principles, the path is not the absolute minimum (or maximum) it is only a local extremum. What this means is the following: If you shift the path slightly to the dotted path shown in the figure below, by shifting the location where the light ray hits the mirror by \Delta x, then the change in the path length will be of order (\Delta x)^2. That's a statement about the limit as . Fermat's principle doesn't say anything about paths that are very different from the given path, it only applies to infinitesimally different paths. Reference: https://www.physicsforums.com/threads/apply-fermats-principle-to-a-concave-mirror.909559/
 :::
 
 # 2.3 Variation fonctionnelle
 
 ## Nuance rigoureuse entre différence et variation
 
-La variation de $S$ n'est PAS le taux de variation, pas la différence habituelle, de la position le long d'une trajectoire. La variation de l'action
+La variation de $S(\alpha)$ n'est pas le taux de variation, pas la différence, habituels en mécanique classique pour l'évolution de la position le long d'une trajectoire. 
 
-::: {style="text-align: center;"}
- **compare des trajectoires entières entre elles**,
-::: 
- 
-en variant les fonctions $q_i^{(\alpha)}(t)$ elles-mêmes avec le paramétre $\alpha$).
+La variation de l'action
 
-::: {.callout-note title="Notation 2.1 - Distinction du calcul de variation avec $\delta$"}
+- **compare des trajectoires $q_i^{(\alpha)}(t)$ entières entre elles** grâce à l'intégration,
+- provient des différentes $q_i^{(\alpha)}(t)$ elles-mêmes variant avec le paramètre $\alpha$,
+- est illustrée à la @fig-variationfonctionnelle
+
+## Calcul variationnel
+
+Les variations sont calculées **« à temps constant »** : $t$ ne varie pas dans cette comparaison entre les trajectoires.
+
+![Variation des trajectoires où les règles mathématiques de différentiation par rapport à $\alpha$ restent les mêmes.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
+
+:::{.notes}
+ToDo: Trouver une source pour confirmer ce commentaire en figure caption.
+:::
+
+## Notation des différences et variations
+
+::: {.callout-note title="Notation 2.1 - Distinction du calcul de variations avec $\delta$"}
 
 - **Différence ordinaire** $d$ le long d'une même trajectoire $\alpha$, entre deux instants voisins :
 $$dq_i^{(\alpha)}(t) = q_i^{(\alpha)}(t+dt) - q_i^{(\alpha)}(t) \tag{8}$$
@@ -256,15 +276,6 @@ $$dq_i^{(\alpha)}(t) = q_i^{(\alpha)}(t+dt) - q_i^{(\alpha)}(t) \tag{8}$$
 $$\delta q_i^{(\alpha)}(t) = q_i^{(\alpha)}(t) - q_i^{(\alpha')}(t) \tag{9}$$
 :::
 
-## Calcul variationnel
-
-Les variations sont calculées **« à temps constant »** : $t$ ne varie pas dans cette comparaison entre les trajectoires.
-
-![Variation des trajectoires où les règles mathématiques de dérivation par rapport à $\alpha$ restent les mêmes.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
-
-:::{.notes}
-ToDo: Trouver une source pour confirmer ce commentaire en figure caption.
-:::
 
 ## Indépendance des variations de vitesse {.scrollable}
 
