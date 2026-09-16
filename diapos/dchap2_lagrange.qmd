@@ -249,45 +249,75 @@ De nombreuses lois fondamentales de la physique sont basées sur un principe var
 
 La variation de $S(\alpha)$ n'est pas le taux de variation, pas la différence, habituels en mécanique classique pour l'évolution de la position le long d'une trajectoire. 
 
-La variation de l'action
+La variation de la fonctionnelle d'action
 
 - **compare des trajectoires $q_i^{(\alpha)}(t)$ entières entre elles** grâce à l'intégration,
 - provient des différentes $q_i^{(\alpha)}(t)$ elles-mêmes variant avec le paramètre $\alpha$,
 - est illustrée à la @fig-variationfonctionnelle
 
-## Calcul variationnel
+## Calcul de variations
 
 Les variations sont calculées **« à temps constant »** : $t$ ne varie pas dans cette comparaison entre les trajectoires.
 
-![Variation des trajectoires où les règles mathématiques de différentiation par rapport à $\alpha$ restent les mêmes.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
+![Variation des trajectoires où la méthode mathématique de différentiation par rapport à $\alpha$ reste la même.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
 
 :::{.notes}
-ToDo: Trouver une source pour confirmer ce commentaire en figure caption.
+Comme un stroboscope.
 :::
 
-## Notation des différences et variations
+## Notation des différences et variations{.center}
 
 ::: {.callout-note title="Notation 2.1 - Distinction du calcul de variations avec $\delta$"}
 
-- **Différence ordinaire** $d$ le long d'une même trajectoire $\alpha$, entre deux instants voisins :
+- **Différence ordinaire** $d$ le long d'une même trajectoire $\alpha$, entre deux instants $t$ et $t+dt$ voisins :
 $$dq_i^{(\alpha)}(t) = q_i^{(\alpha)}(t+dt) - q_i^{(\alpha)}(t) \tag{8}$$
 
 - **Variation** $\delta$ au même instant $t$, entre deux trajectoires voisines $\alpha$ et $\alpha'$ :
 $$\delta q_i^{(\alpha)}(t) = q_i^{(\alpha)}(t) - q_i^{(\alpha')}(t) \tag{9}$$
 :::
 
+:::{.notes}
+Voisins.es est un peu flou, à formaliser avec du voisinage et des limites infinitésimales.
+:::
 
-## Indépendance des variations de vitesse {.scrollable}
+## Éléments de calcul variationnel (I){.smaller}
 
+Les principales propriétés mathématique de l'opérateur variationnel $\delta$ sont les mêmes que celles de l'opérateur différentiel $d$. Par exemple pour des fonctionnelles $F$ et $G$ avec des constantes $a$ et $b$,
+
+**Linéarité**
+$$\delta(aF + bG) = a\, \delta F + b\, \delta G,$$
+
+**Règle du produit (Leibniz)**
+$$\delta(FG) = F\,\delta G + G\,\delta F,$$
+
+mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant la vitesse du mouvement le long de différentes trajectoires.
+
+:::{.notes}
+ToDo: Trouver une source pour confirmer.
+:::
+
+## Vitesses généralisées sur différentes trajectoires
+
+![Trajectoires de variations de coordonnées $\delta q_i^{(\alpha)}(t)$ identiques à un temps $t$ constant, mais la variation de vitesses $\delta \dot q_i^{(\alpha)}(t)$ change tout de même.](./assets/chap2_fig4.png){#fig-diffetvariation width="60%" fig-align="center"}
+
+
+## Variables indépendantes 
+(finir sur ce pkoi le Lagrangien est fct de q_i,\dot q_i et t)
 Une conséquence importante : au temps $t$, $\delta q^{(\alpha)}(t)$ est le même peu importe qu'on compare $\alpha$ à $\alpha'$ ou à $\alpha''$ — mais ce n'est *pas* vrai des $\delta\dot q^{(\alpha)}(t)$, puisque les trajectoires $\alpha'$ et $\alpha''$ peuvent avoir des pentes différentes au même point.
 
 Les variations des vitesses sont donc en principe **indépendantes** des variations des coordonnées, puisque nous comparons des trajectoires différentes plutôt que des points voisins sur une même trajectoire.
+
+**Commutation avec la dérivation**
+$$\delta \dot q = \frac{d}{dt}(\delta q)$$
+
 
 Par ailleurs, puisque les variations en $\alpha$ (à $t$ fixe) et les dérivées en $t$ (à $\alpha$ fixe) sont des opérations indépendantes, on peut les intervertir :
 $$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right) \tag{12}$$
 
 Ce résultat sera essentiel pour la dérivation qui suit.
 
+**Règle de la chaîne** QUIZ 
+$$\delta L = \frac{\partial L}{\partial q}\,\delta q + \frac{\partial L}{\partial \dot q}\,\delta \dot q$$
 ## Variation du lagrangien
 
 Comme pour la différentielle ordinaire d'une fonction à plusieurs variables $df = \sum_i \dfrac{\partial f}{\partial x_i}dx_i$, la variation de $L(q_i, \dot q_i, t)$ s'écrit de façon analogue :
