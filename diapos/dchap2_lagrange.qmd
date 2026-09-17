@@ -293,7 +293,9 @@ $$\delta(FG) = F\,\delta G + G\,\delta F,$$
 mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant le mouvement le long de différentes trajectoires.
 
 :::{.notes}
-ToDo: Trouver une source pour confirmer.
+ToDo: 
+- Ecrire pour fonctions ET fonctionnelles!!!, voir définition, les variations sont possible pour les deux.
+- Trouver une source pour confirmer.
 :::
 
 ## Éléments de calcul variationnel II{.smaller}
@@ -301,7 +303,7 @@ ToDo: Trouver une source pour confirmer.
 L'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend arbitrairement à la fois du le temps $t$ et du paramètre $\alpha$ qui sélectionne la trajectoire; ce sont donc des variables indépendantes. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété mathématique pour les variations:
 
 - **Commutation**
-$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right), \quad\tag{12}$$
+$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right),$$
 
 ou plus succinctement $\delta \dot q = \frac{d}{dt}(\delta q).$
 
