@@ -257,7 +257,7 @@ La variation de la fonctionnelle d'action
 
 ## Calcul de variations
 
-Les variations sont calculées **« à temps constant »** : $t$ ne varie pas dans cette comparaison entre les trajectoires.
+Les variations sont calculées **« à temps constant »** : $t$ devient un paramètre fixe dans cette différence de trajectoires.
 
 ![Variation des trajectoires où la méthode mathématique de différentiation par rapport à $\alpha$ reste la même.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
 
@@ -267,7 +267,7 @@ Comme un stroboscope.
 
 ## Notation des différences et variations{.center}
 
-::: {.callout-note title="Notation 2.1 - Distinction du calcul de variations avec $\delta$"}
+::: {.callout-important title="Notation 2.1 - Distinction du calcul de variations avec $\delta$"}
 
 - **Différence ordinaire** $d$ le long d'une même trajectoire $\alpha$, entre deux instants $t$ et $t+dt$ voisins :
 $$dq_i^{(\alpha)}(t) = q_i^{(\alpha)}(t+dt) - q_i^{(\alpha)}(t) \tag{8}$$
@@ -284,24 +284,34 @@ Voisins.es est un peu flou, à formaliser avec du voisinage et des limites infin
 
 Les principales propriétés mathématique de l'opérateur variationnel $\delta$ sont les mêmes que celles de l'opérateur différentiel $d$. Par exemple pour des fonctionnelles $F$ et $G$ avec des constantes $a$ et $b$,
 
-**Linéarité**
+- **Linéarité**
 $$\delta(aF + bG) = a\, \delta F + b\, \delta G,$$
 
-**Règle du produit (Leibniz)**
+- **Règle du produit (Leibniz)**
 $$\delta(FG) = F\,\delta G + G\,\delta F,$$
 
-mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant la vitesse du mouvement le long de différentes trajectoires.
+mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant le mouvement le long de différentes trajectoires.
 
 :::{.notes}
 ToDo: Trouver une source pour confirmer.
 :::
 
+## Éléments de calcul variationnel II
+
+L'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend arbitrairement à la fois du le temps $t$ et du paramètre $\alpha$ qui sélectionne la trajectoire; ce sont donc des variables indépendantes. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété mathématique pour les variations:
+
+- **Commutation**
+$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right), \tag{12}$$
+
+ou plus succinctement $\delta \dot q = \frac{d}{dt}(\delta q).$
+
 ## Vitesse généralisée sur différentes trajectoires
 
-![Trajectoires $\alpha\righarrow \alpha'$ et $\alpha\righarrow \alpha''$ à un temps $t$ "constant" : variations de coordonnées $\delta q_i^{(\alpha)}(t)$ identiques, mais la variation de vitesses $\delta \dot q_i^{(\alpha)}(t)$ change tout de même.](./assets/chap2_fig4.png){#fig-diffetvariation width="60%" fig-align="center"}
+![Trajectoires $\alpha\rightarrow \alpha'$ et $\alpha\rightarrow \alpha''$ à un temps $t$ "constant" : variations de coordonnées $\delta q_i^{(\alpha)}(t)$ identiques, mais la variation de vitesses $\delta \dot q_i^{(\alpha)}(t)$ change tout de même.](./assets/chap2_fig4.png){#fig-diffetvariation width="60%" fig-align="center"}
 
 :::{.notes}
-Indiquer $\delta$ q_i^{(\alpha)}(t)$ verticalement ferais bien.
+- Indiquer $\delta$ q_i^{(\alpha)}(t)$ verticalement ferais bien.
+- Légende à retravailler, $\alpha\rightarrow \alpha'$ donne la fausse impression de se déplacer entre des points alpha 
 :::
 
 ## Variables indépendantes{.smaller}
@@ -327,17 +337,10 @@ En se rappelant
 - qu'une infinité de trajectoires arbitraires est considérée entre les points de départ $P_1$ et d'arrivée $P_2$,
 - qu'elles peuvent être arbitrairement comparées à n'importe quel temps entre $t_1$ et $t_2$,
 
-le temps est donc aussi une variable indépendante des coordonnées et vitesses généralisées dans le formalisme lagrangien. La notation de la fonction de Lagrange $L(q_i, \dot q_i, t)$ avec ces 3 variables mutuellement indépendantes en entrée est donc justifiée.
+le temps $t$ est donc aussi une variable indépendante des coordonnées et vitesses généralisées dans le formalisme lagrangien. La notation de la fonction de Lagrange $L(q_i, \dot q_i, t)$ avec ces 3 variables mutuellement indépendantes en entrée est donc justifiée.
 
-## Éléments de calcul variationnel II
 
-**Commutation avec la dérivation**
-$$\delta \dot q = \frac{d}{dt}(\delta q)$$
-
-Par ailleurs, puisque les variations en $\alpha$ (à $t$ fixe) et les dérivées en $t$ (à $\alpha$ fixe) sont des opérations indépendantes, on peut les intervertir :
-$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right) \tag{12}$$
-
-Préalable de différentielle totale en exercice
+## Rappel : Différentielle totale d'une fonction à plusieurs variables
 
 **Règle de la chaîne**
 $$\delta L = \frac{\partial L}{\partial q}\,\delta q + \frac{\partial L}{\partial \dot q}\,\delta \dot q$$
