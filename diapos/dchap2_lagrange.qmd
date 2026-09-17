@@ -257,7 +257,7 @@ La variation de la fonctionnelle d'action
 
 ## Calcul de variations
 
-Les variations sont calculées **« à temps constant »** : $t$ devient un paramètre fixe dans cette différence de trajectoires.
+Les variations sont calculées **« à temps constant »** : $t$ devient un paramètre fixe dans ces différences de trajectoires.
 
 ![Variation des trajectoires où la méthode mathématique de différentiation par rapport à $\alpha$ reste la même.](./assets/chap2_fig3.png){#fig-variationfonctionnelle width="60%" fig-align="center"}
 
@@ -296,12 +296,12 @@ mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et 
 ToDo: Trouver une source pour confirmer.
 :::
 
-## Éléments de calcul variationnel II
+## Éléments de calcul variationnel II{.smaller}
 
 L'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend arbitrairement à la fois du le temps $t$ et du paramètre $\alpha$ qui sélectionne la trajectoire; ce sont donc des variables indépendantes. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété mathématique pour les variations:
 
 - **Commutation**
-$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right), \tag{12}$$
+$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right), \quad\tag{12}$$
 
 ou plus succinctement $\delta \dot q = \frac{d}{dt}(\delta q).$
 
@@ -324,7 +324,7 @@ toute variation de vitesse reste arbitrairement possible. Dans l'exemple à la @
 
 $$\delta \dot q_i^{(\alpha')}(t) = \dot q_i^{(\alpha)}(t) - \dot q_i^{(\alpha')}(t) \quad\neq\quad \delta \dot q_i^{(\alpha'')}(t)=\dot q_i^{(\alpha)}(t) - \dot q_i^{(\alpha'')}(t)$$
 
-Les variations de vitesses $\delta \dot q_i$ entre trajectoires différentes sont donc indépendantes des variations de coordonnées $\delta q_i$ dans ce formalisme variationnel.
+Les variations de composantes de vitesses $\delta \dot q_i$ entre trajectoires différentes sont donc indépendantes des variations de coordonnées $\delta q_i$ dans ce formalisme variationnel.
 
 :::{.notes}
 v(t) indépendant de x(t) surprenant en juxtaposition au formalisme différentiel où la vitesse instantanée dx(t)/dt le long d'une MËME trajectoire dépend de sa position. Pour des trajectoires monotones, on peut même carrément écrire v(x(t)) mais il y a généralement des exceptions comme la trajectoire d'une particule qui repasse par le même point à une vitesse différente. Mais pour une seule trajectoire donnée, on retrouve cette dépendance de vitesse sur la position.
@@ -342,14 +342,13 @@ le temps $t$ est donc aussi une variable indépendante des coordonnées et vites
 
 ## Rappel : Différentielle ordinaire d'une fonction à plusieurs variables
 
-Soit la fonction $f(x_1,x_2,x_3,x_4,\dots)$ avec less coordonnées spatiales pour $n$ degrés de liberté, quelle est sa différentielle totale?
+Soit la fonction $f(x_1,x_2,x_3,x_4,\dots)$ avec les coordonnées spatiales $x_i$ pour $n$ degrés de liberté, quelle est sa différentielle totale?
 
 :::{.fragment}
-\begin{align}
+\begin{align*}
 df &= \dfrac{\partial f}{\partial x_1}dx_1 + \dfrac{\partial f}{\partial x_2}dx_2 + \dfrac{\partial f}{\partial x_3}dx_3 + \dfrac{\partial f}{\partial x_4}dx_4 +\dots \\
-df &= \sum_{i=1}^{n}
-\dfrac{\partial f}{\partial x_i}dx_i
-\end{align}
+df &= \sum_{i=1}^{n} \dfrac{\partial f}{\partial x_i}dx_i
+\end{align*}
 :::
 
 :::{.notes}
@@ -357,20 +356,23 @@ Faire discuter solo puis vérifier avec voisins et s'expliquer nos erreurs avant
 :::
 
 ## Éléments de calcul variationnel III
-**Règle de la chaîne**
-$$\delta L = \frac{\partial L}{\partial q}\,\delta q + \frac{\partial L}{\partial \dot q}\,\delta \dot q$$
-pour des variations indépendantes delta...
-fini
+_(suite et fin)_
 
-## Variation $\delta L$ du lagrangien{.scrollable}
+Pour des variations indépendantes $\delta q_1, \delta q_2, \delta q_3, \dots$ d'une fonctionnelle F(q_i), sa variation $\delta F$ est l'analogue de la différentielle ordinaire, soit
 
-La variation de $L(q_i, \dot q_i, t)$ s'écrit de façon analogue :
-$$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \frac{\partial L}{\partial t}\delta t \tag{15}$$
+$$\delta F = \frac{\partial F}{\partial q_1}\,\delta q_1 + \frac{\partial F}{\partial q_2}\,\delta q_2 + \frac{\partial F}{\partial q_3}\,\delta q_3 + \dots = \sum_{i=1}^{n} \dfrac{\partial F}{\partial q_i}\, \delta q_i$$
+
+
+## Application à la variation du lagrangien{.scrollable}
+
+La notation $\delta L$ est employée bien qu'il s'agisse de la fonction de Lagrange, puisque c'est bien le lagrangien de chaque trajectoire et sa variation entre celle-ci qui intervient dans le principe d'action stationnaire.
+
+$$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \frac{\partial L}{\partial t}\delta t $$
 
 Or, les variations sont **à temps constant** par construction (Notation 2.1) — donc $\delta t \equiv 0$, et le dernier terme ne contribue pas :
 $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i \tag{17}$$
 
-## Application du principe de moindre action{.scrollable}
+## Application au principe d'action stationnaire{.scrollable}
 
 Pour appliquer le principe de moindre action à $S=\displaystyle\int_{t_1}^{t_2}L\,dt$, on doit intervertir la variation $\delta$ (par rapport à $\alpha$) et l'intégration (par rapport à $t$) — légitime puisque ce sont des opérations indépendantes :
 $$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt \tag{18}$$
@@ -384,7 +386,7 @@ $$\delta q_i(t_1) = 0 = \delta q_i(t_2)$$
 
 Cette condition sera cruciale dans l'étape suivante.
 
-## Dérivation des équations d'Euler-Lagrange {.smaller}
+## Dérivation des équations d'Euler-Lagrange {.scrollable}
 
 En substituant (17) dans $\delta S=0$ :
 $$0 = \int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta\dot q_i\right]dt \tag{19}$$
