@@ -340,19 +340,37 @@ En se rappelant
 le temps $t$ est donc aussi une variable indépendante des coordonnées et vitesses généralisées dans le formalisme lagrangien. La notation de la fonction de Lagrange $L(q_i, \dot q_i, t)$ avec ces 3 variables mutuellement indépendantes en entrée est donc justifiée.
 
 
-## Rappel : Différentielle totale d'une fonction à plusieurs variables
+## Rappel : Différentielle ordinaire d'une fonction à plusieurs variables
 
+Soit la fonction $f(x_1,x_2,x_3,x_4,\dots)$ avec less coordonnées spatiales pour $n$ degrés de liberté, quelle est sa différentielle totale?
+
+:::{.fragment}
+\begin{align}
+df &= \dfrac{\partial f}{\partial x_1}dx_1 + \dfrac{\partial f}{\partial x_2}dx_2 + \dfrac{\partial f}{\partial x_3}dx_3 + \dfrac{\partial f}{\partial x_4}dx_4 +\dots \\
+df &= \sum_{i=1}^{n}
+\dfrac{\partial f}{\partial x_i}dx_i
+\end{align}
+:::
+
+:::{.notes}
+Faire discuter solo puis vérifier avec voisins et s'expliquer nos erreurs avant de montrer le fragment.
+:::
+
+## Éléments de calcul variationnel III
 **Règle de la chaîne**
 $$\delta L = \frac{\partial L}{\partial q}\,\delta q + \frac{\partial L}{\partial \dot q}\,\delta \dot q$$
-## Variation du lagrangien
+pour des variations indépendantes delta...
+fini
 
-Comme pour la différentielle ordinaire d'une fonction à plusieurs variables $df = \sum_i \dfrac{\partial f}{\partial x_i}dx_i$, la variation de $L(q_i, \dot q_i, t)$ s'écrit de façon analogue :
+## Variation $\delta L$ du lagrangien{.scrollable}
+
+La variation de $L(q_i, \dot q_i, t)$ s'écrit de façon analogue :
 $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \frac{\partial L}{\partial t}\delta t \tag{15}$$
 
 Or, les variations sont **à temps constant** par construction (Notation 2.1) — donc $\delta t \equiv 0$, et le dernier terme ne contribue pas :
 $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i \tag{17}$$
 
-## Application du principe de moindre action
+## Application du principe de moindre action{.scrollable}
 
 Pour appliquer le principe de moindre action à $S=\displaystyle\int_{t_1}^{t_2}L\,dt$, on doit intervertir la variation $\delta$ (par rapport à $\alpha$) et l'intégration (par rapport à $t$) — légitime puisque ce sont des opérations indépendantes :
 $$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt \tag{18}$$
