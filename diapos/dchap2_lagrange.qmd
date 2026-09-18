@@ -257,6 +257,7 @@ La variation de l'action
 
 :::{.notes}
 Bon, il y a encore une petite nuance qui m'échappe allant avec le style "perturbatif" \eta -> \alpha\eta montrant que l'action s'annule to the first order, à revoir en dépannage et réviser les qques diapositives avant/après celles-ci: je suis p-e mieux de commencer par les variations de juste trajectoires \delta q_i^{(\alpha)}(t) pour ne pas trop sur-associer variationnelle et fonctionnelle?  "Autrement dit, $S(\alpha)$ n'est pas une deuxième chose distincte de $S[q_i(t)]$ — c'est la même fonctionnelle, mais restreinte à une coupe à une dimension à travers l'espace des trajectoires, ce qui permet de calculer $\delta S$ avec une dérivée ordinaire plutôt qu'un objet mathématique plus exotique. ; **Le problème** : $S[q_i(t)]$ est une fonctionnelle — elle « vit » dans l'espace infini-dimensionnel de toutes les trajectoires possibles. Comment calculer sa variation avec les outils usuels du calcul différentiel ? ; **L'astuce** : on choisit une famille de trajectoires $q_i^{(\alpha)}(t)$, indexée par un seul paramètre $\alpha$, qui passe par la trajectoire physique à $\alpha = 0$. Restreinte à cette famille, l'action devient une fonction ordinaire d'une seule variable, $S(\alpha)$. La variation fonctionnelle $\delta S$ est alors calculée à partir de cette dérivée ordinaire : $$\delta S \sim \left.\frac{dS(\alpha)}{d\alpha}\right|_{\alpha=0}$$; Le mot « arbitraire » fait justement ce travail-là : il signale que $\delta q_i(t)$ n'est pas une variation particulière parmi d'autres qu'on énumérerait, mais représente n'importe laquelle des famille de \alpha_j (courbe 1D dans un espace infiniD, non spécifiée."
+:::
 
 ## Calcul de variations
 
@@ -374,7 +375,7 @@ Pour une **fonctionnelle** $F[q_i(t)]$, la situation est plus subtile : $F$ ne d
 
 La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale, cette variation s'exprime
 
-$$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \frac{\partial L}{\partial t}\delta t.$$
+$$\delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots + \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots + \frac{\partial L}{\partial t}\delta t.$$
 
 ## Que vaut $\delta t$ dans notre formalisme? {.quiz-question}
 
