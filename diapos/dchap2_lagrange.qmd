@@ -288,16 +288,18 @@ Voisins.es est un peu flou, à formaliser avec du voisinage et des limites infin
 
 Les principales propriétés mathématique de l'opérateur variationnel $\delta$ sont les mêmes que celles de l'opérateur différentiel $d$. Par exemple,pour des fonctions $f, g$ et des fonctionnelles $F, G$, avec des constantes $a$ et $b$,
 
-| Règle | | |
-|---|---|---|
-| Linéarité | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
-| **Leibniz** | $\delta(fg) = f\,\delta g + g\,\delta f$ | $\delta(FG) = F\,\delta G + G\,\delta F$ |
+| Propriété | | |
+|--|-------|--------|
+| **Linéarité** | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
+| **Produit**$^{*}$ | $\delta(fg) = f\,\delta g + g\,\delta f$ | $\delta(FG) = F\,\delta G + G\,\delta F$ |
+:::{font-size=0.5em}
+_*aussi appelée règle de Leibniz, mais ce nom revient une deuxième fois pour la commutation des intégrales, mêlant!_
+:::
 
 mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant le mouvement le long de différentes trajectoires.
 
 :::{.notes}
 - Trouver une source pour confirmer.
-- Voir pour mettre plus explicitement dans le tableau **Règle du produit (Leibniz)**
 :::
 
 ## Vitesse généralisée sur différentes trajectoires
@@ -309,7 +311,7 @@ mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et 
 - Légende à retravailler, $\alpha\rightarrow \alpha'$ donne aussi la fausse impression de se déplacer entre des points alpha au lieu de tendre vers, non?
 :::
 
-## Variables indépendantes $\delta q_i$ et $\delta \dot q_i$ {.smaller}
+## Variables indépendantes $q_i^{(\alpha)}$ et $\dot q_i^{(\alpha)}$ {.smaller}
 
 Des trajectoires quelconques qui se croisent à un temps $t$ donné auront des tangentes à la courbe arbitrairement différentes. Il en découle que pour une même variation de coordonnées, _e.g._ à la @fig-diffetvariation
 
@@ -328,12 +330,13 @@ v(t) indépendant de x(t) surprenant en juxtaposition au formalisme différentie
 ## Éléments de calcul variationnel II{.smaller}
 _(suite)_
 
-Comme précédemment illustré à la @fig-variationfonctionnelle, l'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend arbitrairement à la fois du le temps $t$ et du paramètre $\alpha$ qui sélectionne la trajectoire; ce sont donc aussi des variables indépendantes. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété mathématique pour les variations:
+Comme précédemment illustré à la @fig-variationfonctionnelle, l'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend arbitrairement à la fois du temps $t$ et du paramètre $\alpha$ qui sélectionne la trajectoire; ce sont donc aussi des variables indépendantes. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété mathématique pour les variations:
 
 - **Commutation**
 $$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right),$$
 
-ou plus succinctement $\delta \dot q = \frac{d}{dt}(\delta q).$
+ou plus succinctement $\delta \dot q = \frac{d}{dt}(\delta q)$. Similairement en intégration avec la règle de Leibniz,
+$$\delta \int_t1^t2 q_i^{(\alpha)}(t) dt = \int_t1^t2 \delta q_i^{(\alpha)}(t) dt.$$
 
 ## Variable indépendante du temps
 
@@ -365,23 +368,30 @@ _(suite et fin)_
 
 Pour des variations indépendantes $\delta q_1, \delta q_2, \delta q_3, \dots$ d'une d'une fonction $f(q_i)$ ou d'une fonctionnelle $F(q_i)$, leur variation résultante est l'analogue de la différentielle ordinaire, soit
 
-$$\delta f = \frac{\partial f}{\partial q_1}\,\delta q_1 + \frac{\partial f}{\partial q_2}\,\delta q_2 + \frac{\partial f}{\partial q_3}\,\delta q_3 + \dots = \sum_{i=1}^{n} \dfrac{\partial f}{\partial q_i}\, \delta q_i$$
+\begin{align*}
+\delta f &= \frac{\partial f}{\partial q_1}\,\delta q_1 + \frac{\partial f}{\partial q_2}\,\delta q_2 + \frac{\partial f}{\partial q_3}\,\delta q_3 + \dots = \sum_{i=1}^{n} \dfrac{\partial f}{\partial q_i}\, \delta q_i\\
+\delta F &= \frac{\partial F}{\partial q_1}\,\delta q_1 + \frac{\partial F}{\partial q_2}\,\delta q_2 + \frac{\partial F}{\partial q_3}\,\delta q_3 + \dots = \sum_{i=1}^{n} \dfrac{\partial F}{\partial q_i}\, \delta q_i
+\end{align*}
 
 :::{.notes}
-ToDo à mettre en fragment:
+= ToDo à mettre en fragment:
 Pour une **fonctionnelle** $F[q_i(t)]$, la situation est plus subtile : $F$ ne dépend pas de nombres $q_i$ mais de fonctions entières $q_i(t)$, et sa variation fera intervenir la **dérivée fonctionnelle** $\delta F/\delta q_i(t)$ — un concept qu'on développera bientôt avec $\delta S$.
 :::
 
 ## Application à la variation du lagrangien
 
-La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale, cette variation s'exprime
+La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale,
 
-$$\delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots + \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots + \frac{\partial L}{\partial t}\delta t.$$
+\begin{multline}
+\delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots\\
++ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots\\
+ + \frac{\partial L}{\partial t}\delta t.
+\begin{multline}
 
 ## Que vaut $\delta t$ dans notre formalisme? {.quiz-question}
 
 - "1)" $\delta t$ n'est non nul qu'aux extrémités $t_1, t_2$
-- ["2)" $\delta t$=0]{.correct data-explanation="Nous considérons des variations synchrones à temps fixe ici, d'où la simplification $\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \cancel{\frac{\partial L}{\partial t}\delta t}$}
+- ["2)" $\delta t$=0]{.correct data-explanation="Nous considérons des variations synchrones à temps fixe ici, d'où la simplification $\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \cancel{\frac{\partial L}{\partial t}\delta t}$"}
 - "3)" $\delta t = dt$
 - "4)" $\delta t$ dépend de $\alpha$
 
@@ -391,19 +401,15 @@ $$\delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac
 - [$\delta t$ n'est non nul qu'aux extrémités $t_1, t_2$]{data-explanation="Cette option confond $\delta t$ (une variation du temps lui-même, pertinente seulement dans des formulations asynchrones comme le principe de Maupertuis) avec la condition aux limites $\delta q_i(t_1) = \delta q_i(t_2) = 0$, qui porte sur les coordonnées, pas sur le temps. Dans le principe de Hamilton, $\delta t = 0$ partout, y compris aux extrémités."}
 :::
 
-## Évaluation du principe d'action stationnaire{.scrollable}
+## Évaluation du principe d'action stationnaire
 
-Pour appliquer le principe de moindre action à $S=\displaystyle\int_{t_1}^{t_2}L\,dt$, on doit intervertir la variation $\delta$ (par rapport à $\alpha$) et l'intégration (par rapport à $t$) — légitime puisque ce sont des opérations indépendantes :
-$$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt \tag{18}$$
+Pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\displaystyle\int_{t_1}^{t_2}L\,dt$, il faut d'abord intervertir la variation $\delta$ (par rapport à $\alpha$) et l'intégration (par rapport à $t$) par commutation :
+$$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0$$
 
-Le principe de moindre action impose $\delta S = 0$ le long de la trajectoire physique.
-
-::: {.callout-important title="Condition aux extrémités"}
-Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées (c'est la condition même de l'expérience de pensée), ces points ne sont pas variés :
+::: {.callout-note title="Condition aux extrémités"}
+Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées, ces points ne sont pas variés :
 $$\delta q_i(t_1) = 0 = \delta q_i(t_2)$$
 :::
-
-Cette condition sera cruciale dans l'étape suivante.
 
 ## Dérivation des équations d'Euler-Lagrange {.scrollable}
 
@@ -413,8 +419,6 @@ $$0 = \int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \
 En utilisant $\delta\dot q_i = \dfrac{d(\delta q_i)}{dt}$ (résultat 12) dans le second terme :
 $$0 = \int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt$$
 
-## Intégration par parties du second terme {.smaller}
-
 Intégrons par parties le 2ᵉ terme, suivant la formule générale $\displaystyle\int A\frac{dB}{dt}dt = \left[AB\right] - \int \frac{dA}{dt}B\,dt$, avec $A=\partial L/\partial\dot q_i$ et $B=\delta q_i$ :
 $$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \left[\frac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt \tag{20}$$
 
@@ -422,8 +426,6 @@ Le terme de bord $\left[\dfrac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t
 
 Il ne reste donc que :
 $$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = -\int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt$$
-
-## Isolement des équations d'Euler-Lagrange {.smaller}
 
 En substituant ce résultat dans (19), les deux termes se regroupent sous une seule intégrale, avec $\delta q_i$ en facteur commun :
 $$\int_{t_1}^{t_2}\sum_i\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt = 0 \tag{21}$$
