@@ -288,8 +288,9 @@ Voisins.es est un peu flou, à formaliser avec du voisinage et des limites infin
 
 Les principales propriétés mathématique de l'opérateur variationnel $\delta$ sont les mêmes que celles de l'opérateur différentiel $d$. Par exemple,pour des fonctions $f, g$ et des fonctionnelles $F, G$, avec des constantes $a$ et $b$,
 
+| Règle | | |
 |---|---|---|
-| **Linéarité** | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
+| Linéarité | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
 | **Leibniz** | $\delta(fg) = f\,\delta g + g\,\delta f$ | $\delta(FG) = F\,\delta G + G\,\delta F$ |
 
 mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant le mouvement le long de différentes trajectoires.
