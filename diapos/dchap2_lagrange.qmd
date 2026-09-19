@@ -382,13 +382,11 @@ Pour une **fonctionnelle** $F[q_i(t)]$, la situation est plus subtile : $F$ ne d
 
 La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale,
 
-$$
 \begin{multline}
 \delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots\\
 + \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 +\frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots\\
  + \frac{\partial L}{\partial t}\delta t.
 \end{multline}
-$$
 
 $$
 \begin{aligned}
@@ -406,11 +404,11 @@ $$
 - "4)" $\delta t$ dépend de $\alpha$
 
 :::{.fragment}
-Nous considérons des variations synchrones à temps fixe ici, d'où la simplification $\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \cancel{\frac{\partial L}{\partial t}\delta t}$
+Variations synchrones à temps fixe ici,
+$$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \cancel{\frac{\partial L}{\partial t}\delta t}$$
 :::
 
 :::{.notes}
-Temp: Nous considérons des variations synchrones à temps fixe ici, d'où la simplification $\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta \dot q_i + \cancel{\frac{\partial L}{\partial t}\delta t}$
 - [$\delta t = dt$]{data-explanation="Confusion entre l'opérateur $\delta$ et l'opérateur $d$ : $dt$ représenterait un écoulement réel du temps le long d'une trajectoire, alors que $\delta$ compare des trajectoires différentes à un même instant $t$ fixé — donc $\delta t$ n'est pas un synonyme de $dt$."}
 - [$\delta t$ dépend de $\alpha$]{data-explanation="Puisque $t$ et $\alpha$ sont des variables indépendantes, faire varier $\alpha$ ne fait varier aucune valeur de $t$. Le temps reste un paramètre fixe pendant l'opération $\delta$."}
 - [$\delta t$ n'est non nul qu'aux extrémités $t_1, t_2$]{data-explanation="Cette option confond $\delta t$ (une variation du temps lui-même, pertinente seulement dans des formulations asynchrones comme le principe de Maupertuis) avec la condition aux limites $\delta q_i(t_1) = \delta q_i(t_2) = 0$, qui porte sur les coordonnées, pas sur le temps. Dans le principe de Hamilton, $\delta t = 0$ partout, y compris aux extrémités."}
@@ -421,18 +419,39 @@ Temp: Nous considérons des variations synchrones à temps fixe ici, d'où la si
 Pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$, il faut d'abord intervertir la variation $\delta$ (p/r à $\alpha$) et l'intégration (p/r à $t$) par commutation :
 $$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0$$
 
-::: {.callout-note title="Condition aux extrémités"}
-Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
-:::
+En substituant la variation du lagrangien $\delta S=0$,
+$$\int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta\dot q_i\right]dt = 0. \tag{19}$$
 
-En substituant la variation du lagrangien $\delta S=0$ :
-$$\int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta\dot q_i\right]dt = 0 \tag{19}$$
+Par commutation de $\delta\dot q_i$ dans le second terme.
+$$\int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt = 0.$$
 
-Par commutation de $\delta\dot q_i$ dans le second terme :
-$$\int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right] = 0$$
+Linéairement,
+$$\int_{t_1}^{t_2} \sum_i\left[\frac{\partial L}{\partial q_i} + \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt = 0.$$
+
+## Rappel: Quelle est la formule de l'intégration par parties?{.quiz-question}
+
+- $\int_a^b u\,dv = uv - \int_a^b u\,dv$
+- $\int_a^b u\,dv = \left[uv\right]\mid_a^b + \int_a^b v\,du$
+- $\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b u\,dv$
+- [$\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b v\,du$]{.correct}
+
+## Rappel: Dans le deuxième terme $\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt$, associez les facteurs à $u$ et $v$ pour réussir l'intégration {.quiz-question}
+
+- $u=\frac{d(\delta q_i)}{dt}\quad v=\frac{\partial L}{\partial\dot q_i}dt$
+- $u=\delta q_i\quad v=\frac{\partial L}{\partial\dot q_i}dt$
+- $u=\frac{\partial L}{\partial\dot q_i}dt\quad v=\delta q_i$
+- [$u=\frac{\partial L}{\partial\dot q_i}\quad v=\frac{d(\delta q_i)}{dt}dt$]{.correct}
+
+
+## Évaluation du principe d'action stationnaire $\rightarrow$ équations d'Euler-Lagrange {.scrollable}
+_(suite)_
 
 Intégrons par parties le 2ᵉ terme, suivant la formule générale $\displaystyle\int A\frac{dB}{dt}dt = \left[AB\right] - \int \frac{dA}{dt}B\,dt$, avec $A=\partial L/\partial\dot q_i$ et $B=\delta q_i$ :
 $$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \left[\frac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt \tag{20}$$
+
+::: {.callout-note title="Condition aux extrémités"}
+Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
+:::
 
 Le terme de bord $\left[\dfrac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2}$ s'annule **identiquement**, précisément grâce à la condition $\delta q_i(t_1)=\delta q_i(t_2)=0$ établie plus haut !
 
