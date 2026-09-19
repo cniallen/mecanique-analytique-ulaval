@@ -292,11 +292,11 @@ Les principales propriétés mathématique de l'opérateur variationnel $\delta$
 |--|-------|--------|
 | **Linéarité** | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
 | **Produit**$^{*}$ | $\delta(fg) = f\,\delta g + g\,\delta f$ | $\delta(FG) = F\,\delta G + G\,\delta F$ |
-:::{font-size=0.5em}
-_*aussi appelée règle de Leibniz, mais ce nom revient une deuxième fois pour la commutation des intégrales, mêlant!_
+:::{style="font-size:0.5em;"}
+_* aussi appelée règle de Leibniz, mais ce nom reviendra une deuxième fois dans la propriété de commutation, mêlant!_
 :::
 
-mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant le mouvement le long de différentes trajectoires.
+Il faut cependant rester prudent dans l'interprétation. Les opérateurs $\delta$ et $d$ sont tous deux présents en considérant le mouvement le long de différentes trajectoires.
 
 :::{.notes}
 - Trouver une source pour confirmer.
@@ -304,7 +304,7 @@ mais il faut rester prudent dans l'interprétation. Les opérateurs $\delta$ et 
 
 ## Vitesse généralisée sur différentes trajectoires
 
-![Trajectoires $\alpha\rightarrow \alpha'$ et $\alpha\rightarrow \alpha''$ à un temps $t$ "constant" : variations de coordonnées $\delta q_i^{(\alpha)}(t)$ identiques, mais la variation de vitesses $\delta \dot q_i^{(\alpha)}(t)$ change tout de même.](./assets/chap2_fig4.png){#fig-diffetvariation width="60%" fig-align="center"}
+![Exemples de trajectoires avec $\alpha\rightarrow \alpha'$ et $\alpha\rightarrow \alpha''$. Au temps $t$ fixé, leur variation de coordonnées $\delta q_i^{(\alpha)}(t)$ est identique, mais leur variation de vitesses $\delta \dot q_i^{(\alpha)}(t)$ ne l'est PAS.](./assets/chap2_fig4.png){#fig-diffetvariation width="60%" fig-align="center"}
 
 :::{.notes}
 - Indiquer $\delta$ q_i^{(\alpha)}(t)$ verticalement ferais bien.
@@ -319,7 +319,7 @@ $$\delta q_i^{(\alpha)}(t) = q_i^{(\alpha)}(t) - q_i^{(\alpha')}(t) = q_i^{(\alp
 
 toute variation de vitesse reste arbitrairement possible. Dans l'exemple à la @fig-diffetvariation,
 
-$$\delta \dot q_i^{(\alpha')}(t) = \dot q_i^{(\alpha)}(t) - \dot q_i^{(\alpha')}(t) \quad\neq\quad \delta \dot q_i^{(\alpha'')}(t)=\dot q_i^{(\alpha)}(t) - \dot q_i^{(\alpha'')}(t)$$
+$$\delta \dot q_i^{(\alpha')}(t) = \dot q_i^{(\alpha)}(t) - \dot q_i^{(\alpha')}(t) \quad\neq\quad \delta \dot q_i^{(\alpha'')}(t)=\dot q_i^{(\alpha)}(t) - \dot q_i^{(\alpha'')}(t).$$
 
 Les variations de composantes de vitesses $\delta \dot q_i$ entre trajectoires différentes sont donc indépendantes des variations de coordonnées $\delta q_i$ dans ce formalisme variationnel.
 
@@ -330,13 +330,13 @@ v(t) indépendant de x(t) surprenant en juxtaposition au formalisme différentie
 ## Éléments de calcul variationnel II{.smaller}
 _(suite)_
 
-Comme précédemment illustré à la @fig-variationfonctionnelle, l'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend arbitrairement à la fois du temps $t$ et du paramètre $\alpha$ qui sélectionne la trajectoire; ce sont donc aussi des variables indépendantes. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété mathématique pour les variations:
+Comme précédemment illustré à la @fig-variationfonctionnelle, l'ensemble de trajectoires $q_i^{(\alpha)}(t)$ dépend **arbitrairement** à la fois du **temps** $\mathbf{t}$ et du paramètre $\mathbf{\alpha}$ qui sélectionne la **trajectoire**; ce sont donc aussi des **variables indépendantes**. Le théorème de Schwarz sur la commutation des dérivées partielles garantit alors cette propriété pour les variations:
 
 - **Commutation**
-$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right),$$
+$$\delta \dot q_i^{(\alpha)}(t) = \delta\left(\frac{d}{dt}q_i^{(\alpha)}(t)\right) = \frac{d}{dt}\left(\delta q_i^{(\alpha)}(t)\right) \equiv \delta \dot q = \frac{d}{dt}(\delta q).$$
 
-ou plus succinctement $\delta \dot q = \frac{d}{dt}(\delta q)$. Similairement en intégration avec la règle de Leibniz,
-$$\delta \int_t1^t2 q_i^{(\alpha)}(t) dt = \int_t1^t2 \delta q_i^{(\alpha)}(t) dt.$$
+Similairement en intégration avec la règle de Leibniz,
+$$\delta \int_{t_1}^{t_2} q_i^{(\alpha)}(t) dt = \int_{t_1}^{t_2} \delta q_i^{(\alpha)}(t) dt.$$
 
 ## Variable indépendante du temps
 
@@ -378,15 +378,25 @@ Pour des variations indépendantes $\delta q_1, \delta q_2, \delta q_3, \dots$ d
 Pour une **fonctionnelle** $F[q_i(t)]$, la situation est plus subtile : $F$ ne dépend pas de nombres $q_i$ mais de fonctions entières $q_i(t)$, et sa variation fera intervenir la **dérivée fonctionnelle** $\delta F/\delta q_i(t)$ — un concept qu'on développera bientôt avec $\delta S$.
 :::
 
-## Application à la variation du lagrangien
+## Application à la variation du lagrangien{.scrollable}
 
 La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale,
 
+$$
 \begin{multline}
 \delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots\\
-+ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots\\
++ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 +\frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots\\
  + \frac{\partial L}{\partial t}\delta t.
-\begin{multline}
+\end{multline}
+$$
+
+$$
+\begin{aligned}
+\delta L(q_i, \dot q_i, t) &= \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots \\
+&+ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 + \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots \\
+&+ \frac{\partial L}{\partial t}\delta t.
+\end{aligned}
+$$
 
 ## Que vaut $\delta t$ dans notre formalisme? {.quiz-question}
 
@@ -403,12 +413,11 @@ La variation de la fonction de Lagrange $\delta L$, qui découle des variations 
 
 ## Évaluation du principe d'action stationnaire
 
-Pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\displaystyle\int_{t_1}^{t_2}L\,dt$, il faut d'abord intervertir la variation $\delta$ (par rapport à $\alpha$) et l'intégration (par rapport à $t$) par commutation :
+Pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\displaystyle\int_{t_1}^{t_2}L\,dt$, il faut d'abord intervertir la variation $\delta$ (p/r à $\alpha$) et l'intégration (p/r à $t$) par commutation :
 $$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0$$
 
 ::: {.callout-note title="Condition aux extrémités"}
-Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées, ces points ne sont pas variés :
-$$\delta q_i(t_1) = 0 = \delta q_i(t_2)$$
+Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
 :::
 
 ## Dérivation des équations d'Euler-Lagrange {.scrollable}
