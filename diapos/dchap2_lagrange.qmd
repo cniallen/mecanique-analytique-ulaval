@@ -292,7 +292,7 @@ Les principales propriétés mathématique de l'opérateur variationnel $\delta$
 |--|-------|--------|
 | **Linéarité** | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
 | **Produit**$^{*}$ | $\delta(fg) = f\,\delta g + g\,\delta f$ | $\delta(FG) = F\,\delta G + G\,\delta F$ |
-:::{style="font-size:0.5em;"}
+:::{style="font-size:0.7em;"}
 _* aussi appelée règle de Leibniz, mais ce nom reviendra une deuxième fois dans la propriété de commutation, mêlant!_
 :::
 
@@ -382,21 +382,22 @@ Pour une **fonctionnelle** $F[q_i(t)]$, la situation est plus subtile : $F$ ne d
 
 La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale,
 
+$$
 \begin{multline}
 \delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots\\
 + \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 +\frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots\\
  + \frac{\partial L}{\partial t}\delta t.
 \end{multline}
-
 $$
-\begin{aligned}
+
+\begin{align*}
 \delta L(q_i, \dot q_i, t) &= \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots \\
 &+ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 + \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots \\
 &+ \frac{\partial L}{\partial t}\delta t.
-\end{aligned}
-$$
+\end{align*}
 
-## Que vaut $\delta t$ dans notre formalisme? {.quiz-question}
+
+## Que vaut $\delta t$ dans notre formalisme? {.quiz-question .smaller}
 
 - "1)" $\delta t$ n'est non nul qu'aux extrémités $t_1, t_2$
 - ["2)" $\delta t$=0]{.correct}
@@ -417,16 +418,16 @@ $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i 
 ## Évaluation du principe d'action stationnaire $\rightarrow$ équations d'Euler-Lagrange {.scrollable}
 
 Pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$, il faut d'abord intervertir la variation $\delta$ (p/r à $\alpha$) et l'intégration (p/r à $t$) par commutation :
-$$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0$$
+$$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0.$$
 
-En substituant la variation du lagrangien $\delta S=0$,
-$$\int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta\dot q_i\right]dt = 0. \tag{19}$$
+En substituant la variation du lagrangien $\delta L$,
+$$\delta S = \int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\delta\dot q_i\right]dt = 0.$$
 
-Par commutation de $\delta\dot q_i$ dans le second terme.
-$$\int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta q_i + \sum_i \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt = 0.$$
+Par commutation de $\delta\dot q_i$ dans le second terme et linéarité,
+$$\delta S = \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt + \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}dt = 0.$$
 
 Linéairement,
-$$\int_{t_1}^{t_2} \sum_i\left[\frac{\partial L}{\partial q_i} + \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt = 0.$$
+$$\delta S = \int_{t_1}^{t_2} \sum_i\left[\frac{\partial L}{\partial q_i}\delta q_i + \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt = 0.$$
 
 ## Rappel: Quelle est la formule de l'intégration par parties?{.quiz-question}
 
@@ -435,35 +436,50 @@ $$\int_{t_1}^{t_2} \sum_i\left[\frac{\partial L}{\partial q_i} + \frac{\partial 
 - $\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b u\,dv$
 - [$\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b v\,du$]{.correct}
 
-## Rappel: Dans le deuxième terme $\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt$, associez les facteurs à $u$ et $v$ pour réussir l'intégration {.quiz-question}
+## Dans le terme $\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt$, associez les facteurs à $u$ et $dv$ {.quiz-question}
 
-- $u=\frac{d(\delta q_i)}{dt}\quad v=\frac{\partial L}{\partial\dot q_i}dt$
-- $u=\delta q_i\quad v=\frac{\partial L}{\partial\dot q_i}dt$
-- $u=\frac{\partial L}{\partial\dot q_i}dt\quad v=\delta q_i$
-- [$u=\frac{\partial L}{\partial\dot q_i}\quad v=\frac{d(\delta q_i)}{dt}dt$]{.correct}
+- $u=\frac{d(\delta q_i)}{dt}\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
+- $u=\delta q_i\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
+- $u=\frac{\partial L}{\partial\dot q_i}dt\quad xdv=\delta q_i$
+- [$u=\frac{\partial L}{\partial\dot q_i}\quad dv=\frac{d(\delta q_i)}{dt}dt$]{.correct}
 
+:::{.footer}
+Le but de cette intégration par parties est de mettre en évidence la variation $\delta q_i$
+:::
+
+:::{.notes}
+À faire au tableau
+dv = d(\delta q_i)/dt*dt = d(\delta q_i) -> v = \delta q_i
+u(t) = \partial L / \partial\dot q_i -> du = du/dt*dt -> du = d(\ partial L / \partial\dot q_i)/dt *dt
+:::
 
 ## Évaluation du principe d'action stationnaire $\rightarrow$ équations d'Euler-Lagrange {.scrollable}
 _(suite)_
 
-Intégrons par parties le 2ᵉ terme, suivant la formule générale $\displaystyle\int A\frac{dB}{dt}dt = \left[AB\right] - \int \frac{dA}{dt}B\,dt$, avec $A=\partial L/\partial\dot q_i$ et $B=\delta q_i$ :
-$$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \left[\frac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt \tag{20}$$
+Le résultat de intégration par parties est 
+$$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \left[\frac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt$$
 
-::: {.callout-note title="Condition aux extrémités"}
-Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires comparées, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
+::: {.callout-note title="Note - Condition aux extrémités"}
+Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires possibles, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
 :::
 
-Le terme de bord $\left[\dfrac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2}$ s'annule **identiquement**, précisément grâce à la condition $\delta q_i(t_1)=\delta q_i(t_2)=0$ établie plus haut !
+Le terme de bord $\left[\dfrac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2}$ s'annule donc.
 
-Il ne reste donc que :
+En substituant ce résultat
 $$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = -\int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt$$
 
-En substituant ce résultat dans (19), les deux termes se regroupent sous une seule intégrale, avec $\delta q_i$ en facteur commun :
-$$\int_{t_1}^{t_2}\sum_i\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt = 0 \tag{21}$$
+dans le principe d'action stationnaire $\delta S = 0$, la variation de trajectoires peut maintenant se mettre en évidence par linéarité ainsi:
+
+\begin{align*}
+\delta S &= \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt + \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}dt = 0\\
+&= \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt - \sum_i \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt = 0\\
+&= \int_{t_1}^{t_2}\sum_i\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt = 0
+\end{align*}
 
 Puisque les $q_i$ correspondent à des degrés de liberté physiques **sans contrainte**, les variations $\delta q_i$ sont **indépendantes** les unes des autres et arbitraires en tout point $t$. La seule façon pour que l'intégrale s'annule quel que soit le choix de $\delta q_i$ est que le crochet lui-même soit identiquement nul, pour chaque $i$ :
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \tag{23}$$
 
+##
 ::: {.callout-note title="Définition 2.2 — Équations d'Euler-Lagrange"}
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \tag{24}$$
 :::
