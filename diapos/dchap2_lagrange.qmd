@@ -292,7 +292,7 @@ Les principales propriétés mathématique de l'opérateur variationnel $\delta$
 |--|-------|--------|
 | **Linéarité** | $\delta(af+bg) = a\,\delta f + b\,\delta g$ | $\delta(aF+bG) = a\,\delta F + b\,\delta G$ |
 | **Produit**$^{*}$ | $\delta(fg) = f\,\delta g + g\,\delta f$ | $\delta(FG) = F\,\delta G + G\,\delta F$ |
-:::{style="font-size:0.7em;"}
+:::{style="font-size:0.8em;"}
 _* aussi appelée règle de Leibniz, mais ce nom reviendra une deuxième fois dans la propriété de commutation, mêlant!_
 :::
 
@@ -382,18 +382,10 @@ Pour une **fonctionnelle** $F[q_i(t)]$, la situation est plus subtile : $F$ ne d
 
 La variation de la fonction de Lagrange $\delta L$, qui découle des variations indépendantes en coordonnées et vitesses généralisée, est nécessaire pour trouver la ou les trajectoires stationnaires en action. Dans sa forme la plus générale,
 
-$$
-\begin{multline}
-\delta L(q_i, \dot q_i, t) = \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots\\
-+ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 +\frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots\\
- + \frac{\partial L}{\partial t}\delta t.
-\end{multline}
-$$
-
 \begin{align*}
-\delta L(q_i, \dot q_i, t) &= \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \dots \\
-&+ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 + \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \dots \\
-&+ \frac{\partial L}{\partial t}\delta t.
+\delta L(q_i, \dot q_i, t) &= \frac{\partial L}{\partial q_1}\delta q_1 + \frac{\partial L}{\partial q_2}\delta q_2 + \frac{\partial L}{\partial q_3}\delta q_3 +\dots \\
+&+ \frac{\partial L}{\partial \dot q_1}\delta \dot q_1 + \frac{\partial L}{\partial \dot q_2}\delta \dot q_2 + \frac{\partial L}{\partial \dot q_3}\delta \dot q_3 + \dots \\
+&+ \frac{\partial L}{\partial t}\delta t
 \end{align*}
 
 
@@ -426,9 +418,6 @@ $$\delta S = \int_{t_1}^{t_2}\left[\sum_i \frac{\partial L}{\partial q_i}\delta 
 Par commutation de $\delta\dot q_i$ dans le second terme et linéarité,
 $$\delta S = \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt + \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}dt = 0.$$
 
-Linéairement,
-$$\delta S = \int_{t_1}^{t_2} \sum_i\left[\frac{\partial L}{\partial q_i}\delta q_i + \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}\right]dt = 0.$$
-
 ## Rappel: Quelle est la formule de l'intégration par parties?{.quiz-question}
 
 - $\int_a^b u\,dv = uv - \int_a^b u\,dv$
@@ -438,14 +427,13 @@ $$\delta S = \int_{t_1}^{t_2} \sum_i\left[\frac{\partial L}{\partial q_i}\delta 
 
 ## Dans le terme $\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt$, associez les facteurs à $u$ et $dv$ {.quiz-question}
 
-- $u=\frac{d(\delta q_i)}{dt}\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
-- $u=\delta q_i\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
-- $u=\frac{\partial L}{\partial\dot q_i}dt\quad xdv=\delta q_i$
-- [$u=\frac{\partial L}{\partial\dot q_i}\quad dv=\frac{d(\delta q_i)}{dt}dt$]{.correct}
-
-:::{.footer}
+:::{.header}
 Le but de cette intégration par parties est de mettre en évidence la variation $\delta q_i$
 :::
+
+- $u=\frac{d(\delta q_i)}{dt}\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
+- $u=\delta q_i\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
+- [$u=\frac{\partial L}{\partial\dot q_i}\quad dv=\frac{d(\delta q_i)}{dt}dt$]{.correct}
 
 :::{.notes}
 À faire au tableau
@@ -456,37 +444,48 @@ u(t) = \partial L / \partial\dot q_i -> du = du/dt*dt -> du = d(\ partial L / \p
 ## Évaluation du principe d'action stationnaire $\rightarrow$ équations d'Euler-Lagrange {.scrollable}
 _(suite)_
 
-Le résultat de intégration par parties est 
-$$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \left[\frac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt$$
+Le résultat de l'intégration par parties est 
+$$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = \frac{\partial L}{\partial\dot q_i}\delta q_i\mid_{t_1}^{t_2} - \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt$$
 
 ::: {.callout-note title="Note - Condition aux extrémités"}
 Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires possibles, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
 :::
 
-Le terme de bord $\left[\dfrac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2}$ s'annule donc.
+Donc, le terme de bord $\dfrac{\partial L}{\partial\dot q_i}\delta q_i\mid_{t_1}^{t_2}=0$.
 
 En substituant ce résultat
 $$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt = -\int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt$$
 
-dans le principe d'action stationnaire $\delta S = 0$, la variation de trajectoires peut maintenant se mettre en évidence par linéarité ainsi:
+dans le principe d'action stationnaire $\delta S = 0$, la variation de trajectoires $\delta q_i$ se met en évidence par linéarité ainsi:
 
 \begin{align*}
-\delta S &= \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt + \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}dt = 0\\
-&= \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt - \sum_i \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt = 0\\
-&= \int_{t_1}^{t_2}\sum_i\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt = 0
+\delta S &= \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt + \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial \dot q_i}\frac{d(\delta q_i)}{dt}dt\\
+&= \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\, dt - \sum_i \int_{t_1}^{t_2}\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt\\
+&= \int_{t_1}^{t_2}\sum_{i=1}^n\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt = 0
 \end{align*}
 
-Puisque les $q_i$ correspondent à des degrés de liberté physiques **sans contrainte**, les variations $\delta q_i$ sont **indépendantes** les unes des autres et arbitraires en tout point $t$. La seule façon pour que l'intégrale s'annule quel que soit le choix de $\delta q_i$ est que le crochet lui-même soit identiquement nul, pour chaque $i$ :
-$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \tag{23}$$
+Rappelons que les variations $\delta q_i$ ont été introduites comme indépendantes les unes des autres et arbitraires en tout point $t$, ce qui nécessite physiquement que
 
-##
-::: {.callout-note title="Définition 2.2 — Équations d'Euler-Lagrange"}
+- les coordonnées $q_i$ elles-mêmes sont indépendantes,
+- il n’existe aucune contrainte les reliant,
+- donc les coordonnées généralisées $q_i$ correspondent au $n$ degrés de liberté du système physique.
+
+Sous ces conditions, la seule façon pour que l'intégrale du principe $\delta S = 0$ s'annule quel que soit le choix arbitraire de $\delta q_i$ est que chaque terme entre crochets dans la sommation soit identiquement nul, soit
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0. \tag{23}$$
+ 
+:::{.notes}
+Pour les fois que j'ai le cerveau qui flippe quand je confonds i et \alpha, le premier énumère les coordonnées d'espace dans lequel les trajectoires \alpha se promènent.
+:::
+
+## Équations d'Euler-Lagrange {.center}
+
+::: {.callout-important title="Définition 2.2 — Équations d'Euler-Lagrange"}
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \tag{24}$$
 :::
 
 ## Portée des équations d'Euler-Lagrange
 
-Ces équations, une fois solutionnées, définissent les trajectoires physiques $q_i = q_i(t)$. Elles restent valables pour un système à un nombre arbitraire de ddl (pourvu qu'ils ne soient pas contraints) — on obtient $n$ équations pour $i=1,\dots,n$.
+Ces équations, une fois solutionnées, définissent les trajectoires physiques $q_i^{\alpha = \bar\alpha}(t)$. Elles restent valables pour un système à un nombre arbitraire de ddl (pourvu qu'ils ne soient pas contraints) — on obtient $n$ équations pour $i=1,\dots,n$.
 
 Rien n'a été dit sur la nature des $\{q_i\}$ (longueurs, angles, autres...) : la forme de l'équation d'E-L n'est **pas affectée** par ce choix — cette recette fonctionne dès qu'on peut construire le lagrangien du système.
 
