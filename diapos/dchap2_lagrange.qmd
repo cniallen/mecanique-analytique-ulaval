@@ -565,13 +565,17 @@ qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant q
 Je ne suis pas certaine que c'est physiquement possible d'avoir la coordonnée sans sa dérivée contrairement aux variable cycliques.
 :::
 
-## Que vaut $\frac{\partial L}{\partial q_i} pour $L=y+z-\dot x -\dot y -\dot z$ {.quiz-question}
+## Que vaut $\frac{\partial L}{\partial q_i}$ pour $L=y+z-\dot x -\dot y -\dot z$ {.quiz-question}
 
 - "1)" Plus un (+1)
 - ["2)" zéro]{.correct}
 - "3)" Moins un (-1)
 
-## Identité de Beltrami — énoncé
+:::{.fragment}
+Les variables dont seule la vitesse généralisée, sans sa coordonnée correspondante, sont présentes dans le Lagrangien sont dites variables cycliques.
+:::
+
+## Identité de Beltrami — 2e cas particulier des éq. d'E-L
 
 ::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
 Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
@@ -580,15 +584,18 @@ $$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
 
 Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
 
-## Deux exemples célèbres d'application de Beltrami
+## 1er exemple célèbre d'application de l'identité de Beltrami
 
-::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
+![Courbe brachistochrone](./assets/chap2_figbrachi.png){width="60%" fig-align="left"}
+
+:::{.footer}
 Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution, puisque le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
 :::
 
-::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
+## 2e exemple célèbre d'application de l'identité de Beltrami
+
+### Principe de Fermat
 La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
-:::
 
 ## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question .smaller}
 :::{.header}
@@ -638,9 +645,12 @@ Toutefois, ces deux formalismes de la mécanique classique découlent plus fonda
 
 :::{.callout-caution title="Exemple 3.1. - Particule en chute libre"}
 Une particule de masse $m$ dans le champ gravitationnel près de la surface a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération constante à la surface de la Terre.
+:::
 
-... figure ...
-### Analyse du problème
+##
+![Particule dans un champ gravitationnel $g$](./assets/chap2_figExGrav.png){width="60%" fig-align="left"}
+
+## Analyse du problème {.scrollable}
 
 **1. Degrés de liberté :** 1 corps en 3D $\implies$ 3 ddl ; 0 contrainte $\implies$ **3 ddl**.
 
@@ -650,7 +660,7 @@ Une particule de masse $m$ dans le champ gravitationnel près de la surface a un
 $$T = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2), \qquad V=mgz, \qquad L = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-mgz \tag{1,2}$$
 
 **4. Variables cycliques :** $L$ ne dépend pas explicitement de $x$ ni de $y$.
-:::
+
 
 ## {.scrollable}
 
