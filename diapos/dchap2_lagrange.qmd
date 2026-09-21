@@ -561,6 +561,35 @@ qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant q
 - "2)" $\frac{\partial}{\partial x}(5x+3y+6\dot x) = 11,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 11$
 - ["3)" $\frac{\partial}{\partial x} (5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x} (5x+3y+6\dot x) = 6$]{.correct}
 
+:::{.notes}
+Je ne suis pas certaine que c'est physiquement possible d'avoir la coordonnée sans sa dérivée contrairement aux variable cycliques.
+:::
+
+## Que vaut $\frac{\partial L}{\partial q_i} pour $L=y+z-\dot x -\dot y -\dot z$ {.quiz-question}
+
+- "1)" Plus un (+1)
+- ["2)" zéro]{.correct}
+- "3)" Moins un (-1)
+
+## Identité de Beltrami — énoncé
+
+::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
+Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
+$$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
+:::
+
+Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
+
+## Deux exemples célèbres d'application de Beltrami
+
+::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
+Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution, puisque le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
+:::
+
+::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
+La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
+:::
+
 ## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question .smaller}
 :::{.header}
 _Révision_
@@ -637,25 +666,6 @@ $$z(t) = -\frac{gt^2}{2} + c_{1z}t + c_{2z} \tag{9}$$
 
 **Solution complète** (les constantes fixées par les conditions initiales) :
 $$x(t)=c_{1x}t+c_{2x}, \quad y(t)=c_{1y}t+c_{2y}, \quad z(t)=-\frac{gt^2}{2}+c_{1z}t+c_{2z} \tag{10-12}$$
-:::
-
-## Identité de Beltrami — énoncé
-
-::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
-Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
-$$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
-:::
-
-Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
-
-## Deux exemples célèbres d'application de Beltrami
-
-::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
-Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution, puisque le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
-:::
-
-::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
-La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
 :::
 
 ## Forces conservatives : vérification $L = T - V$ {.smaller}
