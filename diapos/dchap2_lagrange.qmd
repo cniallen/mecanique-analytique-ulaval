@@ -605,7 +605,39 @@ Notons que la vérification en sens inverse en posant les éq. de Newton pour ob
 
 Toutefois, ces deux formalismes de la mécanique classique découlent plus fondamentalement de symétries de l'espace-temps comme il sera abordé à la section 2.10, ce qui ouvrira la porte à l'écriture de lagrangiens allant au-delà de la mécanique classique.
 
+## {.scrollable}
 
+:::{.callout-caution title="Exemple 3.1. - Particule en chute libre"}
+Une particule de masse $m$ dans le champ gravitationnel près de la surface a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération constante à la surface de la Terre.
+
+... figure ...
+### Analyse du problème
+
+**1. Degrés de liberté :** 1 corps en 3D $\implies$ 3 ddl ; 0 contrainte $\implies$ **3 ddl**.
+
+**2. Coordonnées généralisées :** cartésiennes ($V=mgz$ s'écrit simplement).
+
+**3. Lagrangien :**
+$$T = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2), \qquad V=mgz, \qquad L = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-mgz \tag{1,2}$$
+
+**4. Variables cycliques :** $L$ ne dépend pas explicitement de $x$ ni de $y$.
+:::
+
+## {.scrollable}
+
+:::{.callout-caution title="Exemple 3.1. - Résolution complète"}
+
+**En $x$ :** $\partial L/\partial x=0$, donc $x$ est cyclique. L'éq. d'E-L se réduit à $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right)=0$, soit $\partial L/\partial\dot x = m\dot x = \text{cte} = mc_{1x}$, d'où :
+$$x(t) = c_{1x}t + c_{2x} \tag{4}$$
+
+**En $y$ :** de la même façon, $y(t) = c_{1y}t + c_{2y}$ (5).
+
+**En $z$ :** $\partial L/\partial z = -mg$, $\partial L/\partial\dot z = m\dot z \Rightarrow \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right)=m\ddot z$. L'éq. d'E-L donne $m\ddot z + mg = 0$, soit $\ddot z = -g$ (8). En intégrant deux fois :
+$$z(t) = -\frac{gt^2}{2} + c_{1z}t + c_{2z} \tag{9}$$
+
+**Solution complète** (les constantes fixées par les conditions initiales) :
+$$x(t)=c_{1x}t+c_{2x}, \quad y(t)=c_{1y}t+c_{2y}, \quad z(t)=-\frac{gt^2}{2}+c_{1z}t+c_{2z} \tag{10-12}$$
+:::
 
 ## Identité de Beltrami — énoncé
 
