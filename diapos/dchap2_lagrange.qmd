@@ -420,10 +420,10 @@ $$\delta S = \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\,
 
 ## Rappel: Quelle est la formule de l'intégration par parties?{.quiz-question}
 
-- $\int_a^b u\,dv = uv - \int_a^b u\,dv$
-- $\int_a^b u\,dv = \left[uv\right]\mid_a^b + \int_a^b v\,du$
-- $\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b u\,dv$
-- [$\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b v\,du$]{.correct}
+- "1)" $\int_a^b u\,dv = uv - \int_a^b u\,dv$
+- "2)" $\int_a^b u\,dv = \left[uv\right]\mid_a^b + \int_a^b v\,du$
+- "3)" $\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b u\,dv$
+- ["4)" $\int_a^b u\,dv = \left[uv\right]\mid_a^b - \int_a^b v\,du$]{.correct}
 
 ## Dans le terme $\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt$, associez les facteurs à $u$ et $dv$ {.quiz-question}
 
@@ -431,9 +431,9 @@ $$\delta S = \sum_i \int_{t_1}^{t_2} \frac{\partial L}{\partial q_i}\delta q_i\,
 Le but de cette intégration par parties est de mettre en évidence la variation $\delta q_i$.
 :::
 
-- $u=\frac{d(\delta q_i)}{dt}\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
-- $u=\delta q_i\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
-- [$u=\frac{\partial L}{\partial\dot q_i}\quad dv=\frac{d(\delta q_i)}{dt}dt$]{.correct}
+- "1)" $u=\frac{d(\delta q_i)}{dt}\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
+- "2)" $u=\delta q_i\quad dv=\frac{\partial L}{\partial\dot q_i}dt$
+- ["3)" $u=\frac{\partial L}{\partial\dot q_i}\quad dv=\frac{d(\delta q_i)}{dt}dt$]{.correct}
 
 :::{.notes}
 À faire au tableau
@@ -471,7 +471,7 @@ Rappelons que les variations $\delta q_i$ ont été introduites comme indépenda
 - donc chaque coordonnées généralisées $q_i$ correspond à un degré de liberté du système physique,
 - pour un total de $n$ coordonnées et ddl.
 
-Sous ces conditions, la seule façon pour que l'intégrale du principe $\delta S = 0$ s'annule quel que soit le choix arbitraire de $\delta q_i$ est que chaque terme entre crochets dans la sommation soit identiquement nul, soit
+Sous ces conditions, la seule façon pour que l'intégrale du principe $\delta S = 0$ s'annule quel que soit le choix arbitraire de $\delta q_i$ est que chaque terme entre crochets dans la sommation soit identiquement nul, _i.e._
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0. \tag{23}$$
  
 :::{.notes}
@@ -488,7 +488,7 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial 
 ::: {layout-ncol=2 style="font-size: 0.6em;"}
 
 ### Leonhard Euler
-![](./assets/Leonhard Euler.png){width="40%" fig-align="left"}
+![](./assets/Leonhard Euler.png){width="30%" fig-align="left"}
 
 ### Contributions
 - calcul infinitésimal + la théorie des graphes,
@@ -515,7 +515,7 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial 
 
 L'ensemble de ces équations reste valable pour un système à un nombre arbitraire de ddl sans contraintes.
 
-:::{.callout-tip Nombre d'équations d'Euler-Lagrange pour un système donné}
+:::{.callout-tip title="Nombre d'équations d'Euler-Lagrange pour un système donné"}
 Pour décrire un système physique à $n$ degrés de liberté, il faut poser $n$ équations différentielles partielles
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0$$
 pour les $i=1,2 \dots,n$ coordonnées généralisées.
@@ -527,13 +527,13 @@ Les solutions obtenues donnent un ensemble d'expressions pour les trajectoires p
 
 Puisqu'aucune supposition n'a été faite sur l'ensemble des grandeurs physiques des $\{q_i\}$ (longueurs, angles,...), la forme des équation d'Euler-Lagrange (E-L) n'est pas affectée par les choix de coordonnées spécifiques.
 
-::: {.callout-tip title="Remarque 2.2 — Coordonnées et unités des équations d'E-L}
+::: {.callout-tip title="Remarque 2.2 — Coordonnées et unités des équations d'E-L"}
 Puisque les coordonnées généralisées $q_i$ sont quelconques, leur grandeur physique et unités associées peuvent varier d'une éq. d'E-L à l'autre, mais
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0$$
 ne change pas.
 :::
 
-## Grandeurs & Unités: formalisme de Lagrange vs Newton
+## Grandeurs & Unités: formalisme de Lagrange vs Newton {.smaller}
 
 Les équation de Newton $\mathbf{F}=m\mathbf{a}$ ont toujours des grandeurs de dimension $[MLT^{-2}]$, mais ce sera le cas d'équations d'E-L seulement pour coordonnées généralisées $q_i$ de position ou distance avec une grandeur de longueur.
 
@@ -547,10 +547,52 @@ qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant q
 
 ## Évaluez les dérivées partielles p/r à $x$ puis p/r à $\dot x$ de $5x+3y+6\dot x$ {.quiz-question}
 
-- [$\frac{\partial}{\partial x}(5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 0$]{data-explanation="Erreur : le terme 6\dot x ne disparaît pas en dérivant par rapport à \dot x, puisque \dot x est justement la variable par rapport à laquelle on dérive. Ce distracteur oublie ce terme, peut-être en le confondant avec un terme constant."}
-- [$\frac{\partial}{\partial x}(5x+3y+6\dot x) = 5+6,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 5+6$]{data-explanation="Erreur : ce distracteur traite x et \dot x comme une seule et même variable (ou suppose implicitement \dot x = dx/dt dépendant de x), ce qui contredit leur indépendance dans le formalisme lagrangien — d'où l'addition erronée des deux coefficients dans les deux dérivées."}
-- [$\frac{\partial}{\partial x} (5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x} (5x+3y+6\dot x) = 6$]{.correct}
+- "1)" $\frac{\partial}{\partial x}(5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 0$
+- "2)" $\frac{\partial}{\partial x}(5x+3y+6\dot x) = 11,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 11$
+- ["3)" $\frac{\partial}{\partial x} (5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x} (5x+3y+6\dot x) = 6$]{.correct}
 
+## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question}
+:::{.header}
+_Révision_
+:::
+- Ils garantissent que le lagrangien ne dépend pas du temps
+- [Ils annulent le terme de bord lors de l'intégration par parties]{.correct data-explanation="Sans cette condition, le terme [∂L/∂q̇ᵢ · δqᵢ] évalué entre t₁ et t₂ ne s'annulerait pas, et on ne pourrait pas isoler l'intégrande pour obtenir les équations d'E-L."}
+- Ils imposent que la trajectoire physique soit une droite
+- Ils sont nécessaires pour définir l'action $S$
+
+# 2.4 La fonction de Lagrange $L(q_i, \dot q_i, t)$
+
+## Le dernier ingrédient des éq. d'Euler-Lagrange
+
+- Bien que très peu d'informations sont connues jusqu'à maintenant sur la fonction $L(q_i, \dot q_i, t)$, la progression mathématique est impressionnante en s'affranchissant du calcul variationnel.
+- Une forme explicite pour $L(q_i, \dot q_i, t)$ est toutefois nécessaire pour solutionner éq. d'Euler-Lagrange, la validité de la méthode repose sur celle-ci.
+- Les solutions obtenues doivent correspondre aux trajectoires du mouvement de particules ou à l'évolution physique d'un système, d'où
+
+::: {.callout-important title="Remarque — Équivalence des formalismes de Newton et Lagrange"}
+La mécanique d'un système classique est décrite à la fois par les
+$$\text{éq. d'Euler-Lagrange} \equiv \text{éq. de Newton}$$
+:::
+
+## Postulat du lagrangien $L(q_i, \dot q_i, t)$
+
+À ce point-ci de la mécanique, autant les éq. de Newton que les principes variationnels et le lagrangien $L$ qui en découle sont obtenus empiriquement par observation et expérimentation. La cohérence entre les deux formalismes est toutefois requise, l'un doit permettre d'obtenir l'autre.
+
+Posons ici l'hypothèse que le lagrangien soustrait l'énergie potentielle $V$ de l'énergie cinétique $T$, soit
+$$L=T-V$$
+et vérifions que la dynamique newtonienne est obtenue avec les éq. d'Euler-Lagrange.
+
+## Vérification du lagrangien $L=T-V${.smaller}
+
+Plan
+
+- exemple simple qui suit,
+- cas général des forces conservatrices à la section suivante.
+
+Notons que la vérification en sens inverse en posant les éq. de Newton pour obtenir $L=T-V$ est aussi possible. 
+
+Toutefois, les deux formalismes de la mécanique classique découlent plus fondamentalement de symétries de l'espace-temps comme il sera abordé à la section 2.10, ce qui ouvrira la porte à l'écriture de lagrangiens allant au-delà de la mécanique classique.
+
+ 
 ## Identité de Beltrami — énoncé
 
 ::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
@@ -559,22 +601,6 @@ $$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
 :::
 
 Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
-
-## Démonstration de l'identité de Beltrami {.smaller}
-
-La dérivée totale de $L(q_i,\dot q_i,t)$ par rapport à $t$, le long d'une trajectoire quelconque (pas nécessairement physique à ce stade) :
-$$\frac{dL}{dt} = \frac{\partial L}{\partial q_i}\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
-
-En multipliant l'équation d'E-L (23), $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$, par $\dot q_i$ de chaque côté :
-$$\dot q_i\frac{\partial L}{\partial q_i} = \dot q_i \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)$$
-
-En substituant ce résultat dans $dL/dt$ :
-$$\frac{dL}{dt} = \dot q_i\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
-
-Or les deux premiers termes du membre de droite forment exactement la dérivée totale d'un produit : $\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}$. Donc :
-$$\frac{dL}{dt} = \frac{d}{dt}\left(\dot q_i\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial t} \quad\Longrightarrow\quad \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) = \frac{\partial L}{\partial t}$$
-
-Si $\partial L/\partial t = 0$, le membre de droite est nul, donc l'expression entre parenthèses est une **constante du mouvement** $C$ — ce qui prouve l'identité de Beltrami.
 
 ## Deux exemples célèbres d'application de Beltrami
 
@@ -585,21 +611,6 @@ Un objet part du point A sans vitesse initiale et glisse sans frottement vers B.
 ::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
 La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
 :::
-
-## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question}
-
-- Ils garantissent que le lagrangien ne dépend pas du temps
-- [Ils annulent le terme de bord lors de l'intégration par parties]{.correct data-explanation="Sans cette condition, le terme [∂L/∂q̇ᵢ · δqᵢ] évalué entre t₁ et t₂ ne s'annulerait pas, et on ne pourrait pas isoler l'intégrande pour obtenir les équations d'E-L."}
-- Ils imposent que la trajectoire physique soit une droite
-- Ils sont nécessaires pour définir l'action $S$
-
-# 2.4 La fonction $L(q_i, \dot q_i, t)$
-
-## La fonction $L(q_i, \dot q_i, t)$
-
-La validité de la méthode repose sur le choix (ou la définition) de $L$, de façon à ce que résoudre le problème mécanique via les équations d'E-L redonne la trajectoire physique — c.-à-d. que **éq. d'E-L $\equiv$ éq. de Newton**.
-
-Il est possible de déduire $L$ à partir des équations de Newton, ou même de simples symétries de l'espace-temps (voir section 2.10). Ici, nous postulons d'abord une forme plausible et vérifions ensuite le bien-fondé de l'hypothèse par calcul direct.
 
 ## Forces conservatives : vérification $L = T - V$ {.smaller}
 
@@ -867,6 +878,41 @@ Le membre de droite est, encore une fois, la dérivée totale d'une somme de pro
 $$\frac{dL}{dt} = \frac{d}{dt}\left(\sum_i \frac{\partial L}{\partial\dot q_i}\dot q_i\right) \quad\Longrightarrow\quad \frac{d}{dt}\left(\sum_i \frac{\partial L}{\partial\dot q_i}\dot q_i - L\right)=0$$
 
 **On retrouve exactement l'identité de Beltrami**, généralisée ici à $n$ ddl plutôt qu'à un seul !
+RECOPIE DE LA VERSION À 1 DDL:
+## Identité de Beltrami — énoncé
+
+::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
+Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
+$$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
+:::
+
+Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
+
+## Démonstration de l'identité de Beltrami {.smaller}
+
+La dérivée totale de $L(q_i,\dot q_i,t)$ par rapport à $t$, le long d'une trajectoire quelconque (pas nécessairement physique à ce stade) :
+$$\frac{dL}{dt} = \frac{\partial L}{\partial q_i}\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
+
+En multipliant l'équation d'E-L (23), $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$, par $\dot q_i$ de chaque côté :
+$$\dot q_i\frac{\partial L}{\partial q_i} = \dot q_i \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)$$
+
+En substituant ce résultat dans $dL/dt$ :
+$$\frac{dL}{dt} = \dot q_i\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
+
+Or les deux premiers termes du membre de droite forment exactement la dérivée totale d'un produit : $\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}$. Donc :
+$$\frac{dL}{dt} = \frac{d}{dt}\left(\dot q_i\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial t} \quad\Longrightarrow\quad \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) = \frac{\partial L}{\partial t}$$
+
+Si $\partial L/\partial t = 0$, le membre de droite est nul, donc l'expression entre parenthèses est une **constante du mouvement** $C$ — ce qui prouve l'identité de Beltrami.
+
+## Deux exemples célèbres d'application de Beltrami
+
+::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
+Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution, puisque le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
+:::
+
+::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
+La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
+:::
 
 ## Moment canonique et Hamiltonien
 
