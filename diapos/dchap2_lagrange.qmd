@@ -523,13 +523,33 @@ pour les $i=1,2 \dots,n$ coordonnées généralisées.
 
 Les solutions obtenues donnent un ensemble d'expressions pour les trajectoires physiques $q_i^{\alpha = \bar\alpha}(t)$ des $N<n$ particules. 
 
-## Unités des coordonnées généralisées
+## Grandeurs & Unités dans le formalisme lagrangien
 
-Rien n'a été dit sur la nature des $\{q_i\}$ (longueurs, angles, autres...) : la forme de l'équation d'E-L n'est **pas affectée** par ce choix — cette recette fonctionne dès qu'on peut construire le lagrangien du système.
+Puisqu'aucune supposition n'a été faite sur l'ensemble des grandeurs physiques des $\{q_i\}$ (longueurs, angles,...), la forme des équation d'Euler-Lagrange (E-L) n'est pas affectée par les choix de coordonnées spécifiques.
 
-::: {.callout-important title="Remarque 2.2 — E-L et unités"}
-Puisque les $q_i$ sont quelconques, ils n'ont pas nécessairement les mêmes dimensions. L'équation de Newton $F=ma$ a systématiquement les dimensions $[MLT^{-2}]$, mais les équations d'E-L n'ont dimension de force que si $q_i$ a dimension de longueur — sinon, les équations « font automatiquement la cuisine des dimensions » et sont dites **dimensionnellement homogènes**.
+::: {.callout-tip title="Remarque 2.2 — Coordonnées et unités des équations d'E-L}
+Puisque les coordonnées généralisées $q_i$ sont quelconques, leur grandeur physique et unités associées peuvent varier d'une éq. d'E-L à l'autre, mais
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0$$
+ne change pas.
 :::
+
+## Grandeurs & Unités: formalisme de Lagrange vs Newton
+
+Les équation de Newton $\mathbf{F}=m\mathbf{a}$ ont toujours des grandeurs de dimension $[MLT^{-2}]$, mais ce sera le cas d'équations d'E-L seulement pour coordonnées généralisées $q_i$ de position ou distance avec une grandeur de longueur.
+
+Les équations d'E-L restent toutefois **dimensionnellement homogènes**, ce sont surtout les dérivées partielles dans 
+$$\frac{d}{dt}\left(\frac{\partial L(q_i,\dot q_i,t)}{\partial\dot q_i}\right) - \frac{\partial L(q_i,\dot q_i,t)}{\partial q_i} = 0$$
+qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant que les même unités émergent des deux termes.
+
+:::{.notes}
+Éjection de coordonnées par les dérivées partielles.
+:::
+
+## Évaluez les dérivées partielles p/r à $x$ puis p/r à $\dot x$ de $5x+3y+6\dot x$ {.quiz-question}
+
+- [$\frac{\partial}{\partial x}(5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 0$]{data-explanation="Erreur : le terme 6\dot x ne disparaît pas en dérivant par rapport à \dot x, puisque \dot x est justement la variable par rapport à laquelle on dérive. Ce distracteur oublie ce terme, peut-être en le confondant avec un terme constant."}
+- [$\frac{\partial}{\partial x}(5x+3y+6\dot x) = 5+6,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 5+6$]{data-explanation="Erreur : ce distracteur traite x et \dot x comme une seule et même variable (ou suppose implicitement \dot x = dx/dt dépendant de x), ce qui contredit leur indépendance dans le formalisme lagrangien — d'où l'addition erronée des deux coefficients dans les deux dérivées."}
+- [$\frac{\partial}{\partial x} (5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x} (5x+3y+6\dot x) = 6$]{.correct}
 
 ## Identité de Beltrami — énoncé
 
