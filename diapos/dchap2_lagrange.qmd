@@ -216,7 +216,8 @@ Le critère proposé dans la méthode de Lagrange est de sélectionner la trajec
 $$\left.\frac{dS(\alpha)}{d\alpha}\right|_{\bar\alpha} = 0 \iff dS(\alpha)|_{\bar\alpha} = 0 \tag{6}$$
 
 :::{.notes}
-Aux extrema avec une pente de tangente nulle, d\alpha peut arbitrairement prendre n'importe quelle valeur, même non-infinitésimale, et dS(\alpha) reste toujours zéro pour cette droite horizontale. Donc équivalence stricte si et seulement si.
+- Aux extrema avec une pente de tangente nulle, d\alpha peut arbitrairement prendre n'importe quelle valeur, même non-infinitésimale, et dS(\alpha) reste toujours zéro pour cette droite horizontale. Donc équivalence stricte si et seulement si.
+- Mais explorer avec un retour aux limites infinitésimales strictes avec le paramétrage 1D en alpha qui sélectionne des familles de trajectoires parmi l'espace de coordonnées infiniD, ce serait alors vraiment une dérivée et non plus une variation...
 :::
 
 :::{.callout-important title="Remarque 2.1 — Principe variationnel"}
@@ -236,11 +237,13 @@ De nombreuses lois fondamentales de la physique sont basées sur un principe var
 ![Bien que souvent appelé **principe de moindre action**, le critère mathématique n'exige qu'un point **stationnaire** qui peut être un minimum $\alpha_1$, un maximum $\alpha_2$, un point d'inflexion ou un point-selle.](./assets/chap2_fig2.png){#fig-actionstationnaire width="70%" fig-align="center"}
 
 :::{.notes}
+- ToDo : inclure que ça vient de Hamilton extrema au lien de minimum, possiblement en divisant la légende avec un header. (voir dernier bullet)
 - Contres-exemples en optique géométrique milieu homogène à faire au tableau (source https://phys.libretexts.org/Bookshelves/University_Physics/Radically_Modern_Introductory_Physics_Text_I_(Raymond)/03:_Geometrical_Optics/3.05:_Fermats_Principle ) :
 - Ellipse avec source au centre: chemins possibles de rayons qui reviennent au centre? Petit axe ET Grand axe.
 - Réflexion sur un miroir plan est techniquement un maximum local p/r au chemin direct ligne droite entre un point de départ-source et un point d'arrivée.
 - Mécanique n'aurait pas de maxima, juste mins et selles. Preuve par Jacobi, voir ../Développement pour une référence.
 - With variational principles, the path is not the absolute minimum (or maximum) it is only a local extremum. What this means is the following: If you shift the path slightly to the dotted path shown in the figure below, by shifting the location where the light ray hits the mirror by \Delta x, then the change in the path length will be of order (\Delta x)^2. That's a statement about the limit as . Fermat's principle doesn't say anything about paths that are very different from the given path, it only applies to infinitesimally different paths. Reference: https://www.physicsforums.com/threads/apply-fermats-principle-to-a-concave-mirror.909559/
+- À vérifier: Hamilton vient plus tard : en 1834-1835, il a donné la formulation moderne et pleinement générale, précisant que l'action est stationnaire — pas nécessairement minimale. Autrement dit, Hamilton a précisé le principe variationnel (d'où « principe de Hamilton »). Le principe qui porte le nom de Hamilton est la formulation rigoureuse de la stationnarité de $S=\int L\,dt$.
 :::
 
 # 2.3 Variation fonctionnelle
@@ -485,10 +488,10 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial 
 :::
 
 ## Contexte historique
-::: {layout-ncol=2 style="font-size: 0.6em;"}
+::: {layout-ncol=2 style="font-size: 0.8em;"}
 
 ### Leonhard Euler
-![](./assets/Leonhard Euler.png){width="30%" fig-align="left"}
+![](./assets/Leonhard Euler.png){width="20%" fig-align="left"}
 
 ### Contributions
 - calcul infinitésimal + la théorie des graphes,
@@ -513,21 +516,28 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial 
 
 ## Portée des équations d'Euler-Lagrange
 
-L'ensemble de ces équations reste valable pour un système à un nombre arbitraire de ddl sans contraintes.
+Ces équations sont valables pour un système à nombre arbitraire de ddl où les contraintes sont prises en compte.
 
 :::{.callout-tip title="Nombre d'équations d'Euler-Lagrange pour un système donné"}
-Pour décrire un système physique à $n$ degrés de liberté, il faut poser $n$ équations différentielles partielles
+Pour décrire un système physique à $n$ degrés de liberté, il faut poser $n$ équations différentielles
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0$$
 pour les $i=1,2 \dots,n$ coordonnées généralisées.
 :::
 
-Les solutions obtenues donnent un ensemble d'expressions pour les trajectoires physiques $q_i^{\alpha = \bar\alpha}(t)$ des $N<n$ particules. 
+Les solutions obtenues donnent un ensemble d'expressions pour les trajectoires physiques $q_i^{(\alpha = \bar\alpha)}(t)$ des $N$ particules. 
+
+:::{.notes}
+Je ne pense pas que ce soit une erreur d'écrire $N\leqslant n$, mais vérifier:
+"Cette relation n'est pas générale, et un contre-exemple simple le montre : un corps rigide composé de $N$ masses ponctuelles n'a que $n=6$ degrés de liberté (3 translations + 3 rotations) peu importe la valeur de $N$. Pour $N > 6$ (disons un corps rigide fait de 10 masses ponctuelles), on aurait $n < N$, contredisant $N \leqslant n$. La relation générale correcte est plutôt $n \leqslant 3N$ (ou $2N$ en 2D) — le nombre de degrés de liberté est borné par le nombre de coordonnées non contraintes, pas l'inverse."
+:::
 
 ## Grandeurs & Unités dans le formalisme lagrangien
 
-Puisqu'aucune supposition n'a été faite sur l'ensemble des grandeurs physiques des $\{q_i\}$ (longueurs, angles,...), la forme des équation d'Euler-Lagrange (E-L) n'est pas affectée par les choix de coordonnées spécifiques.
+:::{style="font-size: 0.7em;"}
+Puisqu'aucune supposition n'a été faite sur l'ensemble des grandeurs physiques des $\{q_i\}$ (positions, longueurs de distance, angles, aires, charges, ...), la forme des équations d'Euler-Lagrange (E-L) n'est pas affectée par les choix de coordonnées spécifiques.
+:::
 
-::: {.callout-tip title="Remarque 2.2 — Coordonnées et unités des équations d'E-L"}
+::: {.callout-tip title="Remarque — Coordonnées et unités des équations d'Euler-Lagrange (E-L)"}
 Puisque les coordonnées généralisées $q_i$ sont quelconques, leur grandeur physique et unités associées peuvent varier d'une éq. d'E-L à l'autre, mais
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0$$
 ne change pas.
@@ -535,14 +545,14 @@ ne change pas.
 
 ## Grandeurs & Unités: formalisme de Lagrange vs Newton {.smaller}
 
-Les équation de Newton $\mathbf{F}=m\mathbf{a}$ ont toujours des grandeurs de dimension $[MLT^{-2}]$, mais ce sera le cas d'équations d'E-L seulement pour coordonnées généralisées $q_i$ de position ou distance avec une grandeur de longueur.
+Les équation de Newton $\mathbf{F}=m\mathbf{a}$ ont toujours des grandeurs de dimension $[MLT^{-2}]$, mais ce sera le cas des équations d'E-L seulement lorsque les coordonnées généralisées $q_i$ représentent des positions ou distances avec une grandeur de longueur.
 
 Les équations d'E-L restent toutefois **dimensionnellement homogènes**, ce sont surtout les dérivées partielles dans 
 $$\frac{d}{dt}\left(\frac{\partial L(q_i,\dot q_i,t)}{\partial\dot q_i}\right) - \frac{\partial L(q_i,\dot q_i,t)}{\partial q_i} = 0$$
 qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant que les même unités émergent des deux termes.
 
 :::{.notes}
-Éjection de coordonnées par les dérivées partielles.
+- Éjection de coordonnées par les dérivées partielles puis on obtient une EDO!!! (voir pour quiz...)
 :::
 
 ## Évaluez les dérivées partielles p/r à $x$ puis p/r à $\dot x$ de $5x+3y+6\dot x$ {.quiz-question}
@@ -551,22 +561,25 @@ qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant q
 - "2)" $\frac{\partial}{\partial x}(5x+3y+6\dot x) = 11,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 11$
 - ["3)" $\frac{\partial}{\partial x} (5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x} (5x+3y+6\dot x) = 6$]{.correct}
 
-## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question}
+## Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question .smaller}
 :::{.header}
 _Révision_
 :::
-- Ils garantissent que le lagrangien ne dépend pas du temps
-- [Ils annulent le terme de bord lors de l'intégration par parties]{.correct data-explanation="Sans cette condition, le terme [∂L/∂q̇ᵢ · δqᵢ] évalué entre t₁ et t₂ ne s'annulerait pas, et on ne pourrait pas isoler l'intégrande pour obtenir les équations d'E-L."}
-- Ils imposent que la trajectoire physique soit une droite
-- Ils sont nécessaires pour définir l'action $S$
+- "1)" Ils garantissent que le lagrangien ne dépend pas du temps.
+- ["2)" Ils annulent le terme de bord lors de l'intégration par parties.]{.correct data-explanation="Sans cette condition, le terme [∂L/∂q̇ᵢ · δqᵢ] évalué entre t₁ et t₂ ne s'annulerait pas, et on ne pourrait pas isoler l'intégrande pour obtenir les équations d'E-L."}
+- "3)" Ils imposent que la trajectoire physique soit une droite.
+- "4)" Ils sont nécessaires pour définir l'action $S$.{data-explanation="L'action peut se calculer entre n"importe quels points de l'espace, mais trop général pour calculer le principe variationnel."}
 
 # 2.4 La fonction de Lagrange $L(q_i, \dot q_i, t)$
 
 ## Le dernier ingrédient des éq. d'Euler-Lagrange
 
-- Bien que très peu d'informations sont connues jusqu'à maintenant sur la fonction $L(q_i, \dot q_i, t)$, la progression mathématique est impressionnante en s'affranchissant du calcul variationnel.
-- Une forme explicite pour $L(q_i, \dot q_i, t)$ est toutefois nécessaire pour solutionner éq. d'Euler-Lagrange, la validité de la méthode repose sur celle-ci.
-- Les solutions obtenues doivent correspondre aux trajectoires du mouvement de particules ou à l'évolution physique d'un système, d'où
+- Bien que très peu d'informations sont connues jusqu'à maintenant sur la fonction $L(q_i, \dot q_i, t)$, la progression mathématique est déjà impressionnante en s'affranchissant du calcul variationnel pour revenir à des éq. différentielles ordinaires (EDO) de chaque coordonnée $q_i(t)$ découlant des éq. d'Euler-Lagrange.
+- Une forme explicite pour $L(q_i, \dot q_i, t)$ est toutefois nécessaire pour appliquer ces éq. d'E-L, la validité de la méthode repose sur ceci.
+
+## Condition pour déterminer $L(q_i, \dot q_i, t)$ {.center}
+
+Les solutions obtenues avec le formalisme de Lagrange doivent correspondre aux trajectoires du mouvement de particules ou à l'évolution physique d'un système, d'où
 
 ::: {.callout-important title="Remarque — Équivalence des formalismes de Newton et Lagrange"}
 La mécanique d'un système classique est décrite à la fois par les
@@ -575,24 +588,25 @@ $$\text{éq. d'Euler-Lagrange} \equiv \text{éq. de Newton}$$
 
 ## Postulat du lagrangien $L(q_i, \dot q_i, t)$
 
-À ce point-ci de la mécanique, autant les éq. de Newton que les principes variationnels et le lagrangien $L$ qui en découle sont obtenus empiriquement par observation et expérimentation. La cohérence entre les deux formalismes est toutefois requise, l'un doit permettre d'obtenir l'autre.
+À ce point-ci de la mécanique, autant les éq. de Newton que les principes variationnels et le lagrangien $L$ qui en découle sont obtenus empiriquement par observation/expérimentation. La cohérence entre les deux formalismes étant requise, l'un doit permettre d'obtenir l'autre.
 
-Posons ici l'hypothèse que le lagrangien soustrait l'énergie potentielle $V$ de l'énergie cinétique $T$, soit
+Posons l'hypothèse que le lagrangien soustrait l'énergie potentielle $V$ de l'énergie cinétique $T$, soit
 $$L=T-V$$
 et vérifions que la dynamique newtonienne est obtenue avec les éq. d'Euler-Lagrange.
 
 ## Vérification du lagrangien $L=T-V${.smaller}
 
-Plan
+### Plan
 
 - exemple simple qui suit,
 - cas général des forces conservatrices à la section suivante.
 
 Notons que la vérification en sens inverse en posant les éq. de Newton pour obtenir $L=T-V$ est aussi possible. 
 
-Toutefois, les deux formalismes de la mécanique classique découlent plus fondamentalement de symétries de l'espace-temps comme il sera abordé à la section 2.10, ce qui ouvrira la porte à l'écriture de lagrangiens allant au-delà de la mécanique classique.
+Toutefois, ces deux formalismes de la mécanique classique découlent plus fondamentalement de symétries de l'espace-temps comme il sera abordé à la section 2.10, ce qui ouvrira la porte à l'écriture de lagrangiens allant au-delà de la mécanique classique.
 
- 
+
+
 ## Identité de Beltrami — énoncé
 
 ::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
