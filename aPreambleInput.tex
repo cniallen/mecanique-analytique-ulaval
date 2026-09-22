@@ -25,6 +25,7 @@
 %\usepackage[all]{xy} %%nice math diagrams
 \usepackage{siunitx} %scientific & complex numbers, measurement & uncertainty, see 'latex-SIunitx.pdf' in the 'Templates_labOMC' repo.
 \usepackage{physics} %typesetting for mathematical physics, see 'latex-PhysicsPack.pdf' in the 'Templates_labOMC' repo.
+\AtBeginDocument{\RenewCommandCopy\qty\SI} %to fix the command \qty used by both siunitx & physics packages, favoring the former.
 \usepackage{pgfplots} %graphs of symbolic functions and equations
 %\usepackage{tikz-network} %%crystal lattice & complex networks drawing
 %\usepackage{tikz-optics} %%optical drawing
