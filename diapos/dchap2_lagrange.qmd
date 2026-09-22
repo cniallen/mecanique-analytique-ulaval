@@ -454,6 +454,10 @@ $$\int_{t_1}^{t_2}\frac{\partial L}{\partial\dot q_i}\frac{d(\delta q_i)}{dt}dt 
 Puisque la particule est nécessairement en $P_1$ à $t_1$ et $P_2$ à $t_2$ pour **toutes** les trajectoires possibles, ces points ne sont pas variés : $\delta q_i(t_1) = 0 = \delta q_i(t_2)$
 :::
 
+:::{.notes}
+Vérifier signe dans ce qui suit.
+:::
+
 Donc, le terme de bord $\dfrac{\partial L}{\partial\dot q_i}\delta q_i\mid_{t_1}^{t_2}=0$.
 
 En substituant ce résultat
@@ -575,6 +579,10 @@ Je ne suis pas certaine que c'est physiquement possible d'avoir la coordonnée s
 Les variables dont seule la vitesse généralisée, sans sa coordonnée correspondante, sont présentes dans le Lagrangien sont dites variables cycliques.
 :::
 
+:::{.notes}
+Mieux réunir cyclique (synonyme!) et Beltrami énoncés APRÈS l'exemple de chute libre à faire avec E-L complètes en 1er. 
+:::
+
 ## Identité de Beltrami — 2e cas particulier des éq. d'E-L
 
 ::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
@@ -617,7 +625,7 @@ _Révision_
 
 Les solutions obtenues avec le formalisme de Lagrange doivent correspondre aux trajectoires du mouvement de particules ou à l'évolution physique d'un système, d'où
 
-::: {.callout-important title="Remarque — Équivalence des formalismes de Newton et Lagrange"}
+:::{.callout-important title="Remarque — Équivalence des formalismes de Newton et Lagrange"}
 La mécanique d'un système classique est décrite à la fois par les
 $$\text{éq. d'Euler-Lagrange} \equiv \text{éq. de Newton}$$
 :::
