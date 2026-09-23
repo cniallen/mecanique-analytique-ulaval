@@ -418,10 +418,13 @@ $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i 
 - [$\delta t$ n'est non nul qu'aux extrémités $t_1, t_2$]{data-explanation="Cette option confond $\delta t$ (une variation du temps lui-même, pertinente seulement dans des formulations asynchrones comme le principe de Maupertuis) avec la condition aux limites $\delta q_i(t_1) = \delta q_i(t_2) = 0$, qui porte sur les coordonnées, pas sur le temps. Dans le principe de Hamilton, $\delta t = 0$ partout, y compris aux extrémités."}
 :::
 
-## Évaluation du principe d'action stationnaire $\rightarrow$ équations d'Euler-Lagrange {.scrollable}
+## Évaluation du principe d'action stationnaire
+::: {layout-ncol=2 style="font-size: 0.8em;"}
 
-Les bases mathématiques et mécaniques couvertes sont enfin suffisantes pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$ à notre expérience par la pensée d'une infinité de trajectoires fictives $C_0, C_1,\{dots}, C_\infty$ entre 2 points qui s'illustrait ainsi
+###
+Les bases mathématiques et mécaniques couvertes sont enfin suffisantes pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$ à notre expérience par la pensée d'une infinité de trajectoires fictives $C_0, C_1,\dots, C_{\infty}$ entre 2 points qui s'illustrait ainsi
 
+###
 ![](./assets/chap2_fig1.png){width="60%" fig-align="center"}
 
 :::{.notes}
@@ -498,7 +501,7 @@ Rappelons que les variations $\delta q_i$ ont été introduites comme indépenda
 - pour un total de $n$ coordonnées et ddl.
 
 Sous ces conditions, la seule façon pour que l'intégrale du principe $\delta S = 0$ s'annule quel que soit le choix arbitraire de $\delta q_i$ est que chaque terme entre crochets dans la sommation soit identiquement nul, _i.e._
-$$\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right] = 0 = \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i}. \tag{23}$$
+$$\left[\frac{\partial L}{\partial q_i} - \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\right] = 0 = \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i}.$$
  
 :::{.notes}
 - Choix de coordonnées pas bénin, la mécanique lagrangienne marche pas sans cette indépendance pour la dernière étape (trouver un contre-exemple où une mauvais choix de ddl empêcherait d'avoir les éq. d'E-L.?) 
@@ -557,7 +560,7 @@ Je ne pense pas que ce soit une erreur d'écrire $N\leqslant n$, mais vérifier:
 "Cette relation n'est pas générale, et un contre-exemple simple le montre : un corps rigide composé de $N$ masses ponctuelles n'a que $n=6$ degrés de liberté (3 translations + 3 rotations) peu importe la valeur de $N$. Pour $N > 6$ (disons un corps rigide fait de 10 masses ponctuelles), on aurait $n < N$, contredisant $N \leqslant n$. La relation générale correcte est plutôt $n \leqslant 3N$ (ou $2N$ en 2D) — le nombre de degrés de liberté est borné par le nombre de coordonnées non contraintes, pas l'inverse."
 :::
 
-## Grandeurs & Unités dans le formalisme lagrangien
+## Grandeurs & Unités en mécanique lagrangienne
 
 :::{style="font-size: 0.7em;"}
 Puisqu'aucune supposition n'a été faite sur l'ensemble des grandeurs physiques des $\{q_i\}$ (positions, longueurs de distance, angles, aires, charges, ...), la forme des équations d'Euler-Lagrange (E-L) n'est pas affectée par les choix de coordonnées spécifiques.
@@ -578,10 +581,12 @@ $$\frac{d}{dt}\left(\frac{\partial L(q_i,\dot q_i,t)}{\partial\dot q_i}\right) -
 qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant que les même unités émergent des deux termes.
 
 :::{.notes}
+- Force->Newton ; 1 J = 1 N*m = -0,738 ft lb 
+- ToDo: clarifier 1er paragraphe avec un style plus liste et flèches
 - Éjection de coordonnées par les dérivées partielles puis on obtient une EDO!!! (voir pour quiz...)
 :::
 
-## Évaluez les dérivées partielles p/r à $x$ puis p/r à $\dot x$ de $5x+3y+6\dot x$ {.quiz-question}
+## Évaluez les dérivées partielles p/r à $x$ puis p/r à $\dot x$ de $5x+3y+6\dot x$ {.quiz-question .smaller}
 
 - "1)" $\frac{\partial}{\partial x}(5x+3y+6\dot x) = 5,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 0$
 - "2)" $\frac{\partial}{\partial x}(5x+3y+6\dot x) = 11,\quad \frac{\partial}{\partial \dot x}(5x+3y+6\dot x) = 11$
@@ -593,14 +598,14 @@ Je ne suis pas certaine que c'est physiquement possible d'avoir la coordonnée s
 ⬇️DÉPLACER⬇️ cyclique + énoncé Beltrami(et remanier ce dernier) après le 1er exemple de la prochaine section.
 :::
 
-## Que vaut $\frac{\partial L}{\partial q_i}$ pour $L=y+z-\dot x -\dot y -\dot z$ {.quiz-question}
+## Que vaut $\frac{\partial L}{\partial q_i}$ pour\ $L=y+z-\dot x -\dot y -\dot z$ {.quiz-question}
 
 - "1)" Plus un (+1)
 - ["2)" zéro]{.correct}
 - "3)" Moins un (-1)
 
 :::{.fragment}
-Les variables dont seule la vitesse généralisée, sans sa coordonnée correspondante, sont présentes dans le Lagrangien sont dites variables cycliques.
+Les variables dont seule la vitesse généralisée, sans sa coordonnée correspondante, sont présentes dans le Lagrangien sont dites coordonnées ou variables cycliques.
 :::
 
 :::{.notes}
@@ -610,24 +615,25 @@ Mieux réunir cyclique (synonyme!) et Beltrami énoncés APRÈS l'exemple de chu
 ## Identité de Beltrami — 2e cas particulier des éq. d'E-L
 
 ::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
-Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
+Lorsque $L$ est indépendant de $t$, _i.e._ $\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
 $$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
 :::
 
 Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
 
-## 1er exemple célèbre d'application de l'identité de Beltrami
+## Identité de Beltrami - 1er exemple célèbre
 
-![Courbe brachistochrone](./assets/chap2_figbrachi.png){width="60%" fig-align="left"}
+![Courbe brachistochrone](./assets/chap2_figbrachi.png){width="45%" fig-align="center"}
 
 :::{.footer}
-Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution, puisque le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
+Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée de ce parcours** et l'identité de Beltrami facilite grandement sa résolution. En effet, le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
 :::
 
-## 2e exemple célèbre d'application de l'identité de Beltrami
+## Identité de Beltrami - 2e exemple célèbre
 
 ### Principe de Fermat
 La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
+
 
 # 2.4 La fonction de Lagrange $L(q_i, \dot q_i, t)$
 
@@ -642,52 +648,52 @@ Les solutions obtenues avec le formalisme de Lagrange doivent correspondre aux t
 
 :::{.callout-important title="Remarque — Équivalence des formalismes de Newton et Lagrange"}
 La mécanique d'un système classique est décrite à la fois par les
-$$\text{éq. d'Euler-Lagrange} \equiv \text{éq. de Newton}$$
+$$\text{éq. d'Euler-Lagrange} \longleftrightarrow \text{éq. de Newton}$$
 :::
 
 ## Postulat du lagrangien $L(q_i, \dot q_i, t)$
 
-À ce point-ci de la mécanique, autant les éq. de Newton que les principes variationnels et le lagrangien $L$ qui en découle sont obtenus empiriquement par observation/expérimentation. La cohérence entre les deux formalismes étant requise, l'un doit permettre d'obtenir l'autre.
+À ce point-ci de la mécanique, autant les éq. de Newton que les principes variationnels et le lagrangien $L$ qui en découle sont obtenus empiriquement par expérimentation. La cohérence entre les deux formalismes étant requise, l'un doit permettre d'obtenir l'autre$^*$.
 
 Posons l'hypothèse que le lagrangien soustrait l'énergie potentielle $V$ de l'énergie cinétique $T$, soit
 $$L=T-V$$
 et vérifions que la dynamique newtonienne est obtenue avec les éq. d'Euler-Lagrange.
 
+:::{.footer}
+$^*$ et vice-versa
+:::
+
 ## Vérification du lagrangien $L=T-V${.smaller}
 
-### Plan
-
+:::{.callout-note title="Plan mécanique lagrangienne $\rightarrow$ newtonienne"}
 - exemple simple qui suit,
 - cas général des forces conservatrices à la section suivante.
+:::
 
 Notons que la vérification en sens inverse en posant les éq. de Newton pour obtenir $L=T-V$ est aussi possible. 
 
 Toutefois, ces deux formalismes de la mécanique classique découlent plus fondamentalement de symétries de l'espace-temps comme il sera abordé à la section 2.10, ce qui ouvrira la porte à l'écriture de lagrangiens allant au-delà de la mécanique classique.
 
+## Exemple 3.1 - Dynamique de la chute libre
+
+![Particule ponctuelle dans un champ gravitationnel uniforme $g$ - Équations cinématiques à vérifier.](./assets/chap2_figExGrav.png){#fig-exchutelibre width="60%" fig-align="center"}
+
 ## {.scrollable}
+:::{.callout-caution title="Exemple 3.1 - Particule en chute libre"}
 
-:::{.callout-caution title="Exemple 3.1. - Particule en chute libre"}
-Une particule de masse $m$ dans le champ gravitationnel près de la surface a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération constante à la surface de la Terre.
-:::
+### Énoncé
 
-##
-![Particule dans un champ gravitationnel $g$](./assets/chap2_figExGrav.png){width="60%" fig-align="left"}
+Une particule ponctuelle de masse $m$ dans le champ gravitationnel uniforme près de la surface de la terre a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération gravitationnelle. 
 
-## Analyse du problème {.scrollable}
+### Analyse du problème 
 
-**1. Degrés de liberté :** 1 corps en 3D $\implies$ 3 ddl ; 0 contrainte $\implies$ **3 ddl**.
-
-**2. Coordonnées généralisées :** cartésiennes ($V=mgz$ s'écrit simplement).
-
-**3. Lagrangien :**
+- **Degrés de liberté :** 1 corps en 3D $\implies$ 3 ddl ; 0 contrainte $\implies$ **3 ddl**.
+- **Coordonnées généralisées :** cartésiennes ($V=mgz$ s'écrit simplement).
+- **Lagrangien :**
 $$T = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2), \qquad V=mgz, \qquad L = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-mgz \tag{1,2}$$
+- **Variables cycliques :** $L$ ne dépend pas explicitement de $x$ ni de $y$.
 
-**4. Variables cycliques :** $L$ ne dépend pas explicitement de $x$ ni de $y$.
-
-
-## {.scrollable}
-
-:::{.callout-caution title="Exemple 3.1. - Résolution complète"}
+### Résolution complète
 
 **En $x$ :** $\partial L/\partial x=0$, donc $x$ est cyclique. L'éq. d'E-L se réduit à $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right)=0$, soit $\partial L/\partial\dot x = m\dot x = \text{cte} = mc_{1x}$, d'où :
 $$x(t) = c_{1x}t + c_{2x} \tag{4}$$
@@ -701,7 +707,7 @@ $$z(t) = -\frac{gt^2}{2} + c_{1z}t + c_{2z} \tag{9}$$
 $$x(t)=c_{1x}t+c_{2x}, \quad y(t)=c_{1y}t+c_{2y}, \quad z(t)=-\frac{gt^2}{2}+c_{1z}t+c_{2z} \tag{10-12}$$
 :::
 
-## Forces conservatives : vérification $L = T - V$ {.smaller}
+## Forces conservatives & vérification $L = T - V$ {.smaller}
 
 Pour une force conservative $\mathbf{F} = -\nabla V(\mathbf{r})$, vérifions en coordonnées cartésiennes $x_i=(x,y,z)$ que les équations d'E-L reproduisent Newton, en posant :
 $$T = \sum_j \tfrac{1}{2}m\dot x_j^2, \qquad V = V(x_j), \qquad L = T-V = \sum_j\tfrac{1}{2}m\dot x_j^2 - V(x_j) \tag{34}$$
