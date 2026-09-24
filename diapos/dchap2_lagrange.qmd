@@ -811,7 +811,7 @@ pour chaque coordonnée $x_i$ tour à tour, d'où les termes lorsque $x_j\neq x_
 \end{align*}
 
 - 2e terme d'E-L
-$$\frac{\partial L}{\partial x_i} = -\frac{\partial V}{\partial x_i} \tag{36}$$
+$$\frac{\partial L}{\partial x_i} = -\frac{\partial V}{\partial x_i}$$
 
 se regroupant en 3 éq. d'Euler-Lagrange
 $$m\ddot x_i - \left(-\frac{\partial V}{\partial x_i}\right) = 0.$$
@@ -828,7 +828,7 @@ est bien obtenu en posant $L=T-V$ lorsque $F_i$ provient de forces conservatives
 Indiquer qu'on verra un peu à la fin de la section comment ça s'étend aux forces non conservatives
 :::
 
-## Mécaniques lagrangienne et newtoniennes équivalentes
+## Mécaniques lagrangienne et newtonienne équivalentes
 
 Les deux approches sont physiquement équivalentes, mais $L=T-V$ permet une méthode de résolution qui sépare directement les coordonnées généralisées sur différentes éq. du mouvement. Avec $\mathbf{F}=m\mathbf{a}$, le calcul vectoriel s'ajoute au calcul différentiel à plusieurs variables et une attention particulière doit être portée aux forces d'inertie. 
 
@@ -843,7 +843,7 @@ La mécanique lagrangienne est un atout qui va au-delà de la portée du cours
 - Revoir l'avantage relativiste si c'est plus que pas de problèmes de référentiels.
 :::
 
-## Exemples de potentiels de base provenant de forces conservatives
+## Exemples de potentiels de base provenant de forces conservatives {.smaller}
 
 1. **Gravitation**
 $$F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$$
