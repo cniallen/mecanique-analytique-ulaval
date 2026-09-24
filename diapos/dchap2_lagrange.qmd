@@ -422,14 +422,17 @@ $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i 
 ::: {layout-ncol=2 style="font-size: 0.8em;"}
 
 ###
-Les bases mathématiques et mécaniques couvertes sont enfin suffisantes pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$. Rappelons-nous l'expérience par la pensée posée pour établir ce principe et calculer les variations d'une infinité de trajectoires $C_0, C_1,\dots, C_{\infty}$ entre 2 points qui s'illustrait ainsi:
+Les bases mathématiques et mécaniques couvertes sont enfin suffisantes pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$. 
+
+Rappelons-nous de l'expérience par la pensée ci-contre posée pour établir ce principe et calculer les variations d'une infinité de trajectoires $C_0, C_1,\dots, C_{\infty}$ entre 2 points.
 
 ###
 ![](./assets/chap2_fig1.png){width="60%" fig-align="center"}
 :::
 
 :::{.notes}
-Ajouter un quiz multiple choice pour d'abord rappeler que P_1 et P_2 sont fixes avec même durée t_2-t_1 (fausse de t_1 fixe et t_2 variable) puis ajuster le suivant pour le mettre ici ou avec le rappel d'intégration par parties.
+- Ajouter un @fig-... pour référencer la 1ère présentation de la figure.
+- Ajouter un quiz multiple choice pour d'abord rappeler que P_1 et P_2 sont fixes avec même durée t_2-t_1 (fausse de t_1 fixe et t_2 variable) puis ajuster le suivant pour le mettre ici ou avec le rappel d'intégration par parties.
 Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la dérivation des équations d'E-L ? {.quiz-question .smaller}
 - "1)" Ils garantissent que le lagrangien ne dépend pas du temps.
 - ["2)" Ils annulent le terme de bord lors de l'intégration par parties.]{.correct data-explanation="Sans cette condition, le terme [∂L/∂q̇ᵢ · δqᵢ] évalué entre t₁ et t₂ ne s'annulerait pas, et on ne pourrait pas isoler l'intégrande pour obtenir les équations d'E-L."}
@@ -439,7 +442,7 @@ Quel est le rôle des points fixes $\delta q_i(t_1)=\delta q_i(t_2)=0$ dans la d
 
 ## Évaluation du principe d'action stationnaire $\rightarrow$ équations d'Euler-Lagrange {.scrollable}
 
-Pour identifier la trajectoire physique avec $\delta S = 0$ en rejetant les autres fictives, il faut d'abord intervertir la variation $\delta$ (p/r à $\alpha$) et l'intégration (p/r à $t$) par commutation :
+Pour identifier la trajectoire physique avec $\delta S = 0$ en rejetant les autres fictives, il faut d'abord intervertir la variation $\delta$ (p/r à $\alpha$) et l'intégration (p/r à $t$) par commutation
 $$\delta S = \delta\left(\int_{t_1}^{t_2} L\,dt\right) = \int_{t_1}^{t_2}\delta L\,dt = 0.$$
 
 En substituant la variation du lagrangien $\delta L$,
@@ -599,8 +602,11 @@ Je diyte fort que c'est physiquement possible d'avoir la coordonnée sans sa dé
 ⬇️DÉPLACER⬇️ cyclique + énoncé Beltrami(et remanier ce dernier) après le 1er exemple de la prochaine section.
 :::
 
-## Que vaut $\frac{\partial L}{\partial q_i}$ pour\ 
-$L=y+z-\dot x -\dot y -\dot z$ {.quiz-question}
+## Que vaut $\frac{\partial L}{\partial x}$ pour {.quiz-question}
+
+:::{.center}
+$$L=y+z-\dot x -\dot y -\dot z$$
+:::
 
 - "1)" Plus un (+1)
 - ["2)" zéro]{.correct}
@@ -625,15 +631,15 @@ Cette identité est particulièrement utile lorsqu'on cherche une constante du m
 
 ## Identité de Beltrami - 1er exemple célèbre
 
-:::{.header}
+:::{.header style="font-size: 0.8em;"}
 Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée de ce parcours** et l'identité de Beltrami facilite grandement sa résolution. En effet, le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
 :::
 
-![Courbe brachistochrone](./assets/chap2_fig6.png){width="25%" fig-align="center"}
+![Courbe brachistochrone](./assets/chap2_fig5.png){#fig-brachistochrone width="40%" fig-align="center"}
 
 ## Identité de Beltrami - 2e exemple célèbre
 
-### Principe de Fermat
+### Principe de Fermat {.center}
 La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
 
 
@@ -677,19 +683,20 @@ Toutefois, ces deux formalismes de la mécanique classique découlent plus fonda
 ![Particule ponctuelle dans un champ gravitationnel uniforme $g$ avec les équations de sa cinématique à vérifier.](./assets/chap2_fig6.png){#fig-exchutelibre width="60%" fig-align="center"}
 
 ## {.scrollable}
-:::{.callout-caution title="Exemple 3.1 - Particule en chute libre"}
+::::{.callout-caution title="Exemple 3.1 - Particule en chute libre"}
 
-### Énoncé
+#### Énoncé
 
 Une particule ponctuelle de masse $m$ dans le champ gravitationnel uniforme près de la surface de la terre a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération gravitationnelle. Retrouvez les équations cinématiques de la @fig-exchutelibre sans aucune composante de vitesse initiale nulle.
 
-### Analyse du problème 
+#### Analyse du problème 
 
 - **Contraintes :** Aucune.
 - **Degrés de liberté :** 1 particule dans l'espace 3D $\implies$ 3 ddl - 0 contrainte $=$ 3 ddl.
-- **Coordonnées généralisées :** Axe $z \parallel$ à l'accélération gravitationnelle suggère des coordonnées cartésiennes pour obtenir des équations simples avec $q_1=x,\, q_2=y\, q_3=z$.
+- **Coordonnées généralisées :** Axe $z \parallel$ à l'accélération gravitationnelle suggère des coordonnées cartésiennes pour obtenir des équations simples avec
+$$q_1=x,\, q_2=y\, q_3=z.$$
 
-### Mécanique lagrangienne
+#### Mécanique lagrangienne
 
 - **Énergie cinétique :** $\displaystyle T = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)$.
 - **Énergie potentielle :** $\displaystyle V=mgz$.
@@ -697,22 +704,25 @@ Une particule ponctuelle de masse $m$ dans le champ gravitationnel uniforme prè
 - Remarquons que $L$ ne dépend pas explicitement de $x$ ni de $y$.
 - **Éq. Euler-Lagrange :** 3 ddl $\rightarrow$ 3 coordonnées $\rightarrow$ 3 éq. E-L $\rightarrow$
 
-_*Selon la coordonnée*_ $\mathbf{x}$
+###### Selon la coordonnée $x$
+
 :::{.fragment}
-$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right) - \cancel{\partial L/\partial x}=0.$$
+$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right) - \cancel{\frac{\partial L}{\partial x}}=0.$$
 En intégrant p/r au temps $t$,
-$$\frac{\partial L}{\partial\dot x} = \text{constante} \equiv mc_{1x}$$ 
-Seul le terme $\frac{m}{2}\dot x^2$ ne s'annule pas en dérivant p/r à $\dot x$, d'où
-$$\frac{\partial L}{\partial\dot x} = m\dot x = mc_{1x}$$
-**Éq. du mouvememt :** $\dot x = c_{1x}$
+$$\dfrac{\partial L}{\partial\dot x} = \text{constante} \equiv mc_{1x}$$ 
+Seul le terme $\frac{m\dot x^2}{2}$ ne s'annule pas en dérivant le lagrangien p/r à $\dot x$, d'où
+$$\frac{\partial L(z,\dot x,\dot y,\dot z)}{\partial\dot x} = m\dot x = mc_{1x}$$
 :::
 
+:::{.callout-tip title="Équation du mouvement en $x$"}
+$\dot x = c_{1x}$
+:::
 
-### Résolution des EDO du mouvement
+#### Résolution des EDO du mouvement
 
 - **Composante $x(t)$ de la trajectoire**
 
-**En $x$ :** $\partial L/\partial x=0$, donc $x$ est cyclique. L'éq. d'E-L se réduit à $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right)=0$, soit $\partial L/\partial\dot x = m\dot x = \text{cte} = mc_{1x}$, d'où :
+**En $x$** 
 $$x(t) = c_{1x}t + c_{2x} \tag{4}$$
 
 **En $y$ :** de la même façon, $y(t) = c_{1y}t + c_{2y}$ (5).
@@ -722,7 +732,7 @@ $$z(t) = -\frac{gt^2}{2} + c_{1z}t + c_{2z} \tag{9}$$
 
 **Solution complète** (les constantes fixées par les conditions initiales) :
 $$x(t)=c_{1x}t+c_{2x}, \quad y(t)=c_{1y}t+c_{2y}, \quad z(t)=-\frac{gt^2}{2}+c_{1z}t+c_{2z} \tag{10-12}$$
-:::
+::::
 
 ## Forces conservatives & vérification $L = T - V$ {.smaller}
 
