@@ -598,28 +598,10 @@ qui font automatiquement la "cuisine" dimensionnelle des grandeurs en assurant q
 :::{.notes}
 Je diyte fort que c'est physiquement possible d'avoir la coordonnée sans sa dérivée contrairement aux variable cycliques.
 
-⬇️DÉPLACER⬇️ cyclique + énoncé Beltrami(et remanier ce dernier) après le 1er exemple de la prochaine section.
+⬇️DÉPLACER⬇️ énoncé Beltrami(et remanier ce dernier) après le 1er exemple de la prochaine section.
 :::
 
-## Que vaut $\frac{\partial L}{\partial x}$ pour {.quiz-question}
-
-:::{.center}
-$$L=y+z-\dot x -\dot y -\dot z$$
-:::
-
-- "1)" Plus un (+1)
-- ["2)" zéro]{.correct}
-- "3)" Moins un (-1)
-
-:::{.fragment}
-Les variables dont seule la vitesse généralisée, sans sa coordonnée correspondante, sont présentes dans le Lagrangien sont dites coordonnées ou variables cycliques.
-:::
-
-:::{.notes}
-Mieux réunir cyclique (synonyme!) et Beltrami énoncés APRÈS l'exemple de chute libre à faire avec E-L complètes en 1er. 
-:::
-
-## Identité de Beltrami — 2e cas particulier des éq. d'E-L
+## Identité de Beltrami — cas particulier des éq. d'E-L
 
 ::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
 Lorsque $L$ est indépendant de $t$, _i.e._ $\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
@@ -700,7 +682,7 @@ $$q_1=x,\, q_2=y,\, q_3=z.$$
 
 - **Énergie cinétique :** $\displaystyle T = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)$.
 - **Énergie potentielle :** $\displaystyle V=mgz$.
-- **Lagrangien :** $\displaystyle L(z,\dot x,\dot y,\dot z) = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-mgz$.
+- **Lagrangien :** $\displaystyle L(z,\dot x,\dot y,\dot z) = T-V = \frac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-mgz$.
 - Remarquons que $L$ ne dépend pas explicitement de $x$ ni de $y$.
 - **Éq. Euler-Lagrange :** 3 ddl $\rightarrow$ 3 coordonnées $\rightarrow$ 3 éq. E-L $\rightarrow$
 
@@ -718,7 +700,7 @@ Seul le terme $\frac{m\dot x^2}{2}$ ne s'annule pas en dérivant le lagrangien p
 $$\frac{\partial L(z,\dot x,\dot y,\dot z)}{\partial\dot x} = m\dot x = mc_{1x}$$
 :::
 
-:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.5em;"}
+:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"}
 $$\dot x = c_{1x}$$
 :::
 
@@ -732,7 +714,7 @@ Seul le terme $\frac{m\dot y^2}{2}$ ne s'annule pas en dérivant le lagrangien p
 $$\frac{\partial L(z,\dot x,\dot y,\dot z)}{\partial\dot y} = m\dot y = mc_{1y}$$
 :::
 
-:::{.callout-tip title="Équation du mouvement en $y$" style="text-align: center; font-size: 1.5em;"}
+:::{.callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"}
 $$\dot y = c_{1y}$$
 :::
 
@@ -741,15 +723,15 @@ _**Éq. E-L selon la coordonnée $z$**_
 $$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right) - \frac{\partial L}{\partial z}=0. \tag{32}$$
 
 Les dérivées partielles du lagrangien s'évaluent à
-$$\frac{\partial L}{\partial\dot z} = m\dot z$$
-$$\frac{\partial L}{\partial z} = -mg$$
+$$\frac{\partial L}{\partial\dot z} = m\dot z,$$
+$$\frac{\partial L}{\partial z} = -mg.$$
 
 Le terme de gauche de l'éq. E-L devient
-$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right) = \frac{d}{dt}(m\dot z) = m\ddot z$$
+$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right) = \frac{d}{dt}(m\dot z) = m\ddot z.$$
 
 En rassemblant dans l'éq. E-L (32) : $m\ddot z+mg=0$, d'où 
 
-:::{.callout-tip title="Équation du mouvement en $z$" style="text-align: center; font-size: 1.5em;"}
+:::{.callout-tip title="Équation du mouvement en $z$" style="text-align: center; font-size: 1.3em;"}
 $$\ddot z+g=0$$
 :::
 
@@ -766,13 +748,13 @@ Les 3 EDO du mouvement à solutionner pour retrouver les éq. cinématiques de l
 Les composantes $x(t)$ et $y(t)$ de la trajectoire sont obtenues par intégration directe p/r à $t$, soit
 $$x(t) = c_{1x}t + c_{2x},\quad y(t) = c_{1y}t + c_{2y}$$
 
-alors que deux intégration successives p/r à $t$ sont nécessaire pour la composante $z(t)$. Ainsi,
+alors que deux intégration successives p/r à $t$ sont nécessaires pour la composante $z(t)$. Ainsi,
 \begin{align*}
 \dot z(t) &= -gt + c_{1z}\\
 z(t) &= -\dfrac{gt^2}{2} + c_{1z}t + c_{2z}
 \end{align*}
 
-:::{.callout-tip title="Solution finale : trajectoire balistique parabolique" style="text-align: center; font-size: 1.5em;"}
+:::{.callout-tip title="Solution finale : trajectoire balistique parabolique" style="font-size: 1.3em;"}
 Équations cinématiques d'une particule dans un champ gravitationnel uniforme $g$
 \begin{align*}
 x(t) &= c_{1x}t+c_{2x}\\
@@ -788,24 +770,73 @@ z(t) &= -\dfrac{gt^2}{2} + c_{1z}t + c_{2z}
 - Voir si je n'introduirais pas "balistique" plus tôt pour remplacer "chute libre" vu que c'est plus général sur les cond. initiales.
 :::
 
-## Vérification de $L = T - V$ pour le cas général de Forces conservatives {.smaller}
+## Que vaut $\frac{\partial L}{\partial x}$ pour {.quiz-question}
 
-Pour une force conservative $\mathbf{F} = -\nabla V(\mathbf{r})$, vérifions en coordonnées cartésiennes $x_i=(x,y,z)$ que les équations d'E-L reproduisent Newton, en posant :
-$$T = \sum_j \tfrac{1}{2}m\dot x_j^2, \qquad V = V(x_j), \qquad L = T-V = \sum_j\tfrac{1}{2}m\dot x_j^2 - V(x_j) \tag{34}$$
+:::{.center}
+$$L=y+z-\dot x -\dot y -\dot z$$
+:::
 
-**Calcul terme par terme :**
-$$\frac{\partial L}{\partial\dot x_i} = m\dot x_i \qquad\text{(seul le terme } j=i \text{ de la somme contribue)}$$
-$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot x_i}\right) = m\ddot x_i \qquad \frac{\partial L}{\partial x_i} = -\frac{\partial V}{\partial x_i} \tag{36}$$
+- "1)" Plus un (+1)
+- ["2)" zéro]{.correct}
+- "3)" Moins un (-1)
 
-## Vérification de l'équivalence avec Newton
+:::{.fragment}
+Les variables dont seule la vitesse généralisée, sans sa coordonnée correspondante, sont présentes dans le Lagrangien sont dites coordonnées ou variables cycliques.
+:::
 
-L'équation d'E-L (24), $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x_i}\right) - \dfrac{\partial L}{\partial x_i}=0$, donne donc, pour chaque composante $i$ :
-$$m\ddot x_i - \left(-\frac{\partial V}{\partial x_i}\right) = 0 \quad\Longrightarrow\quad m\ddot x_i = -\frac{\partial V}{\partial x_i} = F_i \tag{38,39}$$
+:::{.notes}
+- C'est pkoi on n'a attendu à la fin pour intégrer 2 fois en x et y même si c'est techniquement un début de résolution. Caller coord. cycliques et partir dret à l'étape = cte, et bonus de beau jus physique à venir.
+- ToDo: refaire en version plus générale sur L() avec de q_j manquant de l'énumération.
+:::
 
-**Équivalence complète avec Newton confirmée.** Les deux approches sont physiquement équivalentes, mais $L=T-V$ est conceptuellement plus facile puisque les énergies (contrairement aux forces) ne sont **pas des quantités vectorielles**.
+## Vérification de $L = T - V$ pour le cas général de forces conservatives {.scrollable}
 
-::: {.callout-important title="Remarque 2.3"}
-Dans l'approche lagrangienne, on apprend à raisonner à partir de concepts d'énergie (potentielle et cinétique) plutôt que de force — un atout en physique quantique (où la notion de force n'a aucune signification) et en relativité (où l'action instantanée à distance est impossible).
+Pour un système fermé sans dissipation où les forces sont conservatives et s'expriment donc
+$$\mathbf{F} = -\nabla V(\mathbf{r}),$$
+vérifions en coordonnées cartésiennes $q_i=x_i \text{ ou } x_j \in \{x,y,z\}$ que les équations d'E-L reproduisent la 2e loi de Newton. Soit
+
+- l'énergie cinétique $T = \sum_{j=1}^3 \tfrac{1}{2}m\dot x_j^2,$
+- l'énergie potentielle statique $V = V(x_j),$
+- et donc le lagrangien $L = T-V = \sum_{j=1}^3\tfrac{1}{2}m\dot x_j^2 - V(x_j).$
+
+Évaluons l'équation d'E-L
+$$\dfrac{d}{dt}\left(\dfrac{\partial L(x_j,\dot x_j)}{\partial\dot x_i}\right) - \dfrac{\partial L(x_j,\dot x_j)}{\partial x_i}=0$$
+
+pour chaque coordonnée $x_i$ tour à tour, d'où les termes lorsque $x_j\neq x_i$ ou $\dot x_j\neq \dot x_i$ disparaissent. Le même résultat est donc obtenu 3 fois :
+
+- 1er terme d'E-L
+\begin{align*}
+&\frac{\partial L}{\partial\dot x_i} = m\dot x_i\\
+&\frac{d}{dt}\left(\frac{\partial L}{\partial\dot x_i}\right) = m\ddot x_i
+\end{align*}
+
+- 2e terme d'E-L
+$$\frac{\partial L}{\partial x_i} = -\frac{\partial V}{\partial x_i} \tag{36}$$
+
+se regroupant en 3 éq. d'Euler-Lagrange
+$$m\ddot x_i - \left(-\frac{\partial V}{\partial x_i}\right) = 0.$$
+
+En réarrangeant les termes, il devient clair que 
+
+:::{.callout-important title="l'équivalence avec la 2e loi de Newton est confirmée."}
+Pour les 3 coordonnées $x_i \in \{x,y,z\}$,
+$$m\ddot x_i = -\frac{\partial V}{\partial x_i} = F_i$$
+est bien obtenu en posant $L=T-V$ lorsque $F_i$ provient de forces conservatives.
+:::
+
+## Mécaniques lagrangienne et newtoniennes équivalentes
+
+Les deux approches sont physiquement équivalentes, mais $L=T-V$ permet une méthode de résolution qui sépare directement les coordonnées généralisées sur différentes éq. du mouvement. Avec $\mathbf{F}=m\mathbf{a}$, le calcul vectoriel s'ajoute au calcul différentiel à plusieurs variables et une attention particulière doit être portée aux forces d'inertie. 
+
+::: {.callout-note title="Remarque - utilité du formalisme lagrangien avec les énergies"}
+La mécanique lagrangienne est un atout qui va au-delà de la portée du cours
+- en physique quantique où la notion de force n'a pas de signification,
+- en relativité où l'action instantanée à distance est impossible.
+:::
+
+:::{.notes}
+- Confirmer la séparation automatique pour les coordonnées curvilignes
+- Revoir l'avantage relativiste si c'est plus que pas de problèmes de référentiels.
 :::
 
 ## Exemples de potentiels fondamentaux {.smaller}
