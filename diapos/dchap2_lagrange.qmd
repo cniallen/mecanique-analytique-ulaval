@@ -419,15 +419,14 @@ $$\delta L(q_i, \dot q_i, t) = \sum_i \frac{\partial L}{\partial q_i}\delta q_i 
 :::
 
 ## Évaluation du principe d'action stationnaire {.center}
-::: {layout-ncol=2 style="font-size: 0.8em;"}
+::: {layout-ncol=2 style="font-size: 0.75em;"}
 
 ###
 Les bases mathématiques et mécaniques couvertes sont enfin suffisantes pour appliquer le principe d'action stationnaire $\delta S = 0$ à $S=\int_{t_1}^{t_2}L\,dt$. 
-
 Rappelons-nous de l'expérience par la pensée ci-contre posée pour établir ce principe et calculer les variations d'une infinité de trajectoires $C_0, C_1,\dots, C_{\infty}$ entre 2 points.
 
 ###
-![](./assets/chap2_fig1.png){width="60%" fig-align="center"}
+![](./assets/chap2_fig1.png){width="55%" fig-align="right"}
 :::
 
 :::{.notes}
@@ -639,9 +638,10 @@ Un objet part du point A sans vitesse initiale et glisse sans frottement vers B.
 
 ## Identité de Beltrami - 2e exemple célèbre
 
-### Principe de Fermat {.center}
+:::{.center}
+### Principe de Fermat
 La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
-
+:::
 
 # 2.4 La fonction de Lagrange $L(q_i, \dot q_i, t)$
 
@@ -694,7 +694,7 @@ Une particule ponctuelle de masse $m$ dans le champ gravitationnel uniforme prè
 - **Contraintes :** Aucune.
 - **Degrés de liberté :** 1 particule dans l'espace 3D $\implies$ 3 ddl - 0 contrainte $=$ 3 ddl.
 - **Coordonnées généralisées :** Axe $z \parallel$ à l'accélération gravitationnelle suggère des coordonnées cartésiennes pour obtenir des équations simples avec
-$$q_1=x,\, q_2=y\, q_3=z.$$
+$$q_1=x,\, q_2=y,\, q_3=z.$$
 
 #### Mécanique lagrangienne
 
@@ -704,7 +704,11 @@ $$q_1=x,\, q_2=y\, q_3=z.$$
 - Remarquons que $L$ ne dépend pas explicitement de $x$ ni de $y$.
 - **Éq. Euler-Lagrange :** 3 ddl $\rightarrow$ 3 coordonnées $\rightarrow$ 3 éq. E-L $\rightarrow$
 
-###### Selon la coordonnée $x$
+:::{.notes}
+Toujours mettre le lagrangien L au tableau
+:::
+
+_**Éq. E-L selon la coordonnée $x$**_
 
 :::{.fragment}
 $$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot x}\right) - \cancel{\frac{\partial L}{\partial x}}=0.$$
@@ -714,27 +718,77 @@ Seul le terme $\frac{m\dot x^2}{2}$ ne s'annule pas en dérivant le lagrangien p
 $$\frac{\partial L(z,\dot x,\dot y,\dot z)}{\partial\dot x} = m\dot x = mc_{1x}$$
 :::
 
-:::{.callout-tip title="Équation du mouvement en $x$"}
-$\dot x = c_{1x}$
+:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.5em;"}
+$$\dot x = c_{1x}$$
+:::
+
+_**Éq. E-L selon la coordonnée $y$**_
+
+:::{.fragment}
+$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot y}\right) - \cancel{\frac{\partial L}{\partial y}}=0.$$
+En intégrant p/r au temps $t$,
+$$\dfrac{\partial L}{\partial\dot y} = \text{constante} \equiv mc_{1y}$$ 
+Seul le terme $\frac{m\dot y^2}{2}$ ne s'annule pas en dérivant le lagrangien p/r à $\dot y$, d'où
+$$\frac{\partial L(z,\dot x,\dot y,\dot z)}{\partial\dot y} = m\dot y = mc_{1y}$$
+:::
+
+:::{.callout-tip title="Équation du mouvement en $y$" style="text-align: center; font-size: 1.5em;"}
+$$\dot y = c_{1y}$$
+:::
+
+_**Éq. E-L selon la coordonnée $z$**_
+
+$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right) - \frac{\partial L}{\partial z}=0. \tag{32}$$
+
+Les dérivées partielles du lagrangien s'évaluent à
+$$\frac{\partial L}{\partial\dot z} = m\dot z$$
+$$\frac{\partial L}{\partial z} = -mg$$
+
+Le terme de gauche de l'éq. E-L devient
+$$\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right) = \frac{d}{dt}(m\dot z) = m\ddot z$$
+
+En rassemblant dans l'éq. E-L (32) : $m\ddot z+mg=0$, d'où 
+
+:::{.callout-tip title="Équation du mouvement en $z$" style="text-align: center; font-size: 1.5em;"}
+$$\ddot z+g=0$$
 :::
 
 #### Résolution des EDO du mouvement
 
-- **Composante $x(t)$ de la trajectoire**
+Les 3 EDO du mouvement à solutionner pour retrouver les éq. cinématiques de la trajectoire balistique en chute libre sont donc
 
-**En $x$** 
-$$x(t) = c_{1x}t + c_{2x} \tag{4}$$
+\begin{align*}
+\dot x(t) - c_{1x} &= 0\\
+\dot y(t) - c_{1y} &= 0\\
+\ddot z(t) + g &= 0
+\end{align*}
 
-**En $y$ :** de la même façon, $y(t) = c_{1y}t + c_{2y}$ (5).
+Les composantes $x(t)$ et $y(t)$ de la trajectoire sont obtenues par intégration directe p/r à $t$, soit
+$$x(t) = c_{1x}t + c_{2x},\quad y(t) = c_{1y}t + c_{2y}$$
 
-**En $z$ :** $\partial L/\partial z = -mg$, $\partial L/\partial\dot z = m\dot z \Rightarrow \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right)=m\ddot z$. L'éq. d'E-L donne $m\ddot z + mg = 0$, soit $\ddot z = -g$ (8). En intégrant deux fois :
-$$z(t) = -\frac{gt^2}{2} + c_{1z}t + c_{2z} \tag{9}$$
+alors que deux intégration successives p/r à $t$ sont nécessaire pour la composante $z(t)$. Ainsi,
+\begin{align*}
+\dot z(t) &= -gt + c_{1z}\\
+z(t) &= -\dfrac{gt^2}{2} + c_{1z}t + c_{2z}
+\end{align*}
 
-**Solution complète** (les constantes fixées par les conditions initiales) :
-$$x(t)=c_{1x}t+c_{2x}, \quad y(t)=c_{1y}t+c_{2y}, \quad z(t)=-\frac{gt^2}{2}+c_{1z}t+c_{2z} \tag{10-12}$$
+:::{.callout-tip title="Solution finale : trajectoire balistique parabolique" style="text-align: center; font-size: 1.5em;"}
+Équations cinématiques d'une particule dans un champ gravitationnel uniforme $g$
+\begin{align*}
+x(t) &= c_{1x}t+c_{2x}\\
+y(t) &= c_{1y}t+c_{2y}\\
+z(t) &= -\dfrac{gt^2}{2} + c_{1z}t + c_{2z}
+\end{align*}
+:::
+
 ::::
 
-## Forces conservatives & vérification $L = T - V$ {.smaller}
+:::{.notes}
+- Petit rappel de paramétrisation en trajectoire parabolique possible ici.
+- Voir si je n'introduirais pas "balistique" plus tôt pour remplacer "chute libre" vu que c'est plus général sur les cond. initiales.
+:::
+
+## Vérification de $L = T - V$ pour le cas général de Forces conservatives {.smaller}
 
 Pour une force conservative $\mathbf{F} = -\nabla V(\mathbf{r})$, vérifions en coordonnées cartésiennes $x_i=(x,y,z)$ que les équations d'E-L reproduisent Newton, en posant :
 $$T = \sum_j \tfrac{1}{2}m\dot x_j^2, \qquad V = V(x_j), \qquad L = T-V = \sum_j\tfrac{1}{2}m\dot x_j^2 - V(x_j) \tag{34}$$
