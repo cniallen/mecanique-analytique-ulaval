@@ -824,6 +824,10 @@ $$m\ddot x_i = -\frac{\partial V}{\partial x_i} = F_i$$
 est bien obtenu en posant $L=T-V$ lorsque $F_i$ provient de forces conservatives.
 :::
 
+:::{.notes}
+Indiquer qu'on verra un peu à la fin de la section comment ça s'étend aux forces non conservatives
+:::
+
 ## Mécaniques lagrangienne et newtoniennes équivalentes
 
 Les deux approches sont physiquement équivalentes, mais $L=T-V$ permet une méthode de résolution qui sépare directement les coordonnées généralisées sur différentes éq. du mouvement. Avec $\mathbf{F}=m\mathbf{a}$, le calcul vectoriel s'ajoute au calcul différentiel à plusieurs variables et une attention particulière doit être portée aux forces d'inertie. 
@@ -839,17 +843,25 @@ La mécanique lagrangienne est un atout qui va au-delà de la portée du cours
 - Revoir l'avantage relativiste si c'est plus que pas de problèmes de référentiels.
 :::
 
-## Exemples de potentiels fondamentaux {.smaller}
+## Exemples de potentiels de base provenant de forces conservatives
 
-1. **Gravitation** : $F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$
-2. **Interaction coulombienne** : $F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$
-3. **Oscillateur harmonique** : $F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$
+1. **Gravitation**
+$$F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$$
 
-::: {.callout-important title="Remarque 2.4"}
-La force harmonique n'est pas une interaction fondamentale de la nature, mais elle est utilisée fréquemment en approximation.
+2. **Interaction coulombienne**
+$$F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$$
+
+3. **Oscillateur harmonique avec une force de rappel**
+$$F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$$
+
+## Potentiels approximés en oscillateurs harmoniques
+![Potentiel harmonique jaune-orange approximant un potentiel quelconque en bleu.](./assets/chap2_fig7.png){#fig-potharmonique width="60%" fig-align="center"}
+
+::: {.callout-note title="Remarque 2.4"}
+La force de rappel dans un potentiel harmonique n'est pas une interaction fondamentale de la nature, mais elle est utilisée fréquemment en approximation.
 :::
 
-## L'approximation harmonique par développement de Taylor {.smaller}
+## L'approximation harmonique par développement de Taylor {.scrollable}
 
 Au voisinage d'un extremum $x_0$ de $V(x)$ (point d'équilibre), développons $V(x)$ en série de Taylor autour de $x_0$ :
 $$V(x) = V(x_0) + (x-x_0)\left[\frac{dV}{dx}\right]_{x_0} + \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} + O\big((x-x_0)^3\big)$$
