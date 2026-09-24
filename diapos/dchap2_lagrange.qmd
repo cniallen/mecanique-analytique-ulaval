@@ -426,6 +426,7 @@ Les bases mathématiques et mécaniques couvertes sont enfin suffisantes pour ap
 
 ###
 ![](./assets/chap2_fig1.png){width="60%" fig-align="center"}
+:::
 
 :::{.notes}
 Ajouter un quiz multiple choice pour d'abord rappeler que P_1 et P_2 sont fixes avec même durée t_2-t_1 (fausse de t_1 fixe et t_2 variable) puis ajuster le suivant pour le mettre ici ou avec le rappel d'intégration par parties.
@@ -683,7 +684,7 @@ Toutefois, ces deux formalismes de la mécanique classique découlent plus fonda
 
 ### Énoncé
 
-Une particule ponctuelle de masse $m$ dans le champ gravitationnel uniforme près de la surface de la terre a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération gravitationnelle. 
+Une particule ponctuelle de masse $m$ dans le champ gravitationnel uniforme près de la surface de la terre a une énergie potentielle $V=mgz$, où $z$ mesure sa hauteur et $g$ est l'accélération gravitationnelle. Retrouvez les équations cinématiques de la @fig-exchutelibre sans aucune composante de vitesse initiale nulle.
 
 ### Analyse du problème 
 
