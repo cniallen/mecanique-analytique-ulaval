@@ -825,7 +825,8 @@ est bien obtenu en posant $L=T-V$ lorsque $F_i$ provient de forces conservatives
 :::
 
 :::{.notes}
-Indiquer qu'on verra un peu à la fin de la section comment ça s'étend aux forces non conservatives
+- Faire au tableau avec genre x_i = y et x_j=x,y,z
+- Indiquer qu'on verra un peu à la fin de la section comment ça s'étend aux forces non conservatives
 :::
 
 ## Mécaniques lagrangienne et newtonienne équivalentes
@@ -835,45 +836,71 @@ Les deux approches sont physiquement équivalentes, mais $L=T-V$ permet une mét
 ::: {.callout-note title="Remarque - utilité du formalisme lagrangien avec les énergies"}
 La mécanique lagrangienne est un atout qui va au-delà de la portée du cours
 - en physique quantique où la notion de force n'a pas de signification,
-- en relativité où l'action instantanée à distance est impossible.
+- en relativité où l'action instantanée à distance de Newton est impossible.
 :::
 
 :::{.notes}
-- Confirmer la séparation automatique pour les coordonnées curvilignes
+- Confirmer que la séparation automatique pour les coordonnées curvilignes
 - Revoir l'avantage relativiste si c'est plus que pas de problèmes de référentiels.
+- De la prochaine diapo jusqu'aux forces généralisées exclus, ce serait p-e bien de transférer dans le chap. 1 et juste faire un micro-rappel des forces conservatives.
 :::
 
-## Exemples de potentiels de base provenant de forces conservatives {.smaller}
+## Exemples de potentiels de base provenant de forces conservatives
 
 1. **Gravitation**
-$$F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$$
+$F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$
 
 2. **Interaction coulombienne**
-$$F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$$
+$F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$
 
 3. **Oscillateur harmonique avec une force de rappel**
-$$F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$$
+$F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$
 
 ## Potentiels approximés en oscillateurs harmoniques
-![Potentiel harmonique jaune-orange approximant un potentiel quelconque en bleu.](./assets/chap2_fig7.png){#fig-potharmonique width="60%" fig-align="center"}
+![Potentiel harmonique jaune-orange approximant une énergie potentielle quelconque en bleu.](./assets/chap2_fig7.png){#fig-potharmonique width="60%" fig-align="center"}
 
 ::: {.callout-note title="Remarque 2.4"}
 La force de rappel dans un potentiel harmonique n'est pas une interaction fondamentale de la nature, mais elle est utilisée fréquemment en approximation.
 :::
 
+## Équilibre
+
+:::{.callout-important title="Définition - Système à l'équilibre"}
+Un système fermé ou isolé est dit à l'équilibre lorsque
+- $\mathbf{a}=0 \leftrightarrow \sum\mathbf{F}=0$ _i.e._ les forces agissant sur le système sont balancées,
+- si la vitesse $\mathbf{v}=0$, l'équilibre est qualifié de statique sinon la vitesse est constante et l'équilibre est dynamique,
+- aucun mouvement ou changement d'état n'est observable macroscopiquement à l'équilibre statique ou thermodynamique,
+- $\nabla V=0 \leftrightarrow \dfrac{\partial V(q_i)}{\partial q_i}=0$ et est un minimum, un maximum, un point d'inflexion ou un point de selle,
+- l'équilibre est stable ou instable selon la direction de courbure du champ potentiel à ce point, le cas stable survenant seulement pour un minimum qui doit satisfaire [le test des dérivées secondes](https://en.wikipedia.org/wiki/Second_partial_derivative_test).
+:::
+
+Dans le voisinage d'un point d'équilibre stable du système, le négatif du gradient de son énergie potentielle $-\nabla V$ est dirigé vers le minimum; une perturbation hors-équilibre est alors rappelée vers ce minimum, le système subit une force de rappel.
+
+:::{.notes}
+Noter que tout point de référence absolue de potentiel disparaît avec les dérivées partielles autant en mécanique lagrangienne que newtonnienne, donc n'apparaît pas dans les éq. du mouvement, n'influence pas la dynamique.
+:::
+
 ## L'approximation harmonique par développement de Taylor {.scrollable}
 
-Au voisinage d'un extremum $x_0$ de $V(x)$ (point d'équilibre), développons $V(x)$ en série de Taylor autour de $x_0$ :
+Pour un système à l'équilibre stable au minimum $x_0$ d'une énergie potentielle 1D $V(x)$, développons en série de Taylor autour de $x_0$ :
 $$V(x) = V(x_0) + (x-x_0)\left[\frac{dV}{dx}\right]_{x_0} + \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} + O\big((x-x_0)^3\big)$$
+$$V(x) = V(x_0) + (x-x_0)\frac{dV}{dx}\big|_{x_0} + \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} + O\big((x-x_0)^3\big)$$
 
-- Le terme constant $V(x_0)$ n'a aucun intérêt physique (l'énergie n'est définie qu'à une constante près).
-- Le terme linéaire s'annule identiquement, puisque $x_0$ est un extremum : $\left[dV/dx\right]_{x_0}=0$.
-- Il reste, au 2ᵉ ordre :
-$$V(x) \approx \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u), \quad u=(x-x_0),\; k = \left[\frac{d^2V}{dx^2}\right]_{x_0} \tag{47-49}$$
+- Le terme constant $V(x_0)$ n'a pas d'intérêt physique l'énergie potentielle n'est définie qu'à une constante près qui éliminée en évaluant les dérivées partielles menant aux équations du mouvement.
+- Le terme linéaire s'annule identiquement puisque $x_0$ est un minimum.
+
+## Potentiel harmonique et force de rappel
+
+Il reste, au 2e ordre :
+$$V(x) \approx \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u), \quad u=(x-x_0),\; k = \left[\frac{d^2V}{dx^2}\right]_{x_0}$$
+
+$$V(x) \approx \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u), \quad u=(x-x_0),\; k = \frac{d^2V}{dx^2}\big|_{x_0}$$
 
 ::: {.callout-important title="Remarque 2.5"}
-Pour bon nombre de problèmes, la première réponse à un petit déplacement hors d'équilibre est harmonique — l'approximation harmonique est d'une grande importance pratique, et sera reprise systématiquement au Chapitre 3.
+Pour bon nombre de problèmes, la réponse à un petit déplacement hors équilibre est suffisamment harmonique; cette approximation harmonique est donc d'une grande importance pratique.
 :::
+
+EXEMPLE en finissant de capturer images chap. 2 et 3
 
 ## Forces non conservatives et forces généralisées
 
@@ -960,6 +987,7 @@ $$mr^2\ddot\varphi\sin^2\theta + 2mr\dot r\dot\varphi\sin^2\theta + 2mr^2\dot\th
 
 Ces équations ont des unités différentes et sont beaucoup moins intuitives qu'en coordonnées cartésiennes. Pourtant, la méthode lagrangienne les donne **« automatiquement »** par simple dérivation — retrouver l'équation en $\theta$ directement à partir de Newton exigerait un calcul de $d^2\mathbf{r}/dt^2$ en sphériques nettement plus désagréable (dérivées des vecteurs unitaires mobiles $\mathbf{e}_r,\mathbf{e}_\theta,\mathbf{e}_\varphi$).
 
+:::{.notes}
 ## Symboles de Christoffel
 
 Le membre de gauche des équations précédentes suit toujours la forme $\ddot q_i + \sum_{j,k}\Gamma^i_{jk}\dot q_j\dot q_k$, ce qui mène à la notion de **dérivée covariante** :
@@ -975,6 +1003,8 @@ où $g^{-1}$ est la matrice inverse de $g$. Entièrement déterminés par la mé
 
 ::: {.callout-important title="Remarque 2.8"}
 Pour les coordonnées cartésiennes, tous les $\Gamma^i_{jk}=0$ — seul système de coordonnées pour lequel c'est vrai partout, car l'espace euclidien y est décrit sans « distorsion » de coordonnées (courbure nulle des lignes de coordonnées). La méthode lagrangienne fait automatiquement cette « cuisine » compliquée, ce qui n'est pas le moindre de son intérêt.
+:::
+
 :::
 
 # 2.6 Contraintes holonomes et non holonomes
@@ -1384,17 +1414,6 @@ cette dernière étant elle-même un invariant de Lorentz, reliant la masse prop
 On peut noter que la même procédure (principe de moindre action + exigence de symétries de l'espace-temps appropriées) s'étend en principe à des géométries encore plus riches — par exemple la métrique de Riemann de la relativité générale — bien que cela dépasse le cadre de ce cours.
 :::
 
-## Liens vers les parties du cours
-
-- Chapitre 0 : Plan de cours
-- Chapitre 1 : Rappel
-- Chapitre 2 : Formalisme de Lagrange
-- Chapitre 3 : Applications et propriétés
-- Chapitre 4 : Formalisme canonique
-- Chapitre 5 : Théorie des perturbations
-- Chapitre 6 : Mouvement d'un solide indéformable
-- Chapitre 7 : Mécanique lagrangienne des milieux continus
-- Chapitre 8 : Annexes
 
 <script>
 document.addEventListener('keydown', function(e) {
