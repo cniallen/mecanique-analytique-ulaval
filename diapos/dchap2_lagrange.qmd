@@ -904,21 +904,23 @@ où $u=(x-x_0)$ avec $k = \frac{d^2V}{dx^2}\big|_{x_0}$.
 Pour bon nombre de problèmes, la réponse à un petit déplacement hors équilibre est harmonique; cette approximation avec la force de rappel est donc d'une grande importance pratique.
 :::
 
-## Mécanique lagrangienne - Méthode générale
+## Mécanique lagrangienne - Méthode générale {.scrollable}
 
 ### Analyse du problème
 
-1. Trouver les contraintes sur la dynamique du système.
-2. Identifier le nombre de ddl.
-3. Choisir des coordonnées généralisées appropriées.
+A) Trouver les contraintes sur la dynamique du système
+B) Identifier le nombre de degrés de liberté
+C) Choisir une coordonnée généralisée appropriée pour chaque ddl
 
 ### Mécanique lagrangienne
 
-4. Déterminer $T$ et $V$ en fonction de ces coordonnées.
-5. Identifier les variables cycliques ; pour chacune, construire la constante du mouvement associée.
-6. Écrire le reste des équations du mouvement à partir des équations d'E-L.
+D) Écrire l'énergie cinétique $T$ du système
+E) Déterminer son énergie potentielle totale $V$ 
+F) Combiner dans le lagrangien $L=T-V$ en portant attention aux variables indépendantes dans $L(q_i,\dot q_i,t$
+G) Identifier les coordonnées cycliques où il suffit de résoudre $\frac{\partial L}{\partial\dot q_i} = constante du mouvement
+H) Écrire les équations d'Euler-Lagrange pour les autres coordonnées et obtenir les équations du mouvement.
 
-### Résoudre pour trouver la trajectoire.
+### Résoudre ces EDO du mouvement pour trouver la trajectoire des particules, l'évolution du système physique.
 
 :::{.notes}
 Y'a pas juste des pours à se mettre sur des méthodes trops cadrées, nuit à la créativité et limite la généralité d'apprentissage. Penser par auteurs pour se nourrir d'un maximum d'approches.
@@ -940,7 +942,7 @@ Une particule de masse $m$ est suspendue à un ressort de constante $k$ dans le 
 Fait au tableau et au chapitre 3.
 
 :::{.callout-tip title="Équation du mouvement" style="text-align: center; font-size: 1.3em;"}
-$$$$
+$$m\ddot z + kz = kz_0 - mg$$
 :::
 
 #### Résolution des EDO du mouvement
@@ -948,38 +950,19 @@ $$$$
 Fait au tableau et au chapitre 3.
 
 :::{.callout-tip title="Solution finale" style="font-size: 1.3em;"}
+$$z(t) = A\sin(\omega t+\delta) + z_0 - \frac{mg}{k}$$
 
-\begin{align*}
-
-\end{align*}
+Il s'agit d'un mouvement harmonique de fréquence $\omega=\sqrt{k/m}$ oscillant autour de $z=z_0-mg/k$. Au repos ($A=0$), le champ gravitationnel étire le ressort d'une longueur $mg/k$.
 :::
 
 ::::
 
-TRANSFÉRER JUSTE LES SOLUTIONS DANS ⬆️
-
-**1. ddl :** 1 corps en 3D $\implies$ 3 ddl ; 2 contraintes ($x=$cte, $y=$cte) $\implies$ **1 ddl** (en $z$).
-
-**2. Coordonnées :** cartésiennes (contraintes et $V$ s'écrivent aisément).
-
-**3. Lagrangien :** avec $z_0$ = position d'équilibre du ressort sans gravité :
-$$T=\frac{m}{2}\dot z^2, \qquad V = \frac{k}{2}(z-z_0)^2+mgz, \qquad L = \frac{m}{2}\dot z^2 - \frac{k}{2}(z-z_0)^2 - mgz \tag{13,14}$$
-
-**4. Variables cycliques :** aucune.
-
-## Équation du mouvement et solution {.smaller}
-
-**1 équation d'E-L :** $\dfrac{\partial L}{\partial z} = -k(z-z_0)-mg$, $\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot z}\right)=m\ddot z$, donnant :
-$$m\ddot z + kz = kz_0 - mg \tag{19}$$
-
+:::{.notes}
 **Résolution** : $z=z_h+z_p$, où $z_h$ solutionne l'éq. homogène $m\ddot z_h+kz_h=0$. Avec $z_h=Ae^{st}$, on trouve $ms^2+k=0 \Rightarrow s=\pm i\omega$, $\omega=\sqrt{k/m}$, donc $z_h(t)=A\sin(\omega t+\delta)$. La solution particulière (constante) est $z_p=C$. En substituant $z=z_h+C$ dans (19) et en identifiant les termes :
 $$kz_0 - mg = -m\omega^2 A\sin(\omega t+\delta) + kA\sin(\omega t+\delta) + kC = kC \quad (\text{car } m\omega^2=k)$$
-
 d'où $C = z_0 - mg/k$. **Solution générale :**
 $$z(t) = A\sin(\omega t+\delta) + z_0 - \frac{mg}{k} \tag{37}$$
-
-Un mouvement harmonique de fréquence $\omega=\sqrt{k/m}$ oscillant autour de $z=z_0-mg/k$ : au repos ($A=0$), le champ gravitationnel étire le ressort d'une longueur $mg/k$.
-
+:::
 
 
 ## Limites des forces conservatives
