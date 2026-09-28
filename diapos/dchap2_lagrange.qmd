@@ -1039,16 +1039,28 @@ Le principe d'action stationnaire $\delta S = 0$ ne s'applique pas directement �
 
 ## Système de coordonnées : Référence
 
-En coordonnées cartésiennes, dans un repère inertiel : $\mathbf{r}=(x,y,z)$, $\dot{\mathbf{r}} = \dot x\mathbf{e}_x+\dot y\mathbf{e}_y+\dot z\mathbf{e}_z$, et $v^2 = \dot x^2+\dot y^2+\dot z^2$ — simple, car $x,y,z$ ont tous des dimensions de longueur et leurs axes sont fixes et orthogonaux.
+En coordonnées cartésiennes, $\mathbf{r}=(x,y,z)$ se dérive simplement: $\dot{\mathbf{r}} = \dot x\mathbf{e}_x+\dot y\mathbf{e}_y+\dot z\mathbf{e}_z$, et $v^2 = \dot x^2+\dot y^2+\dot z^2$, car $x,y,z$ ont tous des dimensions de longueur et leurs axes sont fixes et orthogonaux.
 
 ![Identification des coordonnées cartésiennes et sphériques](./assets/chap2_fig9.png){#fig-refsysteme width="60%" fig-align="center"}
 
 ## Le défi des coordonnées curvilignes
 
-:::{.}
-**Question :** en coordonnées sphériques $\mathbf{r}=(r,\theta,\varphi)$, peut-on écrire sans ambiguïté $\dot{\mathbf{r}} = (\dot r, \dot\theta, \dot\varphi)$ ?
+![Déplacement des systèmes de coordonnées par rapport à une origine fixe.](./assets/chap2_fig9.png){#fig-curviligne width="70%" fig-align="center"}
 
-**Réponse courte : Non !** Deux problèmes surgissent : (1) $r$, $\theta$ et $\varphi$ n'ont pas les mêmes dimensions ; (2) leurs axes sont orthogonaux mais ne sont **pas fixes** dans le temps (contrairement aux axes cartésiens, qui gardent toujours la même orientation).
+:::{.footer}
+**Question :** en coordonnées sphériques $\mathbf{r}=(r,\theta,\varphi)$, peut-on écrire sans ambiguïté $\dot{\mathbf{r}} = (\dot r, \dot\theta, \dot\varphi)$ (ainsi que toute dérivée d'ordre supérieur)?
+:::
+
+## Le défi des coordonnées curvilignes
+
+**Réponse :** Non, deux problèmes surgissent : 
+
+1. $r$, $\theta$ et $\varphi$ n'ont pas les mêmes dimensions (longueur vs angles),
+2. leurs axes sont orthogonaux mais ne sont **pas fixes** dans le temps (contrairement aux axes cartésiens, qui gardent toujours la même orientation).
+
+:::{.notes}
+Revoir les annexes de Cheng
+:::
 
 ## Énergie cinétique en coordonnées sphériques {.scrollable}
 
@@ -1060,31 +1072,16 @@ $$\dot z = \dot r\cos\theta - r\dot\theta\sin\theta$$
 En substituant dans $v^2=\dot x^2+\dot y^2+\dot z^2$ et en regroupant les termes (les produits croisés s'annulent via $\sin^2+\cos^2=1$ et les identités trigonométriques usuelles), on obtient après simplification complète :
 $$v^2 = \dot r^2 + r^2\dot\theta^2 + r^2\sin^2\theta\,\dot\varphi^2 \tag{66}$$
 
-## L'énergie cinétique en sphériques : résultat
+## Énergie cinétique en coordonnées sphériques : résultat
 
 Ainsi, en coordonnées sphériques :
 $$T = \frac{m}{2}\dot r^2 + \frac{m}{2}r^2\dot\theta^2 + \frac{m}{2}r^2\sin^2\theta\,\dot\varphi^2 \tag{67}$$
 
-ce qui **ne correspond pas** à l'expression « naïve » qu'on pourrait être tenté d'écrire par analogie directe avec le cas cartésien :
-$$T \neq \tfrac{1}{2}m\dot r^2 + \tfrac{1}{2}m\dot\theta^2 + \tfrac{1}{2}m\dot\varphi^2$$
+ce qui **ne correspond pas** à l'expression qu'on pourrait être tenté d'écrire par analogie avec le cas cartésien.
 
 Les facteurs $r^2$ et $r^2\sin^2\theta$ devant $\dot\theta^2$ et $\dot\varphi^2$ sont indispensables. Ils compensent le fait que $\theta$ et $\varphi$ sont des angles, pas des longueurs, et que les distances physiques parcourues pour un même $d\theta$ ou $d\varphi$ dépendent de $r$.
 
-## La métrique
-
-::: {.callout-note title="Définition 2.4 — Élément de longueur et métrique"}
-De façon générale, on écrit $T = \sum_{i,j}\dfrac{m}{2}g_{ij}\dot q_i \dot q_j$ et l'élément de longueur :
-$$ds^2 = \sum_{i,j} g_{ij}\,dq_i\,dq_j \tag{74}$$
-où $g_{ij}$ est la **métrique** (ou tenseur métrique), qui définit la longueur dans l'espace donné.
-:::
-
-**Exemples de métriques** (toujours diagonales ici, car les 3 systèmes d'axes restent orthogonaux) :
-
-- Cartésiennes $(x,y,z)$ : $g_{ij} = \text{diag}(1,1,1)$ — constante, sans dimension
-- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \text{diag}(1, r^2, r^2\sin^2\theta)$ — dépend de la position
-- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1)$
-
-## Équations d'E-L en sphériques : la coordonnée $r$ {.smaller}
+## Équations d'E-L en sphériques : la coordonnée $r$ {.scrollable}
 
 Du lagrangien $L = \dfrac{m}{2}\left(\dot r^2+r^2\dot\theta^2+r^2\sin^2\theta\,\dot\varphi^2\right) - V(r,\theta,\varphi)$, calculons l'équation d'E-L pour $r$ :
 $$\frac{\partial L}{\partial\dot r} = m\dot r \implies \frac{d}{dt}\left(\frac{\partial L}{\partial\dot r}\right) = m\ddot r, \qquad \frac{\partial L}{\partial r} = mr\dot\theta^2 + mr\sin^2\theta\,\dot\varphi^2 - \frac{\partial V}{\partial r}$$
@@ -1092,7 +1089,7 @@ $$\frac{\partial L}{\partial\dot r} = m\dot r \implies \frac{d}{dt}\left(\frac{\
 d'où :
 $$m\ddot r - mr\dot\theta^2 - mr\sin^2\theta\,\dot\varphi^2 = -\frac{\partial V}{\partial r}$$
 
-## Équations d'E-L en sphériques : $\theta$ et $\varphi$ {.smaller}
+## Équations d'E-L en sphériques : $\theta$ et $\varphi$ {.scrollable}
 
 De façon analogue pour $\theta$ :
 $$\frac{\partial L}{\partial\dot\theta} = mr^2\dot\theta \implies \frac{d}{dt}\left(\frac{\partial L}{\partial\dot\theta}\right) = mr^2\ddot\theta+2mr\dot r\dot\theta, \qquad \frac{\partial L}{\partial\theta} = mr^2\sin\theta\cos\theta\,\dot\varphi^2-\frac{\partial V}{\partial\theta}$$
@@ -1102,6 +1099,25 @@ Et pour $\varphi$ :
 $$mr^2\ddot\varphi\sin^2\theta + 2mr\dot r\dot\varphi\sin^2\theta + 2mr^2\dot\theta\dot\varphi\sin\theta\cos\theta = -\frac{\partial V}{\partial\varphi}$$
 
 Ces équations ont des unités différentes et sont beaucoup moins intuitives qu'en coordonnées cartésiennes. Pourtant, la méthode lagrangienne les donne **« automatiquement »** par simple dérivation — retrouver l'équation en $\theta$ directement à partir de Newton exigerait un calcul de $d^2\mathbf{r}/dt^2$ en sphériques nettement plus désagréable (dérivées des vecteurs unitaires mobiles $\mathbf{e}_r,\mathbf{e}_\theta,\mathbf{e}_\varphi$).
+
+
+## La métrique {.center}
+
+::: {.callout-note title="Définition 2.4 — Élément de longueur et métrique"}
+De façon générale, on écrit $T = \sum_{i,j}\dfrac{m}{2}g_{ij}\dot q_i \dot q_j$ et l'élément de longueur :
+$$ds^2 = \sum_{i,j} g_{ij}\,dq_i\,dq_j \tag{74}$$
+où $g_{ij}$ est la **métrique** (ou tenseur métrique), qui définit la longueur dans l'espace donné.
+:::
+
+## Exemples de métriques
+:::{.header}
+Toujours diagonales ici, car les 3 systèmes d'axes restent orthogonaux
+:::
+
+- Cartésiennes $(x,y,z)$ : $g_{ij} = \text{diag}(1,1,1)$ — constante, sans dimension
+- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \text{diag}(1, r^2, r^2\sin^2\theta)$ — dépend de la position
+- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1)$
+
 
 :::{.notes}
 ## Symboles de Christoffel
