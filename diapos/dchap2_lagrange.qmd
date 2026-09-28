@@ -1045,7 +1045,7 @@ En coordonnées cartésiennes, $\mathbf{r}=(x,y,z)$ se dérive simplement: $\dot
 
 ## Le défi des coordonnées curvilignes
 
-![Déplacement des systèmes de coordonnées par rapport à une origine fixe.](./assets/chap2_fig9.png){#fig-curviligne width="70%" fig-align="center"}
+![Déplacement des systèmes de coordonnées par rapport à une origine fixe.](./assets/chap2_fig10.png){#fig-curviligne width="70%" fig-align="center"}
 
 :::{.footer}
 **Question :** en coordonnées sphériques $\mathbf{r}=(r,\theta,\varphi)$, peut-on écrire sans ambiguïté $\dot{\mathbf{r}} = (\dot r, \dot\theta, \dot\varphi)$ (ainsi que toute dérivée d'ordre supérieur)?
@@ -1100,6 +1100,14 @@ $$mr^2\ddot\varphi\sin^2\theta + 2mr\dot r\dot\varphi\sin^2\theta + 2mr^2\dot\th
 
 Ces équations ont des unités différentes et sont beaucoup moins intuitives qu'en coordonnées cartésiennes. Pourtant, la méthode lagrangienne les donne **« automatiquement »** par simple dérivation — retrouver l'équation en $\theta$ directement à partir de Newton exigerait un calcul de $d^2\mathbf{r}/dt^2$ en sphériques nettement plus désagréable (dérivées des vecteurs unitaires mobiles $\mathbf{e}_r,\mathbf{e}_\theta,\mathbf{e}_\varphi$).
 
+
+## Exemple 3.3 — Particule au bout d'une tige rigide
+
+::: {.callout-cation title="Exemple 3.3"}
+Une particule est suspendue au bout d'une tige rigide sans masse et se déplace dans le plan $xz$ (le pendule plan).
+:::
+
+![Pendule rigide](./assets/chap2_fig11.png){#fig-curviligne width="55%" fig-align="center"}
 
 ## La métrique {.center}
 
