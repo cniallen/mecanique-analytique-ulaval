@@ -933,7 +933,7 @@ Y'a pas juste des pours à se mettre sur des méthodes trops cadrées, nuit à l
 
 #### Énoncé
 
-Une particule de masse $m$ est suspendue à un ressort de constante $k$ dans le champ gravitationnel uniforme $g$. En permettant uniquement le mouvement vertical, retrouvez son équation du mouvement et solutionnez-la.
+Une particule de masse $m$ est suspendue à un ressort de constante $k$ dans le champ gravitationnel uniforme $g$. En permettant uniquement le mouvement vertical comme illustré à la @fig-exoscillateur, retrouvez son équation du mouvement et solutionnez-la.
 
 #### Analyse du problème & Mécanique lagrangienne
 
@@ -1050,9 +1050,13 @@ Le principe d'action stationnaire $\delta S = 0$ ne s'applique pas directement �
 
 # 2.5 Coordonnées curvilignes
 
-## Le problème des coordonnées curvilignes
+## Système de coordonnées : Référence
 
 En coordonnées cartésiennes, dans un repère inertiel : $\mathbf{r}=(x,y,z)$, $\dot{\mathbf{r}} = \dot x\mathbf{e}_x+\dot y\mathbf{e}_y+\dot z\mathbf{e}_z$, et $v^2 = \dot x^2+\dot y^2+\dot z^2$ — simple, car $x,y,z$ ont tous des dimensions de longueur et leurs axes sont fixes et orthogonaux.
+
+![Identification des coordonnées cartésiennes et sphériques](./assets/chap2_fig9.png){#fig-refsysteme width="60%" fig-align="center"}
+
+## Le défi des coordonnées curvilignes
 
 **Question :** en coordonnées sphériques $\mathbf{r}=(r,\theta,\varphi)$, peut-on écrire sans ambiguïté $\dot{\mathbf{r}} = (\dot r, \dot\theta, \dot\varphi)$ ?
 
