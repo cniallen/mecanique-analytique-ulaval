@@ -891,12 +891,12 @@ Noter que ça marche juste pour minimums sinon le déplacement éloigne trop du 
 $$V(x) = V(x_0) + \cancel{(x-x_0)\frac{dV}{dx}\big|_{x_0}} + \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} + O\big((x-x_0)^3\big)$$
 
 - Le terme constant $V(x_0)$ n'a pas d'intérêt physique l'énergie potentielle n'est définie qu'à une constante près qui est éliminée en évaluant les dérivées partielles menant aux équations du mouvement.
-- Le terme linéaire s'annule identiquement puisque $x_0$ est un minimum où la tangente à la courbe $V(x)$ est horizontale.
+- Le terme linéaire s'annule puisque $x_0$ est un minimum où la tangente à la courbe $V(x)$ est horizontale.
 
 ## Potentiel harmonique et force de rappel
 
 Il reste au 2e ordre un terme de potentiel harmonique
-$$V(x) \approx \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u)$$
+$$V(x) \approx \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u),$$
 
 où $u=(x-x_0)$ avec $k = \frac{d^2V}{dx^2}\big|_{x_0}$.
 
@@ -906,14 +906,15 @@ Pour bon nombre de problèmes, la réponse à un petit déplacement hors équili
 
 EXEMPLE en finissant de capturer images chap. 2 et 3
 
-##
+## Limites des forces conservatives
 
-Mathématiquement, peu de champs vectoriels se dérivent d'un gradient,_i.e._ $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. En se rappelant que la condition nécessaire est $\nabla\times\mathbf{F}=0$ et que $\dfrac{\partial V}{\partial q_i\partial q_j} = \dfrac{\partialV}{\partial q_j\partial q_i}$, un champ $\mathbf{F}=-\nabla V$ vérfie $\dfrac{\partial F_j}{\partial q_i} = \dfrac{\partial F_i}{\partial q_j}$. 
+Mathématiquement, peu de champs vectoriels se dérivent d'un gradient,_i.e._ $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. En se rappelant que la condition nécessaire est $\nabla\times\mathbf{F}=0$ et que $\dfrac{\partial V}{\partial q_i\partial q_j} = \dfrac{\partial V}{\partial q_j\partial q_i}$, un champ $\mathbf{F}=-\nabla V$ vérfie $\dfrac{\partial F_j}{\partial q_i} = \dfrac{\partial F_i}{\partial q_j}$. 
 
 La condition de l'existence d'un potentiel pour obtenir des forces conservatives est donc fort restrictive.
 
 :::{.notes}
-Bon à commencer au 1er chapitre et faire le détail de dérivation en dépannage en revoyant les conditions nécessaire et suffisante.
+- Bon à commencer au 1er chapitre et faire le détail de dérivation en dépannage en revoyant les conditions nécessaire et suffisante.
+- N.B. Le couple est déjà une force généralisée : pour $q=\theta$, $Q_\theta=\tau$ (unités de N·m, pas de N). De même, en thermodynamique, la pression est la force généralisée conjuguée au volume.
 ::: 
 
 ## Contre-exemple : Évaluez $\dfrac{\partial F_x}{\partial y}$ et $\dfrac{\partial F_y}{\partial x}$ pour un champ de forces $\mathbf{F}= -y \hat{e}_x + x \hat{e}_y$ {.quiz-question}
@@ -926,8 +927,8 @@ Bon à commencer au 1er chapitre et faire le détail de dérivation en dépannag
 
 En général dans plusieurs situations physiques, les forces ne s'expriment pas comme le gradient d'un potentiel, elles sont dites non conservatives. Par exemple,
 
-- force magnétique,
-- force de frottement $F_\text{frict.}=-k^{(n)}\,|\dot x|^{\,n-1}\,\dot x$ avec $n=0,1$ ou 2 selon respectivement le cas de frottement sec, laminaire ou turbulent,
+- la force magnétique,
+- les forces de frottement $F_\text{frict.}=-k^{(n)}\,|\dot x|^{\,n-1}\,\dot x$ avec $n=0,1$ ou 2 selon respectivement le cas de frottement sec, laminaire ou turbulent,
 - toute force dissipative.
 
 :::{.notes}
@@ -947,7 +948,11 @@ En mécanique lagrangienne, les **forces généralisées** $Q_i$ sont introduite
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = Q_i \tag{52}.$$
 
 ::: {.fragment}
-**Exemple** : frottement visqueux $F = -b\dot x$ sur une coordonnée $q = x$. Alors $Q_x = -b\dot x$, et l'équation d'E-L devient l'équation de Newton amortie.
+**Exemple** : frottement visqueux $F = -b\dot x$ sur une coordonnée $q_i = x$. Alors $Q_x = -b\dot x$, et l'équation d'E-L devient l'équation du mouvement amortie.
+:::
+
+:::{.notes}
+Comme dans vérification L=T-V, terme de gauche = m\ddot x, terme du milieu est -\nabla V donc forces conservatives.
 :::
 
 ## Forces généralisées découlant du travail virtuel
@@ -955,11 +960,11 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial 
 :::{.callout-important title="Définition de force généralisée"}
 $Q_i$ est définie par le travail virtuel des forces non conservatives,
 $$\delta W = \sum_i Q_i\,\delta q_i$$
-Il est dit virtuel puisqu'il découle du même formalisme de variations synchrone de trajectoires avec un déplacement infinitésimal fictif $\delta q_i$ à temps fixé.
+Il est dit virtuel puisqu'il découle du même formalisme de variations synchrones de trajectoires avec un déplacement infinitésimal fictif $\delta q_i$ à temps fixé.
 
-$Q_i$ a la dimension d'une force (SI: Newton) et $Q_i\,\delta q_i$ a la dimension d'un travail (SI: N.m = joules) seulement si $q_i$ est une longueur.
+$Q_i$ a la dimension d'une force (SI: Newton) et $Q_i\,\delta q_i$ a la dimension d'un travail (SI: N$\cdot $m = joules) seulement si $q_i$ a une dimension de longueur.
 :::
-Il n'y a aucun travail possible dans une direction de coordonnée contrainte puisque la variation \delta r_i y est nulle par définition.
+Il n'y a aucun travail possible dans une direction de coordonnée $r_i$ contrainte puisque la variation $\delta r_i$ y est nulle par définition.
 
 :::{.notes}
 Définition : $Q_j=\sum_i \mathbf{F}_i\cdot\dfrac{\partial \mathbf{r}_i}{\partial q_j}$ : c'est le travail virtuel des forces appliquées associé à une variation de la coordonnée généralisée $q_j$. Les forces de liaison ne travaillent pas dans un déplacement virtuel compatible avec les contraintes, donc elles disparaissent de $Q_j$. C'est tout l'intérêt du formalisme.
