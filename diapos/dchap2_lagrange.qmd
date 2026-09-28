@@ -845,28 +845,30 @@ La mécanique lagrangienne est un atout qui va au-delà de la portée du cours
 - De la prochaine diapo jusqu'aux forces généralisées exclus, ce serait p-e bien de transférer dans le chap. 1 et juste faire un micro-rappel des forces conservatives.
 :::
 
-## Exemples de potentiels de base provenant de forces conservatives
+## Exemples de potentiels de base provenant de forces conservatives {.smaller}
 
 1. **Gravitation**
-$F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$
+$$F_\text{grav} = \dfrac{GMm}{r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{grav}(r) = -\dfrac{GMm}{r} \propto -\dfrac{1}{r}$$
 
 2. **Interaction coulombienne**
-$F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$
+$$F = \dfrac{q_1q_2}{4\pi\epsilon_0 r^2}\mathbf{e}_r \; \longrightarrow \; V_\text{Coulomb} = -\dfrac{q_1q_2}{4\pi\epsilon_0 r} \propto -\dfrac{1}{r}$$
 
 3. **Oscillateur harmonique avec une force de rappel**
-$F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$
+$$F_\text{harm} = -k(x-x_0) \; \longrightarrow \; V_\text{harm} = \dfrac{k(x-x_0)^2}{2}$$
 
-## Potentiels approximés en oscillateurs harmoniques
+
+## Potentiel approximé en oscillateur harmonique
 ![Potentiel harmonique jaune-orange approximant une énergie potentielle quelconque en bleu.](./assets/chap2_fig7.png){#fig-potharmonique width="60%" fig-align="center"}
 
 ::: {.callout-note title="Remarque 2.4"}
 La force de rappel dans un potentiel harmonique n'est pas une interaction fondamentale de la nature, mais elle est utilisée fréquemment en approximation.
 :::
 
-## Équilibre
 
+##
 :::{.callout-important title="Définition - Système à l'équilibre"}
 Un système fermé ou isolé est dit à l'équilibre lorsque
+
 - $\mathbf{a}=0 \leftrightarrow \sum\mathbf{F}=0$ _i.e._ les forces agissant sur le système sont balancées,
 - si la vitesse $\mathbf{v}=0$, l'équilibre est qualifié de statique sinon la vitesse est constante et l'équilibre est dynamique,
 - aucun mouvement ou changement d'état n'est observable macroscopiquement à l'équilibre statique ou thermodynamique,
@@ -874,54 +876,95 @@ Un système fermé ou isolé est dit à l'équilibre lorsque
 - l'équilibre est stable ou instable selon la direction de courbure du champ potentiel à ce point, le cas stable survenant seulement pour un minimum qui doit satisfaire [le test des dérivées secondes](https://en.wikipedia.org/wiki/Second_partial_derivative_test).
 :::
 
-Dans le voisinage d'un point d'équilibre stable du système, le négatif du gradient de son énergie potentielle $-\nabla V$ est dirigé vers le minimum; une perturbation hors-équilibre est alors rappelée vers ce minimum, le système subit une force de rappel.
+## Développement de Taylor autour de l'équilibre
+
+Dans le voisinage d'un point d'équilibre stable du système, le négatif du gradient de son énergie potentielle $-\nabla V$ est dirigé vers le minimum $x_0$. Une perturbation hors-équilibre est alors rappelée vers ce minimum, le système subit une force de rappel.
+
+Une énergie potentielle quelconque pour de petits déplacement autour de $x_0$ peut donc être développée en série de Taylor. Par exemple en 1D pour un potentiel $V(x)$,
 
 :::{.notes}
-Noter que tout point de référence absolue de potentiel disparaît avec les dérivées partielles autant en mécanique lagrangienne que newtonnienne, donc n'apparaît pas dans les éq. du mouvement, n'influence pas la dynamique.
+Noter que ça marche juste pour minimums sinon le déplacement éloigne trop du point d'approximation. Faire une animation de la série de Taylor fittant une courbe V(x) de mieux en mieux en rajoutant des termes.
 :::
 
-## L'approximation harmonique par développement de Taylor {.scrollable}
+## L'approximation harmonique par développement en série de Taylor {.scrollable}
 
-Pour un système à l'équilibre stable au minimum $x_0$ d'une énergie potentielle 1D $V(x)$, développons en série de Taylor autour de $x_0$ :
-$$V(x) = V(x_0) + (x-x_0)\left[\frac{dV}{dx}\right]_{x_0} + \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} + O\big((x-x_0)^3\big)$$
-$$V(x) = V(x_0) + (x-x_0)\frac{dV}{dx}\big|_{x_0} + \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} + O\big((x-x_0)^3\big)$$
+$$V(x) = V(x_0) + \cancel{(x-x_0)\frac{dV}{dx}\big|_{x_0}} + \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} + O\big((x-x_0)^3\big)$$
 
-- Le terme constant $V(x_0)$ n'a pas d'intérêt physique l'énergie potentielle n'est définie qu'à une constante près qui éliminée en évaluant les dérivées partielles menant aux équations du mouvement.
-- Le terme linéaire s'annule identiquement puisque $x_0$ est un minimum.
+- Le terme constant $V(x_0)$ n'a pas d'intérêt physique l'énergie potentielle n'est définie qu'à une constante près qui est éliminée en évaluant les dérivées partielles menant aux équations du mouvement.
+- Le terme linéaire s'annule identiquement puisque $x_0$ est un minimum où la tangente à la courbe $V(x)$ est horizontale.
 
 ## Potentiel harmonique et force de rappel
 
-Il reste, au 2e ordre :
-$$V(x) \approx \frac{(x-x_0)^2}{2}\left[\frac{d^2V}{dx^2}\right]_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u), \quad u=(x-x_0),\; k = \left[\frac{d^2V}{dx^2}\right]_{x_0}$$
+Il reste au 2e ordre un terme de potentiel harmonique
+$$V(x) \approx \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u)$$
 
-$$V(x) \approx \frac{(x-x_0)^2}{2}\frac{d^2V}{dx^2}\big|_{x_0} = \frac{k}{2}u^2 = V_\text{harm}(u), \quad u=(x-x_0),\; k = \frac{d^2V}{dx^2}\big|_{x_0}$$
+où $u=(x-x_0)$ avec $k = \frac{d^2V}{dx^2}\big|_{x_0}$.
 
 ::: {.callout-important title="Remarque 2.5"}
-Pour bon nombre de problèmes, la réponse à un petit déplacement hors équilibre est suffisamment harmonique; cette approximation harmonique est donc d'une grande importance pratique.
+Pour bon nombre de problèmes, la réponse à un petit déplacement hors équilibre est harmonique; cette approximation avec la force de rappel est donc d'une grande importance pratique.
 :::
 
 EXEMPLE en finissant de capturer images chap. 2 et 3
 
+##
+
+Mathématiquement, peu de champs vectoriels se dérivent d'un gradient,_i.e._ $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. En se rappelant que la condition nécessaire est $\nabla\times\mathbf{F}=0$ et que $\dfrac{\partial V}{\partial q_i\partial q_j} = \dfrac{\partialV}{\partial q_j\partial q_i}$, un champ $\mathbf{F}=-\nabla V$ vérfie $\dfrac{\partial F_j}{\partial q_i} = \dfrac{\partial F_i}{\partial q_j}$. 
+
+La condition de l'existence d'un potentiel pour obtenir des forces conservatives est donc fort restrictive.
+
+:::{.notes}
+Bon à commencer au 1er chapitre et faire le détail de dérivation en dépannage en revoyant les conditions nécessaire et suffisante.
+::: 
+
+## Contre-exemple : Évaluez $\dfrac{\partial F_x}{\partial y}$ et $\dfrac{\partial F_y}{\partial x}$ pour un champ de forces $\mathbf{F}= -y \hat{e}_x + x \hat{e}_y$ {.quiz-question}
+
+- "1)" [$\partial_y F_x=-1 \quad \partial_x F_y=+1$]{.correct}
+- "2)" $\partial_y F_x=1 \quad \partial_x F_y=-1$
+- "3)" $\partial_y F_x=0 \quad \partial_x F_y=0$
+
+## Forces non conservatives
+
+En général dans plusieurs situations physiques, les forces ne s'expriment pas comme le gradient d'un potentiel, elles sont dites non conservatives. Par exemple,
+
+- force magnétique,
+- force de frottement $F_\text{frict.}=-k^{(n)}\,|\dot x|^{\,n-1}\,\dot x$ avec $n=0,1$ ou 2 selon respectivement le cas de frottement sec, laminaire ou turbulent,
+- toute force dissipative.
+
+:::{.notes}
+- $k^{(n)}$ est déterminée empiriquement.
+- Le cas $n=0$ ne fonctionne pas avec cette formule. Avec $n=0$, on obtient $-k\,|\dot x|^{-1}\dot x = -k\,\dfrac{\dot x}{|\dot x|} = -k\,\mathrm{sgn}(\dot x)$. C'est bien la forme du frottement de Coulomb, et c'est même élégant. Mais elle est indéterminée à $\dot x=0$ (division par zéro), ce qui reflète le fait que le frottement statique n'est pas donné par cette expression : à l'arrêt, la force de frottement s'ajuste aux forces appliquées (jusqu'à $\mu_s N$). C'est acceptable en synthèse, mais tu peux le signaler. Si tu veux éviter la singularité, tu peux aussi écrire le cas sec à part : $F=-\mu N\,\mathrm{sgn}(\dot x)$.
+- Précision sur $k^{(0)}$ : pour $n=0$, $k^{(0)}=\mu N$ n'est pas une constante « empirique » au même titre que les autres, elle dépend de la force normale.
+- Autres exemples:
+	•	Freinage par courants de Foucault : un aimant qui tombe dans un tube de cuivre subit une force $\propto -\mathbf{v}$, l'énergie étant dissipée par effet Joule.
+	•	Réaction de rayonnement : une charge accélérée émet des ondes électromagnétiques et perd de l'énergie (force d'Abraham-Lorentz).
+	•	Émission d'ondes : la traînée d'onde d'un bateau ou la perte d'énergie par rayonnement sonore.
+	Collisions inélastiques : dissipatives aussi, mais décrites par des impulsions plutôt que par une force continue.
+:::
+
 ## Forces non conservatives et forces généralisées
 
-Mathématiquement, peu de fonctions $\mathbf{F}$ dérivent d'un gradient — en général $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. Elles apparaissent dans plusieurs situations physiques.
+En mécanique lagrangienne, les **forces généralisées** $Q_i$ sont introduites pour inclure ce type de forces. Les équations d'E-L deviennent alors
+$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = Q_i \tag{52}.$$
 
-::: {.callout-tip title="Exemple 2.4 — Frottement"}
-$$F_\text{frict.} = -k^{(n)}\dot x^n \tag{51}$$
-où $n$ dépend du régime (laminaire ou turbulent), et $k^{(n)}$ est déterminée empiriquement.
+::: {.fragment}
+**Exemple** : frottement visqueux $F = -b\dot x$ sur une coordonnée $q = x$. Alors $Q_x = -b\dot x$, et l'équation d'E-L devient l'équation de Newton amortie.
 :::
 
-Pour tenir compte de tels effets, on introduit une **force généralisée** $Q_i$, et les équations d'E-L deviennent :
-$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = Q_i \tag{52}$$
+## Forces généralisées découlant du travail virtuel
 
-## Remarques sur les forces généralisées
+:::{.callout-important title="Définition de force généralisée"}
+$Q_i$ est définie par le travail virtuel des forces non conservatives,
+$$\delta W = \sum_i Q_i\,\delta q_i$$
+Il est dit virtuel puisqu'il découle du même formalisme de variations synchrone de trajectoires avec un déplacement infinitésimal fictif $\delta q_i$ à temps fixé.
 
-::: {.callout-important title="Remarque 2.6"}
-ATTENTION : les composantes $Q_i$ ne sont pas nécessairement cartésiennes, et les équations n'ont pas toutes les mêmes unités !
+$Q_i$ a la dimension d'une force (SI: Newton) et $Q_i\,\delta q_i$ a la dimension d'un travail (SI: N.m = joules) seulement si $q_i$ est une longueur.
 :::
+Il n'y a aucun travail possible dans une direction de coordonnée contrainte puisque la variation \delta r_i y est nulle par définition.
 
-::: {.callout-important title="Remarque 2.7 — Théories de jauge"}
+:::{.notes}
+Définition : $Q_j=\sum_i \mathbf{F}_i\cdot\dfrac{\partial \mathbf{r}_i}{\partial q_j}$ : c'est le travail virtuel des forces appliquées associé à une variation de la coordonnée généralisée $q_j$. Les forces de liaison ne travaillent pas dans un déplacement virtuel compatible avec les contraintes, donc elles disparaissent de $Q_j$. C'est tout l'intérêt du formalisme.
 Il existe une exception importante à cette approche « force généralisée » : les théories basées sur l'invariance de jauge, ex. l'électromagnétisme (voir section 2.8) — dans ce cas, la force n'est pas ajoutée artificiellement à droite de l'équation, mais émerge naturellement d'un lagrangien plus général.
+Le principe d'action stationnaire $\delta S = 0$ ne s'applique pas directement à ces forces, puisqu'elles ne dérivent pas d'un potentiel. L'équation (52) se dérive plutôt du principe de d'Alembert, dont on parlait plus tôt. Une courte note en ce sens évitera que des étudiant·e·s pensent que (52) découle de $\delta S = 0$.
 :::
 
 # 2.5 Coordonnées curvilignes
@@ -934,7 +977,7 @@ En coordonnées cartésiennes, dans un repère inertiel : $\mathbf{r}=(x,y,z)$, 
 
 **Réponse courte : Non !** Deux problèmes surgissent : (1) $r$, $\theta$ et $\varphi$ n'ont pas les mêmes dimensions ; (2) leurs axes sont orthogonaux mais ne sont **pas fixes** dans le temps (contrairement aux axes cartésiens, qui gardent toujours la même orientation).
 
-## Dérivation de l'énergie cinétique en sphériques {.smaller}
+## Dérivation de l'énergie cinétique en sphériques {.scrollable}
 
 Partons du changement de coordonnées $x=r\sin\theta\cos\varphi$, $y=r\sin\theta\sin\varphi$, $z=r\cos\theta$. Par dérivation en chaîne (chaque terme différencié selon $r,\theta,\varphi$) :
 $$\dot x = \dot r\sin\theta\cos\varphi + r\dot\theta\cos\theta\cos\varphi - r\dot\varphi\sin\theta\sin\varphi$$
@@ -952,7 +995,7 @@ $$T = \frac{m}{2}\dot r^2 + \frac{m}{2}r^2\dot\theta^2 + \frac{m}{2}r^2\sin^2\th
 ce qui **ne correspond pas** à l'expression « naïve » qu'on pourrait être tenté d'écrire par analogie directe avec le cas cartésien :
 $$T \neq \tfrac{1}{2}m\dot r^2 + \tfrac{1}{2}m\dot\theta^2 + \tfrac{1}{2}m\dot\varphi^2$$
 
-Les facteurs $r^2$ et $r^2\sin^2\theta$ devant $\dot\theta^2$ et $\dot\varphi^2$ sont indispensables — ils compensent le fait que $\theta$ et $\varphi$ sont des angles, pas des longueurs, et que les distances physiques parcourues pour un même $d\theta$ ou $d\varphi$ dépendent de $r$.
+Les facteurs $r^2$ et $r^2\sin^2\theta$ devant $\dot\theta^2$ et $\dot\varphi^2$ sont indispensables. Ils compensent le fait que $\theta$ et $\varphi$ sont des angles, pas des longueurs, et que les distances physiques parcourues pour un même $d\theta$ ou $d\varphi$ dépendent de $r$.
 
 ## La métrique
 
