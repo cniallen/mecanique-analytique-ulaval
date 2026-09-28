@@ -906,21 +906,21 @@ Pour bon nombre de problèmes, la réponse à un petit déplacement hors équili
 
 ## Mécanique lagrangienne - Méthode générale {.scrollable}
 
-### Analyse du problème
+#### Analyse du problème
 
-A) Trouver les contraintes sur la dynamique du système
-B) Identifier le nombre de degrés de liberté
-C) Choisir une coordonnée généralisée appropriée pour chaque ddl
+- "A)" Trouver les contraintes sur la dynamique du système
+- "B)" Identifier le nombre de degrés de liberté
+- "C)" Choisir une coordonnée généralisée appropriée pour chaque ddl
 
-### Mécanique lagrangienne
+#### Mécanique lagrangienne
 
-D) Écrire l'énergie cinétique $T$ du système
-E) Déterminer son énergie potentielle totale $V$ 
-F) Combiner dans le lagrangien $L=T-V$ en portant attention aux variables indépendantes dans $L(q_i,\dot q_i,t$
-G) Identifier les coordonnées cycliques où il suffit de résoudre $\frac{\partial L}{\partial\dot q_i} = constante du mouvement
-H) Écrire les équations d'Euler-Lagrange pour les autres coordonnées et obtenir les équations du mouvement.
+- "D)" Écrire l'énergie cinétique $T$ du système
+- "E)" Déterminer son énergie potentielle totale $V$ 
+- "F)" Combiner dans le lagrangien $L=T-V$ en portant attention aux variables indépendantes dans $L(q_i,\dot q_i,t$
+- "G)" Identifier les coordonnées cycliques où il suffit de résoudre $\frac{\partial L}{\partial\dot q_i} = constante du mouvement
+- "H)" Écrire les équations d'Euler-Lagrange pour les autres coordonnées et obtenir les équations du mouvement.
 
-### Résoudre ces EDO du mouvement pour trouver la trajectoire des particules, l'évolution du système physique.
+#### Pour trouver la trajectoire des particules, l'évolution du système physique, résoudre ces EDO du mouvement
 
 :::{.notes}
 Y'a pas juste des pours à se mettre sur des méthodes trops cadrées, nuit à la créativité et limite la généralité d'apprentissage. Penser par auteurs pour se nourrir d'un maximum d'approches.
@@ -950,6 +950,8 @@ $$m\ddot z + kz = kz_0 - mg$$
 Fait au tableau et au chapitre 3.
 
 :::{.callout-tip title="Solution finale" style="font-size: 1.3em;"}
+Formes équivalentes
+$$z(t) = C_{4z}\cos\omega_0 t + C_{3z}\sin\omega_0 t + z_{eq}$$
 $$z(t) = A\sin(\omega t+\delta) + z_0 - \frac{mg}{k}$$
 
 Il s'agit d'un mouvement harmonique de fréquence $\omega=\sqrt{k/m}$ oscillant autour de $z=z_0-mg/k$. Au repos ($A=0$), le champ gravitationnel étire le ressort d'une longueur $mg/k$.
@@ -958,6 +960,7 @@ Il s'agit d'un mouvement harmonique de fréquence $\omega=\sqrt{k/m}$ oscillant 
 ::::
 
 :::{.notes}
+Rajouter exponentielles complexes aux formes équivalentes et faire en quiz ce qu'on retrouve plus loin dans le chapitre.
 **Résolution** : $z=z_h+z_p$, où $z_h$ solutionne l'éq. homogène $m\ddot z_h+kz_h=0$. Avec $z_h=Ae^{st}$, on trouve $ms^2+k=0 \Rightarrow s=\pm i\omega$, $\omega=\sqrt{k/m}$, donc $z_h(t)=A\sin(\omega t+\delta)$. La solution particulière (constante) est $z_p=C$. En substituant $z=z_h+C$ dans (19) et en identifiant les termes :
 $$kz_0 - mg = -m\omega^2 A\sin(\omega t+\delta) + kA\sin(\omega t+\delta) + kC = kC \quad (\text{car } m\omega^2=k)$$
 d'où $C = z_0 - mg/k$. **Solution générale :**
@@ -967,9 +970,10 @@ $$z(t) = A\sin(\omega t+\delta) + z_0 - \frac{mg}{k} \tag{37}$$
 
 ## Limites des forces conservatives
 
-Mathématiquement, peu de champs vectoriels se dérivent d'un gradient,_i.e._ $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. En se rappelant que la condition nécessaire est $\nabla\times\mathbf{F}=0$ et que $\dfrac{\partial V}{\partial q_i\partial q_j} = \dfrac{\partial V}{\partial q_j\partial q_i}$, un champ $\mathbf{F}=-\nabla V$ vérfie $\dfrac{\partial F_j}{\partial q_i} = \dfrac{\partial F_i}{\partial q_j}$. 
+Mathématiquement, peu de champs vectoriels se dérivent d'un gradient,_i.e._ $\mathbf{F}(\mathbf{r}) \neq -\nabla V(\mathbf{r})$. En se rappelant que la condition nécessaire est $\nabla\times\mathbf{F}=0$ et que $\dfrac{\partial V}{\partial q_i\partial q_j} = \dfrac{\partial V}{\partial q_j\partial q_i}$, un champ $\mathbf{F}=-\nabla V$ vérifie 
+$$\dfrac{\partial F_j}{\partial q_i} = \dfrac{\partial F_i}{\partial q_j}.$$ 
 
-La condition de l'existence d'un potentiel pour obtenir des forces conservatives est donc fort restrictive.
+La condition de l'existence d'un potentiel pour obtenir des forces conservatives est donc restrictive.
 
 :::{.notes}
 - Bon à commencer au 1er chapitre et faire le détail de dérivation en dépannage en revoyant les conditions nécessaire et suffisante.
@@ -1041,11 +1045,12 @@ En coordonnées cartésiennes, dans un repère inertiel : $\mathbf{r}=(x,y,z)$, 
 
 ## Le défi des coordonnées curvilignes
 
+:::{.}
 **Question :** en coordonnées sphériques $\mathbf{r}=(r,\theta,\varphi)$, peut-on écrire sans ambiguïté $\dot{\mathbf{r}} = (\dot r, \dot\theta, \dot\varphi)$ ?
 
 **Réponse courte : Non !** Deux problèmes surgissent : (1) $r$, $\theta$ et $\varphi$ n'ont pas les mêmes dimensions ; (2) leurs axes sont orthogonaux mais ne sont **pas fixes** dans le temps (contrairement aux axes cartésiens, qui gardent toujours la même orientation).
 
-## Dérivation de l'énergie cinétique en sphériques {.scrollable}
+## Énergie cinétique en coordonnées sphériques {.scrollable}
 
 Partons du changement de coordonnées $x=r\sin\theta\cos\varphi$, $y=r\sin\theta\sin\varphi$, $z=r\cos\theta$. Par dérivation en chaîne (chaque terme différencié selon $r,\theta,\varphi$) :
 $$\dot x = \dot r\sin\theta\cos\varphi + r\dot\theta\cos\theta\cos\varphi - r\dot\varphi\sin\theta\sin\varphi$$
