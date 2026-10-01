@@ -1122,9 +1122,9 @@ où $g_{ij}$ est la **métrique** (ou tenseur métrique), qui définit la longue
 Les matrices sont diagonales dans ces cas, car les 3 systèmes d'axes restent orthogonaux
 :::
 
-- Cartésiennes $(x,y,z)$ : $g_{ij} = \text{diag}(1,1,1) g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{smallmatrix}\bigr)$, constante, sans dimension
-- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \text{diag}(1, r^2, r^2\sin^2\theta)$ $g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & r^2\sin^2\theta \end{smallmatrix}\bigr)$, dépend de la position
-- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1) g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & \rho^2 & 0 \\ 0 & 0 & 1 \end{smallmatrix}\bigr)$, 
+- Cartésiennes $(x,y,z)$ : $g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{smallmatrix}\bigr)$, constante, sans dimension
+- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & r^2\sin^2\theta \end{smallmatrix}\bigr)$, dépend de la position
+- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & \rho^2 & 0 \\ 0 & 0 & 1 \end{smallmatrix}\bigr)$, dépend de la position
 
 
 
@@ -1214,7 +1214,8 @@ Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de fa�
 :::{.notes}
 - C"est un solide dans le 2e exemple, triche vu qu'on devrait être en masses ponctuelles encore ici.
 -la non-intégrabilité du disque roulant est un résultat classique mais pas trivial à démontrer rigoureusement (ça implique de vérifier qu'aucune combinaison intégrante n'existe, typiquement via le théorème de Frobenius) — pour une diapositive, l'argument intuitif donné (dépendance au chemin plutôt qu'à l'état instantané) est le niveau d'explication usuel
-:::   
+:::  
+ 
 ## Sous-catégories de contraintes
 
 Lors que les contraintes sont holonomes, elles sont de plus catégorisées ainsi:
