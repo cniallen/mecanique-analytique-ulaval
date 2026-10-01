@@ -1156,10 +1156,11 @@ Considérons $L = \dfrac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-V(x,y,z)$ pour une pa
 
 - 1^ère^ catégorie de contraintes déjà rencontrée : élimine des ddl. Par exemple pour des constantes $a, \alpha$ et $\beta$,
 
-##
+## {.scrollable}
 ::: {.callout-caution title="Exemples de contraintes holonomes"}
 
-#### Contrainte sur la position $x=a$
+#### Contrainte sur la position
+$x=a$
 
 Le mouvement est contraint dans le plan $x=a \to \dot x=0$ et en substituant directement dans le lagrangien :
 $$L = \frac{m}{2}(\dot y^2+\dot z^2)-V(a,y,z).$$
@@ -1167,7 +1168,8 @@ $$L = \frac{m}{2}(\dot y^2+\dot z^2)-V(a,y,z).$$
 - 1 ddl est éliminé
 - $\exists$ seulement 2 ddl $\rightarrow$ 2 éqs E-L, une pour chaque coordonnée $y$ et $z$. 
 
-#### Contrainte sur la vitesse $\dot y = \alpha$
+#### Contrainte sur la vitesse
+$\dot y = \alpha$
 
 En intégrant $\dot y=\alpha \rightarrow y=\alpha t+\beta$ et en substituant directement dans le lagrangien :
 $$L = \frac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z).$$
@@ -1176,20 +1178,60 @@ $$L = \frac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z).$$
 - $\exists$ seulement 2 ddl $\rightarrow$ 2 éqs E-L, une pour chaque coordonnée $x$ et $z$. 
 :::
 
+:::{.notes}
+Semble clasher avec la définition d'un domaine nul de la coordonnée contrainter, surtoutpour non holonome ci-dessous 🤔 Aussi pas oublier de réfléchir à la définition du travail virtuel avec somme au lieu d'intégrale. 
+:::
+
 ## Catégories de contraintes
 
-::: {.callout-note title="Définition 2.7 — Contraintes holonomes"}
-Une contrainte $f(q_i,\dot q_i,t)=0$ est dite **holonome** si elle peut s'écrire comme la dérivée totale d'une fonction des coordonnées seules :
-$$f(q_i,\dot q_i,t) = \frac{d}{dt}h(q_i,t)=0, \quad\text{soit, après intégration,}\quad h(q_i,t)=C \tag{112}$$
+::: {.callout-note title="Définition 2.7 — Contraintes holonomes/non holonomes"}
+Une contrainte $f(q_i,\dot q_i,t)=0$ est dite **holonome** si elle peut s'écrire comme la dérivée totale d'une fonction seulement des coordonnées et du temps, soit
+$$f(q_i,\dot q_i,t) = \frac{d}{dt}h(q_i,t)=0$$
+menant à une constante $C$ après intégration :
+$$h(q_i,t)=\int f(q_i,\dot q_i,t)=C$$
+
+Toute autre contrainte est dite **non holonome**, soit parce qu'elles se formulent en inégalité $f(q_i,\dot q_i,t)<0$ ou $f(q_i,\dot q_i,t)>0$ ou globalement parce qu'elles ne sont pas intégrables selon leur dépendance sur les vitesses, i.e.
+$$f(q_i,\dot q_i,t) \neq \frac{d}{dt}h(q_i,t)=0$$
 :::
 
-::: {.callout-note title="Définition 2.8 — Rhéonome / scléronome"}
-Si $\partial f/\partial t\neq 0$, la contrainte est **rhéonome** (dépend explicitement du temps, ex. une paroi mobile) ; si $\partial f/\partial t = 0$, elle est **scléronome** (fixe dans le temps).
+##
+::: {.callout-caution title="Exemple de contrainte non holonome — Inégalité : une bille dans une boîte"}
+Pour une bille de rayon négligeable confinée dans une boîte sphérique de rayon $R$, la contrainte s'écrit
+$$f(q_i) = r - R \leq 0$$
+
+Tant que la bille n'est pas en contact avec la paroi ($r<R$), elle se déplace librement avec 3 degrés de liberté : la contrainte est **inactive**. Au contact ($r=R$), elle devient localement une égalité, mais la bille peut aussi quitter la paroi à tout moment. Contrairement à une tige rigide, aucune fonction $h(q_i,t)=C$ fixe ne décrit le mouvement en tout temps. C'est le critère d'inégalité, pas un problème d'intégrabilité, qui rend cette contrainte non holonome.
 :::
 
+##
+::: {.callout-caution title="Exemple de contrainte non holonome — Vitesse non intégrable : disque roulant sans glisser"}
+Un disque vertical de rayon $R$ roule sans glisser sur un plan $(x,y)$. Sa configuration est donnée par $(x,y,\theta,\phi)$ : la position du point de contact, l'orientation du disque dans le plan ($\theta$), et son angle de rotation propre ($\phi$).
+
+Le roulement sans glissement impose, à chaque instant,
+$$\dot x = R\dot\phi\cos\theta \qquad \dot y = R\dot\phi\sin\theta$$
+
+Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de façon essentielle — mais, contrairement au cas d'une contrainte linéaire en vitesse intégrable, **aucune fonction** $h(x,y,\theta,\phi)$ n'existe telle que ces équations s'écrivent $\dot h = 0$. La raison intuitive : $x$ et $y$ dépendent du chemin complet suivi par $\theta(t)$ au cours du mouvement, pas seulement des valeurs instantanées de $(x,y,\theta,\phi)$. On ne peut pas réduire ces deux équations différentielles à une simple relation algébrique entre les coordonnées.
+:::
+
+## Sous-catégories de contraintes
+
+Lors que les contraintes sont holonomes, elles sont de plus catégorisées ainsi:
+
+::: {.callout-note title="Définition 2.8 — Contraintes rhéonomes / scléronomes"}
+Si la contrainte holonome dépend explicitement du temps
+$$f=0 \quad \partial f/\partial t\neq 0,$$
+et elle est dite **rhéonome**; 
+
+sinon elle est fixe, invariante dans le temps et 
+$$f=0 \quad \partial f/\partial t=0,$$ 
+et se nomme **scléronome**.
+:::
+
+##
 ::: {.callout-note title="Définition 2.9 — Contraintes non holonomes"}
-Celles qui n'obéissent pas à $f=\dfrac{d}{dt}h$ — soit parce qu'elles dépendent des vitesses d'une façon non intégrable, soit parce qu'elles s'écrivent en **inégalité** : $f<0$ ou $f>0$ (ex. une bille dans une boîte, $r\le R$).
+(ex. une bille dans une boîte, $r\le R$).
 :::
+scléronome
+ex. une paroi mobile)
 
 ::: {.callout-important title="Remarque 2.9"}
 ATTENTION : il faut s'assurer que la contrainte holonome est imposée correctement, c.-à-d. de manière à éliminer une des variables superflues (pas comme intégrale moyenne sans intérêt physique).
@@ -1228,7 +1270,7 @@ Si la contrainte dépend des $\dot q_j$ (pas seulement des $q_j$), alors $\dfrac
 
 Dans certains cas, l'étape 5 permet de **simplifier considérablement** la résolution, en réduisant le nombre d'équations différentielles du 2ᵉ ordre à résoudre simultanément.
 
-## Variables cycliques
+## Coordonnées cycliques
 
 ::: {.callout-note title="Définition 2.10 — Variable cyclique"}
 Si un lagrangien ne dépend pas explicitement d'une variable $q$ (mais dépend de sa vitesse $\dot q$), alors $q$ est dite **cyclique** (ou ignorable).
