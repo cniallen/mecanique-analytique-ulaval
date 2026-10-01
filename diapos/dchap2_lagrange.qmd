@@ -1059,7 +1059,7 @@ En coordonnées cartésiennes, $\mathbf{r}=(x,y,z)$ se dérive simplement: $\dot
 2. leurs axes sont orthogonaux mais ne sont **pas fixes** dans le temps (contrairement aux axes cartésiens, qui gardent toujours la même orientation).
 
 :::{.notes}
-Revoir les annexes de Cheng
+Revoir les annexes de Cheng et tourner les diapos de lagrangien de coordonnées sphériques et cylindriques en quiz.
 :::
 
 ## Énergie cinétique en coordonnées sphériques {.scrollable}
@@ -1127,7 +1127,7 @@ Toujours diagonales ici, car les 3 systèmes d'axes restent orthogonaux
 - Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1)$
 
 
-:::{.notes}
+::::{.notes}
 ## Symboles de Christoffel
 
 Le membre de gauche des équations précédentes suit toujours la forme $\ddot q_i + \sum_{j,k}\Gamma^i_{jk}\dot q_j\dot q_k$, ce qui mène à la notion de **dérivée covariante** :
@@ -1145,27 +1145,38 @@ où $g^{-1}$ est la matrice inverse de $g$. Entièrement déterminés par la mé
 Pour les coordonnées cartésiennes, tous les $\Gamma^i_{jk}=0$ — seul système de coordonnées pour lequel c'est vrai partout, car l'espace euclidien y est décrit sans « distorsion » de coordonnées (courbure nulle des lignes de coordonnées). La méthode lagrangienne fait automatiquement cette « cuisine » compliquée, ce qui n'est pas le moindre de son intérêt.
 :::
 
-:::
+::::
 
 # 2.6 Contraintes holonomes et non holonomes
 
 ## Éliminer un ddl à l'aide d'une contrainte
 
-Considérons $L = \dfrac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-V(x,y,z)$ (particule ponctuelle en 3D, 3 ddl).
+### Retour et précision sur la nature des contraintes
+Considérons $L = \dfrac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-V(x,y,z)$ pour une particule ponctuelle se déplaçant en 3D $\rightarrow$ 3 ddl.
 
-::: {.callout-tip title="Exemple 2.5 — Contrainte $x=a$"}
-Le mouvement est gelé en $x$, contraint dans le plan $x=a$ : il ne reste que 2 ddl, et en substituant directement $x\to a$, $\dot x\to 0$ dans le lagrangien :
-$$L = \frac{m}{2}(\dot y^2+\dot z^2)-V(a,y,z)$$
-La contrainte $x=a$ a permis d'éliminer complètement un ddl du lagrangien.
+- 1^ère^ catégorie de contraintes déjà rencontrée : élimine des ddl. Par exemple pour des constantes $a, \alpha$ et $\beta$,
+
+##
+::: {.callout-caution title="Exemples de contraintes holonomes"}
+
+#### Contrainte sur la position $x=a$
+
+Le mouvement est contraint dans le plan $x=a \to \dot x=0$ et en substituant directement dans le lagrangien :
+$$L = \frac{m}{2}(\dot y^2+\dot z^2)-V(a,y,z).$$
+
+- 1 ddl est éliminé
+- $\exists$ seulement 2 ddl $\rightarrow$ 2 éqs E-L, une pour chaque coordonnée $y$ et $z$. 
+
+#### Contrainte sur la vitesse $\dot y = \alpha$
+
+En intégrant $\dot y=\alpha \rightarrow y=\alpha t+\beta$ et en substituant directement dans le lagrangien :
+$$L = \frac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z).$$
+
+- 1 ddl est éliminé
+- $\exists$ seulement 2 ddl $\rightarrow$ 2 éqs E-L, une pour chaque coordonnée $x$ et $z$. 
 :::
 
-::: {.callout-tip title="Exemple 2.6 — Contrainte $\dot y = \alpha$"}
-En intégrant $\dot y=\alpha$ trivialement, $y=\alpha t+\beta$. En substituant $y\to\alpha t+\beta$ et $\dot y\to\alpha$ dans $L$ :
-$$L = \frac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z)$$
-De nouveau, une contrainte a permis d'éliminer un ddl — même si, ici, elle porte sur la vitesse plutôt que directement sur la position.
-:::
-
-## Définitions formelles des contraintes
+## Catégories de contraintes
 
 ::: {.callout-note title="Définition 2.7 — Contraintes holonomes"}
 Une contrainte $f(q_i,\dot q_i,t)=0$ est dite **holonome** si elle peut s'écrire comme la dérivée totale d'une fonction des coordonnées seules :
