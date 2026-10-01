@@ -1282,9 +1282,9 @@ Pas inconditionnellement, et c'est justement ce que votre propre exemple de la t
 Donc la garantie est **locale et générique** (vraie presque partout), pas globale et automatique — d'où l'intérêt pratique de choisir d'emblée des coordonnées généralisées (comme $\theta$) qui évitent ces singularités, plutôt que de se fier aveuglément à la substitution d'une contrainte holonome quelconque.
 :::
 
-## Contre-exemple : mauvaise écriture de contrainte holonome {.scollable}
+## Contre-exemple : mauvaise écriture de contrainte {.scollable}
 
-### Retour sur l'exemple de la contrainte 
+### Retour sur l'exemple de la contrainte holonome
 $x=a$
 
 Imposer cette contrainte en définissant
@@ -1313,7 +1313,7 @@ Si un lagrangien $L$ dépend de conrdonnées contraintes **non éliminées**, le
 
 Pour certaines contraintes holonomes difficiles à éliminer directement par substitution, par exemple lorsque $h(q_i,t)=C$ ne s'inverse pas facilement pour isoler une variable, on utilise plutôt la **méthode des multiplicateurs de Lagrange**, qui contourne le besoin d'inverser explicitement la contrainte.
 
-##{.scrollable}
+## {.scrollable}
 
 ::: {.callout-note title="Méthode des multiplicateurs de Lagrange"}
 1. Écrire un lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$, où la contrainte $f=0$ est temporairement levée et $\lambda$ traité comme un paramètre libre.
