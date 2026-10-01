@@ -1210,6 +1210,7 @@ Le roulement sans glissement impose, à chaque instant,
 $$\dot x = R\dot\phi\cos\theta \qquad \dot y = R\dot\phi\sin\theta$$
 
 Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de façon essentielle — mais, contrairement au cas d'une contrainte linéaire en vitesse intégrable, **aucune fonction** $h(x,y,\theta,\phi)$ n'existe telle que ces équations s'écrivent $\dot h = 0$. En effet, $x$ et $y$ dépendent du chemin complet suivi par $\theta(t)$ au cours du mouvement, pas seulement des valeurs instantanées de $(x,y,\theta,\phi)$. On ne peut pas réduire ces deux équations différentielles à une simple relation algébrique entre les coordonnées.
+:::
 
 :::{.notes}
 - C"est un solide dans le 2e exemple, triche vu qu'on devrait être en masses ponctuelles encore ici.
