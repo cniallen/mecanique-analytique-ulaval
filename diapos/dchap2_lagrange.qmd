@@ -1119,33 +1119,34 @@ où $g_{ij}$ est la **métrique** (ou tenseur métrique), qui définit la longue
 
 ## Exemples de métriques
 :::{.header}
-Toujours diagonales ici, car les 3 systèmes d'axes restent orthogonaux
+Les matrices sont diagonales dans ces cas, car les 3 systèmes d'axes restent orthogonaux
 :::
 
-- Cartésiennes $(x,y,z)$ : $g_{ij} = \text{diag}(1,1,1)$ — constante, sans dimension
-- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \text{diag}(1, r^2, r^2\sin^2\theta)$ — dépend de la position
-- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1)$
+- Cartésiennes $(x,y,z)$ : $g_{ij} = \text{diag}(1,1,1) g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{smallmatrix}\bigr)$, constante, sans dimension
+- Sphériques $(r,\theta,\varphi)$ : $g_{ij} = \text{diag}(1, r^2, r^2\sin^2\theta)$ $g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & r^2\sin^2\theta \end{smallmatrix}\bigr)$, dépend de la position
+- Cylindriques $(\rho,\theta,z)$ : $g_{ij} = \text{diag}(1, \rho^2, 1) g_{ij} = \bigl(\begin{smallmatrix} 1 & 0 & 0 \\ 0 & \rho^2 & 0 \\ 0 & 0 & 1 \end{smallmatrix}\bigr)$, 
 
 
-::::{.notes}
-## Symboles de Christoffel
+
+:::{.notes}
+Symboles de Christoffel
 
 Le membre de gauche des équations précédentes suit toujours la forme $\ddot q_i + \sum_{j,k}\Gamma^i_{jk}\dot q_j\dot q_k$, ce qui mène à la notion de **dérivée covariante** :
 
-::: {.callout-note title="Définition 2.5 — Dérivée covariante"}
+:::: {.callout-note title="Définition 2.5 — Dérivée covariante"}
 $$D_t \dot q_i = \ddot q_i + \sum_{j,k}\Gamma^i_{jk}\dot q_j\dot q_k$$
-:::
+::::
 
-::: {.callout-note title="Définition 2.6 — Symboles de Christoffel"}
+:::: {.callout-note title="Définition 2.6 — Symboles de Christoffel"}
 $$\Gamma^i_{jk} = \frac{1}{2}\sum_l g^{-1}_{il}\left[\frac{\partial g_{lj}}{\partial q_k}+\frac{\partial g_{lk}}{\partial q_j}-\frac{\partial g_{jk}}{\partial q_l}\right] \tag{105}$$
 où $g^{-1}$ est la matrice inverse de $g$. Entièrement déterminés par la métrique, ils jouent un rôle géométrique important (courbure de l'espace de configuration).
-:::
-
-::: {.callout-important title="Remarque 2.8"}
-Pour les coordonnées cartésiennes, tous les $\Gamma^i_{jk}=0$ — seul système de coordonnées pour lequel c'est vrai partout, car l'espace euclidien y est décrit sans « distorsion » de coordonnées (courbure nulle des lignes de coordonnées). La méthode lagrangienne fait automatiquement cette « cuisine » compliquée, ce qui n'est pas le moindre de son intérêt.
-:::
-
 ::::
+
+:::: {.callout-important title="Remarque 2.8"}
+Pour les coordonnées cartésiennes, tous les $\Gamma^i_{jk}=0$ — seul système de coordonnées pour lequel c'est vrai partout, car l'espace euclidien y est décrit sans « distorsion » de coordonnées (courbure nulle des lignes de coordonnées). La méthode lagrangienne fait automatiquement cette « cuisine » compliquée, ce qui n'est pas le moindre de son intérêt.
+::::
+
+:::
 
 # 2.6 Contraintes holonomes et non holonomes
 
@@ -1179,7 +1180,7 @@ $$L = \frac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z).$$
 :::
 
 :::{.notes}
-Semble clasher avec la définition d'un domaine nul de la coordonnée contrainter, surtoutpour non holonome ci-dessous 🤔 Aussi pas oublier de réfléchir à la définition du travail virtuel avec somme au lieu d'intégrale. 
+Semble clasher avec la définition d'un domaine nul de la coordonnée contrainter, surtoutpour non holonome ci-dessous 🤔 Aussi pas oublier de réfléchir à la définition du travail virtuel avec somme au lieu d'intégrale: intégrale sur temps, somme sur degrés de liberté
 :::
 
 ## Catégories de contraintes
@@ -1187,63 +1188,130 @@ Semble clasher avec la définition d'un domaine nul de la coordonnée contrainte
 ::: {.callout-note title="Définition 2.7 — Contraintes holonomes/non holonomes"}
 Une contrainte $f(q_i,\dot q_i,t)=0$ est dite **holonome** si elle peut s'écrire comme la dérivée totale d'une fonction seulement des coordonnées et du temps, soit
 $$f(q_i,\dot q_i,t) = \frac{d}{dt}h(q_i,t)=0$$
-menant à une constante $C$ après intégration :
-$$h(q_i,t)=\int f(q_i,\dot q_i,t)=C$$
+menant à une constante $C$ après intégration $h(q_i,t)=\int f(q_i,\dot q_i,t)=C.$
 
-Toute autre contrainte est dite **non holonome**, soit parce qu'elles se formulent en inégalité $f(q_i,\dot q_i,t)<0$ ou $f(q_i,\dot q_i,t)>0$ ou globalement parce qu'elles ne sont pas intégrables selon leur dépendance sur les vitesses, i.e.
+Toute autre contrainte est dite **non holonome**, soit parce qu'elles se formulent en inégalité $f(q_i,\dot q_i,t)<0$ ou $f(q_i,\dot q_i,t)>0$ ou globalement parce qu'elles ne sont pas intégrables selon leur dépendance sur les vitesses, _i.e._
 $$f(q_i,\dot q_i,t) \neq \frac{d}{dt}h(q_i,t)=0$$
 :::
 
 ##
-::: {.callout-caution title="Exemple de contrainte non holonome — Inégalité : une bille dans une boîte"}
+::: {.callout-caution title="Exemple de contrainte non holonome — Inégalité"}
 Pour une bille de rayon négligeable confinée dans une boîte sphérique de rayon $R$, la contrainte s'écrit
-$$f(q_i) = r - R \leq 0$$
+$$f(q_i) = r - R \leqslant 0$$
 
-Tant que la bille n'est pas en contact avec la paroi ($r<R$), elle se déplace librement avec 3 degrés de liberté : la contrainte est **inactive**. Au contact ($r=R$), elle devient localement une égalité, mais la bille peut aussi quitter la paroi à tout moment. Contrairement à une tige rigide, aucune fonction $h(q_i,t)=C$ fixe ne décrit le mouvement en tout temps. C'est le critère d'inégalité, pas un problème d'intégrabilité, qui rend cette contrainte non holonome.
+Tant que la bille n'est pas en contact avec la paroi ($r<R$), elle se déplace librement avec 3 degrés de liberté : la contrainte est **inactive**. Au contact ($r=R$), elle devient localement une égalité, mais la bille peut aussi quitter la paroi à tout moment. Contrairement à une tige rigide, aucune fonction $h(q_i,t)=C$ fixe ne décrit le mouvement en tout temps. C'est le critère d'inégalité qui rend cette contrainte non holonome.
 :::
 
 ##
-::: {.callout-caution title="Exemple de contrainte non holonome — Vitesse non intégrable : disque roulant sans glisser"}
-Un disque vertical de rayon $R$ roule sans glisser sur un plan $(x,y)$. Sa configuration est donnée par $(x,y,\theta,\phi)$ : la position du point de contact, l'orientation du disque dans le plan ($\theta$), et son angle de rotation propre ($\phi$).
+::: {.callout-caution title="Exemple de contrainte non holonome — Vitesse non intégrable"}
+Un disque vertical de rayon $R$ roule sans glisser sur un plan $(x,y)$. Sa configuration est donnée par $(x,y,\theta,\phi)$ : la position du point de contact, l'orientation $\theta$ du disque dans le plan, et son angle de rotation propre $\phi$.
 
 Le roulement sans glissement impose, à chaque instant,
 $$\dot x = R\dot\phi\cos\theta \qquad \dot y = R\dot\phi\sin\theta$$
 
-Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de façon essentielle — mais, contrairement au cas d'une contrainte linéaire en vitesse intégrable, **aucune fonction** $h(x,y,\theta,\phi)$ n'existe telle que ces équations s'écrivent $\dot h = 0$. La raison intuitive : $x$ et $y$ dépendent du chemin complet suivi par $\theta(t)$ au cours du mouvement, pas seulement des valeurs instantanées de $(x,y,\theta,\phi)$. On ne peut pas réduire ces deux équations différentielles à une simple relation algébrique entre les coordonnées.
-:::
+Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de façon essentielle — mais, contrairement au cas d'une contrainte linéaire en vitesse intégrable, **aucune fonction** $h(x,y,\theta,\phi)$ n'existe telle que ces équations s'écrivent $\dot h = 0$. En effet, $x$ et $y$ dépendent du chemin complet suivi par $\theta(t)$ au cours du mouvement, pas seulement des valeurs instantanées de $(x,y,\theta,\phi)$. On ne peut pas réduire ces deux équations différentielles à une simple relation algébrique entre les coordonnées.
 
+:::{.notes}
+- C"est un solide dans le 2e exemple, triche vu qu'on devrait être en masses ponctuelles encore ici.
+-la non-intégrabilité du disque roulant est un résultat classique mais pas trivial à démontrer rigoureusement (ça implique de vérifier qu'aucune combinaison intégrante n'existe, typiquement via le théorème de Frobenius) — pour une diapositive, l'argument intuitif donné (dépendance au chemin plutôt qu'à l'état instantané) est le niveau d'explication usuel
+:::   
 ## Sous-catégories de contraintes
 
 Lors que les contraintes sont holonomes, elles sont de plus catégorisées ainsi:
 
 ::: {.callout-note title="Définition 2.8 — Contraintes rhéonomes / scléronomes"}
-Si la contrainte holonome dépend explicitement du temps
-$$f=0 \quad \partial f/\partial t\neq 0,$$
+Si une contrainte holonome dépend **explicitement** du temps
+$$f=0, \quad \partial f/\partial t\neq 0,$$
 et elle est dite **rhéonome**; 
 
 sinon elle est fixe, invariante dans le temps et 
-$$f=0 \quad \partial f/\partial t=0,$$ 
+$$f=0, \quad \partial f/\partial t=0,$$ 
 et se nomme **scléronome**.
 :::
 
-##
-::: {.callout-note title="Définition 2.9 — Contraintes non holonomes"}
-(ex. une bille dans une boîte, $r\le R$).
+:::{.notes}
+Dans l'exemple rhéonome, le temps apparaît explicitement dans $f$ parce que la géométrie de la contrainte change — contrairement au cas scléronome où $t$ pourrait apparaître *implicitement* via $q_i(t)$ (la position de la masse change avec le temps), mais jamais directement dans la *fonction* $f$ elle-même. C'est cette présence explicite de $t$ comme argument de $f$, et non la simple évolution temporelle du système, qui distingue les deux catégories.
 :::
-scléronome
-ex. une paroi mobile)
 
-::: {.callout-important title="Remarque 2.9"}
-ATTENTION : il faut s'assurer que la contrainte holonome est imposée correctement, c.-à-d. de manière à éliminer une des variables superflues (pas comme intégrale moyenne sans intérêt physique).
+##
+::: {.callout-note title="Exemple de contrainte scléronome"}
+Un pendule simple de longueur fixe $\ell$ :
+$$f(x,y) = x^2+y^2-\ell^2 = 0$$
+La contrainte elle-même ne change pas avec $t$ — seul le mouvement de la masse le long du cercle en dépend.
+:::
+
+::: {.callout-note title="Exemple de contrainte rhéonome"}
+Un pendule dont le point d'attache remonte à vitesse constante $v$, ou dont la longueur varie dans le temps, $\ell(t) = \ell_0 + vt$ :
+$$f(x,y,t) = x^2+y^2-\big(\ell_0+vt\big)^2 = 0$$
+Ici, la contrainte **elle-même** se déforme au cours du temps, indépendamment du mouvement de la masse.
+:::
+
+## {.quiz-question}
+
+:::{.header}
+Une particule se déplace sur un cerceau circulaire de rayon $R$, et ce cerceau tourne à vitesse angulaire constante imposée $\omega$ autour d'un axe vertical. Comment classifier la contrainte?
+:::
+
+- [Holonome et rhéonome]{.correct data-explanation="f(r,t)=r-R=0 (où $r$ est sa distance à l'axe) est une relation algébrique entre coordonnées (et ici, t n'apparaît même pas explicitement dans cette expression précise) — donc holonome. Mais le mouvement circulaire imposé du cerceau lui-même dépend du temps via ω, rendant la contrainte rhéonome dans le sens plus large où la géométrie du système contraint évolue explicitement avec t (si on exprime la contrainte en coordonnées fixes du laboratoire plutôt que dans le repère tournant, le temps apparaît explicitement)."}
+- Holonome et scléronome
+- Non holonome et rhéonome
+- Non holonome et scléronome
+
+## Éliminer des ddl avec les contraintes holonomes
+
+Génériquement, une contrainte holonome est intégrable au sens où on peut l’écrire sous une forme permettant localement une substitution exacte dans le lagrangien. Comme discuté, la forme différentielle générale 
+
+$$f(q_i,\dot q_i,t) = \sum_i a_i(q,t)\dot q_i + a_0(q,t)=0$$
+
+doit pouvoir écrire $f = \dfrac{dh}{dt}$ pour s'intégrer à $h(q_i,t)=C$. Attention, il existe plusieurs façons d'imposer les contraintes holonomes, il faut choisir celles qui élimine des coordonnées superflues du lagrangien.
+
+:::{.notes}
+- Voir si une contrainte qui oblige de passer par les multiplicateurs de lagrange reste dite intégrable.
+- La définition standard (Goldstein) pose d'abord qu'une contrainte est **holonome** si elle s'écrit directement
+$$f(q_i, t) = 0$$
+soit une relation purement algébrique entre les coordonnées et le temps, **sans dépendance en vitesse du tout**. C'est le cas prototype : par exemple, la contrainte de tige rigide $|\mathbf{r}_2-\mathbf{r}_1| = \ell$ de votre exemple antérieur est exactement de cette forme, et elle n'a aucune dérivée temporelle à invoquer.
+
+Votre diapo saute directement à un critère d'**intégrabilité** pour une contrainte qui *dépend déjà des vitesses*, $f(q_i,\dot q_i,t) = \frac{d}{dt}h(q_i,t)$. C'est un critère valide, mais seulement pour le cas plus général d'une contrainte différentielle (linéaire en vitesses) — pas pour le cas de base. Problème concret : la contrainte de tige $f(q_i) = |\mathbf{r}_2-\mathbf{r}_1|^2-\ell^2=0$ ne peut pas s'écrire sous la forme $dh/dt$ (ça forcerait $h$ à ne dépendre que de $t$, ce qui ne capture pas la dépendance en $q_i$). Donc, telle quelle, votre définition classifierait à tort cette contrainte pourtant parfaitement holonome comme non-holonome.
+
+**Sur votre question : la contrainte holonome garantit-elle toujours la substitution dans $L$ ?**
+
+Pas inconditionnellement, et c'est justement ce que votre propre exemple de la tige en coordonnées cartésiennes avait révélé ! Une contrainte holonome $f(q_i,t)=0$ garantit, par le théorème des fonctions implicites, qu'on peut **localement** résoudre pour une coordonnée en fonction des autres (donc substituer dans $L$) — mais seulement loin des points où le jacobien de la contrainte s'annule. Exactement au point singulier $u=0$ de votre exemple de tige, la relation $v=\pm\sqrt{\ell^2-u^2}$ devient multivaluée et $dv/du$ diverge : la substitution cesse d'être lisse et univoque à cet endroit précis, même si la contrainte reste parfaitement holonome partout.
+
+Donc la garantie est **locale et générique** (vraie presque partout), pas globale et automatique — d'où l'intérêt pratique de choisir d'emblée des coordonnées généralisées (comme $\theta$) qui évitent ces singularités, plutôt que de se fier aveuglément à la substitution d'une contrainte holonome quelconque.
+:::
+
+## Contre-exemple : mauvaise écriture de contrainte holonome {.scollable}
+
+### Retour sur l'exemple de la contrainte 
+$x=a$
+
+Imposer cette contrainte en définissant
+
+$$f(q_i, \dot q_i, t) = x - a = 0$$
+
+avec $f = dh/dt$ de la forme
+
+$$
+\begin{aligned}
+h(q_i, t) &= \int f(q_i, \dot q_i, t)\, dt \\
+&= \int (x(t) - a)\, dt = C.
+\end{aligned}
+$$
+
+Ainsi formulée, la contrainte signifie que la position moyenne en $x$ de la particule est une constante, ce qui est correct, mais ne permet pas d'éliminer un ddl du lagrangien. 
+
+:::{.callout-important title="Contraintes indépendantes des vitesses"}
+En l'absence de vitesse dans la contrainte, elle s'écrit directement sous forme algébrique sans besoin d'intégration, _i.e._
+$$h(q_i, t)=0$$
 :::
 
 ## Le problème des contraintes non éliminées
 
-Si un lagrangien $L$ dépend de ddl contraints **non éliminés**, les équations d'E-L qu'on en déduit ne sont **pas valides** — elles décriraient un système ayant plus de ddl que le système physique réel.
+Si un lagrangien $L$ dépend de conrdonnées contraintes **non éliminées**, les équations d'E-L qu'on en déduit ne sont **pas valides** — elles décriraient un système ayant plus de ddl que le système physique réel.
 
-Pour certaines contraintes holonomes difficiles à éliminer directement par substitution (par exemple lorsque $h(q_i,t)=C$ ne s'inverse pas facilement pour isoler une variable), on utilise plutôt la **méthode des multiplicateurs de Lagrange**, qui contourne le besoin d'inverser explicitement la contrainte.
+Pour certaines contraintes holonomes difficiles à éliminer directement par substitution, par exemple lorsque $h(q_i,t)=C$ ne s'inverse pas facilement pour isoler une variable, on utilise plutôt la **méthode des multiplicateurs de Lagrange**, qui contourne le besoin d'inverser explicitement la contrainte.
 
-## Méthode des multiplicateurs de Lagrange
+##{.scrollable}
 
 ::: {.callout-note title="Méthode des multiplicateurs de Lagrange"}
 1. Écrire un lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$, où la contrainte $f=0$ est temporairement levée et $\lambda$ traité comme un paramètre libre.
@@ -1258,7 +1326,8 @@ Si la contrainte dépend des $\dot q_j$ (pas seulement des $q_j$), alors $\dfrac
 
 # 2.7 Lois de conservation et constantes du mouvement
 
-## Méthode générale de résolution
+:::{.notes}
+Méthode générale de résolution
 
 1. Trouver les contraintes sur la dynamique du système.
 2. Identifier le nombre de ddl du système.
@@ -1269,8 +1338,9 @@ Si la contrainte dépend des $\dot q_j$ (pas seulement des $q_j$), alors $\dfrac
 7. Résoudre pour trouver la trajectoire.
 
 Dans certains cas, l'étape 5 permet de **simplifier considérablement** la résolution, en réduisant le nombre d'équations différentielles du 2ᵉ ordre à résoudre simultanément.
+:::
 
-## Coordonnées cycliques
+## Coordonnées cycliques{.scollable}
 
 ::: {.callout-note title="Définition 2.10 — Variable cyclique"}
 Si un lagrangien ne dépend pas explicitement d'une variable $q$ (mais dépend de sa vitesse $\dot q$), alors $q$ est dite **cyclique** (ou ignorable).
