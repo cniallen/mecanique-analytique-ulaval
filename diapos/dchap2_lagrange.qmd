@@ -1313,14 +1313,45 @@ Si un lagrangien $L$ dépend de conrdonnées contraintes **non éliminées**, le
 
 Pour certaines contraintes holonomes difficiles à éliminer directement par substitution, par exemple lorsque $h(q_i,t)=C$ ne s'inverse pas facilement pour isoler une variable, on utilise plutôt la **méthode des multiplicateurs de Lagrange**, qui contourne le besoin d'inverser explicitement la contrainte.
 
-## {.scrollable}
+## Méthode des multiplicateurs de Lagrange
 
-::: {.callout-note title="Méthode des multiplicateurs de Lagrange"}
 1. Écrire un lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$, où la contrainte $f=0$ est temporairement levée et $\lambda$ traité comme un paramètre libre.
 2. Résoudre les $n$ équations d'E-L pour $L'$ (incluant celle pour $\lambda$ lui-même, si on le traite comme un ddl) : solution $q_i = q_i(t,\lambda)$.
 3. Déterminer la valeur $\lambda=\bar\lambda$ telle que la contrainte originale soit satisfaite : $f(q_i(t,\bar\lambda),\dot q_i(t,\bar\lambda),t)=0$.
 4. La solution physique pour le système original avec $L$ est alors $q_i = q_i(t,\bar\lambda)$.
-:::
+
+## Exemple : multiplicateur de Lagrange {.scrollable}
+
+Une masse ponctuelle $m$ glisse sans frottement sur une droite inclinée d'un angle $\alpha$, en coordonnées cartésiennes $(x,y)$. La contrainte est
+$$f(x,y) = y - x\tan\alpha = 0$$
+et le lagrangien libre, $L = \frac{1}{2}m(\dot x^2+\dot y^2) - mgy$.
+
+**Étape 1 — Lagrangien auxiliaire**
+$$L' = \frac{1}{2}m(\dot x^2+\dot y^2) - mgy + \lambda\left(y - x\tan\alpha\right)$$
+$x$ et $y$ sont traités comme indépendants, $\lambda$ comme paramètre libre.
+
+**Étape 2 — Équations d'E-L pour $L'$**
+$$\frac{\partial L'}{\partial x}: \; m\ddot x = -\lambda\tan\alpha \qquad\qquad \frac{\partial L'}{\partial y}: \; m\ddot y = \lambda - mg$$
+
+Pour $\lambda$ fixé, l'accélération est constante :
+$$x(t,\lambda) = x_0+\dot x_0 t - \frac{\lambda\tan\alpha}{2m}t^2, \qquad y(t,\lambda) = y_0+\dot y_0 t + \frac{\lambda-mg}{2m}t^2$$
+
+**Étape 3 — Imposer la contrainte**
+
+Avec $y_0=x_0\tan\alpha$, $\dot y_0=\dot x_0\tan\alpha$, exiger $y(t,\lambda)=x(t,\lambda)\tan\alpha$ pour tout $t$ force
+$$\frac{\lambda-mg}{2m} = -\tan\alpha\,\frac{\lambda\tan\alpha}{2m} \;\Longrightarrow\; \lambda(1+\tan^2\alpha) = mg \;\Longrightarrow\; \boxed{\bar\lambda = mg\cos^2\alpha}$$
+
+**Étape 4 — Solution physique**
+
+En substituant $\bar\lambda$ :
+$$\ddot x = -g\sin\alpha\cos\alpha, \qquad \ddot y = -g\sin^2\alpha \;\Longrightarrow\; \sqrt{\ddot x^2+\ddot y^2} = g\sin\alpha$$
+
+On retrouve l'accélération newtonienne $g\sin\alpha$ le long du plan.
+
+**Interprétation physique de $\lambda$**
+
+La force de contrainte généralisée est $Q_i = \lambda\,\partial f/\partial q_i$, de norme $\bar\lambda\sec\alpha = mg\cos\alpha$ — exactement la force normale du plan incliné. $\lambda$ n'est pas qu'un artifice mathématique : il encode directement la force de contrainte physique.
+
 
 ::: {.callout-important title="Remarque 2.11 — Limitation"}
 Si la contrainte dépend des $\dot q_j$ (pas seulement des $q_j$), alors $\dfrac{d}{dt}\left(\dfrac{\partial L'}{\partial\dot q_i}\right)$ fait apparaître non seulement $\lambda$ mais aussi $\dot\lambda$, généralement inconnu — ce problème apparaît systématiquement pour les contraintes non holonomes, limitant la portée directe de la méthode dans ce cas.
