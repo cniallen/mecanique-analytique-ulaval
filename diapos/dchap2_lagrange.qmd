@@ -1213,29 +1213,30 @@ Un disque vertical de rayon $R$ roule sans glisser sur un plan $(x,y)$. Sa confi
 Le roulement sans glissement impose, à chaque instant,
 $$\dot x = R\dot\phi\cos\theta \qquad \dot y = R\dot\phi\sin\theta$$
 
-Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de façon essentielle — mais, contrairement au cas d'une contrainte linéaire en vitesse intégrable, **aucune fonction** $h(x,y,\theta,\phi)$ n'existe telle que ces équations s'écrivent $\dot h = 0$. En effet, $x$ et $y$ dépendent du chemin complet suivi par $\theta(t)$ au cours du mouvement, pas seulement des valeurs instantanées de $(x,y,\theta,\phi)$. On ne peut pas réduire ces deux équations différentielles à une simple relation algébrique entre les coordonnées.
+Ces deux relations contiennent bien les vitesses $\dot x,\dot y,\dot\phi$ de façon essentielle, mais contrairement au cas d'une contrainte linéaire en vitesse intégrable, **aucune fonction** $h(x,y,\theta,\phi)$ n'existe telle que ces équations s'écrivent $\dot h = 0$. En effet, $x$ et $y$ dépendent du chemin complet suivi par $\theta(t)$ au cours du mouvement, pas seulement des valeurs instantanées de $(x,y,\theta,\phi)$. On ne peut pas réduire ces deux équations différentielles à une simple relation algébrique entre les coordonnées.
 :::
 
 :::{.notes}
-- C"est un solide dans le 2e exemple, triche vu qu'on devrait être en masses ponctuelles encore ici.
--la non-intégrabilité du disque roulant est un résultat classique mais pas trivial à démontrer rigoureusement (ça implique de vérifier qu'aucune combinaison intégrante n'existe, typiquement via le théorème de Frobenius) — pour une diapositive, l'argument intuitif donné (dépendance au chemin plutôt qu'à l'état instantané) est le niveau d'explication usuel
+- C'est un solide dans le 2e exemple, triche vu qu'on devrait être en masses ponctuelles encore ici.
+-la non-intégrabilité du disque roulant est un résultat classique mais pas trivial à démontrer rigoureusement (ça implique de vérifier qu'aucune combinaison intégrante n'existe, typiquement via le théorème de Frobenius) — pour une diapositive, l'argument intuitif donné (dépendance au chemin plutôt qu'à l'état instantané) est le niveau d'explication usuel.
 :::  
  
 ## Sous-catégories de contraintes
 
-Lors que les contraintes sont holonomes, elles sont de plus catégorisées ainsi:
+Les contraintes sont de plus catégorisées ainsi:
 
 ::: {.callout-note title="Définition 2.8 — Contraintes rhéonomes / scléronomes"}
-Si une contrainte holonome dépend **explicitement** du temps
+Si une contrainte holonome dépend **explicitement** du temps,
 $$f=0, \quad \partial f/\partial t\neq 0,$$
 et elle est dite **rhéonome**; 
 
 sinon elle est fixe, invariante dans le temps et 
 $$f=0, \quad \partial f/\partial t=0,$$ 
-et se nomme **scléronome**.
+en se nommant **scléronome**.
 :::
 
 :::{.notes}
+- Revérifier qu'on n'a pas besoin de holonome pour cette classification et enlever "sous" et "holonome".
 - h ou f??? intégrer avant de checker pour la dépendance en temps? à préciser en diapo
 - Dans l'exemple rhéonome, le temps apparaît explicitement dans $f$ parce que la géométrie de la contrainte change — contrairement au cas scléronome où $t$ pourrait apparaître *implicitement* via $q_i(t)$ (la position de la masse change avec le temps), mais jamais directement dans la *fonction* $f$ elle-même. C'est cette présence explicite de $t$ comme argument de $f$, et non la simple évolution temporelle du système, qui distingue les deux catégories.
 :::
@@ -1254,13 +1255,13 @@ Ici, la contrainte **elle-même** se déforme au cours du temps, indépendamment
 :::
 
 :::{.notes}
-Super exemple d'écriture de contraintes qui n'élimine pas de ddl! r=R \to f(r)=r-R=0
+Super exemple d'écriture de contraintes qui n'élimine pas de ddl! r=R \to f(r)=r-R=0 laisse l'unique équation en theta désirée
 :::
 
 ## {.quiz-question}
 
 :::{.header}
-Une particule se déplace sur un cerceau circulaire de rayon $R$, et ce cerceau tourne à vitesse angulaire constante imposée $\omega$ autour d'un axe vertical. Comment classifier la contrainte?
+Une particule se déplace sur un cerceau de rayon $R$, et ce cerceau tourne à vitesse angulaire constante $\omega$ autour d'un axe vertical. Comment classifier la contrainte?
 :::
 
 - [Holonome et rhéonome]{.correct data-explanation="f(r,t)=r-R=0 (où $r$ est sa distance à l'axe) est une relation algébrique entre coordonnées (et ici, t n'apparaît même pas explicitement dans cette expression précise) — donc nous sommes tentés de penser holonome. MAIS! le mouvement circulaire imposé du cerceau lui-même dépend du temps via ω, rendant la contrainte rhéonome dans le sens plus large où la géométrie du système contraint évolue explicitement avec t (si on exprime la contrainte en coordonnées fixes du laboratoire plutôt que dans le repère tournant, le temps apparaît explicitement)."}
@@ -1277,8 +1278,9 @@ $$f(q_i,\dot q_i,t) = \sum_i a_i(q,t)\dot q_i + a_0(q,t)=0$$
 doit pouvoir s'écrire $f = \dfrac{dh}{dt}$ pour s'intégrer à $h(q_i,t)=C$. Attention, il existe plusieurs façons d'imposer les contraintes holonomes, il faut choisir celles qui élimine des coordonnées superflues du lagrangien.
 
 :::{.notes}
-- Voir si une contrainte qui oblige de passer par les multiplicateurs de lagrange reste dite intégrable.
-- Modifier le CSS pour que KaTeX marche aussi dans les sous-titres.
+- Voir si une contrainte qui oblige de passer par les multiplicateurs de lagrange reste dite intégrable. En plus des éq. transcendentales, ces multiplicateurs servent aussi à éliminer certaines contraintes non holonomes? À vérifier pour être bien certaine.
+- Il y a qqch à creuser dans cette écriture de contraintes en forme différentielle intégrable, $f = \sum_i a_i(q,t)\dot q_i + a_0(q,t) notamment avec https://en.wikipedia.org/wiki/Pfaffian_constraint
+- Modifier le CSS pour que KaTeX marche aussi dans les sous-titres et idéalement les data-explanation de quiz.
 - La définition standard (Goldstein) pose d'abord qu'une contrainte est **holonome** si elle s'écrit directement
 $$f(q_i, t) = 0$$
 soit une relation purement algébrique entre les coordonnées et le temps, **sans dépendance en vitesse du tout**. C'est le cas prototype : par exemple, la contrainte de tige rigide $|\mathbf{r}_2-\mathbf{r}_1| = \ell$ de votre exemple antérieur est exactement de cette forme, et elle n'a aucune dérivée temporelle à invoquer.
