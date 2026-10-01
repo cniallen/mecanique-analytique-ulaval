@@ -1180,7 +1180,7 @@ $$L = \frac{m}{2}(\dot x^2+\alpha^2+\dot z^2)-V(x,\alpha t+\beta,z).$$
 :::
 
 :::{.notes}
-Semble clasher avec la définition d'un domaine nul de la coordonnée contrainter, surtoutpour non holonome ci-dessous 🤔 Aussi pas oublier de réfléchir à la définition du travail virtuel avec somme au lieu d'intégrale: intégrale sur temps, somme sur degrés de liberté
+Semble clasher avec la définition d'un domaine nul de la coordonnée contrainter, surtout pour non holonome ci-dessous 🤔 Aussi pas oublier de réfléchir à la définition du travail virtuel avec somme au lieu d'intégrale: intégrale sur temps, somme sur degrés de liberté
 :::
 
 ## Catégories de contraintes
@@ -1192,6 +1192,10 @@ menant à une constante $C$ après intégration $h(q_i,t)=\int f(q_i,\dot q_i,t)
 
 Toute autre contrainte est dite **non holonome**, soit parce qu'elles se formulent en inégalité $f(q_i,\dot q_i,t)<0$ ou $f(q_i,\dot q_i,t)>0$ ou globalement parce qu'elles ne sont pas intégrables selon leur dépendance sur les vitesses, _i.e._
 $$f(q_i,\dot q_i,t) \neq \frac{d}{dt}h(q_i,t)=0$$
+:::
+
+:::{.notes}
+Non holonome clash avec ma définition de contraintes du chap. 1 (à déplacer au tout début du chapitre 2.
 :::
 
 ##
@@ -1232,7 +1236,8 @@ et se nomme **scléronome**.
 :::
 
 :::{.notes}
-Dans l'exemple rhéonome, le temps apparaît explicitement dans $f$ parce que la géométrie de la contrainte change — contrairement au cas scléronome où $t$ pourrait apparaître *implicitement* via $q_i(t)$ (la position de la masse change avec le temps), mais jamais directement dans la *fonction* $f$ elle-même. C'est cette présence explicite de $t$ comme argument de $f$, et non la simple évolution temporelle du système, qui distingue les deux catégories.
+- h ou f??? intégrer avant de checker pour la dépendance en temps? à préciser en diapo
+- Dans l'exemple rhéonome, le temps apparaît explicitement dans $f$ parce que la géométrie de la contrainte change — contrairement au cas scléronome où $t$ pourrait apparaître *implicitement* via $q_i(t)$ (la position de la masse change avec le temps), mais jamais directement dans la *fonction* $f$ elle-même. C'est cette présence explicite de $t$ comme argument de $f$, et non la simple évolution temporelle du système, qui distingue les deux catégories.
 :::
 
 ##
@@ -1248,13 +1253,17 @@ $$f(x,y,t) = x^2+y^2-\big(\ell_0+vt\big)^2 = 0$$
 Ici, la contrainte **elle-même** se déforme au cours du temps, indépendamment du mouvement de la masse.
 :::
 
+:::{.notes}
+Super exemple d'écriture de contraintes qui n'élimine pas de ddl! r=R \to f(r)=r-R=0
+:::
+
 ## {.quiz-question}
 
 :::{.header}
 Une particule se déplace sur un cerceau circulaire de rayon $R$, et ce cerceau tourne à vitesse angulaire constante imposée $\omega$ autour d'un axe vertical. Comment classifier la contrainte?
 :::
 
-- [Holonome et rhéonome]{.correct data-explanation="f(r,t)=r-R=0 (où $r$ est sa distance à l'axe) est une relation algébrique entre coordonnées (et ici, t n'apparaît même pas explicitement dans cette expression précise) — donc holonome. Mais le mouvement circulaire imposé du cerceau lui-même dépend du temps via ω, rendant la contrainte rhéonome dans le sens plus large où la géométrie du système contraint évolue explicitement avec t (si on exprime la contrainte en coordonnées fixes du laboratoire plutôt que dans le repère tournant, le temps apparaît explicitement)."}
+- [Holonome et rhéonome]{.correct data-explanation="f(r,t)=r-R=0 (où $r$ est sa distance à l'axe) est une relation algébrique entre coordonnées (et ici, t n'apparaît même pas explicitement dans cette expression précise) — donc nous sommes tentés de penser holonome. MAIS! le mouvement circulaire imposé du cerceau lui-même dépend du temps via ω, rendant la contrainte rhéonome dans le sens plus large où la géométrie du système contraint évolue explicitement avec t (si on exprime la contrainte en coordonnées fixes du laboratoire plutôt que dans le repère tournant, le temps apparaît explicitement)."}
 - Holonome et scléronome
 - Non holonome et rhéonome
 - Non holonome et scléronome
@@ -1265,10 +1274,11 @@ Génériquement, une contrainte holonome est intégrable au sens où on peut l�
 
 $$f(q_i,\dot q_i,t) = \sum_i a_i(q,t)\dot q_i + a_0(q,t)=0$$
 
-doit pouvoir écrire $f = \dfrac{dh}{dt}$ pour s'intégrer à $h(q_i,t)=C$. Attention, il existe plusieurs façons d'imposer les contraintes holonomes, il faut choisir celles qui élimine des coordonnées superflues du lagrangien.
+doit pouvoir s'écrire $f = \dfrac{dh}{dt}$ pour s'intégrer à $h(q_i,t)=C$. Attention, il existe plusieurs façons d'imposer les contraintes holonomes, il faut choisir celles qui élimine des coordonnées superflues du lagrangien.
 
 :::{.notes}
 - Voir si une contrainte qui oblige de passer par les multiplicateurs de lagrange reste dite intégrable.
+- Modifier le CSS pour que KaTeX marche aussi dans les sous-titres.
 - La définition standard (Goldstein) pose d'abord qu'une contrainte est **holonome** si elle s'écrit directement
 $$f(q_i, t) = 0$$
 soit une relation purement algébrique entre les coordonnées et le temps, **sans dépendance en vitesse du tout**. C'est le cas prototype : par exemple, la contrainte de tige rigide $|\mathbf{r}_2-\mathbf{r}_1| = \ell$ de votre exemple antérieur est exactement de cette forme, et elle n'a aucune dérivée temporelle à invoquer.
@@ -1278,34 +1288,37 @@ Pas inconditionnellement, et c'est justement ce que votre propre exemple de la t
 Donc la garantie est **locale et générique** (vraie presque partout), pas globale et automatique — d'où l'intérêt pratique de choisir d'emblée des coordonnées généralisées (comme $\theta$) qui évitent ces singularités, plutôt que de se fier aveuglément à la substitution d'une contrainte holonome quelconque.
 :::
 
-## Contre-exemple : mauvaise écriture de contrainte {.scollable}
+## Contre-exemple : mauvaise écriture de contrainte {.scrollable}
 
 ### Retour sur l'exemple de la contrainte holonome
 $x=a$
 
-Imposer cette contrainte en définissant
+Cette expression algébrique s'écrit directement dans la bonne forme $h(q_i, t)=0$, nul besoin d'intégration en fonction du temps.
 
-$$f(q_i, \dot q_i, t) = x - a = 0$$
+Tentons d'imposer cette contrainte **erronément** en choisissant
+
+$$f(q_i, \dot q_i, t) = x(t) - a = 0\, \text{ où } \dot x_i=0$$
 
 avec $f = dh/dt$ de la forme
 
-$$
 \begin{align*}
 h(q_i, t) &= \int f(q_i, \dot q_i, t)\, dt \\
 &= \int (x(t) - a)\, dt = C.
 \end{align*}
-$$
 
-Ainsi formulée, la contrainte signifie que la position moyenne en $x$ de la particule est une constante, ce qui est correct, mais ne permet pas d'éliminer un ddl du lagrangien. 
+MAUVAIS CHOIX! Il n'est plus possible d'éliminer le ddl en $x$ du lagrangien. 
+
+
+## {.center}
 
 :::{.callout-important title="Contraintes indépendantes des vitesses"}
-En l'absence de vitesse dans la contrainte, elle s'écrit directement sous forme algébrique sans besoin d'intégration, _i.e._
-$$h(q_i, t)=0$$
+En l'absence de vitesses dans la contrainte, elle s'écrit directement sous forme algébrique sans besoin d'intégration, _i.e._
+$$f(q_i, \cancel{\dot q_i}, t) \to h(q_i, t)=0$$
 :::
 
 ## Le problème des contraintes non éliminées
 
-Si un lagrangien $L$ dépend de conrdonnées contraintes **non éliminées**, les équations d'E-L qu'on en déduit ne sont **pas valides** — elles décriraient un système ayant plus de ddl que le système physique réel.
+Si un lagrangien $L$ dépend de coordonnées contraintes **non éliminées**, les équations d'E-L qu'on en déduit ne sont **pas valides** — elles décriraient un système ayant plus de ddl que le système physique réel.
 
 Pour certaines contraintes holonomes difficiles à éliminer directement par substitution, par exemple lorsque $h(q_i,t)=C$ ne s'inverse pas facilement pour isoler une variable, on utilise plutôt la **méthode des multiplicateurs de Lagrange**, qui contourne le besoin d'inverser explicitement la contrainte.
 
@@ -1315,6 +1328,12 @@ Pour certaines contraintes holonomes difficiles à éliminer directement par sub
 2. Résoudre les $n$ équations d'E-L pour $L'$ (incluant celle pour $\lambda$ lui-même, si on le traite comme un ddl) : solution $q_i = q_i(t,\lambda)$.
 3. Déterminer la valeur $\lambda=\bar\lambda$ telle que la contrainte originale soit satisfaite : $f(q_i(t,\bar\lambda),\dot q_i(t,\bar\lambda),t)=0$.
 4. La solution physique pour le système original avec $L$ est alors $q_i = q_i(t,\bar\lambda)$.
+
+:::{.notes}
+- Mieux intégrer avec la numérotation d'étapes du cas général.
+- Clarifier "(incluant celle pour $\lambda$ lui-même, si on le traite comme un ddl)" ci-dessus
+- Ajouter un dessin ou animation pour l'exemple suivant ⬇️
+:::
 
 ## Exemple : multiplicateur de Lagrange {.scrollable}
 
