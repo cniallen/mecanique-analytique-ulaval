@@ -1310,7 +1310,6 @@ h(q_i, t) &= \int f(q_i, \dot q_i, t)\, dt \\
 
 MAUVAIS CHOIX! Il n'est plus possible d'éliminer le ddl en $x$ du lagrangien. 
 
-
 ## {.center}
 
 :::{.callout-important title="Contraintes indépendantes des vitesses"}
@@ -1324,16 +1323,39 @@ Si un lagrangien $L$ dépend de coordonnées contraintes **non éliminées**, le
 
 Pour certaines contraintes holonomes difficiles à éliminer directement par substitution, par exemple lorsque $h(q_i,t)=C$ ne s'inverse pas facilement pour isoler une variable, on utilise plutôt la **méthode des multiplicateurs de Lagrange**, qui contourne le besoin d'inverser explicitement la contrainte.
 
+
+## Rappel de la méthode générale de résolution {.scrollable}
+
+#### Analyse du problème
+
+- "A)" Trouver les contraintes sur la dynamique du système
+- "B)" Identifier le nombre de degrés de liberté
+- "C)" Choisir une coordonnée généralisée appropriée pour chaque ddl
+
+#### Mécanique lagrangienne
+
+- "D)" Écrire l'énergie cinétique $T$ du système
+- "E)" Déterminer son énergie potentielle totale $V$ 
+- "F)" Combiner dans le lagrangien $L=T-V$ en portant attention aux variables indépendantes dans $L(q_i,\dot q_i,t$
+- "G)" Identifier les coordonnées cycliques où il suffit de résoudre $\frac{\partial L}{\partial\dot q_i} = constante du mouvement
+- "H)" Écrire les équations d'Euler-Lagrange pour les autres coordonnées et obtenir les équations du mouvement.
+
+#### I) Pour trouver la trajectoire des particules, l'évolution du système physique, résoudre ces EDO du mouvement
+
+
 ## Méthode des multiplicateurs de Lagrange
 
-1. Écrire un lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$, où la contrainte $f=0$ est temporairement levée et $\lambda$ traité comme un paramètre libre.
-2. Résoudre les $n$ équations d'E-L pour $L'$ (incluant celle pour $\lambda$ lui-même, si on le traite comme un ddl) : solution $q_i = q_i(t,\lambda)$.
-3. Déterminer la valeur $\lambda=\bar\lambda$ telle que la contrainte originale soit satisfaite : $f(q_i(t,\bar\lambda),\dot q_i(t,\bar\lambda),t)=0$.
-4. La solution physique pour le système original avec $L$ est alors $q_i = q_i(t,\bar\lambda)$.
+Révision des étapes de résolution pour inclure les multiplicateurs $\lambda$
+
+- "F.1)" Écrire un lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$, où la contrainte $f=0$ est temporairement levée et $\lambda$ traité comme un paramètre libre.
+- "G.2)" Identifier les coordonnées cycliques pour obtenir les constantes du mouvement.
+- "H.3)" Écrire les équations d'Euler-Lagrange pour $L'$.
+- "I.4)" Résoudre les $n$ équations du mouvement obtenues : solutions de trajectoires $q_i = q_i(t,\lambda)$.
+- "I.5)" Déterminer la valeur $\lambda=\bar\lambda$ telle que la contrainte originale soit satisfaite : $f(q_i(t,\bar\lambda),\dot q_i(t,\bar\lambda),t)=0$.
+- "I.6)" La solution physique pour le système original avec $L$ est alors $q_i = q_i(t,\bar\lambda)$.
 
 :::{.notes}
-- Mieux intégrer avec la numérotation d'étapes du cas général.
-- Clarifier "(incluant celle pour $\lambda$ lui-même, si on le traite comme un ddl)" ci-dessus
+- Enlevé "(incluant celle pour $\lambda$ lui-même, si on le traite comme un ddl)" de H.3), voir s'il y a une logique de ramener ça.
 - Ajouter un dessin ou animation pour l'exemple suivant ⬇️
 :::
 
@@ -1343,22 +1365,22 @@ Une masse ponctuelle $m$ glisse sans frottement sur une droite inclinée d'un an
 $$f(x,y) = y - x\tan\alpha = 0$$
 et le lagrangien libre, $L = \frac{1}{2}m(\dot x^2+\dot y^2) - mgy$.
 
-**Étape 1 — Lagrangien auxiliaire**
+**Lagrangien auxiliaire**
 $$L' = \frac{1}{2}m(\dot x^2+\dot y^2) - mgy + \lambda\left(y - x\tan\alpha\right)$$
 $x$ et $y$ sont traités comme indépendants, $\lambda$ comme paramètre libre.
 
-**Étape 2 — Équations d'E-L pour $L'$**
+**Équations d'E-L pour $L'$**
 $$\frac{\partial L'}{\partial x}: \; m\ddot x = -\lambda\tan\alpha \qquad\qquad \frac{\partial L'}{\partial y}: \; m\ddot y = \lambda - mg$$
 
 Pour $\lambda$ fixé, l'accélération est constante :
 $$x(t,\lambda) = x_0+\dot x_0 t - \frac{\lambda\tan\alpha}{2m}t^2, \qquad y(t,\lambda) = y_0+\dot y_0 t + \frac{\lambda-mg}{2m}t^2$$
 
-**Étape 3 — Imposer la contrainte**
+**Imposer la contrainte pour isoler le multiplicateur**
 
 Avec $y_0=x_0\tan\alpha$, $\dot y_0=\dot x_0\tan\alpha$, exiger $y(t,\lambda)=x(t,\lambda)\tan\alpha$ pour tout $t$ force
 $$\frac{\lambda-mg}{2m} = -\tan\alpha\,\frac{\lambda\tan\alpha}{2m} \;\Longrightarrow\; \lambda(1+\tan^2\alpha) = mg \;\Longrightarrow\; \boxed{\bar\lambda = mg\cos^2\alpha}$$
 
-**Étape 4 — Solution physique**
+**Solution de la trajectoire physique**
 
 En substituant $\bar\lambda$ :
 $$\ddot x = -g\sin\alpha\cos\alpha, \qquad \ddot y = -g\sin^2\alpha \;\Longrightarrow\; \sqrt{\ddot x^2+\ddot y^2} = g\sin\alpha$$
@@ -1377,31 +1399,30 @@ Si la contrainte dépend des $\dot q_j$ (pas seulement des $q_j$), alors $\dfrac
 # 2.7 Lois de conservation et constantes du mouvement
 
 :::{.notes}
-Méthode générale de résolution
-
-1. Trouver les contraintes sur la dynamique du système.
-2. Identifier le nombre de ddl du système.
-3. Choisir des coordonnées généralisées appropriées.
-4. Déterminer $T$ et $V$ en fonction de ces coordonnées.
-5. *(nouvelle étape, section 2.7)* Identifier les variables cycliques et exploiter les constantes du mouvement associées.
-6. Écrire le reste des équations du mouvement à partir des équations d'E-L.
-7. Résoudre pour trouver la trajectoire.
 
 Dans certains cas, l'étape 5 permet de **simplifier considérablement** la résolution, en réduisant le nombre d'équations différentielles du 2ᵉ ordre à résoudre simultanément.
 :::
 
-## Coordonnées cycliques{.scollable}
+## Coordonnées cycliques
 
-::: {.callout-note title="Définition 2.10 — Variable cyclique"}
+Focus sur l'étape 
+
+- "G)" Identifier les coordonnées cycliques où il suffit de résoudre $\frac{\partial L}{\partial\dot q_i} = constante du mouvement
+
+qui généralement **simplifie** la résolution, en réduisant le nombre d'EDO du 2ᵉ ordre.
+
+::: {.callout-note title="Définition 2.10 — Coordonnée cyclique"}
 Si un lagrangien ne dépend pas explicitement d'une variable $q$ (mais dépend de sa vitesse $\dot q$), alors $q$ est dite **cyclique** (ou ignorable).
 :::
+
+## Coordonnées cycliques
 
 Pour une variable cyclique, l'équation d'E-L se simplifie immédiatement : puisque $\partial L/\partial q = 0$ par définition, il ne reste que :
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q}\right) = 0 \quad\Longrightarrow\quad \frac{\partial L}{\partial\dot q} = \text{cte} \tag{134}$$
 
 Cette quantité conservée est appelée le **moment canonique** conjugué à $q$.
 
-## Comptage des constantes du mouvement {.smaller}
+## Décompte des constantes du mouvement {.smaller}
 
 Pour un système à $n$ ddl, les $n$ équations d'E-L sont des équations différentielles du **2ᵉ ordre** en $t$. Chaque intégration d'une telle équation introduit **2 constantes d'intégration**, donc $2n$ constantes indépendantes au total pour le système complet — fixées en pratique par les conditions initiales (ou finales, ou aux limites) mesurées en laboratoire.
 
@@ -1430,6 +1451,36 @@ $$C = \frac{x_0\cos\omega t_1 - x_1\cos\omega t_0}{\sin\omega(t_0-t_1)}, \qquad 
 ::: {.callout-important title="Remarque"}
 Les deux jeux de conditions (initiales ou aux limites) déterminent complètement et de façon équivalente les 2 constantes — le choix dépend simplement de l'information disponible sur le système physique étudié.
 :::
+
+## Exemple 3.... - Potentiel central 
+
+![Masse ponctuelle dans un champ gravitationnel uniforme $g$ suspendue à un ressort idéal sans dimension avec une force de rappel approximée à $F=-kz$.](./assets/chap2_fig8.png){#fig-exoscillateur width="60%" fig-align="center"}
+
+## {.scrollable}
+::::{.callout-caution title="Exemple 3.... - ...."}
+
+#### Énoncé
+
+........
+
+#### Analyse du problème & Mécanique lagrangienne
+
+........
+
+:::{.callout-tip title="Équation du mouvement" style="text-align: center; font-size: 1.3em;"}
+$$.........$$
+:::
+
+#### Résolution des EDO du mouvement
+
+............
+
+:::{.callout-tip title="Solution finale" style="font-size: 1.3em;"}
+.........
+$$......$$
+:::
+
+::::
 
 ## Lagrangien indépendant du temps {.smaller}
 
