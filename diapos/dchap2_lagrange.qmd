@@ -1484,11 +1484,16 @@ Ce moment conjugué est aussi appelé le moment canonique et lancera tout le for
 
 ## Cas d'une coordonnée cyclique en translation {.center}
 
-Si $q_i=x$ (translation le long d'un axe), le moment canonique $p_i=\partial L/\partial\dot x = m\dot x$ est conservé : c'est la **conservation de la quantité de mouvement** selon cet axe.
+Soit un lagrangien de la forme
+$$L = \frac{1}{2}m\dot x^2 - V(y,z)$$
+où le potentiel ne dépend pas de $x$ : $x$ est alors une coordonnée cyclique. Le moment canonique $p_i=\partial L/\partial\dot x = m\dot x$ est conservé : c'est la **conservation de la quantité de mouvement** selon cet axe.
 
 ## Cas d'une coordonnée cyclique en rotation {.center}
 
-Si $q_i=\theta$ (rotation autour d'un axe), le moment canonique $p_i = \partial L/\partial\dot\theta = I\dot\theta$ est conservé (aucun moment de force n'agit selon cet axe) : c'est la **conservation d'une composante du moment cinétique**.
+Soit un lagrangien de la forme
+$$L = \frac{1}{2}m\left(\dot r^2+r^2\dot\theta^2\right) - V(r)$$
+où le potentiel ne dépend pas de $\theta$ : $\theta$ est alors une coordonnée cyclique. Le moment canonique $p_i = \partial L/\partial\dot\theta = mr^2\dot\theta$ est conservé (aucun moment de force n'agit selon cet axe) : c'est la **conservation d'une composante du moment cinétique**.
+
 
 ## Exemple section 3.4 - Potentiel central 
 
@@ -1513,6 +1518,14 @@ B) 2 ddl
 C) Coordonnées polaires $r,\phi$
 
 #### Mécanique lagrangienne
+
+D) Énergie cinétique $T= \frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right)$
+
+E) Énergie potentielle $V(r)$
+
+F) Lagrangien
+
+$$L = T - V = \frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right) - V(r)$$
 
 #### Équation angulaire
 
