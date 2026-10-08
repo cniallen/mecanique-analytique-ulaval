@@ -1501,28 +1501,50 @@ Une énergie potentielle qui dépend seulement d'une distance radiale par rappor
 
 #### Énoncé
 
-Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$ qui se déplace dans un plan $x-y$ où $\theta=\pi/2$ ($\dot\theta=0$).
+Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$ qui se déplace dans un plan $x-y$.
 
-#### Analyse du problème & Mécanique lagrangienne
 
-........
+#### Analyse du problème
 
-:::{.callout-tip title="Équation du mouvement" style="text-align: center; font-size: 1.3em;"}
-$$.........$$
+A) Contrainte : $\theta=\pi/2$ ($\dot\theta=0$)
+
+B) 2 ddl
+
+C) Coordonnées polaires $r,\phi$
+
+#### Mécanique lagrangienne
+
+#### Équation angulaire
+
+$\varphi$ est **cyclique** ($\partial L/\partial\varphi=0$), donc le moment canonique (ici le moment cinétique) est conservé :
+$$\frac{\partial L}{\partial\dot\varphi} = mr^2\dot\varphi = l = \text{cte} \quad\Longrightarrow\quad \dot\varphi = \frac{l}{mr^2} \tag{104,105}$$
+
+où $l$ est fixé par les conditions initiales, et $mr^2$ est le moment d'inertie d'une masse $m$ à distance $r$.
+
+#### Équation radiale et potentiel efficace
+
+**Équation en $r$ :** $\partial L/\partial r = mr\dot\varphi^2 - \partial V/\partial r$, $\dfrac{d}{dt}(\partial L/\partial\dot r)=m\ddot r$, donnant :
+$$m\ddot r - mr\dot\varphi^2 + \frac{\partial V}{\partial r} = 0$$
+
+En substituant $\dot\varphi = l/(mr^2)$ pour découpler les variables :
+$$m\ddot r = -\frac{\partial V}{\partial r} + \frac{l^2}{mr^3} \tag{110}$$
+
+::: {.callout-note title="Potentiel efficace"}
+$$V_\text{eff}(r) = V(r) + \frac{l^2}{2mr^2} \quad\Longrightarrow\quad m\ddot r = -\frac{\partial V_\text{eff}(r)}{\partial r} = F_\text{eff}(r) \tag{111,112}$$
 :::
 
-#### Résolution des EDO du mouvement
-
-............
-
-:::{.callout-tip title="Solution finale" style="font-size: 1.3em;"}
-.........
-$$......$$
-:::
+Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{z\text{-rot}} = l^2/(2mr^2)$, correspondant à une **répulsion centrifuge**.
 
 ::::
 
-## Lagrangien indépendant du temps {.smaller}
+## Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ? {.quiz-question}
+
+- L'énergie potentielle gravitationnelle $V(r)$ seule
+- [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$, issu de la conservation du moment cinétique]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
+- La force de frottement du milieu
+- Le terme linéaire du développement de Taylor de $V(r)$
+
+## Lagrangien indépendant du temps {.scrollable}
 
 Si $L\equiv L(q_i,\dot q_i)$ (i.e. $\partial L/\partial t=0$), reprenons la dérivée totale, en utilisant l'équation d'E-L $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$ pour remplacer le premier terme :
 $$\frac{dL}{dt} = \sum_i\frac{\partial L}{\partial q_i}\dot q_i + \sum_i\frac{\partial L}{\partial\dot q_i}\ddot q_i = \sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i\right]$$
