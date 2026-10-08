@@ -1336,7 +1336,7 @@ Pour certaines contraintes holonomes difficiles à éliminer directement par sub
 
 - "D)" Écrire l'énergie cinétique $T$ du système
 - "E)" Déterminer son énergie potentielle totale $V$ 
-- "F)" Combiner dans le lagrangien $L=T-V$ en portant attention aux variables indépendantes dans $L(q_i,\dot q_i,t$
+- "F)" Combiner dans le lagrangien $L=T-V$ en portant attention aux variables indépendantes dans $L(q_i,\dot q_i,t)$
 - "G)" Identifier les coordonnées cycliques où il suffit de résoudre $\frac{\partial L}{\partial\dot q_i}$ = constante du mouvement
 - "H)" Écrire les équations d'Euler-Lagrange pour les autres coordonnées et obtenir les équations du mouvement.
 
@@ -1359,8 +1359,10 @@ Révision des étapes de résolution pour inclure les multiplicateurs $\lambda$
 - Ajouter un dessin ou animation pour l'exemple suivant ⬇️
 :::
 
+::::{.notes}
+
 ## {.scrollable}
-::::{.callout-caution title="Exemple 3.... - ...."}
+{.callout-caution title="Exemple 3.... - ...."}
 
 #### Énoncé
 
@@ -1420,22 +1422,22 @@ On retrouve l'accélération newtonienne $g\sin\alpha$ le long du plan.
 La force de contrainte généralisée est $Q_i = \lambda\,\partial f/\partial q_i$, de norme $\bar\lambda\sec\alpha = mg\cos\alpha$ — exactement la force normale du plan incliné. $\lambda$ n'est pas qu'un artifice mathématique : il encode directement la force de contrainte physique.
 :::
 
-## Limitation de la méthode des multiplicateurs de Lagrange
+## Limitation des multiplicateurs de Lagrange
 
 Dans le cas le plus général, le multiplicateur peut dépendre du temps $\lambda = \bar\lambda(t)$ avec $\dot\lambda$ non nul. 
 
 Lorsque la contrainte $f(q_j,\dot q_j,t)=0$ dépend explicitement des vitesses généralisées $\dot q_j$, alors alors la dérivée par rapport à cette dernière du lagrangien auxiliaire $L' = L + \lambda f(q_j,\dot q_j,t)$ est
 
-$$\frac{\partial L'}{\partial \dot q_i} = \frac{\partial L}{\partial \dot q_i} + \lambda \frac{\partial f}{\partial \dot q_i}.$$
+$$\frac{\partial L'}{\partial \dot q_j} = \frac{\partial L}{\partial \dot q_j} + \lambda \frac{\partial f}{\partial \dot q_j}.$$
 
 
-## Limitation de la méthode des multiplicateurs de Lagrange
+## Limitation des multiplicateurs de Lagrange
 
 Le 1er terme des équations d'E-L s'écrit alors
 
-$$\frac{d}{dt}\left(\frac{\partial L'}{\partial \dot q_i}\right) = \frac{d}{dt}\left(\frac{\partial L}{\partial \dot q_i}\right) + \lambda \frac{d}{dt}\left(\frac{\partial f}{\partial \dot q_i}\right) + \dot\lambda \frac{\partial f}{\partial \dot q_i},$$
+$$\frac{d}{dt}\left(\frac{\partial L'}{\partial \dot q_j}\right) = \frac{d}{dt}\left(\frac{\partial L}{\partial \dot q_j}\right) + \lambda \frac{d}{dt}\left(\frac{\partial f}{\partial \dot q_j}\right) + \dot\lambda \frac{\partial f}{\partial \dot q_j},$$
 
-ce qi fait apparaître non seulement $\lambda$, mais aussi $\dot\lambda$ qui reste généralement inconnu.
+ce qui fait apparaître non seulement $\lambda$, mais aussi $\dot\lambda$ qui reste généralement inconnu.
 
 Ce problème apparaît systématiquement pour les contraintes non holonomes, limitant la portée directe de la méthode dans ce cas.
 
@@ -1446,7 +1448,7 @@ Réviser soigneusement
 
 # 2.7 Lois de conservation et constantes du mouvement
 
-## Coordonnées cycliques : contexte
+## Coordonnées cycliques : contexte {.center}
 
 Focus sur l'étape G) de la méthode,soit
 
@@ -1460,11 +1462,11 @@ ce qui **simplifie** généralement la résolution, en réduisant le nombre d'ED
 Si un lagrangien ne dépend pas explicitement d'une variable $q$ donnée, mais dépend de sa vitesse $\dot q$ ou d'autres variables, alors $q$ est dite **cyclique** (ou variable ignorable selon certains auteurs).
 :::
 
-Par exemple si $q=q_2$ est une variable cyclique, alors pour $n$ ddl
+Par exemple si $q=q_2$ est une variable cyclique, alors pour $n$ ddl, le lagrangien s'explicite
 
 $$L(q_i, \dot q_i, t) = L(q_1, q_3, \dots q_n, \dot q_1, \dot q_2, \dot q_3 \dots \dot q_n, t).$$
 
-## Coordonnées cycliques $\to$ constantes du mouvement 
+## Coordonnées cycliques $\to$ constantes du mouvement {.center} 
 
 Pour une coordonnée cyclique, l'équation d'E-L se simplifie immédiatement : puisque $\partial L/\partial q = 0$ par définition,
 
@@ -1516,16 +1518,18 @@ callout-important title="Remarque"
 Les deux jeux de conditions (initiales ou aux limites) déterminent complètement et de façon équivalente les 2 constantes — le choix dépend simplement de l'information disponible sur le système physique étudié.
 :::
 
-## Exemple 3.... - Potentiel central 
+## Exemple section 3.4 - Potentiel central 
 
-![Masse ponctuelle dans un champ gravitationnel uniforme $g$ suspendue à un ressort idéal sans dimension avec une force de rappel approximée à $F=-kz$.](./assets/chap2_fig8.png){#fig-exoscillateur width="60%" fig-align="center"}
+Une énergie potentielle qui dépend seulement d'une distance radiale par rapport à un point central, soit $V(\mathbf{r})$ sans composantes angulaires, est dite **potentiel central**
+
+![Coordonnées sphériques pour une masse ponctuelle se déplaçant dans tout potentiel central $V(\mathbf{r})$.](./assets/chap2_fig12.png){#fig-coordspheriqus width="60%" fig-align="center"}
 
 ## {.scrollable}
-::::{.callout-caution title="Exemple 3.... - ...."}
+::::{.callout-caution title="Exemple 3.4 - Cycles dans un potentiel central"}
 
 #### Énoncé
 
-........
+Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$...
 
 #### Analyse du problème & Mécanique lagrangienne
 
