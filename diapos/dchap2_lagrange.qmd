@@ -1482,41 +1482,13 @@ Chaque constante découlant d'une coordonnée cyclique
 
 Ce moment conjugué est aussi appelé le moment canonique et lancera tout le formalisme hamiltonien du prochain chapitre.
 
-## Cas d'une coordonnée cyclique en translation
+## Cas d'une coordonnée cyclique en translation {.center}
 
 Si $q_i=x$ (translation le long d'un axe), le moment canonique $p_i=\partial L/\partial\dot x = m\dot x$ est conservé : c'est la **conservation de la quantité de mouvement** selon cet axe.
 
-## Cas d'une coordonnée cyclique en rotation
+## Cas d'une coordonnée cyclique en rotation {.center}
 
 Si $q_i=\theta$ (rotation autour d'un axe), le moment canonique $p_i = \partial L/\partial\dot\theta = I\dot\theta$ est conservé (aucun moment de force n'agit selon cet axe) : c'est la **conservation d'une composante du moment cinétique**.
-
-
-:::{.notes}
-Revoir connexion constante d'intégration-constante du mouvement et comment répartir dans le 1er chapitre de rappel et l'exemple harmonique déjà fait.
-
-## Décompte des constantes du mouvement
-
-Pour un système à $n$ ddl, les $n$ équations d'E-L sont des équations différentielles du **2ᵉ ordre** en $t$. Chaque intégration d'une telle équation introduit **2 constantes d'intégration**, donc $2n$ constantes indépendantes au total pour le système complet — fixées en pratique par les conditions initiales (ou finales, ou aux limites) mesurées en laboratoire.
-
-## Exemple : l'oscillateur harmonique
-
-Le lagrangien $L = \dfrac{m}{2}\dot x^2 - \dfrac{1}{2}m\omega^2 x^2$ donne l'équation d'E-L $\ddot x = -\omega^2 x$, dont la solution générale (2 constantes d'intégration, comme attendu pour 1 ddl) est :
-$$x(t) = C\sin\omega t + D\cos\omega t, \qquad \dot x(t) = \omega C\cos\omega t - \omega D\sin\omega t \tag{142,143}$$
-
-En inversant ce système linéaire (multiplier la 1ʳᵉ par $\sin\omega t$, la 2ᵉ par $\cos\omega t/\omega$, etc.), on isole $C$ et $D$ comme fonctions de $x(t)$ et $\dot x(t)$ à un instant quelconque :
-$$C = x(t)\sin\omega t + \frac{\dot x(t)}{\omega}\cos\omega t, \qquad D = x(t)\cos\omega t - \frac{\dot x(t)}{\omega}\sin\omega t \tag{144,145}$$
-
-## Deux façons de fixer les constantes {.smaller}
-
-**Selon des conditions initiales** $x(t_0)=x_0$, $\dot x(t_0)=\dot x_0$ (évaluer $C,D$ à $t=t_0$) :
-$$C = x_0\sin\omega t_0 + \frac{\dot x_0}{\omega}\cos\omega t_0, \qquad D = x_0\cos\omega t_0 - \frac{\dot x_0}{\omega}\sin\omega t_0 \tag{146,147}$$
-
-**Selon des conditions aux limites** $x(t_0)=x_0$, $x(t_1)=x_1$ (2 équations, 2 inconnues $C,D$, à résoudre simultanément) :
-$$C = \frac{x_0\cos\omega t_1 - x_1\cos\omega t_0}{\sin\omega(t_0-t_1)}, \qquad D = \frac{x_0\sin\omega t_1 - x_1\sin\omega t_0}{\sin\omega(t_0-t_1)} \tag{151,152}$$
-
-callout-important title="Remarque"
-Les deux jeux de conditions (initiales ou aux limites) déterminent complètement et de façon équivalente les 2 constantes — le choix dépend simplement de l'information disponible sur le système physique étudié.
-:::
 
 ## Exemple section 3.4 - Potentiel central 
 
@@ -1529,7 +1501,7 @@ Une énergie potentielle qui dépend seulement d'une distance radiale par rappor
 
 #### Énoncé
 
-Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$...
+Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$ qui se déplace dans un plan $x-y$ où $\theta=\pi/2$ ($\dot\theta=0$).
 
 #### Analyse du problème & Mécanique lagrangienne
 
