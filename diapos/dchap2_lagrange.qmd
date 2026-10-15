@@ -1472,6 +1472,33 @@ Pour une coordonnée cyclique, l'équation d'E-L se simplifie immédiatement : p
 
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q}\right) = 0 \quad\Longrightarrow\quad \frac{\partial L}{\partial\dot q} = \text{CONSTANTE}.$$
 
+:::{.notes}
+Revoir connexion constante d'intégration-constante du mouvement et comment répartir dans le 1er chapitre de rappel et l'exemple harmonique déjà fait.
+
+ Décompte des constantes du mouvement
+
+Pour un système à $n$ ddl, les $n$ équations d'E-L sont des équations différentielles du **2ᵉ ordre** en $t$. Chaque intégration d'une telle équation introduit **2 constantes d'intégration**, donc $2n$ constantes indépendantes au total pour le système complet — fixées en pratique par les conditions initiales (ou finales, ou aux limites) mesurées en laboratoire.
+
+ Exemple : l'oscillateur harmonique
+
+Le lagrangien $L = \dfrac{m}{2}\dot x^2 - \dfrac{1}{2}m\omega^2 x^2$ donne l'équation d'E-L $\ddot x = -\omega^2 x$, dont la solution générale (2 constantes d'intégration, comme attendu pour 1 ddl) est :
+$$x(t) = C\sin\omega t + D\cos\omega t, \qquad \dot x(t) = \omega C\cos\omega t - \omega D\sin\omega t $$
+
+En inversant ce système linéaire (multiplier la 1ʳᵉ par $\sin\omega t$, la 2ᵉ par $\cos\omega t/\omega$, etc.), on isole $C$ et $D$ comme fonctions de $x(t)$ et $\dot x(t)$ à un instant quelconque :
+$$C = x(t)\sin\omega t + \frac{\dot x(t)}{\omega}\cos\omega t, \qquad D = x(t)\cos\omega t - \frac{\dot x(t)}{\omega}\sin\omega t $$
+
+ Deux façons de fixer les constantes {.smaller}
+
+**Selon des conditions initiales** $x(t_0)=x_0$, $\dot x(t_0)=\dot x_0$ (évaluer $C,D$ à $t=t_0$) :
+$$C = x_0\sin\omega t_0 + \frac{\dot x_0}{\omega}\cos\omega t_0, \qquad D = x_0\cos\omega t_0 - \frac{\dot x_0}{\omega}\sin\omega t_0 \tag{146,147}$$
+
+**Selon des conditions aux limites** $x(t_0)=x_0$, $x(t_1)=x_1$ (2 équations, 2 inconnues $C,D$, à résoudre simultanément) :
+$$C = \frac{x_0\cos\omega t_1 - x_1\cos\omega t_0}{\sin\omega(t_0-t_1)}, \qquad D = \frac{x_0\sin\omega t_1 - x_1\sin\omega t_0}{\sin\omega(t_0-t_1)} \tag{151,152}$$
+
+callout-important title="Remarque"
+Les deux jeux de conditions (initiales ou aux limites) déterminent complètement et de façon équivalente les 2 constantes — le choix dépend simplement de l'information disponible sur le système physique étudié.
+:::
+
 ## Loi de conservation
 
 Chaque constante découlant d'une coordonnée cyclique
@@ -1488,12 +1515,19 @@ Soit un lagrangien de la forme
 $$L = \frac{1}{2}m\dot x^2 - V(y,z)$$
 où le potentiel ne dépend pas de $x$ : $x$ est alors une coordonnée cyclique. Le moment canonique $p_i=\partial L/\partial\dot x = m\dot x$ est conservé : c'est la **conservation de la quantité de mouvement** selon cet axe.
 
+:::{.notes}
+À mieux illustrer.
+:::
+
 ## Cas d'une coordonnée cyclique en rotation {.center}
 
 Soit un lagrangien de la forme
-$$L = \frac{1}{2}m\left(\dot r^2+r^2\dot\theta^2\right) - V(r)$$
-où le potentiel ne dépend pas de $\theta$ : $\theta$ est alors une coordonnée cyclique. Le moment canonique $p_i = \partial L/\partial\dot\theta = mr^2\dot\theta$ est conservé (aucun moment de force n'agit selon cet axe) : c'est la **conservation d'une composante du moment cinétique**.
+$$L = \frac{1}{2}m\left(\dot r^2+r^2\dot\varphi^2\right) - V(r)$$
+où le potentiel ne dépend pas de $\varphi$ : $\varphi$ est alors une coordonnée cyclique. Le moment canonique $p_{\varphi} = \partial L/\partial\dot\varphi = mr^2\dot\varphi$ est conservé : c'est la **conservation d'une composante du moment cinétique**.
 
+:::{.notes}
+Essentiellement enlever pour dire que c'est le cas qui suit et vendre le punch que le mouvement sera en rotation d'où enfin l'explication du terme cyclique pour avec ce "vieux" problème céleste.
+:::
 
 ## Exemple section 3.4 - Potentiel central 
 
@@ -1508,24 +1542,27 @@ Une énergie potentielle qui dépend seulement d'une distance radiale par rappor
 
 Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$ qui se déplace dans un plan $x-y$.
 
-
 #### Analyse du problème
 
+:::{.fragment}
 A) Contrainte : $\theta=\pi/2$ ($\dot\theta=0$)
 
 B) 2 ddl
 
 C) Coordonnées polaires $r,\phi$
+:::
 
 #### Mécanique lagrangienne
 
-D) Énergie cinétique $T= \frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right)$
+:::{.fragment}
+D) Énergie cinétique $T=\frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right)$
 
 E) Énergie potentielle $V(r)$
 
 F) Lagrangien
 
 $$L = T - V = \frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right) - V(r)$$
+:::
 
 #### Équation angulaire
 
@@ -1540,22 +1577,27 @@ où $l$ est fixé par les conditions initiales, et $mr^2$ est le moment d'inerti
 $$m\ddot r - mr\dot\varphi^2 + \frac{\partial V}{\partial r} = 0$$
 
 En substituant $\dot\varphi = l/(mr^2)$ pour découpler les variables :
-$$m\ddot r = -\frac{\partial V}{\partial r} + \frac{l^2}{mr^3} \tag{110}$$
+$$m\ddot r = -\frac{\partial V}{\partial r} + \frac{l^2}{mr^3}$$
 
 ::: {.callout-note title="Potentiel efficace"}
-$$V_\text{eff}(r) = V(r) + \frac{l^2}{2mr^2} \quad\Longrightarrow\quad m\ddot r = -\frac{\partial V_\text{eff}(r)}{\partial r} = F_\text{eff}(r) \tag{111,112}$$
+$$V_\text{eff}(r) = V(r) + \frac{l^2}{2mr^2} \quad\Longrightarrow\quad m\ddot r = -\frac{\partial V_\text{eff}(r)}{\partial r} = F_\text{eff}(r)$$
 :::
 
 Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{z\text{-rot}} = l^2/(2mr^2)$, correspondant à une **répulsion centrifuge**.
 
 ::::
 
+:::{.notes}
+- Revoir les sections d'équations angulaires et radiales.
+- Faire une diapo séparée pour le potentiel effectif.
+:::
+
 ## Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ? {.quiz-question}
 
-- L'énergie potentielle gravitationnelle $V(r)$ seule
+- L'énergie potentielle $V(r)$ seule
 - [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$, issu de la conservation du moment cinétique]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
 - La force de frottement du milieu
-- Le terme linéaire du développement de Taylor de $V(r)$
+- Le terme linéaire du développement en série de Taylor de $V(r)$
 
 ## Lagrangien indépendant du temps {.scrollable}
 
