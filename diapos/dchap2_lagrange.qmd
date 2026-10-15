@@ -1592,12 +1592,13 @@ Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{
 - Faire une diapo séparée pour le potentiel effectif.
 :::
 
-## Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ? {.quiz-question}
+## {.quiz-question}
+Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ?
 
 - L'énergie potentielle $V(r)$ seule
 - [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
 - La force de frottement du milieu
-- Le 1er terme du développement en série de Taylor de $V(r)$
+- 1er terme du développement en série de Taylor de $V(r)$
 
 :::{.notes}
 ToDo: examiner p/r à la version qui suit pour reprendre des éléments au besoin puis supprimer.
@@ -1614,12 +1615,12 @@ $$\frac{dL}{dt} = \frac{d}{dt}\left(\sum_i \frac{\partial L}{\partial\dot q_i}\d
 
 ## Lagrangien indépendant du temps : Identité de Beltrami
 
-::: {.callout-important title="Définition — Identité de Beltrami"}
-Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
+::: {.callout-important title="Identité de Beltrami"}
+Lorsque $L$ est indépendant de $t$, d'où $\partial L/\partial t = 0$, l'équation d'E-L prend la forme :
 $$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = H = \text{cte}$$
 :::
 
-Tout comme les coordonnées cycliques, cette identité est particulièrement utile pour identifier une constante du mouvement sans devoir résoudre complètement les équations d'E-L.
+Tout comme les coordonnées cycliques, cette identité permet d'identifier une constante du mouvement sans devoir résoudre les EDO découlant des équations d'E-L.
 
 ## Démonstration de l'identité de Beltrami {.smaller .scrollable}
 
@@ -1629,16 +1630,19 @@ La dérivée totale de $L(q_i,\dot q_i,t)$ par rapport à $t$, le long d'une tra
 $$\frac{dL}{dt} = \frac{\partial L}{\partial q_i}\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
 :::
 
-En multipliant l'équation d'E-L (23), $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$, par $\dot q_i$ de chaque côté :
+En multipliant l'équation d'E-L $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$, par $\dot q_i$ de chaque côté :
 $$\dot q_i\frac{\partial L}{\partial q_i} = \dot q_i \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)$$
 
 En substituant ce résultat dans $dL/dt$ :
 $$\frac{dL}{dt} = \dot q_i\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
 
-Or les deux premiers termes du membre de droite forment exactement la dérivée totale d'un produit : $\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}$. Donc :
-$$\frac{dL}{dt} = \frac{d}{dt}\left(\dot q_i\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial t} \quad\Longrightarrow\quad \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) = \frac{\partial L}{\partial t}$$
+Or les deux premiers termes du membre de droite forment exactement la dérivée totale d'un produit : 
+$$\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}$.$$
 
-Si $\partial L/\partial t = 0$, le membre de droite est nul, donc l'expression entre parenthèses est une **constante du mouvement** $H$ — ce qui prouve l'identité de Beltrami.
+D'où la dérivée totale du lagrangien s'écrit
+$$\frac{dL}{dt} = \frac{d}{dt}\left(\dot q_i\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial t} \quad\Longrightarrow\quad \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) = \frac{\partial L}{\partial t}.$$
+
+Lorsque le temps n'apparaît pas explicitement dans le lagrangien, $\partial L/\partial t = 0$, et l'expression entre parenthèses devient une **constante du mouvement** $H$ — ce qui prouve l'identité de Beltrami.
 
 :::{.notes}
 À voir si je garde à l'endroit au début du chapitre copié de ceci ou si je garde ici
@@ -1653,32 +1657,51 @@ La lumière se propage d'un point à un autre selon la trajectoire qui rend extr
 ::::
 :::
 
-## Moment canonique et Hamiltonien
+## Moment conjugué et Hamiltonien
 
-::: {.callout-note title="Définitions 2.11 et 2.12 — Moment canonique et Hamiltonien"}
+À l'aide du moment conjugué substitué dans l'identité de Beltrami, définissons
+
+::: {.callout-note title="Définitions — Moment conjuqué et Hamiltonien"}
 $$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{(moment canonique conjugué à } q_i \text{)}$$
-$$H = \sum_i p_i\dot q_i - L \qquad\text{(intégrale de Jacobi, ou Hamiltonien — conservée si } \partial L/\partial t=0\text{)}$$
+$$H = \sum_i p_i\dot q_i - L \qquad$$ est l'hamiltonien.
 :::
 
-Le lagrangien indépendant du temps mène donc directement à une constante du mouvement supplémentaire, $H$, obtenue sans devoir résoudre les équations différentielles.
+Cet hamiltonien mène à une loi de conservation lorsque $\partial L/\partial t=0$.
 
-## Que représente $H$ ? {.smaller}
+:::{.notes}
+- Le mot conjugaison est plus intuitif(?) quand on voit la paire "mariée" dans l'hamiltonien.
+- Reprendre cette diapositive au chapitre 4 en introduisant le terme moment canonique pour le moment conjugué. "moment canonique conjugué à q_i"
+- faire un quiz de combien de moments conjugué pour un système à n ddl.
+:::
 
-**Cas $V=V(q)$ seulement** (potentiel ne dépendant pas des vitesses) : avec $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$ (quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) :
+## Que représente $H$ ?
+
+### Cas $V=V(q)$ seulement
+**L'énergie potentielle ne dépend pas explicitement des vitesses.** 
+
+Avec $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$ (quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) :
 $$\sum_i p_i\dot q_i = \sum_i \frac{\partial T}{\partial\dot q_i}\dot q_i = 2T$$
 
-donc $H = 2T - (T-V) = T+V = E$ : **$H$ est l'énergie mécanique totale.**
+donc $H = 2T - (T-V) = T+V = E$
 
-**Cas $V=V(q,\dot q)$** (potentiel dépendant aussi des vitesses, ex. force de Lorentz — voir section 2.8) :
+**$H$ est alors l'énergie mécanique totale!**
+
+## Que représente $H$ ? 
+
+### Cas $V=V(q,\dot q)$
+**Le potentiel dépend aussi des vitesses,** comme c'est le cas pour la force de Lorentz par exemple.
+
 $$H = T+V-\frac{\partial V}{\partial\dot q_i}\dot q_i$$
 
-ce qui redonne $H=T+QU=E$ pour une charge $Q$ dans un potentiel électromagnétique $U$ (le terme linéaire en vitesse de $V$ ne contribue pas à $H$ de la même façon que le terme quadratique de $T$).
+ce qui redonne $H=T+QU=E$ pour une charge $Q$ dans un potentiel électromagnétique $U$. Le terme linéaire en vitesse de $V$ ne contribue pas à $H$ de la même façon que le terme quadratique de $T$.
 
-::: {.callout-important title="Remarque"}
-Dans d'autres cas plus généraux, $H$ demeure une constante du mouvement, mais $H\neq T+V$ — l'identification de $H$ à l'énergie mécanique n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
+## {.center}
+
+::: {.callout-important title="Hamiltonien et Énergie totale"}
+Dans d'autres cas plus généraux, $H$ demeure une constante du mouvement, mais $H\neq T+V$ — l'identification de $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
 :::
 
-## Théorème de Noether — énoncé
+## Théorème de Noether — énoncé {.smaller}
 
 ::: {.callout-note title="Définition 2.14 — Théorème de Noether"}
 À toute transformation infinitésimale qui laisse l'action invariante correspond une quantité qui est conservée.
@@ -1693,7 +1716,7 @@ $$O(q_k,\dot q_k) = \sum_k \left.\frac{\partial L}{\partial\dot q_k}\frac{d\tild
 Emmy Noether (1882-1935), qualifiée par Einstein de « monument de la pensée mathématique » — établit l'équivalence fondamentale entre lois de conservation et symétries, un résultat qui structure toute la physique théorique moderne.
 :::
 
-## Démonstration du théorème de Noether {.smaller}
+## Démonstration du théorème de Noether {.smaller .scrollable}
 
 Puisque $L$ est indépendant de $u$ par hypothèse, sa dérivée totale par rapport à $u$ (à $t$ fixe) est nulle :
 $$\frac{d}{du}L(\tilde q_i,\dot{\tilde q}_i,t) = \sum_i\left(\frac{\partial L}{\partial\tilde q_i}\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\dot{\tilde q}_i}{du}\right) = 0$$
