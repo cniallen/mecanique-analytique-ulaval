@@ -1662,7 +1662,7 @@ La lumière se propage d'un point à un autre selon la trajectoire qui rend extr
 À l'aide du moment conjugué substitué dans l'identité de Beltrami, définissons
 
 ::: {.callout-note title="Définitions — Moment conjuqué et Hamiltonien"}
-$$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{est le moment conjugué à } q_i \text{)}$$
+$$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{est le moment conjugué à } q_i$$
 $$H = \sum_i p_i\dot q_i - L \qquad\text{est l'hamiltonien}$$
 :::
 
@@ -1674,37 +1674,64 @@ Cet hamiltonien mène à une loi de conservation lorsque $\partial L/\partial t=
 - faire un quiz de combien de moments conjugué pour un système à n ddl.
 :::
 
-## Que représente $H$ ?
+## Que représente $H$ ? {.scrollable}
 
 ### Cas $V=V(q)$ seulement
 **L'énergie potentielle ne dépend pas explicitement des vitesses.** 
 
-Avec $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$,
-$$\sum_i p_i\dot q_i = \sum_i \frac{\partial T}{\partial\dot q_i}\dot q_i = 2T$$
+Soit le moment conjugué formulé à l'aide de l'énergie cinétique $T$
+$$p_i = \frac{\partial L}{\partial \dot q_i} = \frac{\partial T}{\partial \dot q_i} = \sum_j m_{ij}(q)\,\dot q_j$$
 
-donc $H = 2T - (T-V) = T+V = E$
+puisque $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$ pour le cas général d'un système anisotrope avec un tenseur de masse $m_{ij}$. L'hamiltonien s'écrit alors
+
+\begin{align*}
+H &= \sum_{i,j} m_{ij}(q)\,\dot q_j\dot q_i - (T-V) \\
+&= 2T - T + V 
+&= T+V
+&= E
+\end{align*}
 
 **$H$ est alors l'énergie mécanique totale!**
 
 :::{.notes}
-(quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) à revérifier à propos de l'énergie cinétique T
+- Masse ponctuelle(?, c'est p-e pas le cas étendu ci-dessus) isotrope redonne le familier mv^2/2
+- Dans les calculs cégépiens d'énergie et quantité de mouvement, vous faisiez de la mécanique lagrangienne sans le savoir!
+- (quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) -> à revérifier à propos de l'énergie cinétique T, autre phrasé: "Puisque $T$ reste quadratique et homogène de degré 2 en $\dot q_i$ ici aussi, $\sum_{i,j} m_{ij}\dot q_i\dot q_j = 2T$ par le théorème d'Euler "
 :::
 
-## Que représente $H$ ? 
+## Que représente $H$ ? {.scrollable}
 
 ### Cas $V=V(q,\dot q)$
-**Le potentiel dépend aussi des vitesses,** comme c'est le cas pour la force de Lorentz par exemple.
+**Le potentiel dépend aussi des vitesses,** comme c'est le cas de celui associé à la force de Lorentz par exemple.
 
-$$H = T+V-\frac{\partial V}{\partial\dot q_i}\dot q_i$$
+\begin{align*}
+H &= \sum_i p_i\dot q_i - L = \sum_i \frac{\partial L}{\partial \dot q_i}\dot q_i - L \\
+&= \sum_i \frac{\partial T}{\partial \dot q_i}\dot q_i - \frac{\partial V}{\partial \dot q_i}\dot q_i - (T-V) \\
+&= 2T - \frac{\partial V}{\partial \dot q_i}\dot q_i - T + V \\
+H &= T + V - \frac{\partial V}{\partial \dot q_i}\dot q_i
+\end{align*}
 
-ce qui redonne $H=T+QU=E$ pour une charge $Q$ dans un potentiel électromagnétique $U$. Le terme linéaire en vitesse de $V$ ne contribue pas à $H$ de la même façon que le terme quadratique de $T$.
+:::{.notes}
+juste pour bogue $$H = T+V-\frac{\partial V}{\partial\dot q_i}\dot q_i$$
+- Pour cas électromagnétique... qui a l'air de donner l'énergie totale... : ce qui redonne $H=T+QU=E$ pour une charge $Q$ dans un potentiel électromagnétique $U$. Le terme linéaire en vitesse de $V$ ne contribue pas à $H$ de la même façon que le terme quadratique de $T$.
+- RÉVISER QUAND H EST L'ÉNERGIE TOTALE OU PAS, EN VOYANT SI C'EST JUSTE UNE NUANCE D'ÉNERGIE MÉCANIQUE
+
+Autre version de la démo à comparer:
+\begin{align*}
+H &= \sum_i p_i\dot q_i - L = \sum_i \frac{\partial L}{\partial \dot q_i}\dot q_i - L \\
+&= \sum_i \frac{\partial T}{\partial \dot q_i}\dot q_i - L \qquad \left(\text{puisque } \frac{\partial V}{\partial \dot q_i}=0\right)\\
+&= 2T - L \qquad \left(\text{Euler, } T \text{ homogène de degré 2 en } \dot q_i\right)\\
+&= 2T - (T-V) \\
+&= T+V
+\end{align*}
+:::
 
 ## {.center}
 
 ::: {.callout-important title="Hamiltonien et Énergie totale"}
-En général, $H$ demeure une constante du mouvement, mais 
+En général, $H$ demeure une constante du mouvement pour un Lagrangien indépendant du temps, mais 
 $$H = T+V$$
-est un cas particulier. L'identification de l'hamiltonien $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
+est un **cas particulier**. L'identification de l'hamiltonien $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
 :::
 
 ## Théorème de Noether — énoncé {.smaller}
