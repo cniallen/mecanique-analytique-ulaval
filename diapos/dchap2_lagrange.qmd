@@ -1595,11 +1595,13 @@ Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{
 ## Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ? {.quiz-question}
 
 - L'énergie potentielle $V(r)$ seule
-- [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$, issu de la conservation du moment cinétique]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
+- [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
 - La force de frottement du milieu
-- Le terme linéaire du développement en série de Taylor de $V(r)$
+- Le 1er terme du développement en série de Taylor de $V(r)$
 
-## Lagrangien indépendant du temps {.scrollable}
+:::{.notes}
+ToDo: examiner p/r à la version qui suit pour reprendre des éléments au besoin puis supprimer.
+Lagrangien indépendant du temps {.scrollable}
 
 Si $L\equiv L(q_i,\dot q_i)$ (i.e. $\partial L/\partial t=0$), reprenons la dérivée totale, en utilisant l'équation d'E-L $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$ pour remplacer le premier terme :
 $$\frac{dL}{dt} = \sum_i\frac{\partial L}{\partial q_i}\dot q_i + \sum_i\frac{\partial L}{\partial\dot q_i}\ddot q_i = \sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i\right]$$
@@ -1608,20 +1610,24 @@ Le membre de droite est, encore une fois, la dérivée totale d'une somme de pro
 $$\frac{dL}{dt} = \frac{d}{dt}\left(\sum_i \frac{\partial L}{\partial\dot q_i}\dot q_i\right) \quad\Longrightarrow\quad \frac{d}{dt}\left(\sum_i \frac{\partial L}{\partial\dot q_i}\dot q_i - L\right)=0$$
 
 **On retrouve exactement l'identité de Beltrami**, généralisée ici à $n$ ddl plutôt qu'à un seul !
-RECOPIE DE LA VERSION À 1 DDL:
-## Identité de Beltrami — énoncé
-
-::: {.callout-note title="Définition 2.3 — Identité de Beltrami"}
-Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
-$$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = C = \text{cte}$$
 :::
 
-Cette identité est particulièrement utile lorsqu'on cherche une constante du mouvement sans devoir résoudre explicitement l'équation d'E-L complète.
+## Lagrangien indépendant du temps : Identité de Beltrami
 
-## Démonstration de l'identité de Beltrami {.smaller}
+::: {.callout-important title="Définition — Identité de Beltrami"}
+Lorsque $L$ est indépendant de $t$ ($\partial L/\partial t = 0$), l'équation d'E-L peut prendre la forme :
+$$L - \dot q_i\frac{\partial L}{\partial\dot q_i} = H = \text{cte}$$
+:::
+
+Tout comme les coordonnées cycliques, cette identité est particulièrement utile pour identifier une constante du mouvement sans devoir résoudre complètement les équations d'E-L.
+
+## Démonstration de l'identité de Beltrami {.smaller .scrollable}
 
 La dérivée totale de $L(q_i,\dot q_i,t)$ par rapport à $t$, le long d'une trajectoire quelconque (pas nécessairement physique à ce stade) :
+
+:::{.fragment}
 $$\frac{dL}{dt} = \frac{\partial L}{\partial q_i}\dot q_i + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
+:::
 
 En multipliant l'équation d'E-L (23), $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$, par $\dot q_i$ de chaque côté :
 $$\dot q_i\frac{\partial L}{\partial q_i} = \dot q_i \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right)$$
@@ -1632,16 +1638,19 @@ $$\frac{dL}{dt} = \dot q_i\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\
 Or les deux premiers termes du membre de droite forment exactement la dérivée totale d'un produit : $\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}$. Donc :
 $$\frac{dL}{dt} = \frac{d}{dt}\left(\dot q_i\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial t} \quad\Longrightarrow\quad \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) = \frac{\partial L}{\partial t}$$
 
-Si $\partial L/\partial t = 0$, le membre de droite est nul, donc l'expression entre parenthèses est une **constante du mouvement** $C$ — ce qui prouve l'identité de Beltrami.
+Si $\partial L/\partial t = 0$, le membre de droite est nul, donc l'expression entre parenthèses est une **constante du mouvement** $H$ — ce qui prouve l'identité de Beltrami.
 
-## Deux exemples célèbres d'application de Beltrami
+:::{.notes}
+À voir si je garde à l'endroit au début du chapitre copié de ceci ou si je garde ici
+ Deux exemples célèbres d'application de Beltrami
 
-::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
+:::: {.callout-tip title="Exemple 2.2 — La courbe brachistochrone"}
 Un objet part du point A sans vitesse initiale et glisse sans frottement vers B. La courbe brachistochrone est la trajectoire qui **minimise la durée du parcours** — l'identité de Beltrami facilite grandement sa résolution, puisque le « lagrangien » du problème (le temps de parcours en fonction de la forme de la courbe) ne dépend pas explicitement du paramètre de la trajectoire.
-:::
+::::
 
-::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
+:::: {.callout-tip title="Exemple 2.3 — Le principe de Fermat"}
 La lumière se propage d'un point à un autre selon la trajectoire qui rend extrémale la durée du parcours. Dans un milieu homogène, cette trajectoire est une ligne droite (voir dérivation complète au Chapitre 3).
+::::
 :::
 
 ## Moment canonique et Hamiltonien
