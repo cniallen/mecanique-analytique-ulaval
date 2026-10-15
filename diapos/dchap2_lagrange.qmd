@@ -1596,7 +1596,7 @@ Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{
 Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ?
 
 - L'énergie potentielle $V(r)$ seule
-- [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
+- [Le terme d'énergie cinétique de rotation $\,l^2/(2mr^2)$]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
 - La force de frottement du milieu
 - 1er terme du développement en série de Taylor de $V(r)$
 
@@ -1637,7 +1637,7 @@ En substituant ce résultat dans $dL/dt$ :
 $$\frac{dL}{dt} = \dot q_i\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial\dot q_i}\ddot q_i + \frac{\partial L}{\partial t}$$
 
 Or les deux premiers termes du membre de droite forment exactement la dérivée totale d'un produit : 
-$$\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}$.$$
+$$\dfrac{d}{dt}\left(\dot q_i\dfrac{\partial L}{\partial\dot q_i}\right) = \dot q_i\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) + \ddot q_i\dfrac{\partial L}{\partial\dot q_i}.$$
 
 D'où la dérivée totale du lagrangien s'écrit
 $$\frac{dL}{dt} = \frac{d}{dt}\left(\dot q_i\frac{\partial L}{\partial\dot q_i}\right) + \frac{\partial L}{\partial t} \quad\Longrightarrow\quad \frac{d}{dt}\left(L - \dot q_i\frac{\partial L}{\partial\dot q_i}\right) = \frac{\partial L}{\partial t}.$$
@@ -1662,8 +1662,8 @@ La lumière se propage d'un point à un autre selon la trajectoire qui rend extr
 À l'aide du moment conjugué substitué dans l'identité de Beltrami, définissons
 
 ::: {.callout-note title="Définitions — Moment conjuqué et Hamiltonien"}
-$$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{(moment canonique conjugué à } q_i \text{)}$$
-$$H = \sum_i p_i\dot q_i - L \qquad$$ est l'hamiltonien.
+$$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{est le moment conjugué à } q_i \text{)}$$
+$$H = \sum_i p_i\dot q_i - L \qquad\text{est l'hamiltonien}$$
 :::
 
 Cet hamiltonien mène à une loi de conservation lorsque $\partial L/\partial t=0$.
@@ -1679,12 +1679,16 @@ Cet hamiltonien mène à une loi de conservation lorsque $\partial L/\partial t=
 ### Cas $V=V(q)$ seulement
 **L'énergie potentielle ne dépend pas explicitement des vitesses.** 
 
-Avec $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$ (quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) :
+Avec $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$,
 $$\sum_i p_i\dot q_i = \sum_i \frac{\partial T}{\partial\dot q_i}\dot q_i = 2T$$
 
 donc $H = 2T - (T-V) = T+V = E$
 
 **$H$ est alors l'énergie mécanique totale!**
+
+:::{.notes}
+(quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) à revérifier à propos de l'énergie cinétique T
+:::
 
 ## Que représente $H$ ? 
 
@@ -1698,7 +1702,9 @@ ce qui redonne $H=T+QU=E$ pour une charge $Q$ dans un potentiel électromagnéti
 ## {.center}
 
 ::: {.callout-important title="Hamiltonien et Énergie totale"}
-Dans d'autres cas plus généraux, $H$ demeure une constante du mouvement, mais $H\neq T+V$ — l'identification de $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
+En général, $H$ demeure une constante du mouvement, mais 
+$$H = T+V$$
+est un cas particulier. L'identification de l'hamiltonien $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
 :::
 
 ## Théorème de Noether — énoncé {.smaller}
@@ -1748,12 +1754,16 @@ $$\sum_k \frac{\partial L}{\partial\dot q_k} = P_x = \text{cte}$$
 - **Rotation en 3D** (symétrie sphérique complète) : conservation du moment cinétique total $\mathbf{L}$ (les 3 composantes).
 :::
 
-## Quel principe relie les lois de conservation aux symétries d'un système ? {.quiz-question}
+:::{.notes}
+Serait mieux en quiz d'association...
+
+Quel principe relie les lois de conservation aux symétries d'un système ? {.quiz-question}
 
 - L'identité de Beltrami
 - La méthode des multiplicateurs de Lagrange
 - [Le théorème de Noether]{.correct data-explanation="Énoncé par Emmy Noether en 1918 : à toute transformation infinitésimale laissant l'action invariante correspond une quantité conservée — c'est le lien formel entre symétries et lois de conservation."}
-- Les symboles de Christoffel
+- Les symboles de Christoffel (pas vu)
+:::
 
 # 2.8 Invariance de jauge
 
