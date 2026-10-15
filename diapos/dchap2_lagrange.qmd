@@ -1686,9 +1686,9 @@ puisque $T=\frac{1}{2}\sum_{ij}m_{ij}\dot q_i\dot q_j$ pour le cas général d'u
 
 \begin{align*}
 H &= \sum_{i,j} m_{ij}(q)\,\dot q_j\dot q_i - (T-V) \\
-&= 2T - T + V 
-&= T+V
-&= E
+&= 2T - T + V \\
+&= T+V \\
+&= E. \\
 \end{align*}
 
 **$H$ est alors l'énergie mécanique totale!**
@@ -1702,10 +1702,11 @@ H &= \sum_{i,j} m_{ij}(q)\,\dot q_j\dot q_i - (T-V) \\
 ## Que représente $H$ ? {.scrollable}
 
 ### Cas $V=V(q,\dot q)$
-**Le potentiel dépend aussi des vitesses,** comme c'est le cas de celui associé à la force de Lorentz par exemple.
+**Ce potentiel dépend aussi des vitesses,** comme c'est le cas de celui associé à la force de Lorentz par exemple. L'égalité de l'hamiltonien à l'énergie mécanique totale est alors perdue puisque
 
 \begin{align*}
-H &= \sum_i p_i\dot q_i - L = \sum_i \frac{\partial L}{\partial \dot q_i}\dot q_i - L \\
+H &= \sum_i p_i\dot q_i - L \\
+$= \sum_i \frac{\partial L}{\partial \dot q_i}\dot q_i - L \\
 &= \sum_i \frac{\partial T}{\partial \dot q_i}\dot q_i - \frac{\partial V}{\partial \dot q_i}\dot q_i - (T-V) \\
 &= 2T - \frac{\partial V}{\partial \dot q_i}\dot q_i - T + V \\
 H &= T + V - \frac{\partial V}{\partial \dot q_i}\dot q_i
@@ -1734,12 +1735,23 @@ $$H = T+V$$
 est un **cas particulier**. L'identification de l'hamiltonien $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
 :::
 
-## Théorème de Noether — Énoncé {.smaller}
+## Théorème de Noether — Énoncé
 
 Le théorème de Noether établit une relation d’équivalence fondamentale entre les lois de conservation et les symétries d’un système, un résultat qui structure toute la physique théorique moderne.
 
 ::: {.callout-note title="Définition 2.14 — Théorème de Noether"}
 À toute transformation infinitésimale qui laisse l'action invariante correspond une quantité qui est conservée.
+:::
+
+### Amalie Emmy Noether
+![](./assets/Amalie Emmy Noether.png){width="40%" fig-align="left"}
+
+### Contributions
+
+- spécialiste d’algèbre abstraite et de physique théorique,
+- mathématique : a révolutionné les théories des anneaux, des corps, et des algèbres,
+- physique : son théorème explique le lien fondamental entre la
+symétrie et les lois de conservation.
 :::
 
 ## Théorème de Noether - Point de départ
@@ -1753,12 +1765,12 @@ $$O(q_k,\dot q_k) = \sum_k \left.\frac{\partial L}{\partial\dot q_k}\frac{d\tild
 Emmy Noether (1882-1935), qualifiée par Einstein de « monument de la pensée mathématique » — établit l'équivalence fondamentale entre lois de conservation et symétries, un résultat qui structure toute la physique théorique moderne.
 :::
 
-## Théorème de Noether - Démonstration {.smaller .scrollable}
+## Théorème de Noether - Démonstration {.smaller}
 
 Puisque $L$ est indépendant de $u$ par hypothèse, sa dérivée totale par rapport à $u$ (à $t$ fixe) est nulle :
 $$\frac{d}{du}L(\tilde q_i,\dot{\tilde q}_i,t) = \sum_i\left(\frac{\partial L}{\partial\tilde q_i}\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\dot{\tilde q}_i}{du}\right) = 0$$
 
-En utilisant $\dfrac{d\dot{\tilde q}_i}{du} = \dfrac{d}{dt}\dfrac{d\tilde q_i}{du}$ (les dérivées par rapport à $u$ et $t$ commutent, comme au point 2.3), et en substituant l'équation d'E-L $\dfrac{\partial L}{\partial\tilde q_i} = \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\tilde q}_i}$, valable le long de toute trajectoire physique :
+En utilisant $\dfrac{d\dot{\tilde q}_i}{du} = \dfrac{d}{dt}\dfrac{d\tilde q_i}{du}$ (les dérivées par rapport à $u$ et $t$ commutent selon le théorème de Schwartz), et en substituant l'équation d'E-L $\dfrac{\partial L}{\partial\tilde q_i} = \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\tilde q}_i}$, valable le long de toute trajectoire physique :
 $$0 = \sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\tilde q}_i}\right)\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d}{dt}\left(\frac{d\tilde q_i}{du}\right)\right]$$
 
 ## Conclusion de la démonstration
@@ -1807,7 +1819,7 @@ $$L'(q_i,\dot q_i,t) = L(q_i,\dot q_i,t) + \frac{d}{dt}F(q_i,t) \tag{162}$$
 où $F$ (fonction génératrice) dépend seulement des $q_i$ et de $t$ (pas des vitesses).
 :::
 
-## L'action reste invariante sous cette transformation {.smaller}
+## L'action reste invariante sous cette transformation {.smaller .scrollable}
 
 Calculons l'action $S'$ correspondant à $L'$ :
 $$S' = \int_{t_1}^{t_2}L'\,dt = \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt = S + F(q_i(t_2),t_2) - F(q_i(t_1),t_1) \equiv S + F(2)-F(1)$$
@@ -1819,7 +1831,7 @@ $$\delta S' = \delta S$$
 
 Une **seconde** transformation de jauge (générée par une autre fonction $G$) peut restaurer exactement la forme originale de $L$ : on dit que $L'$ est **invariant de forme** sous l'ensemble des transformations de jauge.
 
-## Le lagrangien le plus général invariant de jauge
+## Le lagrangien le plus général invariant de jauge {.scrollable}
 
 ::: {.callout-important title="Remarque 2.15"}
 On admet aujourd'hui que la forme la plus générale d'un lagrangien invariant de jauge, pour une particule chargée, est :
@@ -1830,7 +1842,7 @@ où $A$ est un champ vectoriel quelconque (le terme linéaire en $\dot q$ est pr
 L'équation d'E-L pour cette forme de lagrangien donne, après calcul complet (en cartésiennes, avec les identités vectorielles usuelles pour développer $\dfrac{d}{dt}(\dot{\mathbf{x}}\cdot\mathbf{A})$ et $\nabla(\dot{\mathbf{x}}\cdot\mathbf{A})$) :
 $$m\ddot{\mathbf{x}} = -\left(\nabla V(\mathbf{x},t) + \frac{\partial \mathbf{A}(\mathbf{x},t)}{\partial t}\right) + \dot{\mathbf{x}}\times(\nabla\times\mathbf{A}) \tag{191}$$
 
-## Émergence de l'électromagnétisme
+## Émergence de l'électromagnétisme {.scrollable}
 
 En comparant terme à terme avec la **force de Lorentz** connue empiriquement, $m\ddot{\mathbf{x}} = q(\mathbf{E}+\dot{\mathbf{x}}\times\mathbf{B})$, où par définition $\mathbf{E}=-\nabla V_\text{em}-\partial\mathbf{A}_\text{em}/\partial t$ et $\mathbf{B}=\nabla\times\mathbf{A}_\text{em}$, on identifie directement :
 $$V=qV_\text{em}, \qquad \mathbf{A}=q\mathbf{A}_\text{em}$$
