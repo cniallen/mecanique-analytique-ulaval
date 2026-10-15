@@ -1734,11 +1734,15 @@ $$H = T+V$$
 est un **cas particulier**. L'identification de l'hamiltonien $H$ à l'énergie mécanique mécanique totale n'est donc pas automatique, elle dépend de la forme précise du lagrangien.
 :::
 
-## Théorème de Noether — énoncé {.smaller}
+## Théorème de Noether — Énoncé {.smaller}
+
+Le théorème de Noether établit une relation d’équivalence fondamentale entre les lois de conservation et les symétries d’un système, un résultat qui structure toute la physique théorique moderne.
 
 ::: {.callout-note title="Définition 2.14 — Théorème de Noether"}
 À toute transformation infinitésimale qui laisse l'action invariante correspond une quantité qui est conservée.
 :::
+
+## Théorème de Noether - Point de départ
 
 Soit un lagrangien $L(q,\dot q,t)$ de solution physique $q_i(t)$, et une famille de trajectoires $\tilde q_i(t,u)$ dépendant continûment d'un paramètre réel $u$, telle que $\tilde q_i(t,0)=q_i(t)$ (la trajectoire physique correspond à $u=0$).
 
@@ -1749,7 +1753,7 @@ $$O(q_k,\dot q_k) = \sum_k \left.\frac{\partial L}{\partial\dot q_k}\frac{d\tild
 Emmy Noether (1882-1935), qualifiée par Einstein de « monument de la pensée mathématique » — établit l'équivalence fondamentale entre lois de conservation et symétries, un résultat qui structure toute la physique théorique moderne.
 :::
 
-## Démonstration du théorème de Noether {.smaller .scrollable}
+## Théorème de Noether - Démonstration {.smaller .scrollable}
 
 Puisque $L$ est indépendant de $u$ par hypothèse, sa dérivée totale par rapport à $u$ (à $t$ fixe) est nulle :
 $$\frac{d}{du}L(\tilde q_i,\dot{\tilde q}_i,t) = \sum_i\left(\frac{\partial L}{\partial\tilde q_i}\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\dot{\tilde q}_i}{du}\right) = 0$$
@@ -1767,19 +1771,17 @@ $$O(q_k,\dot q_k) = \sum_i\left.\frac{\partial L}{\partial\dot q_i}\frac{d\tilde
 
 ce qui complète la démonstration du théorème.
 
-## Applications du théorème de Noether {.smaller}
+## Applications du théorème de Noether {.scrollable}
 
-::: {.callout-tip title="Exemple 2.10 — Translation selon $x$"}
+— **Translation selon $x$**
+
 Transformation $\tilde q_i(u)=q_i+u$ (translation rigide de tout le système d'une distance $u$ selon $x$). Alors $d\tilde q_i/du=1$, et le théorème donne :
 $$\sum_k \frac{\partial L}{\partial\dot q_k} = P_x = \text{cte}$$
-— la conservation de la quantité de mouvement totale selon $x$.
-:::
+Quantité conservée : la quantité de mouvement $P_x$ totale selon $x$
 
-::: {.callout-tip title="Exemples 2.11-2.13"}
-- **Translation en 3D** (espace homogène) : $\mathbf{P}=\sum_\alpha m_\alpha\dot{\mathbf{r}}_\alpha = \text{cte}$.
-- **Rotation autour de $Oz$** : conservation de $L_z$, la composante selon $z$ du moment cinétique total.
-- **Rotation en 3D** (symétrie sphérique complète) : conservation du moment cinétique total $\mathbf{L}$ (les 3 composantes).
-:::
+- **Translation en 3D** (espace homogène) : $\mathbf{P}=\sum_\alpha m_\alpha\dot{\mathbf{r}}_\alpha = \text{cte}$
+- **Rotation autour de $Oz$** : conservation de $L_z$, la composante selon $z$ du moment cinétique total
+- **Rotation en 3D** (symétrie sphérique complète) : conservation du moment cinétique total $\mathbf{L}$ (les 3 composantes)
 
 :::{.notes}
 Serait mieux en quiz d'association...
