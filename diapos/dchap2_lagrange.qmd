@@ -1706,7 +1706,7 @@ H &= \sum_{i,j} m_{ij}(q)\,\dot q_j\dot q_i - (T-V) \\
 
 \begin{align*}
 H &= \sum_i p_i\dot q_i - L \\
-$= \sum_i \frac{\partial L}{\partial \dot q_i}\dot q_i - L \\
+&= \sum_i \frac{\partial L}{\partial \dot q_i}\dot q_i - L \\
 &= \sum_i \frac{\partial T}{\partial \dot q_i}\dot q_i - \frac{\partial V}{\partial \dot q_i}\dot q_i - (T-V) \\
 &= 2T - \frac{\partial V}{\partial \dot q_i}\dot q_i - T + V \\
 H &= T + V - \frac{\partial V}{\partial \dot q_i}\dot q_i
@@ -1743,6 +1743,8 @@ Le théorème de Noether établit une relation d’équivalence fondamentale ent
 À toute transformation infinitésimale qui laisse l'action invariante correspond une quantité qui est conservée.
 :::
 
+##
+
 ### Amalie Emmy Noether
 ![](./assets/Amalie Emmy Noether.png){width="40%" fig-align="left"}
 
@@ -1752,7 +1754,6 @@ Le théorème de Noether établit une relation d’équivalence fondamentale ent
 - mathématique : a révolutionné les théories des anneaux, des corps, et des algèbres,
 - physique : son théorème explique le lien fondamental entre la
 symétrie et les lois de conservation.
-:::
 
 ## Théorème de Noether - Point de départ
 
