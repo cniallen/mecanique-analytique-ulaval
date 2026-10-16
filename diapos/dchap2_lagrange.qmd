@@ -1601,7 +1601,7 @@ Quelle quantité physique explique la « répulsion centrifuge » apparaissant d
 - 1er terme du développement en série de Taylor de $V(r)$
 
 :::{.notes}
-ToDo: examiner p/r à la version qui suit pour reprendre des éléments au besoin puis supprimer.
+ToDo: examiner p/r à la version qui suit pour reprendre des éléments au besoin puis supprimer. En fait, je pense que la différence principale est 1 ddl vs n dll. Vérifier si l'identité de Beltrami en tant que tel s'écrit pour le lagrangien général ou indépendant du temps.
 Lagrangien indépendant du temps {.scrollable}
 
 Si $L\equiv L(q_i,\dot q_i)$ (i.e. $\partial L/\partial t=0$), reprenons la dérivée totale, en utilisant l'équation d'E-L $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right)$ pour remplacer le premier terme :
@@ -1661,7 +1661,7 @@ La lumière se propage d'un point à un autre selon la trajectoire qui rend extr
 
 À l'aide du moment conjugué substitué dans l'identité de Beltrami, définissons
 
-::: {.callout-note title="Définitions — Moment conjuqué et Hamiltonien"}
+::: {.callout-note title="Définitions — Moment conjugué et Hamiltonien"}
 $$p_i = \frac{\partial L}{\partial\dot q_i} \qquad\text{est le moment conjugué à } q_i$$
 $$H = \sum_i p_i\dot q_i - L \qquad\text{est l'hamiltonien}$$
 :::
@@ -1694,9 +1694,10 @@ H &= \sum_{i,j} m_{ij}(q)\,\dot q_j\dot q_i - (T-V) \\
 **$H$ est alors l'énergie mécanique totale!**
 
 :::{.notes}
-- Masse ponctuelle(?, c'est p-e pas le cas étendu ci-dessus) isotrope redonne le familier mv^2/2
+- Masse ponctuelle(?, c'est p-e pas le cas masse étendu ci-dessus) isotrope redonne le familier mv^2/2
 - Dans les calculs cégépiens d'énergie et quantité de mouvement, vous faisiez de la mécanique lagrangienne sans le savoir!
-- (quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) -> à revérifier à propos de l'énergie cinétique T, autre phrasé: "Puisque $T$ reste quadratique et homogène de degré 2 en $\dot q_i$ ici aussi, $\sum_{i,j} m_{ij}\dot q_i\dot q_j = 2T$ par le théorème d'Euler "
+- À qqpart dans la démo ⬆️, il doit y avoir une dérivée partielle de V(q) p/r à \dot q qui disparaît à qqpart, voir en comparant à la démo ⬇️
+- (quadratique et homogène en $\dot q$, théorème d'Euler des fonctions homogènes) -> à REVÉRIFIER à propos de l'énergie cinétique T, autre phrasé: "Puisque $T$ reste quadratique et homogène de degré 2 en $\dot q_i$ ici aussi, $\sum_{i,j} m_{ij}\dot q_i\dot q_j = 2T$ par le théorème d'Euler "
 :::
 
 ## Que représente $H$ ? {.scrollable}
@@ -1743,7 +1744,8 @@ Le théorème de Noether établit une relation d’équivalence fondamentale ent
 À toute transformation infinitésimale qui laisse l'action invariante correspond une quantité qui est conservée.
 :::
 
-##
+## Contexte historique
+::: {layout-ncol=2 style="font-size: 0.6em;"}
 
 ### Amalie Emmy Noether
 ![](./assets/Amalie Emmy Noether.png){width="40%" fig-align="left"}
@@ -1754,6 +1756,8 @@ Le théorème de Noether établit une relation d’équivalence fondamentale ent
 - mathématique : a révolutionné les théories des anneaux, des corps, et des algèbres,
 - physique : son théorème explique le lien fondamental entre la
 symétrie et les lois de conservation.
+:::
+
 
 ## Théorème de Noether - Point de départ
 
@@ -1808,6 +1812,10 @@ Quel principe relie les lois de conservation aux symétries d'un système ? {.qu
 :::
 
 # 2.8 Invariance de jauge
+
+:::{.notes}
+- Cette section-ci veut aller avec les transformations canoniques, mais en même temps, c'est bon d'être pas trop loin de l'action que ça fait un bout qu'on a pas parlé...
+:::
 
 ## Transformation de jauge
 
