@@ -1745,10 +1745,10 @@ Le théorème de Noether établit une relation d’équivalence fondamentale ent
 :::
 
 ## Contexte historique
-::: {layout-ncol=2 style="font-size: 0.6em;"}
+::: {layout-ncol=2 style="font-size: 0.9em;"}
 
-### Amalie Emmy Noether
-![](./assets/Amalie Emmy Noether.png){width="40%" fig-align="left"}
+### Amalie Emmy Noether (1882-1935)
+![](./assets/Amalie Emmy Noether.png){width="30%" fig-align="left"}
 
 ### Contributions
 
@@ -1761,13 +1761,13 @@ symétrie et les lois de conservation.
 
 ## Théorème de Noether - Point de départ
 
-Soit un lagrangien $L(q,\dot q,t)$ de solution physique $q_i(t)$, et une famille de trajectoires $\tilde q_i(t,u)$ dépendant continûment d'un paramètre réel $u$, telle que $\tilde q_i(t,0)=q_i(t)$ (la trajectoire physique correspond à $u=0$).
+Soit un lagrangien $L(q,\dot q,t)$ de solution physique $q_i(t)$, et une famille de trajectoires $\tilde q_i(t,u)$ dépendant continûment d'un paramètre réel $u$, telle que $\tilde q_i(t,0)=q_i(t)$. La trajectoire physique réelle correspond donc au cas $u=0$.
 
-**Proposition :** si $L$ est indépendant de $u$, i.e. $L(\tilde q_i,\dot{\tilde q}_i,t)=L(q_i,\dot q_i,t)$ pour tout $u$, alors la quantité suivante est une **constante du mouvement** :
+**Proposition :** si $L$ est indépendant de $u$, _i.e._ $L(\tilde q_i,\dot{\tilde q}_i,t)=L(q_i,\dot q_i,t)$ pour tout $u$, alors la quantité suivante est une **constante du mouvement** :
 $$O(q_k,\dot q_k) = \sum_k \left.\frac{\partial L}{\partial\dot q_k}\frac{d\tilde q_k}{du}\right|_{u=0} \tag{157}$$
 
 ::: {.notes}
-Emmy Noether (1882-1935), qualifiée par Einstein de « monument de la pensée mathématique » — établit l'équivalence fondamentale entre lois de conservation et symétries, un résultat qui structure toute la physique théorique moderne.
+Est-ce que "u" fait juste indexer la famille de trajectoire fictives utilisées dans le principe variationnel d'action stationnaire où c'est différent en vertu de la connection de u aux opérations de symétrie?
 :::
 
 ## Théorème de Noether - Démonstration {.smaller}
@@ -1775,32 +1775,72 @@ Emmy Noether (1882-1935), qualifiée par Einstein de « monument de la pensée m
 Puisque $L$ est indépendant de $u$ par hypothèse, sa dérivée totale par rapport à $u$ (à $t$ fixe) est nulle :
 $$\frac{d}{du}L(\tilde q_i,\dot{\tilde q}_i,t) = \sum_i\left(\frac{\partial L}{\partial\tilde q_i}\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\dot{\tilde q}_i}{du}\right) = 0$$
 
-En utilisant $\dfrac{d\dot{\tilde q}_i}{du} = \dfrac{d}{dt}\dfrac{d\tilde q_i}{du}$ (les dérivées par rapport à $u$ et $t$ commutent selon le théorème de Schwartz), et en substituant l'équation d'E-L $\dfrac{\partial L}{\partial\tilde q_i} = \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\tilde q}_i}$, valable le long de toute trajectoire physique :
-$$0 = \sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\tilde q}_i}\right)\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d}{dt}\left(\frac{d\tilde q_i}{du}\right)\right]$$
+En utilisant $\dfrac{d\dot{\tilde q}_i}{du} = \dfrac{d}{dt}\dfrac{d\tilde q_i}{du}$ puisque les dérivées par rapport à $u$ et $t$ commutent selon le théorème de Schwartz, et en substituant l'équation d'E-L $\dfrac{\partial L}{\partial\tilde q_i} = \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\tilde q}_i}$, valable le long de toute trajectoire physique :
+$$\sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\tilde q}_i}\right)\frac{d\tilde q_i}{du} + \frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d}{dt}\left(\frac{d\tilde q_i}{du}\right)\right]=0$$
 
 ## Conclusion de la démonstration
 
-Le membre de droite est encore une fois la dérivée totale d'une somme de produits, exactement comme dans les démonstrations précédentes :
-$$0 = \frac{d}{dt}\left(\sum_i\frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\tilde q_i}{du}\right)$$
+Le membre de gauche est encore une fois la dérivée totale d'une somme de produits, d'où
+$$0 = \frac{d}{dt}\left(\sum_i\frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\tilde q_i}{du}\right)=0.$$
 
-L'expression entre parenthèses est donc une constante du mouvement, **quel que soit $u$**. En particulier, en posant $u=0$ (où $\tilde q_i\to q_i$, la trajectoire physique) :
-$$O(q_k,\dot q_k) = \sum_i\left.\frac{\partial L}{\partial\dot q_i}\frac{d\tilde q_i}{du}\right|_{u=0} = \text{cte}$$
+L'expression entre parenthèses est donc une constante du mouvement, **quel que soit $u$**. En particulier, en posant $u=0$ pour imposer la trajectoire physique $\tilde q_i\to q_i$,
+$$O(q_k,\dot q_k) = \sum_i\left.\frac{\partial L}{\partial\dot q_i}\frac{d\tilde q_i}{du}\right|_{u=0} = \text{cte}.$$
 
-ce qui complète la démonstration du théorème.
+ {\large _QED_}
 
-## Applications du théorème de Noether {.scrollable}
+## Applications du théorème de Noether à des opérations symétries {.scrollable}
 
-— **Translation selon $x$**
+Soit une particule, ou plus généralement un système physique, demeurant invariant sous une transformation continue à un paramètre $u$.
 
-Transformation $\tilde q_i(u)=q_i+u$ (translation rigide de tout le système d'une distance $u$ selon $x$). Alors $d\tilde q_i/du=1$, et le théorème donne :
-$$\sum_k \frac{\partial L}{\partial\dot q_k} = P_x = \text{cte}$$
-Quantité conservée : la quantité de mouvement $P_x$ totale selon $x$
+— **Translation 1D selon $x \to$ paramètre $u_x$**
 
-- **Translation en 3D** (espace homogène) : $\mathbf{P}=\sum_\alpha m_\alpha\dot{\mathbf{r}}_\alpha = \text{cte}$
+Transformation $\tilde x(u_x) = x + u_x$ où $u_x$ est la distance de déplacement le long $x$. Alors $d\tilde x/du_x=1$, et le théorème de Noether donne la quantité conservée :
+
+:::{.callout-tip title="Moment conjugué $p_x$"}
+$$\frac{\partial L}{\partial\dot x} = p_x = \text{cte}$$
+La quantité de mouvement $p_x$ est conservée.
+:::
+
+— **Translation 3D dans un espace homogène $\to$ paramètre $\mathbf{u}$**
+
+Transformation $\tilde{\mathbf{r}}(\mathbf{u}) = \mathbf{r} + \mathbf{u}$ où $\mathbf{u}=(u_x,u_y,u_z)$ est un déplacement constant arbitraire dans l'espace. L'homogénéité de l'espace signifie que $L$ est invariant pour **tout** $\mathbf{u}$, peu importe sa direction.
+
+::: {.fragment}
+Puisque $u_x, u_y, u_z$ sont trois paramètres **indépendants**, le théorème de Noether s'applique séparément à chacun. Pour une translation selon $x$ seule ($u_y=u_z=0$), $d\tilde x/du_x=1$ et :
+$$\frac{\partial L}{\partial \dot x} = p_x = \text{cte}$$
+:::
+
+::: {.fragment}
+De même, pour une translation selon $y$ seule :
+$$\frac{\partial L}{\partial \dot y} = p_y = \text{cte}$$
+:::
+
+::: {.fragment}
+Et selon $z$ seule :
+$$\frac{\partial L}{\partial \dot z} = p_z = \text{cte}$$
+:::
+
+:::{.callout-tip title="Moment conjugué $\mathbf{p}$"}
+Les trois composantes étant conservées simultanément, on regroupe le résultat sous forme vectorielle :
+$$\frac{\partial L}{\partial\dot{\mathbf{r}}} = \mathbf{p} = \text{cte}$$
+La quantité de mouvement $\mathbf{p}=(p_x,p_y,p_z)$ est conservée.
+:::
+
+- **Généralisation à $N$ particules**
+
+Une translation rigide de tout ce système de particules déplace chaque particule $k$ identiquement, $\tilde{\mathbf{r}}_k(\mathbf{u}) = \mathbf{r}_k+\mathbf{u}$, pour $k=1,\dots,N$. La somme dans le théorème de Noether porte alors sur toutes les particules, donnant alors la conservation de la quantité de mouvement **totale** :
+$$\mathbf{P} = \sum_{k=1}^{N}\frac{\partial L}{\partial\dot{\mathbf{r}}_k} = \sum_{k=1}^{N}\mathbf{p}_k = \text{cte}$$
+
+:::{.notes}
+Revoir la généralisation pour mieux travailler sur les $3N$ degrés de liberté en comparant aux notes de M. Marleau.
+
+Confirmer si la conservation de l'énergie se rattache directement au théorème de Noether ou si cette nuance fout le bordel: "la translation temporelle n'est pas du même type que les translations spatiales précédentes — c'est justement le cas asynchrone qu'on avait mis de côté plus tôt dans la session (avec $\delta t$), contrairement aux translations en $x,y,z$ qui, elles, sont synchrones ($t$ fixe pendant la comparaison). La dérivation doit donc être faite un peu différemment, pas simplement par substitution dans la formule utilisée jusqu'ici."
+
+Autres cas à faire, voir comment j'en fais au tableau/devoir/examen:
 - **Rotation autour de $Oz$** : conservation de $L_z$, la composante selon $z$ du moment cinétique total
 - **Rotation en 3D** (symétrie sphérique complète) : conservation du moment cinétique total $\mathbf{L}$ (les 3 composantes)
 
-:::{.notes}
+Ajout possible:
 Serait mieux en quiz d'association...
 
 Quel principe relie les lois de conservation aux symétries d'un système ? {.quiz-question}
@@ -1819,39 +1859,41 @@ Quel principe relie les lois de conservation aux symétries d'un système ? {.qu
 
 ## Un 1er rappel introductif {.quiz-question}
 
-Soit une fonction $F(x)$ et une constante arbitraire $C$. Que vaut $\dfrac{d}{dx}\big(F(x)+C\big)$?
+Soit une fonction $F(x)$ et une constante arbitraire $C$. Que vaut $\dfrac{d}{dx}\big[F(x)+C\big]$?
 
 - "1)" $\dfrac{dF}{dx}+C$
-- "2)" Dépend de la valeur de $C$
+- "2)" Cela dépend de la valeur de $C$
 - ["3)" $\dfrac{dF}{dx}$]{.correct}
 
 ## Un 2e rappel introductif {.quiz-question}
 
-Soit $F(x)$ et une constante $C$. Comment se compare $\displaystyle\int_a^b \frac{d}{dx}\big(F(x)+C\big)\,dx$ à $\displaystyle\int_a^b \frac{dF}{dx}\,dx$?
+Soit $F(x)$ et une constante $C$. Comment se compare $\displaystyle\int_a^b \frac{d}{dx}\big(F(x)+C\big)\,dx\;$ à $\; \displaystyle\int_a^b \frac{dF}{dx}\,dx$?
 
-- ["1)" Elles sont égales, peu importe $C$]{.correct}
-- "2)" Elles diffèrent par $C$
-- "3)" Elles diffèrent par $2C$
+- ["1)" Les intégrales sont égales, peu importe $C$]{.correct}
+- "2)" Les intégrales diffèrent par $C$
+- "3)" Les intégrales diffèrent par $2C$
 
 :::{.notes}
 vs argument que l'ordre de différentiation et intégration est interchangeable et donc qu'on peut juste scrapper C... :
 {.correct data-explanation="En évaluant chaque intégrale aux bornes : ∫ d(F+C)/dx dx = [F(b)+C] - [F(a)+C] = F(b)-F(a), exactement ∫ dF/dx dx. La constante C apparaît une fois à chaque borne, avec un signe opposé — elle s'annule automatiquement dans la différence."}
 :::
 
-## Du calcul élémentaire à la transformation de jauge
+## Calcul élémentaire $\to$ transformation de jauge
 
 **Généralisation**
 
-Si, au lieu d'une constante $C$, on ajoutait au lagrangien la dérivée totale par rapport au temps d'une fonction $F(q_i,t)$ ?
+Si, au lieu d'une constante $C$, on ajoutait au lagrangien la dérivée totale p/r au temps d'une fct quelconque $F(q_i,t)$ ?
 $$L' = L + \frac{d}{dt}F(q_i,t)$$
 
 L'action devient alors $S' = S + \big[F(q_i(t_2),t_2) - F(q_i(t_1),t_1)\big]$ avec deux termes de bord pour les extrémités de trajectoire. Est-ce que ces termes survivront à notre principe variationnel d'action stationnaire? 
 
 :::{.notes}
+F pas totalement quelconque quand même, ne peut pas contenir de vitesses par exemple.
+
 Faire réfléchir à se rappeler la définition de S=\int définie de L dt le temps qu'on pause la définition de la transformation. 
 :::
 
-##{.center}
+## {.center}
 
 ::: {.callout-note title="Définition — Transformation de jauge"}
 La transformation
@@ -1868,17 +1910,21 @@ L'invariance par rapport à une transformation de jauge est fondamentale en phys
 
 Calculons l'action $S'$ correspondant à $L'$ :
 \begin{align*}
-S' = \int_{t_1}^{t_2}L'\,dt &= \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt 
-&= S + F(q_i(t_2),t_2) - F(q_i(t_1),t_1) 
+S' &= \int_{t_1}^{t_2}L'\,dt &= \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt \\
+&= S + F(q_i(t_2),t_2) - F(q_i(t_1),t_1) \\
 &\equiv S + F(2)-F(1)\quad\text{pour alléger la notation}
-\begin{align}
+\end{align*}
 
 En se rappelant que notre principe variationnel pour l'action considère deux points FIXES $P_1,P_2$ aux temps $t_1,t_2$ respectivement, cela implique que $q_i(t_1), q_i(t_2)$ ne sont pas variés et $\delta q_i(t_{1,2})=0$ et il en découle $\delta F(1)=\delta F(2)=0$, donc :
 $$\delta S' = \delta S$$
 
-{\large _QED_}
+_QED_
 
 Comme les équations d'Euler-Lagrange s'obtiennent de l'action stationnaire $\delta S' = \delta S = 0$, elles sont aussi invariantes sous transformation de jauge.
+
+:::{.notes}
+Ce serait pas très long à faire au tableau le calcul de S', donc mettre en fragment si j'y vais.
+:::
 
 ## Conclusion de la transformation de jauge
 
@@ -1886,7 +1932,7 @@ Comme les équations d'Euler-Lagrange s'obtiennent de l'action stationnaire $\de
 Même physique du principe variationnel, mêmes équations d'E-L, mêmes équations du mouvement et donc mêmes trajectoires en présence de la fonction génératrice. $L$ est défini à une transformation de jauge près : plusieurs lagrangiens différents, reliés par l'ajout de $dF/dt$, décrivent exactement le même système physique.
 :::
 
-La transformation de jauge est donc une symétrie du problème variationnel puisque la variation d'action $\delta S$ reste identique, invariante, lorsque la forme algébrique change de $L$ à $L'$. Ceci garantit les mêmes équations d'Euler-Lagrange $\forall$ fonction génératrice.
+La transformation de jauge est donc une symétrie du problème variationnel puisque la variation d'action $\delta S$ reste identique, invariante, lorsque la forme algébrique change de $L$ à $L'$. Ceci garantit les mêmes équations d'Euler-Lagrange $\forall$ fonction génératrice $F(q_i,t)$.
 
 ------------
 
