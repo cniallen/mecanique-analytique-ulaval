@@ -1817,32 +1817,85 @@ Quel principe relie les lois de conservation aux symétries d'un système ? {.qu
 - Cette section-ci veut aller avec les transformations canoniques, mais en même temps, c'est bon d'être pas trop loin de l'action que ça fait un bout qu'on a pas parlé...
 :::
 
-## Transformation de jauge
+## Un 1er rappel introductif {.quiz-question}
 
-::: {.callout-important title="Remarque 2.14"}
-L'invariance par rapport à une transformation de jauge est fondamentale en physique — elle est à la base des théories décrivant 3 des 4 interactions fondamentales : électromagnétique, faible et forte !
+Soit une fonction $F(x)$ et une constante arbitraire $C$. Que vaut $\dfrac{d}{dx}\big(F(x)+C\big)$?
+
+- "1)" $\dfrac{dF}{dx}+C$
+- "2)" Dépend de la valeur de $C$
+- ["3)" $\dfrac{dF}{dx}$]{.correct}
+
+## Un 2e rappel introductif {.quiz-question}
+
+Soit $F(x)$ et une constante $C$. Comment se compare $\displaystyle\int_a^b \frac{d}{dx}\big(F(x)+C\big)\,dx$ à $\displaystyle\int_a^b \frac{dF}{dx}\,dx$?
+
+- ["1)" Elles sont égales, peu importe $C$]{.correct}
+- "2)" Elles diffèrent par $C$
+- "3)" Elles diffèrent par $2C$
+
+:::{.notes}
+vs argument que l'ordre de différentiation et intégration est interchangeable et donc qu'on peut juste scrapper C... :
+{.correct data-explanation="En évaluant chaque intégrale aux bornes : ∫ d(F+C)/dx dx = [F(b)+C] - [F(a)+C] = F(b)-F(a), exactement ∫ dF/dx dx. La constante C apparaît une fois à chaque borne, avec un signe opposé — elle s'annule automatiquement dans la différence."}
 :::
 
-::: {.callout-note title="Définition 2.15 — Transformation de jauge"}
-$$L'(q_i,\dot q_i,t) = L(q_i,\dot q_i,t) + \frac{d}{dt}F(q_i,t) \tag{162}$$
-où $F$ (fonction génératrice) dépend seulement des $q_i$ et de $t$ (pas des vitesses).
+## Du calcul élémentaire à la transformation de jauge
+
+**Généralisation**
+
+Si, au lieu d'une constante $C$, on ajoutait au lagrangien la dérivée totale par rapport au temps d'une fonction $F(q_i,t)$ ?
+$$L' = L + \frac{d}{dt}F(q_i,t)$$
+
+L'action devient alors $S' = S + \big[F(q_i(t_2),t_2) - F(q_i(t_1),t_1)\big]$ avec deux termes de bord pour les extrémités de trajectoire. Est-ce que ces termes survivront à notre principe variationnel d'action stationnaire? 
+
+:::{.notes}
+Faire réfléchir à se rappeler la définition de S=\int définie de L dt le temps qu'on pause la définition de la transformation. 
 :::
 
-## L'action reste invariante sous cette transformation {.smaller .scrollable}
+##{.center}
+
+::: {.callout-note title="Définition — Transformation de jauge"}
+La transformation
+$$L'(q_i,\dot q_i,t) = L(q_i,\dot q_i,t) + \frac{d}{dt}F(q_i,t)$$,
+où $F$ dépend seulement des coordonnées généralisées $q_i$ et du temps $t$, est une transformation de jauge.
+:::
+
+$F$ est alors dite **fonction génératrice** ou **générateur** de la transformation.
+
+L'invariance par rapport à une transformation de jauge est fondamentale en physique, elle est à la base des théories décrivant 3 des 4 interactions fondamentales : électromagnétique, faible et forte !
+
+
+## Invariance de l'action sous cette transformation de jauge {.scrollable}
 
 Calculons l'action $S'$ correspondant à $L'$ :
-$$S' = \int_{t_1}^{t_2}L'\,dt = \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt = S + F(q_i(t_2),t_2) - F(q_i(t_1),t_1) \equiv S + F(2)-F(1)$$
+\begin{align*}
+S' = \int_{t_1}^{t_2}L'\,dt &= \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt 
+&= S + F(q_i(t_2),t_2) - F(q_i(t_1),t_1) 
+&\equiv S + F(2)-F(1)\quad\text{pour alléger la notation}
+\begin{align}
 
-Puisque $t_1,t_2$ sont fixes et que $q_i(t_1), q_i(t_2)$ ne sont pas variés ($\delta q_i(t_{1,2})=0$, condition déjà établie en 2.3), on a $\delta F(1)=\delta F(2)=0$, donc :
+En se rappelant que notre principe variationnel pour l'action considère deux points FIXES $P_1,P_2$ aux temps $t_1,t_2$ respectivement, cela implique que $q_i(t_1), q_i(t_2)$ ne sont pas variés et $\delta q_i(t_{1,2})=0$ et il en découle $\delta F(1)=\delta F(2)=0$, donc :
 $$\delta S' = \delta S$$
 
-**Même physique, mêmes équations du mouvement, mêmes trajectoires** — la transformation de jauge est donc une symétrie du problème variationnel, même si la *forme* algébrique de $L$ change.
+{\large _QED_}
+
+Comme les équations d'Euler-Lagrange s'obtiennent de l'action stationnaire $\delta S' = \delta S = 0$, elles sont aussi invariantes sous transformation de jauge.
+
+## Conclusion de la transformation de jauge
+
+:::{.callout-important title="Le lagrangien n'est pas unique"}
+Même physique du principe variationnel, mêmes équations d'E-L, mêmes équations du mouvement et donc mêmes trajectoires en présence de la fonction génératrice. $L$ est défini à une transformation de jauge près : plusieurs lagrangiens différents, reliés par l'ajout de $dF/dt$, décrivent exactement le même système physique.
+:::
+
+La transformation de jauge est donc une symétrie du problème variationnel puisque la variation d'action $\delta S$ reste identique, invariante, lorsque la forme algébrique change de $L$ à $L'$. Ceci garantit les mêmes équations d'Euler-Lagrange $\forall$ fonction génératrice.
+
+------------
 
 Une **seconde** transformation de jauge (générée par une autre fonction $G$) peut restaurer exactement la forme originale de $L$ : on dit que $L'$ est **invariant de forme** sous l'ensemble des transformations de jauge.
 
+
 ## Le lagrangien le plus général invariant de jauge {.scrollable}
 
-::: {.callout-important title="Remarque 2.15"}
+
 On admet aujourd'hui que la forme la plus générale d'un lagrangien invariant de jauge, pour une particule chargée, est :
 $$L = T - V(q_i,t) + \dot q\cdot A(q_i,t)$$
 où $A$ est un champ vectoriel quelconque (le terme linéaire en $\dot q$ est précisément celui qu'une transformation de jauge peut introduire ou annuler).
