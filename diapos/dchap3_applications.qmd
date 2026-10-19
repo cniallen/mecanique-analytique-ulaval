@@ -241,52 +241,63 @@ Grâce à cette réduction, le problème à 2 corps admet une **solution analyti
 
 # 3.4 Le potentiel central
 
-## Position du problème
+## Exemple section 3.4 - Potentiel central 
 
-Le problème du potentiel central couvre : (1) une particule soumise à une force externe centrée à l'origine, ou (2) le mouvement relatif dans un problème à 2 corps réduit. **ddl :** 1 corps en 3D, 0 contrainte $\implies$ **3 ddl**. Lagrangien :
-$$L = \frac{m}{2}\dot{\mathbf{r}}^2 - V(r) \tag{98}$$
+Une énergie potentielle qui dépend seulement d'une distance radiale par rapport à un point central, soit $V(\mathbf{r})$ sans composantes angulaires, est dite **potentiel central**
 
-où $V(r)$ ne dépend que de la distance — la force est purement radiale, ex. : interaction gravitationnelle ou coulombienne entre 2 corps.
+![Coordonnées sphériques pour une masse ponctuelle se déplaçant dans tout potentiel central $V(\mathbf{r})$.](./assets/chap2_fig12.png){#fig-coordspheriqus width="60%" fig-align="center"}
 
-**Force purement radiale** ($\mathbf{r}\parallel\mathbf{F}$) $\implies$ le torque $\mathbf{r}\times\mathbf{F}=0$ $\implies$ le moment cinétique $\mathbf{l}=m\mathbf{r}\times\dot{\mathbf{r}}$ est une **constante du mouvement** (99), puisque :
-$$\dot{\mathbf{l}} = m\dot{\mathbf{r}}\times\dot{\mathbf{r}} + m\mathbf{r}\times\ddot{\mathbf{r}} = 0 + \mathbf{r}\times\mathbf{F} = 0 \tag{100-102}$$
+## {.scrollable}
+::::{.callout-caution title="Exemple 3.4 - Cycles dans un potentiel central"}
 
-**Conséquence :** le mouvement est perpendiculaire à $\mathbf{l}$ (constant en grandeur et direction) — le mouvement se fait donc **dans un plan**.
+#### Énoncé
 
-## Réduction au plan et équation en $\varphi$
+Soit une masse soumise à une énergie potentielle centrale $V(\mathbf{r})$ qui se déplace dans un plan $x-y$.
 
-Choisissons le plan $\theta=\pi/2$ ($\dot\theta=0$). Le lagrangien se réduit aux coordonnées polaires :
-$$L = \frac{m}{2}(\dot r^2 + r^2\dot\varphi^2) - V(r) \tag{103}$$
+#### Analyse du problème
+
+:::{.fragment}
+A) Contrainte : $\theta=\pi/2$ ($\dot\theta=0$)
+
+B) 2 ddl
+
+C) Coordonnées polaires $r,\phi$
+:::
+
+#### Mécanique lagrangienne
+
+:::{.fragment}
+D) Énergie cinétique $T=\frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right)$
+
+E) Énergie potentielle $V(r)$
+
+F) Lagrangien
+
+$$L = T - V = \frac{1}{2}m\left(\dot r^2 + r^2\dot\varphi^2\right) - V(r)$$
+:::
+
+#### Équation angulaire
 
 $\varphi$ est **cyclique** ($\partial L/\partial\varphi=0$), donc le moment canonique (ici le moment cinétique) est conservé :
 $$\frac{\partial L}{\partial\dot\varphi} = mr^2\dot\varphi = l = \text{cte} \quad\Longrightarrow\quad \dot\varphi = \frac{l}{mr^2} \tag{104,105}$$
 
 où $l$ est fixé par les conditions initiales, et $mr^2$ est le moment d'inertie d'une masse $m$ à distance $r$.
 
-## Équation radiale et potentiel efficace {.smaller}
+#### Équation radiale et potentiel efficace
 
 **Équation en $r$ :** $\partial L/\partial r = mr\dot\varphi^2 - \partial V/\partial r$, $\dfrac{d}{dt}(\partial L/\partial\dot r)=m\ddot r$, donnant :
 $$m\ddot r - mr\dot\varphi^2 + \frac{\partial V}{\partial r} = 0$$
 
 En substituant $\dot\varphi = l/(mr^2)$ pour découpler les variables :
-$$m\ddot r = -\frac{\partial V}{\partial r} + \frac{l^2}{mr^3} \tag{110}$$
+$$m\ddot r = -\frac{\partial V}{\partial r} + \frac{l^2}{mr^3}$$
 
 ::: {.callout-note title="Potentiel efficace"}
-$$V_\text{eff}(r) = V(r) + \frac{l^2}{2mr^2} \quad\Longrightarrow\quad m\ddot r = -\frac{\partial V_\text{eff}(r)}{\partial r} = F_\text{eff}(r) \tag{111,112}$$
+$$V_\text{eff}(r) = V(r) + \frac{l^2}{2mr^2} \quad\Longrightarrow\quad m\ddot r = -\frac{\partial V_\text{eff}(r)}{\partial r} = F_\text{eff}(r)$$
 :::
 
 Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{z\text{-rot}} = l^2/(2mr^2)$, correspondant à une **répulsion centrifuge**.
 
-::: {.callout-important title="Remarque 3.8"}
-Un corps en rotation autour de l'origine est effectivement repoussé de celle-ci (sans l'atteindre) — plus $l$ est grand, plus il est repoussé. Cette force fictive correspond à la tendance du corps à maintenir son mouvement rectiligne uniforme (inertie) dans le repère inertiel.
-:::
-
-## Quelle quantité physique explique la « répulsion centrifuge » apparaissant dans le potentiel efficace $V_\text{eff}(r)$ ? {.quiz-question}
-
-- L'énergie potentielle gravitationnelle $V(r)$ seule
-- [Le terme d'énergie cinétique de rotation $l^2/(2mr^2)$, issu de la conservation du moment cinétique]{.correct data-explanation="Ce terme n'est pas une vraie force mais la manifestation, dans l'équation radiale seule, de l'inertie associée à la rotation — la particule 'résiste' à se rapprocher du centre car cela demanderait d'accélérer sa vitesse angulaire (l = cte)."}
-- La force de frottement du milieu
-- Le terme linéaire du développement de Taylor de $V(r)$
+::::
 
 ## Potentiel en $r^{-1}$ : orbite circulaire {.smaller}
 

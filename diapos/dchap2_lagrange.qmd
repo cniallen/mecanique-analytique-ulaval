@@ -1589,7 +1589,7 @@ Le potentiel efficace combine $V(r)$ et une énergie cinétique de rotation $T_{
 
 :::{.notes}
 - Revoir les sections d'équations angulaires et radiales.
-- Faire une diapo séparée pour le potentiel effectif.
+- Faire une diapo séparée pour le potentiel effectif.. vs problème à 2 corps au chapitre 3... p-e le déplacer en rappel, avec aussi le bout des coordonnées curvilignes, au chapitre 1?
 :::
 
 ## {.quiz-question}
