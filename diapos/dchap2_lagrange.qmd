@@ -1929,34 +1929,34 @@ Même physique du principe variationnel, mêmes équations d'E-L, mêmes équati
 
 La transformation de jauge est donc une symétrie du problème variationnel puisque la variation d'action $\delta S$ reste identique, invariante, lorsque la forme algébrique change de $L$ à $L'$. Ceci garantit les mêmes équations d'Euler-Lagrange $\forall$ fonction génératrice $F(q_i,t)$.
 
-------------
-
+:::{.notes}
+À compléter avec les notes de M. Marleau et en jasant avec Jeff
 Une **seconde** transformation de jauge (générée par une autre fonction $G$) peut restaurer exactement la forme originale de $L$ : on dit que $L'$ est **invariant de forme** sous l'ensemble des transformations de jauge.
 
 
-## Le lagrangien le plus général invariant de jauge {.scrollable}
+- Le lagrangien le plus général invariant de jauge {.scrollable}
 
 
 On admet aujourd'hui que la forme la plus générale d'un lagrangien invariant de jauge, pour une particule chargée, est :
 $$L = T - V(q_i,t) + \dot q\cdot A(q_i,t)$$
 où $A$ est un champ vectoriel quelconque (le terme linéaire en $\dot q$ est précisément celui qu'une transformation de jauge peut introduire ou annuler).
-:::
+
 
 L'équation d'E-L pour cette forme de lagrangien donne, après calcul complet (en cartésiennes, avec les identités vectorielles usuelles pour développer $\dfrac{d}{dt}(\dot{\mathbf{x}}\cdot\mathbf{A})$ et $\nabla(\dot{\mathbf{x}}\cdot\mathbf{A})$) :
 $$m\ddot{\mathbf{x}} = -\left(\nabla V(\mathbf{x},t) + \frac{\partial \mathbf{A}(\mathbf{x},t)}{\partial t}\right) + \dot{\mathbf{x}}\times(\nabla\times\mathbf{A}) \tag{191}$$
 
-## Émergence de l'électromagnétisme {.scrollable}
+- Émergence de l'électromagnétisme {.scrollable}
 
 En comparant terme à terme avec la **force de Lorentz** connue empiriquement, $m\ddot{\mathbf{x}} = q(\mathbf{E}+\dot{\mathbf{x}}\times\mathbf{B})$, où par définition $\mathbf{E}=-\nabla V_\text{em}-\partial\mathbf{A}_\text{em}/\partial t$ et $\mathbf{B}=\nabla\times\mathbf{A}_\text{em}$, on identifie directement :
 $$V=qV_\text{em}, \qquad \mathbf{A}=q\mathbf{A}_\text{em}$$
 
 **L'invariance de jauge du lagrangien mène donc directement à l'interaction électromagnétique** — un résultat remarquable, qui n'a rien présupposé de l'électromagnétisme *a priori*, seulement l'exigence d'invariance de jauge du lagrangien !
 
-## La double invariance de jauge
+- La double invariance de jauge
 
 De façon équivalente, l'électromagnétisme possède lui-même sa propre invariance de jauge bien connue : les champs physiques $\mathbf{E}$ et $\mathbf{B}$ sont invariants sous $V_\text{em}\to V_\text{em}-\partial F/\partial t$, $\mathbf{A}_\text{em}\to\mathbf{A}_\text{em}+\nabla F$ — c'est très exactement la même invariance de jauge lagrangienne, vue sous un autre angle.
 
-::: {.callout-important title="Remarque 2.16"}
+ {.callout-important title="Remarque 2.16"}
 Si $A=\nabla F$ (gradient d'une fonction scalaire), la transformation ne décrit **aucune nouvelle interaction physique** — c'est une pure transformation de jauge. Si $A\neq\nabla F$, alors $A$ décrit une véritable interaction (force de Lorentz), compatible avec le formalisme lagrangien même si elle n'est pas conservative au sens usuel ($\nabla\times\mathbf{F}\neq0$ en général).
 :::
 
