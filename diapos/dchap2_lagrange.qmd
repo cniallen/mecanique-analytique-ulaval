@@ -1747,8 +1747,8 @@ Le théorème de Noether établit une relation d’équivalence fondamentale ent
 ## Contexte historique
 ::: {layout-ncol=2 style="font-size: 0.9em;"}
 
-### Amalie Emmy Noether (1882-1935)
-![](./assets/Amalie Emmy Noether.png){width="30%" fig-align="left"}
+### Amalie Emmy Noether
+![](./assets/Amalie Emmy Noether.png){width="25%" fig-align="left"}
 
 ### Contributions
 
@@ -1768,6 +1768,8 @@ $$O(q_k,\dot q_k) = \sum_k \left.\frac{\partial L}{\partial\dot q_k}\frac{d\tild
 
 ::: {.notes}
 Est-ce que "u" fait juste indexer la famille de trajectoire fictives utilisées dans le principe variationnel d'action stationnaire où c'est différent en vertu de la connection de u aux opérations de symétrie?
+
+Aussi nuancer dérivée totale vs dérivée ordinaire
 :::
 
 ## Théorème de Noether - Démonstration {.smaller}
@@ -1781,12 +1783,12 @@ $$\sum_i\left[\frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\tilde q}_i}\righ
 ## Conclusion de la démonstration
 
 Le membre de gauche est encore une fois la dérivée totale d'une somme de produits, d'où
-$$0 = \frac{d}{dt}\left(\sum_i\frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\tilde q_i}{du}\right)=0.$$
+$$\frac{d}{dt}\left(\sum_i\frac{\partial L}{\partial\dot{\tilde q}_i}\frac{d\tilde q_i}{du}\right)=0.$$
 
 L'expression entre parenthèses est donc une constante du mouvement, **quel que soit $u$**. En particulier, en posant $u=0$ pour imposer la trajectoire physique $\tilde q_i\to q_i$,
 $$O(q_k,\dot q_k) = \sum_i\left.\frac{\partial L}{\partial\dot q_i}\frac{d\tilde q_i}{du}\right|_{u=0} = \text{cte}.$$
 
- {\large _QED_}
+ _QED_
 
 ## Applications du théorème de Noether à des opérations symétries {.scrollable}
 
@@ -1801,29 +1803,23 @@ $$\frac{\partial L}{\partial\dot x} = p_x = \text{cte}$$
 La quantité de mouvement $p_x$ est conservée.
 :::
 
-— **Translation 3D dans un espace homogène $\to$ paramètre $\mathbf{u}$**
+— **Translation dans un espace homogène $\to$ paramètre $\mathbf{u}$**
 
-Transformation $\tilde{\mathbf{r}}(\mathbf{u}) = \mathbf{r} + \mathbf{u}$ où $\mathbf{u}=(u_x,u_y,u_z)$ est un déplacement constant arbitraire dans l'espace. L'homogénéité de l'espace signifie que $L$ est invariant pour **tout** $\mathbf{u}$, peu importe sa direction.
+Transformation $\tilde{\mathbf{r}}(\mathbf{u}) = \mathbf{r} + \mathbf{u}$ où $\mathbf{u}=(u_x,u_y,u_z)$ est un déplacement constant arbitraire dans l'espace. Puisque $u_x, u_y, u_z$ sont trois paramètres indépendants, le théorème de Noether s'applique séparément à chacun. 
 
-::: {.fragment}
-Puisque $u_x, u_y, u_z$ sont trois paramètres **indépendants**, le théorème de Noether s'applique séparément à chacun. Pour une translation selon $x$ seule ($u_y=u_z=0$), $d\tilde x/du_x=1$ et :
+Composant de translation selon $x$ avec $d\tilde x/du_x=1 \to$
 $$\frac{\partial L}{\partial \dot x} = p_x = \text{cte}$$
-:::
 
-::: {.fragment}
-De même, pour une translation selon $y$ seule :
+Composant de translation selon $x$ avec $d\tilde y/du_y=1 \to$
 $$\frac{\partial L}{\partial \dot y} = p_y = \text{cte}$$
-:::
 
-::: {.fragment}
-Et selon $z$ seule :
+Composant de translation selon $x$ avec $d\tilde z/du_z=1 \to$
 $$\frac{\partial L}{\partial \dot z} = p_z = \text{cte}$$
-:::
 
 :::{.callout-tip title="Moment conjugué $\mathbf{p}$"}
 Les trois composantes étant conservées simultanément, on regroupe le résultat sous forme vectorielle :
 $$\frac{\partial L}{\partial\dot{\mathbf{r}}} = \mathbf{p} = \text{cte}$$
-La quantité de mouvement $\mathbf{p}=(p_x,p_y,p_z)$ est conservée.
+La quantité de mouvement totale $\mathbf{p}=(p_x,p_y,p_z)$ est conservée.
 :::
 
 - **Généralisation à $N$ particules**
@@ -1832,7 +1828,7 @@ Une translation rigide de tout ce système de particules déplace chaque particu
 $$\mathbf{P} = \sum_{k=1}^{N}\frac{\partial L}{\partial\dot{\mathbf{r}}_k} = \sum_{k=1}^{N}\mathbf{p}_k = \text{cte}$$
 
 :::{.notes}
-Revoir la généralisation pour mieux travailler sur les $3N$ degrés de liberté en comparant aux notes de M. Marleau.
+Revoir la généralisation pour mieux travailler sur les $3N$ degrés de liberté, indices i vs k et ceux du paramètre u, en comparant aux notes de M. Marleau.
 
 Confirmer si la conservation de l'énergie se rattache directement au théorème de Noether ou si cette nuance fout le bordel: "la translation temporelle n'est pas du même type que les translations spatiales précédentes — c'est justement le cas asynchrone qu'on avait mis de côté plus tôt dans la session (avec $\delta t$), contrairement aux translations en $x,y,z$ qui, elles, sont synchrones ($t$ fixe pendant la comparaison). La dérivation doit donc être faite un peu différemment, pas simplement par substitution dans la formule utilisée jusqu'ici."
 
@@ -1910,15 +1906,14 @@ L'invariance par rapport à une transformation de jauge est fondamentale en phys
 
 Calculons l'action $S'$ correspondant à $L'$ :
 \begin{align*}
-S' &= \int_{t_1}^{t_2}L'\,dt &= \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt \\
+S' &= \int_{t_1}^{t_2}L'\,dt \\
+&= \int_{t_1}^{t_2}L\,dt + \int_{t_1}^{t_2}\frac{d}{dt}F(q_i,t)\,dt \\
 &= S + F(q_i(t_2),t_2) - F(q_i(t_1),t_1) \\
 &\equiv S + F(2)-F(1)\quad\text{pour alléger la notation}
 \end{align*}
 
 En se rappelant que notre principe variationnel pour l'action considère deux points FIXES $P_1,P_2$ aux temps $t_1,t_2$ respectivement, cela implique que $q_i(t_1), q_i(t_2)$ ne sont pas variés et $\delta q_i(t_{1,2})=0$ et il en découle $\delta F(1)=\delta F(2)=0$, donc :
-$$\delta S' = \delta S$$
-
-_QED_
+$$\delta S' = \delta S\quad\text{_QED_}$$
 
 Comme les équations d'Euler-Lagrange s'obtiennent de l'action stationnaire $\delta S' = \delta S = 0$, elles sont aussi invariantes sous transformation de jauge.
 
