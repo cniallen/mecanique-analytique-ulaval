@@ -1962,19 +1962,21 @@ Si $A=\nabla F$ (gradient d'une fonction scalaire), la transformation ne décrit
 
 # 2.9 Caractéristiques, propriétés, limites
 
-## Propriétés du formalisme lagrangien
+## Propriétés du formalisme lagrangien {.scrollable}
 
-**Indépendance des coordonnées généralisées :** les $q_i$ décrivant les ddl doivent être physiquement indépendants les uns des autres — sinon (ddl contraints non éliminés), le lagrangien et les équations d'E-L qui en découlent ne sont pas valides, comme on l'a vu à la section 2.6.
+**Indépendance des coordonnées généralisées :** les $q_i$ décrivant les ddl doivent être physiquement indépendants les uns des autres, tous les "ddl contraints" sont éliminés, sinon le lagrangien et les équations d'E-L qui en découlent ne sont pas valides.
 
-**En mécanique classique non relativiste**, pour chaque ddl $q_i$, le lagrangien :
+**En mécanique classique non relativiste** pour chaque ddl de coordonnée $q_i$, le lagrangien :
 
-1. contient un terme en $\dot q_i^2$ (pour garantir une équation d'E-L du 2ᵉ ordre en $\ddot q_i$, conformément à l'expérience),
-2. peut dépendre linéairement de $\dot q_i$ (cf. section 2.8, invariance de jauge et force de Lorentz),
-3. a une dépendance quelconque en $q_i$ (selon le système de coordonnées choisi et les interactions physiques présentes).
+1. contient un terme en $\dot q_i^2$, garantissant une équation d'E-L du 2ᵉ ordre en $\ddot q_i$, conformément aux lois de Newton et à l'expérience en accélération,
+2. peut dépendre linéairement de vitesse généralisée $\dot q_i$
+3. a une dépendance quelconque en $q_i$, selon le système de coordonnées choisi et les interactions physiques présentes).
+
+$$L(q_i,\dot q_i, t)$$
 
 ## Additivité du lagrangien
 
-**Additivité de $L$ :** si $L_1$ et $L_2$ décrivent 2 systèmes physiquement indépendants (sans interaction), le système combiné a simplement $L=L_1+L_2$. S'ils interagissent entre eux, on ajoute un terme d'interaction : $L=L_1+L_2-V(1,2)$.
+Si $L_1$ et $L_2$ décrivent 2 systèmes physiquement indépendants (sans interaction), le système combiné a simplement $L=L_1+L_2$. S'ils interagissent entre eux, on ajoute un terme d'interaction : $L=L_1+L_2-V(1,2)$.
 
 ::: {.callout-tip title="Exemples 2.14-2.15"}
 **Deux particules libres** (sans interaction mutuelle) :
@@ -1984,9 +1986,11 @@ $$L=L_1+L_2 = \frac{m_1}{2}\dot{\mathbf{r}}_1^2+\frac{m_2}{2}\dot{\mathbf{r}}_2^
 $$L = L_1+L_2 - V(\mathbf{r}_1,\mathbf{r}_2)$$
 :::
 
+:::{.notes}
 Cette propriété d'additivité sera essentielle au Chapitre 3 pour traiter le problème à 2 corps.
+:::
 
-# 2.10 Symétrie de l'espace-temps
+# 2.10 Symétrie de l'espace-temps ⭐️⭐️
 
 ## Retrouver les 3 lois de Newton par symétrie
 
