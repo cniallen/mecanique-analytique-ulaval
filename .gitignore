@@ -167,6 +167,12 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# Quarto & publishing online
+_site/
+.quarto/
+*_files/
+*.html
+
 # mypy
 .mypy_cache/
 .dmypy.json
