@@ -119,13 +119,13 @@ Outil mathématique utilisé en
 
 Soit une fonction $f(u,v)$ où **$u$ et $v$ sont les 2 variables indépendantes** dont dépend $f$. Définissons :
 
-:::{.callout-note}
+:::{.r-frame}
 $$w = \frac{\partial f(u,v)}{\partial v} = w(u,v)$$
 :::
 
 La transformation de Legendre (TLegendre) permet de définir une fonction $g(u,w)$ qui **remplace** $f(u,v)$ :
 
-:::{.callout-note}
+:::{.callout-note appearance="minimal" icon=false}
 $$f(u,v) \mapsto g(u,w) = v\cdot w - f$$
 :::
 
@@ -166,7 +166,7 @@ $$dg = v\,dw - \partial f/\partial u\,du,$$
 
 on identifie terme à terme
 
-:::{.callout-note}
+:::{.callout-note appearance="minimal" icon=false}
 $$v = \frac{\partial g}{\partial w}, \qquad \frac{\partial g}{\partial u} = -\frac{\partial f}{\partial u}$$
 :::
 
