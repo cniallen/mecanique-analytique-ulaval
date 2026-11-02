@@ -275,11 +275,11 @@ $$
 $$
 :::
 
-$n$ ddl et $n$ équations d'E-L du 2ᵉ ordre $\implies$ $2n$ équations canonniques du 1ᵉʳ ordre.
+$n$ ddl et $n$ équations d'E-L du 2ᵉ ordre $\implies$ $2n$ équations canoniques du 1ᵉʳ ordre.
 
-Les $2n$ équations ci-dessus se lisent donc :
-$$\dot q_i = \frac{\partial H}{\partial p_i}, \qquad \dot p_i = -\frac{\partial H}{\partial q_i}; \quad i=1,\dots,n \qquad \textbf{(équations canoniques)} \tag{17}$$
- 
+:::{.notes}
+Les $2n$ équations canoniques remplacent les $n$ équations d'E-L.
+:::
 
 ## Symétrie symplectique
 
@@ -289,22 +289,26 @@ $$\dot q_i = +\frac{\partial H}{\partial p_i}, \qquad (q_i \leftrightharpoons p_
 correspond à une **symétrie symplectique**.
 :::
 
-Les $2n$ équations canoniques remplacent les $n$ équations d'E-L.
-
-## Quand $H$ est-il une constante du mouvement ? {.smaller}
+## Quand $H$ est-il une constante du mouvement ? {.scrollable}
 
 En calculant $dH/dt$ sur une trajectoire qui obéit aux équations canoniques :
-$$\frac{dH}{dt} = \sum_i\frac{\partial H}{\partial q_i}\dot q_i + \sum_i\frac{\partial H}{\partial p_i}\dot p_i + \frac{\partial H}{\partial t} = \sum_i\left(-\dot p_i\right)\dot q_i + \sum_i\dot q_i\dot p_i + \frac{\partial H}{\partial t} = \frac{\partial H}{\partial t} = -\frac{\partial L}{\partial t} \tag{18}$$
+\begin{align*}
+\frac{dH}{dt} &= \sum_i\frac{\partial H}{\partial q_i}\dot q_i + \sum_i\frac{\partial H}{\partial p_i}\dot p_i + \frac{\partial H}{\partial t}\\
+&= \sum_i\left(-\dot p_i\right)\dot q_i + \sum_i\dot q_i\dot p_i + \frac{\partial H}{\partial t} \\
+&= \frac{\partial H}{\partial t}\\ 
+&= -\frac{\partial L}{\partial t}\\
+\end{align*}
 
-::: {.callout-note title="Définition 4.2 — Conditions pour $H=$ cte"}
-Si $H$ ne dépend pas explicitement du temps, alors $H$ est une constante du mouvement (ou intégrale première). Physiquement : $H=$ cte signifie qu'aucun agent extérieur n'agit sur le système de façon non constante dans le temps.
+::: {.callout-note title="Conditions pour $H=$ cte"}
+Si $H$ ne dépend pas explicitement du temps, alors $H$ est une constante du mouvement, aussi dite intégrale première. Physiquement, $H$ constant signifie qu'aucun agent extérieur n'agit sur le système de façon non constante dans le temps.
 :::
 
-**Rappel** :
+## Résumé {.scrollable}
+
 $$H = \sum_i \dot q_i p_i - L, \qquad \dot q_i=\frac{\partial H}{\partial p_i}, \; \dot p_i=-\frac{\partial H}{\partial q_i}, \qquad \frac{dH}{dt}=\frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}$$
 $$H=T+V=\text{énergie si } V\equiv V(q), \qquad H=\text{cte si } \frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}=0$$
 
-## L'espace des phases
+## L'espace des phases {.scrollable}
 
 Une fois les équations canoniques résolues, l'état d'un système à un instant $t$ peut être représenté par un point $X(q_1,\dots,q_n,p_1,\dots,p_n)$ dans un espace à **$2n$ dimensions**, appelé l'**espace des phases**.
 
@@ -314,7 +318,7 @@ Outil omniprésent en physique théorique (physique statistique, mécanique quan
 Un système n'occupe généralement que certaines valeurs des variables canoniques $(q_i,p_i)$. On peut les visualiser sur un **portrait de phase** — un graphique des valeurs possibles de $(q_i,p_i)$.
 :::
 
-## Exemples de portraits de phase {.smaller}
+## Exemples de portraits de phase {.scrollable}
 
 ::: {.callout-tip title="Exemple 4.1 — Cas général 1D"}
 Pour $H(q,p) = \dfrac{p^2}{2m}+V(q)$ indépendant du temps, $H=E=$ cte, et toute solution obéit à :
