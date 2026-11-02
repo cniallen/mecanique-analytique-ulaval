@@ -125,7 +125,7 @@ $$w = \frac{\partial f(u,v)}{\partial v} = w(u,v)$$
 
 La transformation de Legendre (TLegendre) permet de définir une fonction $g(u,w)$ qui **remplace** $f(u,v)$ :
 
-:::{.callout-note appearance="minimal" icon=false}
+:::{.r-frame}
 $$f(u,v) \mapsto g(u,w) = v\cdot w - f$$
 :::
 
@@ -166,8 +166,10 @@ $$dg = v\,dw - \partial f/\partial u\,du,$$
 
 on identifie terme à terme
 
-:::{.callout-note appearance="minimal" icon=false}
+:::{.center}
+::::{.callout-note appearance="minimal" icon=false}
 $$v = \frac{\partial g}{\partial w}, \qquad \frac{\partial g}{\partial u} = -\frac{\partial f}{\partial u}$$
+::::
 :::
 
 La construction mathématique générale de la TLegendre sera directement transposée au couple lagrangien-hamiltonien en débutant la section suivante.
@@ -176,35 +178,60 @@ La construction mathématique générale de la TLegendre sera directement transp
 
 ## TLegendre appliquée au lagrangien
 
-Posons un lagrangien $L(q_i,\dot q_i,t)$ (correspondant à $f$ ci-dessus), avec les $q_i$ jouant le rôle de $u$ et les $\dot q_i$ le rôle de $v$ :
+La fonction $f(u,v)$ à transformer est maintenant le lagrangien $L(q_i,\dot q_i,t)$, avec les coordonnées $q_i$ jouant le rôle de $u$ et les vitesses $\dot q_i$, le rôle de $v$. Schématiquement,
+\begin{align*}
+L(q_i,\dot q_i,t) &\Longleftrightarrow f(u,v)\\
+q_i &\Longleftrightarrow u\\
+\dot q_i &\Longleftrightarrow v\\
+t &\Longleftrightarrow t\\
+p_i \equiv \left(\frac{\partial L}{\partial\dot q_i}\right) &\Longleftrightarrow w = \left(\frac{\partial f}{\partial v}\right)\\
+H(q_i,p_i,t) &\Longleftrightarrow g(u,w)
+\end{align*}
 
-$$L(q_i,\dot q_i,t) \Longleftrightarrow f(u,v), \qquad q_i \Longleftrightarrow u, \qquad \dot q_i \Longleftrightarrow v$$
-$$p_i \equiv \left(\frac{\partial L}{\partial\dot q_i}\right) \Longleftrightarrow w = \left(\frac{\partial f}{\partial v}\right), \qquad H(q_i,p_i,t) \Longleftrightarrow g(u,w)$$
+## Moments conjugués/généralisés/canoniques
 
-Par analogie avec $w$, on définit les **moments généralisés** (moments canoniques) :
-$$p_i \equiv \frac{\partial L}{\partial\dot q_i} = p_i(q_j,\dot q_j,t); \quad i,j=1,\dots,n \tag{10}$$
+Notons d'abord que ces 3 adjectifs de moments sont synonymes. Leur définition n'est pas nouvelle, mais elle est recadrée comme analogue de $w(u,v)$. Le système de $n$ équations
+$$p_i \equiv \frac{\partial L}{\partial\dot q_i} = p_i(q_j,\dot q_j,t) \quad\text{où } i,j=1,2,3, \dots,n$$
 
-système de $n$ équations qu'on doit pouvoir inverser pour obtenir les $n$ relations $\dot q_i = \dot q_i(q_j,p_j,t)$ (11).
+doit cependant pouvoir s'inverser pour obtenir les $n$ relations $\dot q_i = \dot q_i(q_j,p_j,t)$ à substituer pour faire disparaître les vitesses généralisées du lagrangien.
 
 ## Définition de l'hamiltonien
 
-Par analogie avec $g$, on définit une fonction des $q_i$ et des $p_i$, notée $H(q_i,p_i,t)$ :
-$$g(u,w) = v\cdot w - f \quad\Longrightarrow\quad H(q_i,p_i,t) = \sum_i \dot q_i p_i - L(q_i,\dot q_i,t)$$
+Par analogie avec $g(u,w)$, on définit une fonction des $q_i$ et des $p_i$, notée $H(q_i,p_i,t)$ et appelée hamiltonien:
 
-où $\dot q_i$ est présumé être $\dot q_i(q_i,p_i,t)$. Sachant que :
-$$dL = \sum_i\frac{\partial L}{\partial q_i}dq_i + \sum_i\frac{\partial L}{\partial\dot q_i}d\dot q_i + \frac{\partial L}{\partial t}dt = \sum_i\frac{\partial L}{\partial q_i}dq_i + \sum_i p_i\,d\dot q_i + \frac{\partial L}{\partial t}dt \tag{12}$$
+$$
+\begin{array}{ccccc}
+g(u,w) & = & v \cdot w & - & f \\[0.3em]
+\Downarrow & & \Downarrow & & \Downarrow \\[0.3em]
+H(q_i,p_i,t) & = & \sum_{i=1}^{n} \dot q_i p_i & - & L(q_i,\dot q_i,t)
+\end{array}
+$$
 
-## Calcul de $dH$ {.smaller}
+où $\dot q_i$ est présumé être $\dot q_i(q_i,p_i,t)$ inversible. 
 
-En calculant $dH$ à partir de la définition $H=\sum_i \dot q_i p_i - L$ :
-$$dH = d\left(\sum_i \dot q_i p_i\right) - dL = \sum_i \dot q_i\,dp_i + \sum_i p_i\,d\dot q_i - \underbrace{\left[\sum_i\frac{\partial L}{\partial q_i}dq_i + \sum_i p_i\,d\dot q_i + \frac{\partial L}{\partial t}dt\right]}_{dL} \tag{13}$$
+## Vérification du changement de variables indépendante $\dot q_i \to p_i$ entre $L\to H$ {.scrollable}
 
-Les termes $\sum_i p_i\,d\dot q_i$ s'annulent exactement entre les deux expressions — c'est précisément l'effet recherché de la transformation de Legendre :
-$$dH = \sum_i \dot q_i\,dp_i - \sum_i\frac{\partial L}{\partial q_i}dq_i - \frac{\partial L}{\partial t}dt \tag{14}$$
+La différentielle totale du lagrangien
+\begin{align*}
+dL &= \sum_i\frac{\partial L}{\partial q_i}dq_i + \sum_i\frac{\partial L}{\partial\dot q_i}d\dot q_i + \frac{\partial L}{\partial t}dt\\ 
+&= \sum_i\frac{\partial L}{\partial q_i}dq_i + \sum_i p_i\,d\dot q_i + \frac{\partial L}{\partial t}dt
+\end{align*}
 
-ce qui vérifie que $H$ est fonction des $q_i$, des $p_i$ (et de $t$) — plus des $\dot q_i$.
+se substitue dans la différentielle totale de l'hamiltonien obtenu de sa définition $H=\sum_i \dot q_i p_i - L$, soit
 
-## Les équations canoniques {.smaller}
+\begin{align*}
+dH &= d\left(\sum_i \dot q_i p_i\right) - dL\\ 
+&= \sum_i \dot q_i\,dp_i + \sum_i p_i\,d\dot q_i - \underbrace{\left[\sum_i\frac{\partial L}{\partial q_i}dq_i + \sum_i p_i\,d\dot q_i + \frac{\partial L}{\partial t}dt\right]}_{dL}
+\end{align*}
+
+Les termes $\sum_i p_i\,d\dot q_i$ s'annulent exactement, c'est précisément l'effet recherché de la transformation de Legendre. Les différentielles ordinaires restantes identifient les variables indépendantes dans
+
+$$dH = \sum_i \dot q_i\,dp_i - \sum_i\frac{\partial L}{\partial q_i}dq_i - \frac{\partial L}{\partial t}dt,$$
+
+ce qui vérifie que $H$ est fonction des $q_i$, des $p_i$ et de $t$ seulement.
+
+## Les équations canoniques {.scrollable}
+### Identification des dérivées partielles de $H$
 
 On peut aussi écrire, puisque $H=H(q_i,p_i,t)$ :
 $$dH = \sum_i\frac{\partial H}{\partial q_i}dq_i + \sum_i\frac{\partial H}{\partial p_i}dp_i + \frac{\partial H}{\partial t}dt$$
