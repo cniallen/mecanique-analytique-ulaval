@@ -76,7 +76,7 @@ revealjs-plugins:
 ::: {layout-ncol=2 style="font-size: 0.8em;"}
 
 ### Sir William Rowan Hamilton (1805-1865)
-![](./assets/William Rowan Hamilton.png){width="40%" fig-align="left"}
+![](./assets/William Rowan Hamilton.png){width="30%" fig-align="left"}
 
 ### Contributions
 - plusieurs contributions en mécanique dont le formalisme présenté dans ce chapitre ;
@@ -96,7 +96,7 @@ Le même système à $n$ ddl, toujours décrit par des $q_i$ indépendantes, mè
 
 ## Lagrange $\to$ Hamilton
 
-**Chez Lagrange** : comparaison d'ensemble de trajectoires avec $q_i$ et les $\dot q_i$ tous indépendants, tant que les équations d'E-L ne sont pas résolues pour obtenir la trajectoire d'action staionnaire.
+**Chez Lagrange** : comparaison d'ensemble de trajectoires avec $q_i$ et les $\dot q_i$ tous indépendants, tant que les équations d'E-L ne sont pas résolues pour obtenir la trajectoire d'action stationnaire.
 
 **Chez Hamilton** : les **moments conjugués** $p_i$, qui sont aussi des **moments généralisés** au même titre que les vitesses généralisées $\dot q_i$ qu'ils remplacent, seront aussi indépendants entre eux et des $q_i$.
 
@@ -119,19 +119,19 @@ Outil mathématique utilisé en
 
 Soit une fonction $f(u,v)$ où **$u$ et $v$ sont les 2 variables indépendantes** dont dépend $f$. Définissons :
 
-:::{.callout-definition}
+:::{.callout-note}
 $$w = \frac{\partial f(u,v)}{\partial v} = w(u,v)$$
 :::
 
 La transformation de Legendre (TLegendre) permet de définir une fonction $g(u,w)$ qui **remplace** $f(u,v)$ :
 
-:::{.callout-definition}
+:::{.callout-note}
 $$f(u,v) \mapsto g(u,w) = v\cdot w - f$$
 :::
 
 ## Vérification de la transformation de Legendre {.scrollable}
 
-Est-ce qu'il y a bien un changement de variables indépendantes en posant la TLegendre $g(u,w) = v\cdot w - f$ ?
+Est-ce qu'il y a bien changement de variable indépendante en posant la TLegendre $g(u,w) = v\cdot w - f$ ?
 
 Calculons la différentielle totale $df$ et substituons la définition de $w(u,v)$:
 $$df(u,v) = \frac{\partial f}{\partial u}du + \frac{\partial f}{\partial v}dv = \frac{\partial f}{\partial u}du + w\,dv$$
@@ -150,11 +150,11 @@ dg &= w\,dv + v\,dw - df \\
 
 Le terme en $dv$ s'annule en laissant uniquement les différentielles $du$ et $dw$. Ceci confirme que $g$ est bien explicitement fonction des variables indépendentes $u$ et de $w$ seulement. 
 
-Pour opérationnaliser cette transformation en faisant disparaître complètement $v$ de $g$, l'inversion de la définition de $w$ qui était
-$$w(u,v) = \frac{\partial f(u,v)}{\partial v}$$
+Pour opérationnaliser cette transformation en faisant disparaître complètement $v$ de $g$, l'inversion de la définition de $w$, qui était
+$$w(u,v) = \frac{\partial f(u,v)}{\partial v},$$
 
 doit exister afin d'isoler $v=v(u,w)$ et le substituer dans
-$$g(u,w) = wv(u,w) - f(u,v(u,w))$$
+$$g(u,w) = wv(u,w) - f(u,v(u,w)).$$
 
 ## Identification des dérivées partielles de $g$ {.scrollable}
 
@@ -166,11 +166,11 @@ $$dg = v\,dw - \partial f/\partial u\,du,$$
 
 on identifie terme à terme
 
-:::{.callout-definition}
+:::{.callout-note}
 $$v = \frac{\partial g}{\partial w}, \qquad \frac{\partial g}{\partial u} = -\frac{\partial f}{\partial u}$$
 :::
 
-La construction mathématique générale de la TLegendre sera directement transposée au couple lagrangien/hamiltonien dans la section suivante.
+La construction mathématique générale de la TLegendre sera directement transposée au couple lagrangien-hamiltonien en débutant la section suivante.
 
 # 4.2 L'hamiltonien $H$
 
