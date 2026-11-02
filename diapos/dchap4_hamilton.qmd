@@ -162,7 +162,7 @@ Puisque $g$ est fonction de $u$ et $w$,
 $$dg = \frac{\partial g}{\partial u}du + \frac{\partial g}{\partial w}dw.$$
 
 En comparant avec l'expression pour $dg$  tout juste obtenue, soit 
-$$dg = v\,dw - \partial f/\partial u\,du,$$
+$$dg = v\,dw - \frac{\partial f}{\partial u}du,$$
 
 on identifie terme à terme
 
@@ -178,15 +178,18 @@ La construction mathématique générale de la TLegendre sera directement transp
 
 ## TLegendre appliquée au lagrangien
 
-La fonction $f(u,v)$ à transformer est maintenant le lagrangien $L(q_i,\dot q_i,t)$, avec les coordonnées $q_i$ jouant le rôle de $u$ et les vitesses $\dot q_i$, le rôle de $v$. Schématiquement,
+La fonction $f(u,v)$ à transformer est maintenant le lagrangien $L(q_i,\dot q_i,t)$, avec les coordonnées $q_i$ jouant le rôle de $u$ et les vitesses $\dot q_i$, celui de $v$. Schématiquement,
 \begin{align*}
 L(q_i,\dot q_i,t) &\Longleftrightarrow f(u,v)\\
 q_i &\Longleftrightarrow u\\
 \dot q_i &\Longleftrightarrow v\\
-t &\Longleftrightarrow t\\
 p_i \equiv \left(\frac{\partial L}{\partial\dot q_i}\right) &\Longleftrightarrow w = \left(\frac{\partial f}{\partial v}\right)\\
 H(q_i,p_i,t) &\Longleftrightarrow g(u,w)
 \end{align*}
+
+:::{.notes}
+- ToDo: ajouter t &\Longleftrightarrow t\\ dans la liste quand la mise en forme de diapo sera mieux fixée.
+:::
 
 ## Moments conjugués/généralisés/canoniques
 
@@ -207,9 +210,9 @@ H(q_i,p_i,t) & = & \sum_{i=1}^{n} \dot q_i p_i & - & L(q_i,\dot q_i,t)
 \end{array}
 $$
 
-où $\dot q_i$ est présumé être $\dot q_i(q_i,p_i,t)$ inversible. 
+où $\dot q_i$ est présumé être $\dot q_i(q_i,p_i,t)$ à substituer. 
 
-## Vérification du changement de variables indépendante $\dot q_i \to p_i$ entre $L\to H$ {.scrollable}
+## Vérification du changement de variables indépendantes $\dot q_i \to p_i$ entre $L\to H$ {.scrollable}
 
 La différentielle totale du lagrangien
 \begin{align*}
@@ -233,8 +236,11 @@ ce qui vérifie que $H$ est fonction des $q_i$, des $p_i$ et de $t$ seulement.
 ## Les équations canoniques {.scrollable}
 ### Identification des dérivées partielles de $H$
 
-On peut aussi écrire, puisque $H=H(q_i,p_i,t)$ :
+Puisque $H=H(q_i,p_i,t)$, sa différentielle totale s'écrit comme à l'habitude
 $$dH = \sum_i\frac{\partial H}{\partial q_i}dq_i + \sum_i\frac{\partial H}{\partial p_i}dp_i + \frac{\partial H}{\partial t}dt$$
+
+pour se comparer à l'expression précédente
+$$dH = \sum_i \dot q_i\,dp_i - \sum_i\frac{\partial L}{\partial q_i}dq_i - \frac{\partial L}{\partial t}dt,$$
 
 Comme les $q_i$ et $p_i$ sont indépendants, on identifie terme à terme avec (14) :
 $$\frac{\partial H}{\partial q_i} = -\frac{\partial L}{\partial q_i}; \; n\text{ éqs.} \qquad \frac{\partial H}{\partial p_i} = \dot q_i; \; n\text{ éqs.} \qquad \frac{\partial H}{\partial t} = -\frac{\partial L}{\partial t} \tag{15}$$
