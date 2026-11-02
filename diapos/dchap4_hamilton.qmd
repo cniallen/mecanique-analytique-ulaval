@@ -113,32 +113,59 @@ Outil mathématique utilisé en
 
 [Capsule vidéo de _Abide By Reason_](https://youtu.be/P2HZelQm7Lw?si=VSXDpjAfGCo9XoB6) illustrant la transformation d'une variable indépendante avant de passer au cas multi-variables traité dans cette section.
 
-## Description simplifiée de la transformation de Legendre
+## La transformation de Legendre
 
-Soit une fonction $f(u,v)$ où $u$ et $v$ sont les 2 variables indépendantes dont dépend $f$. Définissons :
-$$w = \frac{\partial f(u,v)}{\partial v} = w(u,v) \tag{2}$$
+### Description mathématique générale
 
-La transformation de Legendre (TLegendre) permet de définir une fonction $g(u,w)$ qui peut **remplacer** $f(u,v)$ :
-$$f(u,v) \mapsto g(u,w) = v\cdot w - f \tag{3}$$
+Soit une fonction $f(u,v)$ où **$u$ et $v$ sont les 2 variables indépendantes** dont dépend $f$. Définissons :
+:::{.callout-definition}
+$$w = \frac{\partial f(u,v)}{\partial v} = w(u,v)$$
+:::
 
-## Vérification de la TLegendre {.scrollable}
+La transformation de Legendre (TLegendre) permet de définir une fonction $g(u,w)$ qui **remplace** $f(u,v)$ :
+:::{.callout-definition}
+$$f(u,v) \mapsto g(u,w) = v\cdot w - f$$
+:::
 
-Calculons $df$ à partir de la définition de $f(u,v)$ :
-$$df = \frac{\partial f}{\partial u}du + \frac{\partial f}{\partial v}dv = \frac{\partial f}{\partial u}du + w\,dv \tag{4}$$
+## Vérification de la transformation de Legendre {.scrollable}
 
-De la définition de $g$, calculons $dg$ :
-$$dg = w\,dv + v\,dw - df = w\,dv + v\,dw - \frac{\partial f}{\partial u}du - w\,dv = v\,dw - \frac{\partial f}{\partial u}du \tag{5}$$
+Est-ce qu'il bien un changement de variables indépendantes en posant la TLegendre $g(u,w) = v\cdot w - f$?
 
-**Le terme en $dv$ s'annule identiquement** — ce qui confirme que $g$ est bien fonction de $u$ et de $w$ uniquement, et non de $v$. Pour opérationnaliser cette transformation (faire disparaître $v$ de $g$), il faut pouvoir inverser la définition de $w$ pour trouver $v=v(u,w)$ :
-$$g(u,w) = wv(u,w) - f(u,v(u,w)) \tag{7}$$
+Calculons la différentielle totale $df$ et substituons la définition de $w(u,v)$:
+$$df(u,v) = \frac{\partial f}{\partial u}du + \frac{\partial f}{\partial v}dv = \frac{\partial f}{\partial u}du + w\,dv$$
 
-## Identification des dérivées de $g$
+De la définition de $g$, calculons sa différentielle totale :
+\begin{align*}
+dg &= w\,dv + v\,dw - df \
+&= w\,dv + v\,dw - \frac{\partial f}{\partial u}du - w\,dv \
+&= v\,dw - \frac{\partial f}{\partial u}du
+\end{align}
 
-Puisque $g$ est fonction de $u$ et $w$ :
-$$dg = \frac{\partial g}{\partial u}du + \frac{\partial g}{\partial w}dw$$
+:::{.notes}
+- Au tableau ré-écrire g=v*w-f et montre que dg=\del g/\del v dv + del g/\del w dw + del g/\del f df (f est alors comme variable indépendante... ok?)
+- TODO: Ajouter un quiz demandant quelle sont les variables indépendantes de $g$ restantes à la fin.
+:::
 
-En comparant avec l'expression pour $dg$ obtenue plus haut ($dg = v\,dw - \partial f/\partial u\,du$), on identifie terme à terme :
-$$v = \frac{\partial g}{\partial w}, \qquad \frac{\partial g}{\partial u} = -\frac{\partial f}{\partial u} \tag{9}$$
+Le terme en $dv$ s'annule identiquement laissant uniquement les différentielles $du$ et $dw$. Ceci confirme que $g$ est bien explicitement fonction des variables indépendentes $u$ et de $w$ seulement. 
+
+Pour opérationnaliser cette transformation en faisant disparaître complètement $v$ de $g$, l'inversion de la définition de $w$ qui était
+$$w(u,v) = \frac{\partial f(u,v)}{\partial v}$$
+
+doit exister afin d'isoler $v=v(u,w)$ et le substituer dans
+$$g(u,w) = wv(u,w) - f(u,v(u,w))$$
+
+## Identification des dérivées partielles de $g$ {.scrollable}
+
+Puisque $g$ est fonction de $u$ et $w$,
+$$dg = \frac{\partial g}{\partial u}du + \frac{\partial g}{\partial w}dw.$$
+
+En comparant avec l'expression pour $dg$  tout juste obtenue, soit 
+$$dg = v\,dw - \partial f/\partial u\,du,$$
+
+on identifie terme à terme
+:::{.callout-definition}
+$$v = \frac{\partial g}{\partial w}, \qquad \frac{\partial g}{\partial u} = -\frac{\partial f}{\partial u}$$
+:::
 
 Cette construction générale sera directement transposée au couple lagrangien/hamiltonien dans la section suivante.
 
