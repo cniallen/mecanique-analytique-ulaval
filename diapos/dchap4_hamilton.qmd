@@ -240,17 +240,46 @@ Puisque $H=H(q_i,p_i,t)$, sa différentielle totale s'écrit comme à l'habitude
 $$dH = \sum_i\frac{\partial H}{\partial q_i}dq_i + \sum_i\frac{\partial H}{\partial p_i}dp_i + \frac{\partial H}{\partial t}dt$$
 
 pour se comparer à l'expression précédente
-$$dH = \sum_i \dot q_i\,dp_i - \sum_i\frac{\partial L}{\partial q_i}dq_i - \frac{\partial L}{\partial t}dt,$$
+$$dH = \sum_i \dot q_i\,dp_i - \sum_i\frac{\partial L}{\partial q_i}dq_i - \frac{\partial L}{\partial t}dt.$$
 
-Comme les $q_i$ et $p_i$ sont indépendants, on identifie terme à terme avec (14) :
-$$\frac{\partial H}{\partial q_i} = -\frac{\partial L}{\partial q_i}; \; n\text{ éqs.} \qquad \frac{\partial H}{\partial p_i} = \dot q_i; \; n\text{ éqs.} \qquad \frac{\partial H}{\partial t} = -\frac{\partial L}{\partial t} \tag{15}$$
+L'indépendance des variables $q_i$, $p_i$ et $t$ permet l'identification terme à terme
+\begin{align*}
+\frac{\partial H}{\partial q_i} &= -\frac{\partial L}{\partial q_i}; \; n\text{ éqs.}\\
+\frac{\partial H}{\partial p_i} &= \dot q_i; \; n\text{ éqs.}\\
+\frac{\partial H}{\partial t} &= -\frac{\partial L}{\partial t} 
+\end{align*}
 
-La trajectoire physique obéit à l'équation d'E-L, $\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) = \dot p_i$. Les $2n$ équations ci-dessus se lisent donc :
-$$\dot q_i = \frac{\partial H}{\partial p_i}, \qquad \dot p_i = -\frac{\partial H}{\partial q_i}; \quad i=1,\dots,n \qquad \textbf{(équations canoniques)} \tag{17}$$
+La trajectoire physique obéit à aux équations d'E-L, d'où
+$$\dfrac{\partial L}{\partial q_i} = \dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot q_i}\right) = \dot p_i$$
 
-::: {.callout-important title="Remarque"}
-$n$ équations d'E-L du 2ᵉ ordre $\implies$ $2n$ équations différentielles du 1ᵉʳ ordre. Le traitement des $q_i$ et $p_i$ est plus symétrique que celui des $q_i$ et $\dot q_i$ en Lagrange — un seul signe $(-)$ différencie les deux jeux d'équations.
+en permettant la substitution simplificatrice qui donne une écriture plus symétrique de l'identification des dérivées partielles :
+\begin{align*}
+-\frac{\partial H}{\partial q_i} &= \dot p_i; \; n\text{ éqs.}\\
+\frac{\partial H}{\partial p_i} &= \dot q_i; \; n\text{ éqs.}\\
+\frac{\partial H}{\partial t} &= -\frac{\partial L}{\partial t} 
+\end{align*}
+
+## Les $2n$ équations canoniques {.scrollable}
+### En l'absence de dépendance explicite sur le temps
+$$\frac{\partial H}{\partial t} = -\frac{\partial L}{\partial t} =0$$
+
+::: {.callout-important title="Définition des équations canoniques"}
+$$
+\left.
+\begin{aligned}
+\dot q_i &= \frac{\partial H}{\partial p_i}\\[0.8em]
+\dot p_i &= -\frac{\partial H}{\partial q_i}
+\end{aligned}
+\right\}
+\qquad i = 1, 2, \dots, n
+$$
 :::
+
+$n$ ddl et $n$ équations d'E-L du 2ᵉ ordre $\implies$ $2n$ équations canonniques du 1ᵉʳ ordre.
+
+Les $2n$ équations ci-dessus se lisent donc :
+$$\dot q_i = \frac{\partial H}{\partial p_i}, \qquad \dot p_i = -\frac{\partial H}{\partial q_i}; \quad i=1,\dots,n \qquad \textbf{(équations canoniques)} \tag{17}$$
+ 
 
 ## Symétrie symplectique
 
