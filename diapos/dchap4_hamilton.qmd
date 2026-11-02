@@ -57,7 +57,7 @@ revealjs-plugins:
 4.10 Mécanique ondulatoire\
 4.11 Résumé\
 
-## Introduction
+## Introduction {,smaller}
 
 ### Le formalisme canonique hamiltonien :
 
@@ -73,7 +73,7 @@ revealjs-plugins:
 :::
 
 ## Contexte historique
-::: {layout-ncol=2 style="font-size: 0.6em;"}
+::: {layout-ncol=2 style="font-size: 0.8em;"}
 
 ### Sir William Rowan Hamilton (1805-1865)
 ![](./assets/William Rowan Hamilton.png){width="40%" fig-align="left"}
@@ -87,36 +87,41 @@ revealjs-plugins:
 
 ## Conclusions des formalismes lagrangien et hamiltonien {.center}
 
-Formalisme de Lagrange: un système mécanique à $n$ ddl décrit par les coordonnées généralisées $q_i\mid\; i=1,2,3\dots n$ indépendantes mène à $n$ équations d'E-L,
-$$\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0,$$
+Formalisme de Lagrange: un système mécanique à $n$ ddl décrit par les coordonnées généralisées $q_i\mid\; i=1,2,3\dots n$ indépendantes mène à $n$ équations d'E-L, $\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0,$
 s'évaluant à **$n$ éq. du mouvement qui sont des EDOs du 2ᵉ ordre**
 
 :::{.callout-important title="Formalisme canonique de Hamilton"}
 Le même système à $n$ ddl, toujours décrit par des $q_i$ indépendants, mènera plutôt à **$2n$ éq. du mouvement qui sont alors des EDOs du 1ᵉʳ ordre**.
 :::
 
-## Chez Lagrange vs chez Hamilton
-IIICCCIIII
-**Chez Lagrange** : on compare des trajectoires, donc les $q_i$ et les $\dot q_i$ sont tous indépendants (tant que les équations d'E-L n'ont pas choisi la trajectoire extremum).
+## Lagrange $\to$ Hamilton
 
-**Chez Hamilton** : les **moments conjugués** $p_i$ qui sont aussi des **moments généralisés** au même titre que les vitesses généralisées
-... pour remplacer les $\dot q_i$ — eux aussi resteront indépendants entre eux et des $q_i$.
+**Chez Lagrange** : comparaison d'ensemble de trajectoires avec $q_i$ et les $\dot q_i$ tous indépendants, tant que les équations d'E-L ne sont pas résolues pour obtenir la trajectoire d'action staionnaire.
+
+**Chez Hamilton** : les **moments conjugués** $p_i$, qui sont aussi des **moments généralisés** au même titre que les vitesses généralisées $\dot qz_i$ qu'ils remplacent, seront aussi indépendants entre eux et des $q_i$.
 
 $$\text{Lagrange} \; \xrightarrow[\dot q_i \to p_i]{\text{Transf. de Legendre}} \; \text{Hamilton}$$
 
 # 4.1 Transformation de Legendre
 
-## La transformation de Legendre
+## Introduction de la transformation de Legendre
 
-Outil mathématique utilisé en **thermodynamique** pour relier les différents potentiels thermodynamiques, et en **mécanique classique** pour définir l'hamiltonien à partir du lagrangien.
+Outil mathématique utilisé en
 
-**Description simplifiée :** soit une fonction $f(u,v)$ où $u$ et $v$ sont les 2 variables indépendantes dont dépend $f$. Définissons :
+- **thermodynamique** pour relier les différents potentiels thermodynamiques,
+- **mécanique classique** pour définir l'hamiltonien à partir du lagrangien.
+
+[Capsule vidéo de _Abide By Reason_](https://youtu.be/P2HZelQm7Lw?si=VSXDpjAfGCo9XoB6) illustrant la transformation d'une variable indépendante avant de passer au cas multi-variables traité dans cette section.
+
+## Description simplifiée de la transformation de Legendre
+
+Soit une fonction $f(u,v)$ où $u$ et $v$ sont les 2 variables indépendantes dont dépend $f$. Définissons :
 $$w = \frac{\partial f(u,v)}{\partial v} = w(u,v) \tag{2}$$
 
-La transformation de Legendre permet de définir une fonction $g(u,w)$ qui peut **remplacer** $f(u,v)$ :
+La transformation de Legendre (TLegendre) permet de définir une fonction $g(u,w)$ qui peut **remplacer** $f(u,v)$ :
 $$f(u,v) \mapsto g(u,w) = v\cdot w - f \tag{3}$$
 
-## Vérification de la transformation
+## Vérification de la TLegendre {.scrollable}
 
 Calculons $df$ à partir de la définition de $f(u,v)$ :
 $$df = \frac{\partial f}{\partial u}du + \frac{\partial f}{\partial v}dv = \frac{\partial f}{\partial u}du + w\,dv \tag{4}$$
