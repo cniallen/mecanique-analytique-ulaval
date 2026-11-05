@@ -303,10 +303,14 @@ En calculant $dH/dt$ sur une trajectoire qui obéit aux équations canoniques :
 Si $H$ ne dépend pas explicitement du temps, alors $H$ est une constante du mouvement, aussi dite intégrale première. Physiquement, $H$ constant signifie qu'aucun agent extérieur n'agit sur le système de façon non constante dans le temps.
 :::
 
-## Résumé {.scrollable}
-
-$$H = \sum_i \dot q_i p_i - L, \qquad \dot q_i=\frac{\partial H}{\partial p_i}, \; \dot p_i=-\frac{\partial H}{\partial q_i}, \qquad \frac{dH}{dt}=\frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}$$
-$$H=T+V=\text{énergie si } V\equiv V(q), \qquad H=\text{cte si } \frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}=0$$
+## Résumé {.scrollable} {#here}
+\begin{align*}
+H &= \sum_i \dot q_i p_i - L \\
+\dot q_i &= \frac{\partial H}{\partial p_i}, \; \dot p_i=-\frac{\partial H}{\partial q_i} \\
+\frac{dH}{dt} &= \frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t} \\
+H &= T+V=\text{énergie si } V\equiv V(q), \\
+H &= \text{cte si } \frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}=0
+\end{align*}
 
 ## L'espace des phases {.scrollable}
 
@@ -334,27 +338,103 @@ Les exemples suivants (potentiel exponentiel, sinusoïdal, à 2 minima, en « V 
 
 Dans chaque cas, $p=\pm\sqrt{2m(E-V(q))}$ trace, pour différentes valeurs de $E$, une famille de courbes fermées ou ouvertes dans l'espace des phases $(q,p)$ — les courbes fermées correspondent à un mouvement borné (oscillation), les courbes ouvertes à un mouvement non borné.
 
-# 4.3 Quelques exemples
+# 4.3 Exemples & Espace de phase
 
-## Particule soumise à une force en 1D {.smaller}
+## {.scrollable}
+::::{.callout-caution title="Cas général d'une particule soumise à une force quelconque en 1D "}
 
-::: {.callout-tip title="Exemple 4.6"}
-Soit une particule de masse $m$ en 1D soumise à $F=-\partial V/\partial x$. Le lagrangien est $L(x,\dot x,t) = \dfrac{m}{2}\dot x^2 - V(x)$ (19).
+#### Énoncé
+
+Soit une force $F(x)=-\frac{\partial V}{\partial x}$ appliquée sur une particule ponctuelle de masse $m$ en 1D.
+
+#### Analyse du problème 
+
+- **Contraintes :** Aucune.
+- **Degré de liberté :** 1 particule dans l'espace 1D $\implies$ 1 ddl.
+- **Coordonnée généralisée :** $q_1=x$ selon la direction d'application de la force
+
+#### Mécanique lagrangienne
+
+- **Énergie cinétique :** $\displaystyle T = \frac{m}{2}\dot x^2$.
+- **Énergie potentielle :** $V(x)$.
+- **Lagrangien :** $L(x,\dot x,t) = \dfrac{m}{2}\dot x^2 - V(x)$.
+
+:::{.notes}
+Toujours mettre le lagrangien L au tableau
 :::
 
-Un seul moment $p$ conjugué à $x$ :
-$$p = \frac{\partial L}{\partial\dot x} = m\dot x \quad\Longrightarrow\quad \dot x = \frac{p}{m} \tag{20,21}$$
+#### Mécanique hamiltonienne
 
-Selon la définition de $H$ :
-$$H(x,p,t) = \dot x(p)\cdot p - L(x,\dot x(p)) = \frac{p}{m}\cdot p - \left[\frac{m}{2}\left(\frac{p}{m}\right)^2 + V(x)\right] = \frac{p^2}{2m}+V(x) \tag{22}$$
+- Moment $p$ conjugué à $x$ : $p = \dfrac{\partial L}{\partial\dot x} = m\dot x$
+- Isolement de la vitesse généralisée: $\dot x(p) = \dfrac{p}{m}$
+- Selon la définition de l'hamiltonien :
+$$H(x,p) = \dot x(p)\cdot p - L(x,\dot x(p))$$
+:::{.fragment}
+$$H(x,p) = \frac{p}{m}\cdot p - \left[\frac{m}{2}\left(\frac{p}{m}\right)^2 + V(x)\right] = \frac{p^2}{2m}+V(x)$$
+:::
 
-que l'on écrit souvent $H=T+V$ (23), où $T$ est l'énergie cinétique exprimée en fonction des moments. Ici, $H$ indépendant du temps = énergie totale = constante du mouvement.
+## Que représente $\dfrac{p^2}{2m}$ ? {.quiz-question}
 
-## Particule soumise à une force en 3D {.smaller}
+- "1)" La quantité de mouvement de la particule
+- ["2)" L'énergie cinétique, exprimée avec le moment $p$]{.correct data-explanation="Avec p = mv, on a p²/2m = (mv)²/2m = ½mv². C'est la même énergie cinétique T, écrite en fonction de p plutôt que de v, comme l'exige H(q, p, t)."}
+- "3)" L'énergie potentielle de la particule
+- '4)' L'énergie mécanique totale.
 
-::: {.callout-tip title="Exemple 4.7"}
+## Pour $H=\dfrac{p^2}{2m}+V(x)$, l'hamiltonien est-il constant au cours du mouvement ? {.quiz-question}
+
+- ["1)" Oui, pour n'importe quel potentiel V(x)]{.correct data-explanation="H ne dépend pas explicitement de t, donc dH/dt = ∂H/∂t = 0. Vérification directe : dH/dt = (p/m)·ṗ + V'(x)·ẋ = (p/m)(−V') + V'(p/m) = 0. Ici H = T + V est l'énergie mécanique, qui se conserve."}
+- "2)" Seulement pour la particule libre, V = 0
+- "3)" Seulement si V(x) est harmonique, V = kx²/2
+- "4)" Non, car x et p varient avec le temps
+
+
+
+Cas particulier de la chute libre verticale
+
+_**Éq. E-L selon la coordonnée $x$**_
+
+...
+
+:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"}
+$$\dot x = c_{1x}$$
+:::
+
+_**Éq. E-L selon la coordonnée $y$**_
+
+...
+
+:::{.callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"}
+$$\dot y = c_{1y}$$
+:::
+
+_**Éq. E-L selon la coordonnée $z$**_
+
+... d'où 
+
+:::{.callout-tip title="Équation du mouvement en $z$" style="text-align: center; font-size: 1.3em;"}
+$$\ddot z+g=0$$
+:::
+
+#### Résolution des EDO du mouvement
+
+Les 3 EDO ...
+:::
+
+::::
+
+:::{.notes}
+
+:::
+
+:::{.notes}
+Particule soumise à une force en 3D
+
+Cas particulier de la chute libre en 3D
+![Particule ponctuelle dans un champ gravitationnel uniforme $g$ avec les équations de sa cinématique à vérifier.](./assets/chap2_fig6.png){#fig-exchutelibre width="60%" fig-align="center"}
+- **Coordonnées généralisées :** Axe $z \parallel$ à l'accélération gravitationnelle suggère des coordonnées cartésiennes pour obtenir des équations simples avec
+$$q_1=x,\, q_2=y,\, q_3=z.$$
+
 Pour une particule de masse $m$ en 3D soumise à $\mathbf{F}=-\nabla V(\mathbf{r})$, avec $L=\dfrac{m}{2}(\dot x^2+\dot y^2+\dot z^2)-V(x,y,z)$ (24), les moments canoniques sont $p_x=m\dot x$, $p_y=m\dot y$, $p_z=m\dot z$ (25).
-:::
 
 $H$ étant additif comme les énergies :
 $$H = \frac{1}{2m}(p_x^2+p_y^2+p_z^2)+V(x,y,z)$$
@@ -363,6 +443,7 @@ Les équations canoniques (en $x$) : $\dot x=\partial H/\partial p_x = p_x/m$ (2
 $$\ddot x = \frac{\dot p_x}{m} = -\frac{1}{m}\frac{\partial V}{\partial x} = \frac{1}{m}F_x$$
 
 qui n'est autre que l'équation de Newton ! Idem pour $y,z$. Les moments $p_x,p_y,p_z$ sont ici les 3 composantes de $m\mathbf{v}$.
+:::
 
 ::: {.callout-important title="Remarque 4.3"}
 La forme des équations canoniques ne dépend pas du choix des coordonnées généralisées $q_i$ — mais ce choix influencera la signification, et même les dimensions, des $p_i$.
