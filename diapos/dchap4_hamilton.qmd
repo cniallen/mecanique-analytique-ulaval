@@ -14,7 +14,7 @@ format:
     slide-number: c
     html-math-method: katex
     css: dstyles.css
-    embed-resources: true
+#    embed-resources: true
     spotlight:
       size: 30
       toggleSpotlightOnMouseDown: true
