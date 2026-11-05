@@ -4,12 +4,17 @@ subtitle: "PHY-2000 — Chapitre 4 : Formalisme canonique"
 author: "Prof. Claudine Allen"
 institute: "Département de physique, génie physique et d'optique, Université Laval"
 from: markdown+emoji
+jupyter: python3
+execute:  
+  echo: false    
+  warning: false
 format:
   revealjs:
     theme: moon
     slide-number: c
     html-math-method: katex
     css: dstyles.css
+    embed-resources: true
     spotlight:
       size: 30
       toggleSpotlightOnMouseDown: true
@@ -303,6 +308,11 @@ En calculant $dH/dt$ sur une trajectoire qui obéit aux équations canoniques :
 Si $H$ ne dépend pas explicitement du temps, alors $H$ est une constante du mouvement, aussi dite intégrale première. Physiquement, $H$ constant signifie qu'aucun agent extérieur n'agit sur le système de façon non constante dans le temps.
 :::
 
+:::{.notes}
+- Dupliquer ou déplacer des notes en fin de Lagrange sur H qui est l'énergie ou pas ici 
+- Remarquer en vérifiant que la dérivée ordinaire , pas partiellee est nécessaire à l'intégration pour obtenir H constant dans le temps. Intégration partielle... sur juste un morceau de variation, weird!
+:::
+
 ## Résumé {.scrollable} {#here}
 \begin{align*}
 H &= \sum_i \dot q_i p_i - L \\
@@ -312,33 +322,7 @@ H &= T+V=\text{énergie si } V\equiv V(q), \\
 H &= \text{cte si } \frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}=0
 \end{align*}
 
-## L'espace des phases {.scrollable}
-
-Une fois les équations canoniques résolues, l'état d'un système à un instant $t$ peut être représenté par un point $X(q_1,\dots,q_n,p_1,\dots,p_n)$ dans un espace à **$2n$ dimensions**, appelé l'**espace des phases**.
-
-Outil omniprésent en physique théorique (physique statistique, mécanique quantique, etc.), associé à tout un ensemble de propriétés formelles des systèmes dynamiques.
-
-::: {.callout-important title="Remarque 4.2"}
-Un système n'occupe généralement que certaines valeurs des variables canoniques $(q_i,p_i)$. On peut les visualiser sur un **portrait de phase** — un graphique des valeurs possibles de $(q_i,p_i)$.
-:::
-
-## Exemples de portraits de phase {.scrollable}
-
-::: {.callout-tip title="Exemple 4.1 — Cas général 1D"}
-Pour $H(q,p) = \dfrac{p^2}{2m}+V(q)$ indépendant du temps, $H=E=$ cte, et toute solution obéit à :
-$$p = \pm\sqrt{2m(E-V(q))}$$
-:::
-
-Les exemples suivants (potentiel exponentiel, sinusoïdal, à 2 minima, en « V ») partagent tous cette même structure — seule la forme de $V(q)$ change :
-
-- **Potentiel exponentiel** : $V(q)=V_0\exp(q/q_0)$
-- **Potentiel sinusoïdal** : $V(q)=V_0\sin^2(q/q_0)$
-- **Potentiel à 2 minima** : $V(q)=\dfrac{V_0}{2}\left(\sqrt{q^2+1}-4+\dfrac{q}{q_0}\right)^2$
-- **Potentiel en « V »** : $V(q)=V_0|q|$
-
-Dans chaque cas, $p=\pm\sqrt{2m(E-V(q))}$ trace, pour différentes valeurs de $E$, une famille de courbes fermées ou ouvertes dans l'espace des phases $(q,p)$ — les courbes fermées correspondent à un mouvement borné (oscillation), les courbes ouvertes à un mouvement non borné.
-
-# 4.3 Exemples & Espace de phase
+# 4.3 Exemples & Espace de phases
 
 ## {.scrollable}
 ::::{.callout-caution title="Cas général d'une particule soumise à une force quelconque en 1D "}
@@ -373,6 +357,8 @@ $$H(x,p) = \dot x(p)\cdot p - L(x,\dot x(p))$$
 $$H(x,p) = \frac{p}{m}\cdot p - \left[\frac{m}{2}\left(\frac{p}{m}\right)^2 + V(x)\right] = \frac{p^2}{2m}+V(x)$$
 :::
 
+::::
+
 ## Que représente $\dfrac{p^2}{2m}$ ? {.quiz-question}
 
 - "1)" La quantité de mouvement de la particule
@@ -387,19 +373,17 @@ $$H(x,p) = \frac{p}{m}\cdot p - \left[\frac{m}{2}\left(\frac{p}{m}\right)^2 + V(
 - "3)" Seulement si V(x) est harmonique, V = kx²/2
 - "4)" Non, car x et p varient avec le temps
 
+Cas particulier de la particule libre avec $V(x)=0$
 
+#### Équations canoniques
 
-Cas particulier de la chute libre verticale
-
-_**Éq. E-L selon la coordonnée $x$**_
-
-...
+_**pour la vitesse généralisée $\dot x$**_
 
 :::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"}
 $$\dot x = c_{1x}$$
 :::
 
-_**Éq. E-L selon la coordonnée $y$**_
+_**pour le moment conjugué $p_x$**_
 
 ...
 
@@ -407,24 +391,330 @@ _**Éq. E-L selon la coordonnée $y$**_
 $$\dot y = c_{1y}$$
 :::
 
-_**Éq. E-L selon la coordonnée $z$**_
-
-... d'où 
-
-:::{.callout-tip title="Équation du mouvement en $z$" style="text-align: center; font-size: 1.3em;"}
-$$\ddot z+g=0$$
-:::
-
-#### Résolution des EDO du mouvement
+#### Résolution de l'EDO du mouvement
 
 Les 3 EDO ...
+
 :::
 
 ::::
 
-:::{.notes}
+## L'espace des phases {.smaller}
+
+Une fois les équations canoniques résolues, l'état d'un système à un instant $t$ peut être représenté par un point $X(q_1,\dots,q_n,p_1,\dots,p_n)$ dans un espace à **$2n$ dimensions**, appelé l'**espace des phases**.
+
+Outil omniprésent en physique théorique (physique statistique, mécanique quantique, etc.), associé à tout un ensemble de propriétés formelles des systèmes dynamiques.
+
+::: {.callout-important title="Remarque 4.2"}
+Un système n'occupe généralement que certaines valeurs des variables canoniques $(q_i,p_i)$. On peut les visualiser sur un **portrait de phase** — un graphique des valeurs possibles de $(q_i,p_i)$.
+:::
+
+## Portrait de phase : la particule libre
+
+```{python}
+#| echo: false
+import numpy as np
+import plotly.graph_objects as go
+import plotly.figure_factory as ff
+
+# H = p²/2m (m = 1) :  q' = p,  p' = 0
+fig = go.Figure()
+
+# points fixes : toute la droite p = 0
+fig.add_trace(go.Scatter(
+    x=[-5, 5], y=[0, 0], mode="lines",
+    line=dict(color="gray", dash="dash", width=2),
+    hovertemplate="p=0 : particule au repos<extra></extra>"))
+
+# trajectoires : droites p = constante
+for p0 in [-2, -1.5, -1, -0.5, 0.5, 1, 1.5, 2]:
+    fig.add_trace(go.Scatter(
+        x=[-5, 5], y=[p0, p0], mode="lines",
+        line=dict(color="lightsteelblue", width=1.5),
+        hovertemplate=f"p = {p0}<br>H = {p0**2/2:.2f}<extra></extra>"))
+
+# champ de vecteurs (longueur proportionnelle à la vitesse)
+qs, ps = np.meshgrid(np.linspace(-4, 4, 9),
+                     [-2, -1.5, -1, -0.5, 0.5, 1, 1.5, 2])
+quiv = ff.create_quiver(qs.ravel(), ps.ravel(),
+                        ps.ravel(), np.zeros(ps.size),
+                        scale=0.3, arrow_scale=0.25,
+                        line=dict(color="steelblue", width=2))
+for tr in quiv.data:
+    tr.hoverinfo = "skip"
+    fig.add_trace(tr)
+
+fig.add_annotation(x=4.5, y=1.3, text="se déplace vers la droite", showarrow=False)
+fig.add_annotation(x=4.5, y=-1.3, text="se déplace vers la gauche", showarrow=False)
+fig.add_annotation(x=-4.3, y=0.2, text="au repos", showarrow=False)
+
+fig.update_layout(
+    template="simple_white", showlegend=False,
+    width=900, height=420, margin=dict(l=60, r=20, t=20, b=50),
+    xaxis=dict(title="q", range=[-5, 5]),
+    yaxis=dict(title="p", range=[-2.7, 2.7]))
+fig.show()
+```
+
+- $\dot q = p/m$, $\dot p = 0$ : $p$ est **constant**, car $q$ est cyclique.
+- Chaque trajectoire est une droite horizontale $p=p_0$, parcourue à vitesse $p_0/m$.
+- L'axe $p=0$ est une ligne de **points fixes**.
+
+
+Cas particulier de la chute libre verticale
+
+#### Équations canoniques
+
+_**pour la vitesse généralisée $\dot x$**_
+
+:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"}
+$$\dot x = c_{1x}$$
+:::
+
+_**pour le moment conjugué $p_x$**_
+
+...
+
+:::{.callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"}
+$$\dot y = c_{1y}$$
+:::
+
+#### Résolution de l'EDO du mouvement
+
+Les 3 EDO ...
 
 :::
+
+::::
+
+## Portrait de phase : la chute libre
+
+```{python}
+#| echo: false
+import numpy as np
+import plotly.graph_objects as go
+import plotly.figure_factory as ff
+
+# H = p²/2 + g q  (m = 1, g = 1, q = hauteur) :  q' = p,  p' = -g
+g = 1
+fig = go.Figure()
+
+# trajectoires : paraboles q = E/g - p²/(2g), pour q >= 0
+for E in [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]:
+    pm = np.sqrt(2*E)
+    p = np.linspace(-pm, pm, 200)
+    fig.add_trace(go.Scatter(
+        x=E/g - p**2/(2*g), y=p, mode="lines",
+        line=dict(color="lightsteelblue", width=1.5),
+        hovertemplate=f"H = {E}<br>q=%{{x:.2f}}<br>p=%{{y:.2f}}<extra></extra>"))
+
+# une trajectoire mise en évidence : lancer vers le haut puis retomber
+E = 3
+pm = np.sqrt(2*E)
+p = np.linspace(-pm, pm, 200)
+fig.add_trace(go.Scatter(
+    x=E/g - p**2/(2*g), y=p, mode="lines",
+    line=dict(color="crimson", width=3),
+    hovertemplate=f"H = {E}<br>q=%{{x:.2f}}<br>p=%{{y:.2f}}<extra></extra>"))
+
+# sol
+fig.add_trace(go.Scatter(x=[0, 0], y=[-3, 3], mode="lines",
+                         line=dict(color="gray", dash="dash", width=2),
+                         hoverinfo="skip"))
+
+# champ de vecteurs : (q', p') = (p, -g)
+qs, ps = np.meshgrid(np.linspace(0.3, 5, 8),
+                     [-2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5])
+quiv = ff.create_quiver(qs.ravel(), ps.ravel(),
+                        ps.ravel(), -g*np.ones(ps.size),
+                        scale=0.3, arrow_scale=0.25,
+                        line=dict(color="steelblue", width=2))
+for tr in quiv.data:
+    tr.hoverinfo = "skip"
+    fig.add_trace(tr)
+
+fig.add_annotation(x=E/g, y=0.2, text="sommet : p = 0", showarrow=False,
+                   font=dict(color="crimson"))
+fig.add_annotation(x=0.15, y=2.7, text="sol", showarrow=False, xanchor="left")
+fig.add_annotation(x=4.8, y=2.3, text="monte (p > 0)", showarrow=False)
+fig.add_annotation(x=4.8, y=-2.3, text="descend (p < 0)", showarrow=False)
+
+fig.update_layout(
+    template="simple_white", showlegend=False,
+    width=900, height=420, margin=dict(l=60, r=20, t=20, b=50),
+    xaxis=dict(title="q (hauteur)", range=[-0.3, 5.5]),
+    yaxis=dict(title="p", range=[-3, 3]))
+fig.show()
+```
+
+- $\dot q = p/m$ : le point va vers la droite si $p>0$ (la balle monte), vers la gauche si $p<0$ (elle descend)
+- $\dot p = -mg$ : **partout** la flèche pointe vers le bas, d'où **aucun point fixe**
+- Les trajectoires sont des **paraboles** : chacune est une courbe de niveau $H=E$ constante
+
+:::{.notes}
+Exemples de portraits de phase {.scrollable}
+
+::: {.callout-tip title="Exemple 4.1 — Cas général 1D"}
+Pour $H(q,p) = \dfrac{p^2}{2m}+V(q)$ indépendant du temps, $H=E=$ cte, et toute solution obéit à :
+$$p = \pm\sqrt{2m(E-V(q))}$$
+:::
+
+Les exemples suivants (potentiel exponentiel, sinusoïdal, à 2 minima, en « V ») partagent tous cette même structure — seule la forme de $V(q)$ change :
+
+- **Potentiel exponentiel** : $V(q)=V_0\exp(q/q_0)$
+- **Potentiel sinusoïdal** : $V(q)=V_0\sin^2(q/q_0)$
+- **Potentiel à 2 minima** : $V(q)=\dfrac{V_0}{2}\left(\sqrt{q^2+1}-4+\dfrac{q}{q_0}\right)^2$
+- **Potentiel en « V »** : $V(q)=V_0|q|$
+
+Dans chaque cas, $p=\pm\sqrt{2m(E-V(q))}$ trace, pour différentes valeurs de $E$, une famille de courbes fermées ou ouvertes dans l'espace des phases $(q,p)$ — les courbes fermées correspondent à un mouvement borné (oscillation), les courbes ouvertes à un mouvement non borné.
+
+...Voir avec Ploty pour tout regrouper dans un code avec un widget de sélection de différents potentiels... et voir mes portraits de phase mathématica à tracer en phys math III & début Strogatz
+:::
+
+## Oscillateur harmonique dans l'espace de phase
+
+```{python}
+#| echo: false
+import numpy as np
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Oscillateur harmonique : H = p²/2 + q²/2  (m = k = 1)
+# q(t) = q0 cos t + p0 sin t,  p(t) = -q0 sin t + p0 cos t
+q0, p0 = 1.5, 0.0
+nt = 121
+t = np.linspace(0, 2*np.pi, nt)
+q = q0*np.cos(t) + p0*np.sin(t)
+p = -q0*np.sin(t) + p0*np.cos(t)
+
+fig = make_subplots(rows=1, cols=2, horizontal_spacing=0.12,
+                    subplot_titles=("Position en fonction du temps",
+                                    "Espace de phase"))
+
+# traces 0 et 1 : q(t) et son marqueur
+fig.add_trace(go.Scatter(x=t, y=q, mode="lines",
+                         line=dict(color="lightsteelblue", width=2),
+                         hoverinfo="skip"), row=1, col=1)
+fig.add_trace(go.Scatter(x=[t[0]], y=[q[0]], mode="markers",
+                         marker=dict(color="crimson", size=12),
+                         hoverinfo="skip"), row=1, col=1)
+
+# traces 2 et 3 : trajectoire (ellipse) et son marqueur
+fig.add_trace(go.Scatter(x=q, y=p, mode="lines",
+                         line=dict(color="lightsteelblue", width=2),
+                         hovertemplate="q=%{x:.2f}<br>p=%{y:.2f}<extra></extra>"),
+              row=1, col=2)
+fig.add_trace(go.Scatter(x=[q[0]], y=[p[0]], mode="markers",
+                         marker=dict(color="crimson", size=12),
+                         hoverinfo="skip"), row=1, col=2)
+
+frames = [go.Frame(name=str(k),
+                   data=[go.Scatter(x=[t[k]], y=[q[k]]),
+                         go.Scatter(x=[q[k]], y=[p[k]])],
+                   traces=[1, 3])
+          for k in range(nt)]
+fig.update(frames=frames)
+
+steps = [dict(method="animate", label=f"{t[k]/np.pi:.2f}π",
+              args=[[str(k)], dict(mode="immediate",
+                                   frame=dict(duration=0, redraw=True),
+                                   transition=dict(duration=0))])
+         for k in range(0, nt, 10)]
+for s, k in zip(steps, range(0, nt, 10)):
+    s["args"][0] = [str(k)]
+
+fig.update_layout(
+    template="simple_white", showlegend=False,
+    width=900, height=460, margin=dict(l=60, r=20, t=50, b=90),
+    sliders=[dict(steps=steps, active=0, x=0.1, len=0.85, y=-0.1,
+                  currentvalue=dict(prefix="t = "))],
+    updatemenus=[dict(type="buttons", direction="left", x=0.0, y=-0.1,
+                      buttons=[
+        dict(label="▶", method="animate",
+             args=[None, dict(frame=dict(duration=40, redraw=True),
+                              fromcurrent=True,
+                              transition=dict(duration=0))]),
+        dict(label="⏸", method="animate",
+             args=[[None], dict(mode="immediate",
+                                frame=dict(duration=0, redraw=False))])])])
+
+fig.update_xaxes(title_text="t", range=[0, 2*np.pi],
+                 tickvals=[0, np.pi, 2*np.pi], ticktext=["0", "π", "2π"],
+                 row=1, col=1)
+fig.update_yaxes(title_text="q", range=[-2, 2], row=1, col=1)
+fig.update_xaxes(title_text="q", range=[-2, 2], row=1, col=2)
+fig.update_yaxes(title_text="p", range=[-2, 2],
+                 scaleanchor="x2", scaleratio=1, row=1, col=2)
+fig.show()
+```
+
+- Le point est **un seul état** $(q,p)$ à l'instant $t$.
+- Quand $q$ est maximal, $p=0$ ; quand $q=0$, $|p|$ est maximal.
+- Une période de $q(t)$ = un tour complet de l'ellipse.
+
+
+## Portrait de phase du pendule simple
+
+```{python}
+#| echo: false
+import numpy as np
+import plotly.graph_objects as go
+import plotly.figure_factory as ff
+
+# H = p²/2 - cos q   (unités : m = l = g = 1)
+q = np.linspace(-2*np.pi, 2*np.pi, 400)
+p = np.linspace(-2.5, 2.5, 300)
+Q, P = np.meshgrid(q, p)
+H = P**2/2 - np.cos(Q)
+
+fig = go.Figure()
+
+# courbes de niveau de H
+fig.add_trace(go.Contour(
+    x=q, y=p, z=H,
+    contours=dict(start=-0.9, end=3, size=0.3, coloring="none"),
+    line=dict(color="gray", width=1),
+    showscale=False,
+    hovertemplate="q=%{x:.2f}<br>p=%{y:.2f}<br>H=%{z:.2f}<extra></extra>"))
+
+# séparatrice : H = 1
+fig.add_trace(go.Contour(
+    x=q, y=p, z=H,
+    contours=dict(start=1, end=1, size=1, coloring="none"),
+    line=dict(color="crimson", width=3),
+    showscale=False, hoverinfo="skip"))
+
+# champ de vecteurs : q' = p, p' = -sin q
+qs, ps = np.meshgrid(np.linspace(-2*np.pi, 2*np.pi, 25),
+                     np.linspace(-2.5, 2.5, 13))
+quiv = ff.create_quiver(qs.ravel(), ps.ravel(),
+                        ps.ravel(), -np.sin(qs).ravel(),
+                        scale=0.25, arrow_scale=0.3,
+                        line=dict(color="steelblue", width=1))
+for tr in quiv.data:
+    tr.hoverinfo = "skip"
+    fig.add_trace(tr)
+
+fig.add_annotation(x=0, y=0.3, text="oscillations", showarrow=False)
+fig.add_annotation(x=0, y=2.1, text="rotations", showarrow=False)
+fig.add_annotation(x=np.pi/2, y=1.15, text="séparatrice",
+                   showarrow=False, font=dict(color="crimson"))
+
+fig.update_layout(
+    template="simple_white", showlegend=False,
+    width=900, height=420, margin=dict(l=60, r=20, t=20, b=50),
+    xaxis=dict(title="q = θ",
+               tickvals=[-2*np.pi, -np.pi, 0, np.pi, 2*np.pi],
+               ticktext=["−2π", "−π", "0", "π", "2π"]),
+    yaxis=dict(title="p"))
+fig.show()
+```
+
+- **Ellipses fermées** : oscillations ($H<1$)
+- **Séparatrice** : $H=1$, passe par le point selle $(\pm\pi,0)$
+- **Courbes ouvertes** : rotations ($H>1$)
+
+
 
 :::{.notes}
 Particule soumise à une force en 3D
@@ -449,33 +739,61 @@ qui n'est autre que l'équation de Newton ! Idem pour $y,z$. Les moments $p_x,p_
 La forme des équations canoniques ne dépend pas du choix des coordonnées généralisées $q_i$ — mais ce choix influencera la signification, et même les dimensions, des $p_i$.
 :::
 
-## Particule dans un champ central {.smaller}
+:::{.notes}
+Particule dans un champ central 
 
-::: {.callout-tip title="Exemple 4.8"}
 Mouvement limité au plan $\theta=\pi/2$, lagrangien $L=\dfrac{m}{2}(\dot r^2+r^2\dot\varphi^2)-V(r)$ (30). On sait déjà (Chapitre 3) que $\varphi$ cyclique donne $mr^2\dot\varphi=l=$cte (31), et $m\ddot r - l^2/(mr^3) - \partial V/\partial r=0$ (32).
-:::
 
 Moments généralisés : $p_r=\partial L/\partial\dot r = m\dot r$ (33), $p_\varphi=\partial L/\partial\dot\varphi=mr^2\dot\varphi$ (34) — **on voit que $p_r$ et $p_\varphi$ n'ont même pas les mêmes dimensions !**
 
 En inversant $\dot r=p_r/m$ (35), $\dot\varphi=p_\varphi/(mr^2)$ (36), on construit $H=\sum_i\dot q_ip_i - L$ et on simplifie :
 $$H = \frac{p_r^2}{2m}+\frac{p_\varphi^2}{2mr^2}+V(r) \tag{39}$$
 
-## Champ central : variable cyclique et retour à E-L {.smaller}
+Champ central : variable cyclique et retour à E-L 
 
 Ici $\varphi$ est cyclique, donc $\dot p_\varphi = -\partial H/\partial\varphi = 0 \implies p_\varphi=$ cte (40).
+:::
 
 ::: {.callout-important title="Une variable cyclique et son moment conjugué"}
 Dans ce formalisme, une variable cyclique peut être identifiée, et son moment conjugué est une constante — donc **2 variables de $H$** sont ainsi déterminées d'un coup ; ce n'est pas le cas dans le formalisme de Lagrange.
 :::
 
+:::{.notes}
 Les équations pour $r$ et $p_r$ : $\dot r = \partial H/\partial p_r = p_r/m$ (41), $\dot p_r = -\partial H/\partial r = p_\varphi^2/(mr^3) - \partial V/\partial r$ (42). En dérivant (41) et en substituant $p_r$ via (42) :
 $$m\ddot r = \frac{p_\varphi^2}{mr^3} - \frac{\partial V}{\partial r}$$
 
 qui coïncide avec le résultat obtenu par E-L, $m\ddot r - l^2/(mr^3) + \partial V/\partial r = 0$ (43), à condition d'identifier immédiatement $p_\varphi = l$.
+:::
 
 ::: {.callout-important title="Remarque 4.4 — Invariance de forme"}
 Comme pour Lagrange, le formalisme canonique est invariant de forme : il prend à son compte la « cuisine algébrique » du choix de coordonnées généralisées — les propriétés géométriques et dimensionnelles peuvent être quelconques.
 :::
+
+## Espace de phase
+
+- **État** d'un système à $n$ ddl : $(q_1,\dots,q_n,\,p_1,\dots,p_n)$
+- **Espace de phase** : l'espace de dimension $2n$ de tous les états possibles
+- Un état = **un point** ; l'évolution = **une courbe** $(q_i(t),p_i(t))$
+
+| | Espace des configurations | Espace de phase |
+|---|---|---|
+| Coordonnées | $q_i$ | $q_i,\,p_i$ |
+| Dimension | $n$ | $2n$ |
+| Équations | $n$ du 2ᵉ ordre | $2n$ du 1ᵉʳ ordre |
+
+Connaître le point à l'instant $t_0$ suffit à déterminer tout le futur.
+
+## Portrait de phase
+
+Le **portrait de phase** est l'ensemble des trajectoires dans l'espace de phase, avec le champ de vecteurs
+
+$$
+(\dot q_i,\dot p_i) = \left(\frac{\partial H}{\partial p_i},\,-\frac{\partial H}{\partial q_i}\right).
+$$
+
+- Si $H$ ne dépend pas de $t$ : **deux trajectoires ne se croisent jamais** (déterminisme), et $H$ est constant le long de chacune
+- **Points d'équilibre** : là où le champ s'annule, c'est-à-dire $\partial H/\partial q_i=\partial H/\partial p_i=0$
+- On lit la dynamique qualitative **sans résoudre** les équations
 
 ## Conditions pour $H = T+V$
 
