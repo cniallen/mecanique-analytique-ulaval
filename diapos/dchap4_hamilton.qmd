@@ -349,37 +349,52 @@ Toujours mettre le lagrangien L au tableau
 
 #### Mécanique hamiltonienne
 
-- Moment $p$ conjugué à $x$ : $p = \dfrac{\partial L}{\partial\dot x} = m\dot x$
-- Isolement de la vitesse généralisée: $\dot x(p) = \dfrac{p}{m}$
+- Moment $p$ conjugué à $x$ : $p_x = \dfrac{\partial L}{\partial\dot x} = m\dot x$
+- Isolement de la vitesse généralisée: $\dot x(p_x) = \dfrac{p_x}{m}$
 - Selon la définition de l'hamiltonien :
-$$H(x,p) = \dot x(p)\cdot p - L(x,\dot x(p))$$
+$$H(x,p_x) = \dot x(p_x)\cdot p_x - L(x,\dot x(p_x))$$
 :::{.fragment}
-$$H(x,p) = \frac{p}{m}\cdot p - \left[\frac{m}{2}\left(\frac{p}{m}\right)^2 + V(x)\right] = \frac{p^2}{2m}+V(x)$$
+$$H(x,p_x) = \frac{p_x}{m}\cdot p_x - \left[\frac{m}{2}\left(\frac{p_x}{m}\right)^2 + V(x)\right] = \frac{p_x^2}{2m}+V(x)$$
 :::
 
 ::::
 
-## Que représente $\dfrac{p^2}{2m}$ ? {.quiz-question}
+## Que représente $\dfrac{p_x^2}{2m}$ ? {.quiz-question}
 
 - "1)" La quantité de mouvement de la particule
 - ["2)" L'énergie cinétique, exprimée avec le moment $p$]{.correct data-explanation="Avec p = mv, on a p²/2m = (mv)²/2m = ½mv². C'est la même énergie cinétique T, écrite en fonction de p plutôt que de v, comme l'exige H(q, p, t)."}
 - "3)" L'énergie potentielle de la particule
 - '4)' L'énergie mécanique totale.
 
-## Pour $H=\dfrac{p^2}{2m}+V(x)$, l'hamiltonien est-il constant au cours du mouvement ? {.quiz-question}
+## Pour $H=\dfrac{p_x^2}{2m}+V(x)$, l'hamiltonien est-il constant au cours du mouvement ? {.quiz-question}
 
 - ["1)" Oui, pour n'importe quel potentiel V(x)]{.correct data-explanation="H ne dépend pas explicitement de t, donc dH/dt = ∂H/∂t = 0. Vérification directe : dH/dt = (p/m)·ṗ + V'(x)·ẋ = (p/m)(−V') + V'(p/m) = 0. Ici H = T + V est l'énergie mécanique, qui se conserve."}
 - "2)" Seulement pour la particule libre, V = 0
 - "3)" Seulement si V(x) est harmonique, V = kx²/2
 - "4)" Non, car x et p varient avec le temps
 
-Cas particulier de la particule libre avec $V(x)=0$
+## {.scrollable}
+::::{.callout-caution title="Suite - Cas particulier de la particule libre : $V(x)=0$ "}
+
+#### Énoncé
+
+Soit aucune appliquée sur une particule ponctuelle de masse $m$ en 1D, d'où l'hamiltonien se réduit à
+$$H=\frac{p_x^2}{2m}$$
 
 #### Équations canoniques
 
-_**pour la vitesse généralisée $\dot x$**_
+\dot q_i &= \frac{\partial H}{\partial p_i}\\[0.8em]
+\dot p_i &= -\frac{\partial H}{\partial q_i}
 
-:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"}
+_**pour la vitesse généralisée $\dot q_i = \dot x$**_
+
+\begin{align*}
+\dot x &= \frac{\partial H}{\partial p_x}\\
+&= 
+\end{align*}
+
+:::{.notes}
+callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"
 $$\dot x = c_{1x}$$
 :::
 
@@ -412,10 +427,17 @@ Un système n'occupe généralement que certaines valeurs des variables canoniqu
 ## Portrait de phase : la particule libre
 
 ```{python}
-#| echo: false
+from IPython.display import HTML, display
 import numpy as np
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
+
+def show(fig):
+    display(HTML(fig.to_html(
+        full_html=False,
+        include_plotlyjs="cdn",
+        include_mathjax=False,
+        config={"displayModeBar": False})))
 
 # H = p²/2m (m = 1) :  q' = p,  p' = 0
 fig = go.Figure()
@@ -453,7 +475,7 @@ fig.update_layout(
     width=900, height=420, margin=dict(l=60, r=20, t=20, b=50),
     xaxis=dict(title="q", range=[-5, 5]),
     yaxis=dict(title="p", range=[-2.7, 2.7]))
-fig.show()
+show(fig)
 ```
 
 - $\dot q = p/m$, $\dot p = 0$ : $p$ est **constant**, car $q$ est cyclique.
@@ -544,7 +566,7 @@ fig.update_layout(
     width=900, height=420, margin=dict(l=60, r=20, t=20, b=50),
     xaxis=dict(title="q (hauteur)", range=[-0.3, 5.5]),
     yaxis=dict(title="p", range=[-3, 3]))
-fig.show()
+show(fig)
 ```
 
 - $\dot q = p/m$ : le point va vers la droite si $p>0$ (la balle monte), vers la gauche si $p<0$ (elle descend)
@@ -645,7 +667,7 @@ fig.update_yaxes(title_text="q", range=[-2, 2], row=1, col=1)
 fig.update_xaxes(title_text="q", range=[-2, 2], row=1, col=2)
 fig.update_yaxes(title_text="p", range=[-2, 2],
                  scaleanchor="x2", scaleratio=1, row=1, col=2)
-fig.show()
+show(fig)
 ```
 
 - Le point est **un seul état** $(q,p)$ à l'instant $t$.
@@ -707,7 +729,7 @@ fig.update_layout(
                tickvals=[-2*np.pi, -np.pi, 0, np.pi, 2*np.pi],
                ticktext=["−2π", "−π", "0", "π", "2π"]),
     yaxis=dict(title="p"))
-fig.show()
+show(fig)
 ```
 
 - **Ellipses fermées** : oscillations ($H<1$)
