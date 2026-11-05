@@ -313,7 +313,7 @@ Si $H$ ne dépend pas explicitement du temps, alors $H$ est une constante du mou
 - Remarquer en vérifiant que la dérivée ordinaire , pas partiellee est nécessaire à l'intégration pour obtenir H constant dans le temps. Intégration partielle... sur juste un morceau de variation, weird!
 :::
 
-## Résumé {.scrollable} {#here}
+## Résumé
 \begin{align*}
 H &= \sum_i \dot q_i p_i - L \\
 \dot q_i &= \frac{\partial H}{\partial p_i}, \; \dot p_i=-\frac{\partial H}{\partial q_i} \\
@@ -353,6 +353,7 @@ Toujours mettre le lagrangien L au tableau
 - Isolement de la vitesse généralisée: $\dot x(p_x) = \dfrac{p_x}{m}$
 - Selon la définition de l'hamiltonien :
 $$H(x,p_x) = \dot x(p_x)\cdot p_x - L(x,\dot x(p_x))$$
+
 :::{.fragment}
 $$H(x,p_x) = \frac{p_x}{m}\cdot p_x - \left[\frac{m}{2}\left(\frac{p_x}{m}\right)^2 + V(x)\right] = \frac{p_x^2}{2m}+V(x)$$
 :::
@@ -378,53 +379,71 @@ $$H(x,p_x) = \frac{p_x}{m}\cdot p_x - \left[\frac{m}{2}\left(\frac{p_x}{m}\right
 
 #### Énoncé
 
-Soit aucune appliquée sur une particule ponctuelle de masse $m$ en 1D, d'où l'hamiltonien se réduit à
+Soit aucune force appliquée sur une particule ponctuelle de masse $m$ en 1D, d'où l'hamiltonien se réduit à
 $$H=\frac{p_x^2}{2m}$$
 
 #### Équations canoniques
 
-\dot q_i &= \frac{\partial H}{\partial p_i}\\[0.8em]
-\dot p_i &= -\frac{\partial H}{\partial q_i}
-
-_**pour la vitesse généralisée $\dot q_i = \dot x$**_
-
 \begin{align*}
-\dot x &= \frac{\partial H}{\partial p_x}\\
-&= 
+\dot q_1 &= \frac{\partial H}{\partial p_1}\\
+\dot p_1 &= -\frac{\partial H}{\partial q_1}
 \end{align*}
+
+_**pour la vitesse généralisée $\dot q_1 = \dot x$**_
+
+$$\dot x = \frac{\partial H}{\partial p_x}$$
+
+:::{.fragment}
+\begin{align*}
+\dot x &= \frac{p_x}{m} = v\\
+p_x &= mv
+\end{align*}
+:::
 
 :::{.notes}
 callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"
 $$\dot x = c_{1x}$$
 :::
 
-_**pour le moment conjugué $p_x$**_
+_**pour la dérivée temporelle du moment conjugué $\dot p_1 = \dot p_x$**_
 
-...
+$$\dot p_x &= -\frac{\partial H}{\partial x}$$
 
-:::{.callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"}
+:::{.fragment}
+$$\dot p_x = 0$$
+:::
+
+:::{.notes}
+callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"
 $$\dot y = c_{1y}$$
 :::
 
 #### Résolution de l'EDO du mouvement
 
-Les 3 EDO ...
-
-:::
+Par intégration sur le temps, $p_x = C_1$, soit la quantité de mouvement constante attendue. En substituant, $m\dot x = C_1$ et la trajectoire est bien linéaire
+$$x(t) = C_2 t.$$
 
 ::::
 
 ## L'espace des phases {.smaller}
 
-Une fois les équations canoniques résolues, l'état d'un système à un instant $t$ peut être représenté par un point $X(q_1,\dots,q_n,p_1,\dots,p_n)$ dans un espace à **$2n$ dimensions**, appelé l'**espace des phases**.
+Une fois les équations canoniques résolues, **l'état** d'un système à un instant $t$ donné, _i.e._ le temps $t$ devient un paramètre, peut être représenté par un point 
+$$Z(q_1,\dots,q_n,p_1,\dots,p_n)$$
 
-Outil omniprésent en physique théorique (physique statistique, mécanique quantique, etc.), associé à tout un ensemble de propriétés formelles des systèmes dynamiques.
+- dans un espace à **$2n$ dimensions**
+- appelé l'**espace des phases**.
 
-::: {.callout-important title="Remarque 4.2"}
+Outil omniprésent en physique (physique statistique, mécanique quantique, etc.), associé à tout un ensemble de propriétés formelles des systèmes dynamiques.
+
+::: {.callout-important title="Portrait de phase"}
 Un système n'occupe généralement que certaines valeurs des variables canoniques $(q_i,p_i)$. On peut les visualiser sur un **portrait de phase** — un graphique des valeurs possibles de $(q_i,p_i)$.
 :::
 
-## Portrait de phase : la particule libre
+:::{.notes}
+Portrait obtenu en modes XY au lab 6 :) ...figures de lissajous
+:::
+
+## Portrait de phase : ex. de la particule libre {.scrollable}
 
 ```{python}
 from IPython.display import HTML, display
@@ -478,38 +497,58 @@ fig.update_layout(
 show(fig)
 ```
 
-- $\dot q = p/m$, $\dot p = 0$ : $p$ est **constant**, car $q$ est cyclique.
-- Chaque trajectoire est une droite horizontale $p=p_0$, parcourue à vitesse $p_0/m$.
-- L'axe $p=0$ est une ligne de **points fixes**.
+- $v = \dot q = p/m$, $\dot p = 0$ : $p$ est **constant**, car $q$ est cyclique.
+- Chaque trajectoire définie par des conditions initiales différentes est une droite horizontale $p=p_0$, parcourue à vitesse $p_0/m$.
+- L'axe $p=0$ est une ligne de points fixes.
 
 
-Cas particulier de la chute libre verticale
+## {.scrollable}
+::::{.callout-caution title="Cas particulier de la chute libre verticale : $V(q)=mgq$ "}
+
+#### Énoncé
+
+Soit une balle ponctuelle de masse $m$ lancée verticalement (1D) dans un champ gravitationnel $g$. L'hamiltonien s'écrit alors
+$$H=\frac{p^2}{2m}+mgq$$
 
 #### Équations canoniques
 
-_**pour la vitesse généralisée $\dot x$**_
+\begin{align*}
+\dot q &= \frac{\partial H}{\partial p}\\
+\dot p &= -\frac{\partial H}{\partial q}
+\end{align*}
 
-:::{.callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"}
+_**pour la vitesse généralisée $\dot q$**_
+
+$$\dot q = \frac{\partial H}{\partial p}$$
+
+:::{.fragment}
+\begin{align*}
+\dot q &= \frac{p}{m} = v\\
+p &= mv
+\end{align*}
+:::
+
+:::{.notes}
+callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"
 $$\dot x = c_{1x}$$
 :::
 
-_**pour le moment conjugué $p_x$**_
+_**pour la dérivée temporelle du moment conjugué $\dot p$**_
 
-...
+$$\dot p &= -\frac{\partial H}{\partial q}$$
 
-:::{.callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"}
-$$\dot y = c_{1y}$$
+:::{.fragment}
+$$\dot p = -mg$$
 :::
 
-#### Résolution de l'EDO du mouvement
-
-Les 3 EDO ...
-
+:::{.notes}
+callout-tip title="Équation du mouvement en $y$" style="font-size: 1.3em;"
+$$\dot y = c_{1y}$$
 :::
 
 ::::
 
-## Portrait de phase : la chute libre
+## Portrait de phase : ex. de la chute verticale {.scrollable}
 
 ```{python}
 #| echo: false
@@ -570,8 +609,8 @@ show(fig)
 ```
 
 - $\dot q = p/m$ : le point va vers la droite si $p>0$ (la balle monte), vers la gauche si $p<0$ (elle descend)
-- $\dot p = -mg$ : **partout** la flèche pointe vers le bas, d'où **aucun point fixe**
-- Les trajectoires sont des **paraboles** : chacune est une courbe de niveau $H=E$ constante
+- $\dot p = -mg$ : partout la flèche est vers le bas (aucun point fixe)
+- Les trajectoires sont des paraboles : chacune est une courbe de niveau $H=E$ constante du mouvement
 
 :::{.notes}
 Exemples de portraits de phase {.scrollable}
@@ -593,7 +632,7 @@ Dans chaque cas, $p=\pm\sqrt{2m(E-V(q))}$ trace, pour différentes valeurs de $E
 ...Voir avec Ploty pour tout regrouper dans un code avec un widget de sélection de différents potentiels... et voir mes portraits de phase mathématica à tracer en phys math III & début Strogatz
 :::
 
-## Oscillateur harmonique dans l'espace de phase
+## Oscillateur harmonique {.scrollable}
 
 ```{python}
 #| echo: false
@@ -670,12 +709,12 @@ fig.update_yaxes(title_text="p", range=[-2, 2],
 show(fig)
 ```
 
-- Le point est **un seul état** $(q,p)$ à l'instant $t$.
+- Le point rouge dans l'espace de phase représente un seul état $(q,p)$ à l'instant $t$.
 - Quand $q$ est maximal, $p=0$ ; quand $q=0$, $|p|$ est maximal.
 - Une période de $q(t)$ = un tour complet de l'ellipse.
 
 
-## Portrait de phase du pendule simple
+## Portrait de phase du pendule simple non linéaire {.scrollable}
 
 ```{python}
 #| echo: false
@@ -732,10 +771,10 @@ fig.update_layout(
 show(fig)
 ```
 
-- **Ellipses fermées** : oscillations ($H<1$)
-- **Séparatrice** : $H=1$, passe par le point selle $(\pm\pi,0)$
-- **Courbes ouvertes** : rotations ($H>1$)
-
+- Ellipses fermées : oscillations ($H<1$)
+- Séparatrice en rouge : $H=1$
+- Courbes ouvertes : rotations ($H>1$)
+- Les courbes fermées correspondent à un mouvement borné (oscillation), les courbes ouvertes à un mouvement non borné.
 
 
 :::{.notes}
@@ -791,7 +830,7 @@ qui coïncide avec le résultat obtenu par E-L, $m\ddot r - l^2/(mr^3) + \partia
 Comme pour Lagrange, le formalisme canonique est invariant de forme : il prend à son compte la « cuisine algébrique » du choix de coordonnées généralisées — les propriétés géométriques et dimensionnelles peuvent être quelconques.
 :::
 
-## Espace de phase
+## Espace de phase en revue {.smaller}
 
 - **État** d'un système à $n$ ddl : $(q_1,\dots,q_n,\,p_1,\dots,p_n)$
 - **Espace de phase** : l'espace de dimension $2n$ de tous les états possibles
@@ -805,7 +844,7 @@ Comme pour Lagrange, le formalisme canonique est invariant de forme : il prend �
 
 Connaître le point à l'instant $t_0$ suffit à déterminer tout le futur.
 
-## Portrait de phase
+## Portrait de phase en revue {.smaller}
 
 Le **portrait de phase** est l'ensemble des trajectoires dans l'espace de phase, avec le champ de vecteurs
 
@@ -817,7 +856,8 @@ $$
 - **Points d'équilibre** : là où le champ s'annule, c'est-à-dire $\partial H/\partial q_i=\partial H/\partial p_i=0$
 - On lit la dynamique qualitative **sans résoudre** les équations
 
-## Conditions pour $H = T+V$
+
+## Conditions pour $H = T+V$ {.scrollable}
 
 Les exemples ci-dessus donnent tous $H = T(q_i,p_i)+V(q_i)$ (44) — l'hamiltonien est la somme $T+V$ du système. Cette forme demeure possible **seulement si**, entre autres, les interactions du lagrangien ne dépendent pas des vitesses.
 
@@ -828,9 +868,9 @@ $H(q_i,p_i)$ est identifiable à l'énergie $T+V$ **si et seulement si** :
 2. l'énergie potentielle ne dépend pas des vitesses généralisées.
 :::
 
-## Contre-exemple : bille sur une boucle tournante {.smaller}
+## Contre-exemple : bille sur une boucle tournante {.scrollable}
 
-::: {.callout-tip title="Exemple 4.9"}
+::: {.callout-tip}
 Une bille est contrainte de se déplacer sur une boucle circulaire (rayon $a$, centrée à l'origine) qui tourne elle-même autour de $Oz$ à fréquence $\omega$ imposée par un moteur externe.
 :::
 
