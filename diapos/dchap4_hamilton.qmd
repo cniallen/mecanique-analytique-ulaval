@@ -888,29 +888,49 @@ $H$ ne dépend pas du temps, c'est donc une constante du mouvement — mais on n
 
 ## Définition
 
-::: {.callout-note title="Définition 4.4 — Le crochet de Poisson"}
-$$\{A,B\}_{q,p} \equiv \sum_i\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i} - \frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right] \tag{52}$$
+Le crochet de Poisson $\{A,B\}_{q,p}$ est une opération mathématique qui implique 
+
+- 2 fonctions lisses quelconques dans l'espace de phase qui peuvent représenter des grandeurs physiques observables, soit $A(q_i,p_i)$ et $B(q_i,p_i)$
+- l'ensemble des coordonnées généralisées et leurs moments conjugués généralisés $(q_i,p_i)$, renommées variables canoniques dans ce contexte.
+
+::: {.callout-note title="Définition — Le crochet de Poisson"}
+$$\{A,B\}_{q,p} \equiv \sum_i^n\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i} - \frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right]$$
 :::
 
-Soit $F(q_i,p_i,t)$ une fonction quelconque. Sa dérivée totale par rapport au temps le long d'une trajectoire :
-$$\frac{dF}{dt} = \sum_i\left[\frac{\partial F}{\partial q_i}\dot q_i + \frac{\partial F}{\partial p_i}\dot p_i\right]+\frac{\partial F}{\partial t} \tag{53}$$
-
-Si cette trajectoire est physique (obéit aux équations canoniques $\dot q_i=\partial H/\partial p_i$, $\dot p_i=-\partial H/\partial q_i$) :
-$$\frac{dF}{dt} = \sum_i\left[\frac{\partial F}{\partial q_i}\frac{\partial H}{\partial p_i}-\frac{\partial F}{\partial p_i}\frac{\partial H}{\partial q_i}\right]+\frac{\partial F}{\partial t} \tag{58}$$
-
-## Crochet de Poisson et dérivée totale
-
-On peut donc écrire :
-$$\frac{dF}{dt} = \{F,H\}+\frac{\partial F}{\partial t} \tag{59}$$
-
-::: {.callout-important title="Remarque 4.6"}
-Le crochet $\{F,H\}$ peut être identifié à la dérivée totale $dF/dt$ lorsqu'il n'y a pas de dépendance explicite de $F$ par rapport au temps ($\partial F/\partial t=0$).
+:::{.notes}
+Pour révisions « opération mathématique qui implique » : c'est vague. Dis que c'est une opération qui associe à deux fonctions une troisième fonction de l'espace de phase.
 :::
 
-Cette équation permet un calcul facile des constantes du mouvement : le calcul de $\partial F/\partial t$ est immédiat, et celui de $\{F,H\}$ est un simple exercice.
+## Crochet de Poisson et dérivée temporelle totale {.scrollable} 
 
-::: {.callout-important title="Remarque 4.7"}
-Certains auteurs exigent à la fois $\partial F/\partial t=0$ **et** $\{F,H\}=0$ pour appeler $F$ une constante du mouvement — une définition plus restrictive que celle adoptée ici.
+Soit $F(q_i,p_i,t)$ une fonction lisse quelconque. 
+
+- Sa dérivée totale par rapport au temps le long d'une trajectoire s'écrit
+:::{.fragment}
+$$\frac{dF}{dt} = \sum_i\left[\frac{\partial F}{\partial q_i}\dot q_i + \frac{\partial F}{\partial p_i}\dot p_i\right]+\frac{\partial F}{\partial t}.$$
+:::
+
+- Si cette trajectoire $\mathbf{q}(t)$ est physique, les équations canoniques pour l'hamiltonien correspondant sont satisfaites 
+$$\dot q_i=\partial H/\partial p_i, \quad \dot p_i=-\partial H/\partial q_i,$$
+
+- d'où par substitution
+$$\frac{dF}{dt} = \sum_i^n\left[\frac{\partial F}{\partial q_i}\frac{\partial H}{\partial p_i}-\frac{\partial F}{\partial p_i}\frac{\partial H}{\partial q_i}\right]+\frac{\partial F}{\partial t}.$$
+
+- Les crochets de Poisson permettent alors d'écrire de manière compacte
+$$\frac{dF}{dt} = \{F,H\}+\frac{\partial F}{\partial t}.$$
+
+## Crochet de Poisson et dérivée temporelle totale
+
+::: {.callout-important title="Conclusion"}
+Le crochet $\{F,H\}$ peut être identifié à la dérivée totale $dF/dt$ lorsqu'il n'y a PAS de dépendance EXPLICITE de $F$ par rapport au TEMPS, _i.e_ $\partial F/\partial t=0$.
+:::
+
+Cette équation permet un calcul direct des constantes du mouvement $\dfrac{F}{t}=0 \to F=$ cte puisqu'une fois que l'hamitonien du système est connu, les crochets de Poisson $\{F,H\}$ en découlent et le calcul de $\partial F/\partial t$ est immédiat.
+
+:::{.notes}
+- On a rien dit sur F en partant, méthode pour caller direct si c'est une constante du mouvement.
+- Commencer à mentionner lien avec commutateurs quantiques qui sera écrit plus loin.
+- ToDo à maîtriser avant de rajouter: "N.B. Certains.es auteurs.es exigent à la fois $\partial F/\partial t=0$ **et** $\{F,H\}=0$ pour appeler $F$ une constante du mouvement — une définition plus restrictive que celle adoptée ici."
 :::
 
 ## Exemple : le moment angulaire est-il conservé ? {.smaller}
