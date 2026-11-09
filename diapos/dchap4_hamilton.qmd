@@ -906,6 +906,8 @@ $$H(\theta,p_\theta) = \dot \theta \cdot p_\theta - L(\theta,\dot \theta)$$
 $$H(\theta,p_\theta) = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta$$
 :::
 
+::::
+
 ## Est-ce que cet hamiltonien est une constante du mouvement ? {.quiz-question}
 
 $$H = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta$$
@@ -920,8 +922,6 @@ Ici $H(\theta,p_\theta)$ est une constante du mouvement, **mais** il ne peut pas
 :::{.r-frame}
 La mécanique analytique inclut automatiquement les considérations de relativité restreinte via le bon choix de contraintes et ddl.
 :::
-
-::::
 
 :::{.notes}
 ... pourrait demander de finir complètement en exercice en classe -> tout un gros fragment...
@@ -970,7 +970,7 @@ Confirmer si c'est nécessaire et suffisant ou juste nécessaire ; pis la condit
 
 # 4.4 Crochets de Poisson
 
-## Définition
+## Définition{.smaller}
 
 Le crochet de Poisson $\{A,B\}_{q,p}$ est une opération mathématique qui implique 
 
@@ -982,7 +982,7 @@ $$\{A,B\}_{q,p} \equiv \sum_i^n\left[\frac{\partial A}{\partial q_i}\frac{\parti
 :::
 
 :::{.notes}
-Pour révisions « opération mathématique qui implique » : c'est vague. Dis que c'est une opération qui associe à deux fonctions une troisième fonction de l'espace de phase.
+Pour révisions « opération mathématique qui implique » : vague. Dis que c'est une opération qui associe à deux fonctions une troisième fonction de l'espace de phase.
 :::
 
 ## Crochet de Poisson et dérivée temporelle totale {.scrollable} 
@@ -990,6 +990,7 @@ Pour révisions « opération mathématique qui implique » : c'est vague. Dis q
 Soit $F(q_i,p_i,t)$ une fonction lisse quelconque. 
 
 - Sa dérivée totale par rapport au temps le long d'une trajectoire s'écrit
+
 :::{.fragment}
 $$\frac{dF}{dt} = \sum_i\left[\frac{\partial F}{\partial q_i}\dot q_i + \frac{\partial F}{\partial p_i}\dot p_i\right]+\frac{\partial F}{\partial t}.$$
 :::
@@ -1006,10 +1007,10 @@ $$\frac{dF}{dt} = \{F,H\}+\frac{\partial F}{\partial t}.$$
 ## Crochet de Poisson et dérivée temporelle totale
 
 ::: {.callout-important title="Conclusion"}
-Le crochet $\{F,H\}$ peut être identifié à la dérivée totale $dF/dt$ lorsqu'il n'y a PAS de dépendance EXPLICITE de $F$ par rapport au TEMPS, _i.e_ $\partial F/\partial t=0$.
+Le crochet $\{F,H\}$ peut être identifié à la **dérivée totale** $dF/dt$ lorsqu'il n'y a **PAS** de dépendance **explicite*** de $F$ par rapport au **temps**, _i.e_ $\frac{\partial F}{\partial t}=0$.
 :::
 
-Cette équation permet un calcul direct des constantes du mouvement $\dfrac{F}{t}=0 \to F=$ cte puisqu'une fois que l'hamitonien du système est connu, les crochets de Poisson $\{F,H\}$ en découlent et le calcul de $\partial F/\partial t$ est immédiat.
+Cette équation permet un calcul direct des constantes du mouvement, $\dfrac{F}{t}=0 \to F=$ cte, puisqu'une fois que l'hamitonien du système est connu, les crochets de Poisson $\{F,H\}$ en découlent et le calcul de $\partial F/\partial t$ est immédiat.
 
 :::{.notes}
 - On a rien dit sur F en partant, méthode pour caller direct si c'est une constante du mouvement.
