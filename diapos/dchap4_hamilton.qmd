@@ -898,7 +898,7 @@ Toujours mettre le lagrangien L au tableau
 #### Mécanique hamiltonienne
 
 - Moment $p$ conjugué à $\theta$ : $\displaystyle p_\theta = \frac{\partial L}{\partial\dot\theta} = ma^2\dot\theta$
-- Isolement de la vitesse angulaire généralisée: $displaystyle \dot\theta=\frac{p_\theta}{ma^2}$
+- Isolement de la vitesse angulaire généralisée: $\displaystyle \dot\theta=\frac{p_\theta}{ma^2}$
 - Selon la définition de l'hamiltonien :
 $$H(\theta,p_\theta) = \dot \theta \cdot p_\theta - L(\theta,\dot \theta)$$
 
@@ -917,9 +917,9 @@ $$H = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta$$
 
 ## Contre-exemple puisque $H\neq" énergie totale
 
-Ici $H(\theta,p_\theta)$ est une constante du mouvement, **mais** il ne peut pas être identifié à l'énergie physique, car poser $\varphi=\omega t$ équivaut à une transformation de coordonnées **dépendante du temps**. En effet, le repère tournant est alors non inertiel, puisqu'il est accéléré par rapport au repère inertiel du laboratoire.
+Ici $H(\theta,p_\theta)$ est une constante du mouvement, **mais** il ne peut pas être identifié à l'énergie physique, car poser $\varphi=\omega t$ équivaut à une **transformation de coordonnées dépendante du temps**. En effet, le repère tournant est alors non inertiel, puisqu'il est accéléré par rapport au repère inertiel du laboratoire.
 
-:::{.r-frame}
+:::{.callout-tip}
 La mécanique analytique inclut automatiquement les considérations de relativité restreinte via le bon choix de contraintes et ddl.
 :::
 
@@ -958,9 +958,9 @@ $$...$$
 
 La forme de l'hamiltonien $H = T+V$ est possible **seulement si**, entre autres, les potentiels d'interaction du système ne dépendent pas des vitesses. Les conditions nécessaires pour identifier $H(q_i,p_i,t)$ à l'énergie $T+V$ sont :
 
-1. l'hamitonien doit être une **constante du mouvement** et donc indépendant du temps $H(q_i,p_i,\cancel{t})$,
-2. celui-ci est dérivé de contraintes **scléronomes** (indépendantes du temps),
-3. l'énergie potentielle ne dépend **pas** des vitesses généralisées.
+- l'hamitonien doit être une **constante du mouvement** et donc indépendant du temps $H(q_i,p_i,\cancel{t}) \to H(q_i,p_i)$,
+- celui-ci est donc dérivé de contraintes **scléronomes**, _i.e._ indépendantes du temps,
+- l'énergie potentielle ne dépend **pas** des vitesses généralisées.
 
 C'est pourquoi la voie prudente de résolution de problèmes commence par $L=T-V$ et les moments conjugués généralisés pour évaluer $H$.
 
@@ -1010,7 +1010,7 @@ $$\frac{dF}{dt} = \{F,H\}+\frac{\partial F}{\partial t}.$$
 Le crochet $\{F,H\}$ peut être identifié à la **dérivée totale** $dF/dt$ lorsqu'il n'y a **PAS** de dépendance **explicite*** de $F$ par rapport au **temps**, _i.e_ $\frac{\partial F}{\partial t}=0$.
 :::
 
-Cette équation permet un calcul direct des constantes du mouvement, $\dfrac{F}{t}=0 \to F=$ cte, puisqu'une fois que l'hamitonien du système est connu, les crochets de Poisson $\{F,H\}$ en découlent et le calcul de $\partial F/\partial t$ est immédiat.
+Cette équation permet un calcul direct des constantes du mouvement, $\dfrac{dF}{dt}=0 \to F=$ cte, puisqu'une fois que l'hamitonien du système est connu, les crochets de Poisson $\{F,H\}$ en découlent et le calcul de $\partial F/\partial t$ est immédiat.
 
 :::{.notes}
 - On a rien dit sur F en partant, méthode pour caller direct si c'est une constante du mouvement.
@@ -1018,17 +1018,27 @@ Cette équation permet un calcul direct des constantes du mouvement, $\dfrac{F}{
 - ToDo à maîtriser avant de rajouter: "N.B. Certains.es auteurs.es exigent à la fois $\partial F/\partial t=0$ **et** $\{F,H\}=0$ pour appeler $F$ une constante du mouvement — une définition plus restrictive que celle adoptée ici."
 :::
 
-## Exemple : le moment angulaire est-il conservé ? {.smaller}
+## Exemple : conditions de conservation du moment angulaire {.scrollable}
 
-::: {.callout-tip title="Exemple 4.10"}
-Si $\partial F/\partial t=0$, alors $F(q_i,p_i)=$ cte du mouvement si $\{F,H\}=0$, puisque $dF/dt=\{F,H\}$ (60,61) — ceci permet d'identifier rapidement bon nombre de constantes du mouvement.
-:::
+- Rappelons d'abord que l'expression du moment angulaire $\mathbf{l}=\mathbf{r}\times\mathbf{p}$, d'où
+\begin{align*}
+l_x &= y p_z - z p_y\\
+l_y &= z p_x - x p_z\\
+l_z &= x p_y - y p_x\\
+\end{align*}
 
-Rappelons que $\mathbf{l}=\mathbf{r}\times\mathbf{p}$, donc $\dot{\mathbf{l}}=\mathbf{r}\times\mathbf{F}=0$ implique que le mouvement est dans un plan $\perp\mathbf{l}$.
+- Lorsque le moment angulaire est une constante du mouvement $\displaystyle \dot{\mathbf{l}}=\frac{d\mathbf{l}}{dt}=0$, donc $\mathbf{r}\times\mathbf{F}=0$ et le mouvement se fait dans un plan perpendiculaire au moment angulaire $(\perp\mathbf{l})$. Attention, l'inverse n'est pas vrai : un mouvement dans un plan $\perp\mathbf{l}$ n'implique pas toujours que $\mathbf{l}$ soit une constante du mouvement.
 
-::: {.callout-important title="Attention !"}
-L'inverse n'est pas vrai : un mouvement dans un plan $\perp\mathbf{l}$ n'implique pas toujours que $\mathbf{l}$ soit une constante du mouvement !
-:::
+- Selon notre introduction des crochets de Poisson, le moment angulaire $\mathbf{l}$ sera conservé si chacune de ses composantes satisfait $\{l_i,H\}=0$ et $\partial l_i/\partial t=0$ avec $i=x,y,z$. Dans ce cas, $dl_i/dt=0$ et $l_i$ s'intègre à une constante.
+
+## {.scrollable}
+
+::::{.callout-caution title="Crochet de Poisson du composant $l_z$"}
+
+#### Énoncé
+
+Une bille ponctuelle de masse $m$ est contrainte de se déplacer sur une boucle c
+
 
 **Question :** sous quelles conditions $l_z$ est-il constant ? Considérons $H=\dfrac{1}{2m}(p_x^2+p_y^2)+V(x,y)$ (62), avec $l_z=xp_y-yp_x$ (63).
 
