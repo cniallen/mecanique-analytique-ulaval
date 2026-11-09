@@ -915,7 +915,7 @@ $$H = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta$$
 - "1)" Non
 - ["2)" Oui]{.correct data-explanation="$H(\theta, p_\theta)$ ne dépend pas du temps, c'est donc une constante du mouvement."}
 
-## Contre-exemple puisque $H\neq" énergie totale
+## Contre-exemple puisque $H\neq$ énergie totale
 
 Ici $H(\theta,p_\theta)$ est une constante du mouvement, **mais** il ne peut pas être identifié à l'énergie physique, car poser $\varphi=\omega t$ équivaut à une **transformation de coordonnées dépendante du temps**. En effet, le repère tournant est alors non inertiel, puisqu'il est accéléré par rapport au repère inertiel du laboratoire.
 
@@ -1048,7 +1048,7 @@ En effet, $\dfrac{\partial l_z}{\partial t}=0.$
 
 #### Calcul du crochet de Poisson $\{l_z,H\}$ {.smaller}
 
-$$\{l_z,H\} &= \frac{\partial l_z}{\partial x}\frac{\partial H}{\partial p_x}+\frac{\partial l_z}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial l_z}{\partial p_x}\frac{\partial H}{\partial x}-\frac{\partial l_z}{\partial p_y}\frac{\partial H}{\partial y}$$
+$$\{l_z,H\} = \frac{\partial l_z}{\partial x}\frac{\partial H}{\partial p_x}+\frac{\partial l_z}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial l_z}{\partial p_x}\frac{\partial H}{\partial x}-\frac{\partial l_z}{\partial p_y}\frac{\partial H}{\partial y}$$
 
 En calculant les dérivées partielles de $l_z$ à partir de $l_z=xp_y-yp_x$,
 \begin{align*}
@@ -1066,14 +1066,15 @@ et celles de l'hamiltonien pour $H=\dfrac{1}{2m}(p_x^2+p_y^2)+V(x,y)$,
 
 \begin{align*}
 \dot l_z &= \{l_z, H\} + \cancel{\frac{\partial l_z}{\partial t}} \\
-&= \{l_z, H\}
+&= \{l_z, H\}\\
 &= \frac{\partial l_z}{\partial x}\frac{\partial H}{\partial p_x}+\frac{\partial l_z}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial l_z}{\partial p_x}\frac{\partial H}{\partial x}-\frac{\partial l_z}{\partial p_y}\frac{\partial H}{\partial y}\\
 &= \cancel{\frac{p_yp_x}{m}-\frac{p_xp_y}{m}}+y\frac{\partial V}{\partial x}-x\frac{\partial V}{\partial y}\\
 &= y\frac{\partial V}{\partial x}-x\frac{\partial V}{\partial y}
 \end{align*}
 
-:::{callout-tip title="Condition de conservation du moment angulaire $\mathbf{l}" style="text-align: center; font-size: 1.3em;"}
-- $l_z$ est une constante du mouvement si et seulement si $\dot l_z &= \{l_z, H\}=0$, ce qui impose la condition
+:::{.callout-tip title="Condition de conservation du moment angulaire $\mathbf{l}" style="text-align: center; font-size: 1.3em;"}
+
+- $l_z$ est une constante du mouvement si et seulement si $\dot l_z = \{l_z, H\}=0$, ce qui impose la condition
 $$x\dfrac{\partial V}{\partial y}=y\dfrac{\partial V}{\partial x}$$
 - Le moment angulaire $\mathbf{l} est alors conservé puisque $l_x=l_y=0$.
 :::
@@ -1091,19 +1092,23 @@ Mathématiquement, cela n'est possible que si $V(x,y)$ prend la forme d'une fonc
 En 3D, on obtiendrait des conditions similaires sur $l_x$ ($V=f_2(y^2+z^2)$) et $l_y$ ($V=f_3(x^2+z^2)$). Pour la conservation de $\mathbf{l}$ complet, il faut donc :
 $$V(x,y,z) = f(x^2+y^2+z^2) \quad\text{ou}\quad f(r)$$
 
-c'est-à-dire un **potentiel central** — cohérent avec ce qu'on savait déjà (Chapitre 3), mais dérivé ici directement via les crochets de Poisson.
+c'est-à-dire un **potentiel central** — cohérent avec ce qu'on savait déjà (Chapitres 2 et 3), mais dérivé ici directement via les crochets de Poisson.
 
-## Propriétés des crochets de Poisson {.smaller}
+## Propriétés des crochets de Poisson {.scrollable}
 
-$$\{A,B\}=-\{B,A\} \tag{75} \qquad \{A,b\}=0 \; (b=\text{cte}) \tag{76}$$
-$$\{A,B+C\}=\{A,B\}+\{A,C\} \tag{77} \qquad \{A,BC\}=B\{A,C\}+\{A,B\}C \tag{78}$$
-$$\frac{\partial}{\partial t}\{A,B\}=\left\{\frac{\partial A}{\partial t},B\right\}+\left\{A,\frac{\partial B}{\partial t}\right\} \tag{79}$$
-$$\{A,q_i\}=-\frac{\partial A}{\partial p_i} \tag{80} \qquad \{A,p_i\}=\frac{\partial A}{\partial q_i} \tag{81}$$
+$$\{A,B\}=-\{B,A\} \qquad \{A,b\}=0 \; (b=\text{cte})$$
+
+$$\{A,B+C\}=\{A,B\}+\{A,C\} \qquad \{A,BC\}=B\{A,C\}+\{A,B\}C$$
+
+$$\frac{\partial}{\partial t}\{A,B\}=\left\{\frac{\partial A}{\partial t},B\right\}+\left\{A,\frac{\partial B}{\partial t}\right\}$$
+
+$$\{A,q_i\}=-\frac{\partial A}{\partial p_i} \qquad \{A,p_i\}=\frac{\partial A}{\partial q_i}$$
 
 **Identité de Jacobi** :
-$$\{A,\{B,C\}\}+\{C,\{A,B\}\}+\{B,\{C,A\}\}=0 \tag{82}$$
+$$\{A,\{B,C\}\}+\{C,\{A,B\}\}+\{B,\{C,A\}\}=0$$
 
-**Avantages des CP** : calcul assez facile ; permet d'obtenir bon nombre de résultats intéressants (ex. constantes du mouvement) ; intimement reliés aux **commutateurs de la mécanique quantique**.
+**Avantages des CP** : calcul relativement facile qui permet d'obtenir bon nombre de résultats intéressants (ex. constantes du mouvement) ; intimement reliés aux **commutateurs de la mécanique quantique**.
+
 
 ## Crochets de Poisson entre variables canoniques {.smaller}
 
@@ -1138,7 +1143,7 @@ En MQ : seconde quantification. En TQC : quantification des champs.
 Les CP permettent de symétriser complètement les équations canoniques. Pour $F(p_i,q_i)$ avec $\partial F/\partial t=0$, $\dot F=\{F,H\}$ (94) — valide aussi pour les $q_i$ et $p_i$ eux-mêmes :
 $$\dot q_i = \{q_i,H\}, \qquad \dot p_i = \{p_i,H\} \tag{95,96}$$
 
-::: {.callout-important title="Remarque 4.11 — Symétrie symplectique"}
+::: {.callout-important title="Symétrie symplectique"}
 À cause de cette symétrie parfaite entre $q_i$ et $p_i$, on parle parfois des « $2n$ variables canoniques » sans distinction. Une telle symétrie n'existe **pas** dans le formalisme lagrangien entre les $q_i$ et les $\dot q_i$.
 :::
 
