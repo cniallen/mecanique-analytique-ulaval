@@ -923,16 +923,14 @@ Ici $H(\theta,p_\theta)$ est une constante du mouvement, **mais** il ne peut pas
 La mécanique analytique inclut automatiquement les considérations de relativité restreinte via le bon choix de contraintes et ddl.
 :::
 
-:::{.notes}
-... pourrait demander de finir complètement en exercice en classe -> tout un gros fragment...
-
-#### Équations canoniques
+## Résoudre les équations canoniques pour obtenir les EDO du mouvement
 
 \begin{align*}
 \dot q_1 &= \frac{\partial H}{\partial p_1}\\
 \dot p_1 &= -\frac{\partial H}{\partial q_1}
 \end{align*}
 
+:::{.notes}
 _**pour la vitesse angulaire généralisée $\dot q_1 = \dot \theta$**_
 
 $$...$$
@@ -1027,32 +1025,60 @@ l_y &= z p_x - x p_z\\
 l_z &= x p_y - y p_x\\
 \end{align*}
 
-- Lorsque le moment angulaire est une constante du mouvement $\displaystyle \dot{\mathbf{l}}=\frac{d\mathbf{l}}{dt}=0$, donc $\mathbf{r}\times\mathbf{F}=0$ et le mouvement se fait dans un plan perpendiculaire au moment angulaire $(\perp\mathbf{l})$. Attention, l'inverse n'est pas vrai : un mouvement dans un plan $\perp\mathbf{l}$ n'implique pas toujours que $\mathbf{l}$ soit une constante du mouvement.
+- Lorsque le moment angulaire est une constante du mouvement $\displaystyle \dot{\mathbf{l}}=\frac{d\mathbf{l}}{dt}=0$, donc $\mathbf{r}\times\mathbf{F}=0$ et le mouvement se fait dans un plan perpendiculaire au moment angulaire $(\perp\mathbf{l})$. Attention, l'inverse n'est pas vrai : un mouvement dans un plan $\perp\mathbf{l}$ n'implique pas nécessairement que $\mathbf{l}$ soit une constante du mouvement.
 
 - Selon notre introduction des crochets de Poisson, le moment angulaire $\mathbf{l}$ sera conservé si chacune de ses composantes satisfait $\{l_i,H\}=0$ et $\partial l_i/\partial t=0$ avec $i=x,y,z$. Dans ce cas, $dl_i/dt=0$ et $l_i$ s'intègre à une constante.
 
 ## {.scrollable}
 
-::::{.callout-caution title="Crochet de Poisson du composant $l_z$"}
+::::{.callout-caution title="Conservation de la composante $l_z$ du moment angulaire?"}
 
 #### Énoncé
 
-Une bille ponctuelle de masse $m$ est contrainte de se déplacer sur une boucle c
+Considérons une particule se déplaçant dans un plan en obéissant à l'hamiltonien général
+$$H=\dfrac{1}{2m}(p_x^2+p_y^2)+V(x,y)$$
 
+Dans ce plan $xOy$, la coordonnée $z=0$ et $l_x=l_y=0$. Déterminez sous quelles conditions 
+$$l_z=xp_y-yp_x$$ 
+est constante.
 
-**Question :** sous quelles conditions $l_z$ est-il constant ? Considérons $H=\dfrac{1}{2m}(p_x^2+p_y^2)+V(x,y)$ (62), avec $l_z=xp_y-yp_x$ (63).
+#### $l_z$ ne dépend pas explicitement du temps
 
-## Calcul du crochet de Poisson $\{l_z,H\}$ {.smaller}
+En effet, $\dfrac{\partial l_z}{\partial t}=0.$
 
-Puisque $l_z$ ne dépend pas explicitement de $t$ :
-$$\dot l_z = \{l_z,H\} = \frac{\partial l_z}{\partial x}\frac{\partial H}{\partial p_x}+\frac{\partial l_z}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial l_z}{\partial p_x}\frac{\partial H}{\partial x}-\frac{\partial l_z}{\partial p_y}\frac{\partial H}{\partial y} \tag{64,65}$$
+#### Calcul du crochet de Poisson $\{l_z,H\}$ {.smaller}
 
-En calculant chaque dérivée à partir de $l_z=xp_y-yp_x$ : $\partial l_z/\partial x=p_y$, $\partial l_z/\partial y=-p_x$, $\partial l_z/\partial p_x=-y$, $\partial l_z/\partial p_y=x$ (66,67). Et à partir de $H$ : $\partial H/\partial p_x=p_x/m$, $\partial H/\partial p_y=p_y/m$, $\partial H/\partial x=\partial V/\partial x$, $\partial H/\partial y=\partial V/\partial y$ (69,70).
+$$\{l_z,H\} &= \frac{\partial l_z}{\partial x}\frac{\partial H}{\partial p_x}+\frac{\partial l_z}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial l_z}{\partial p_x}\frac{\partial H}{\partial x}-\frac{\partial l_z}{\partial p_y}\frac{\partial H}{\partial y}$$
 
-En substituant :
-$$\dot l_z = \frac{p_yp_x}{m}-\frac{p_xp_y}{m}+y\frac{\partial V}{\partial x}-x\frac{\partial V}{\partial y} = y\frac{\partial V}{\partial x}-x\frac{\partial V}{\partial y} \tag{71-73}$$
+En calculant les dérivées partielles de $l_z$ à partir de $l_z=xp_y-yp_x$,
+\begin{align*}
+\frac{\partial l_z}{\partial x} &= p_y, & \qquad \frac{\partial l_z}{\partial y} &= -p_x, \\[1em]
+\frac{\partial l_z}{\partial p_x} &= -y, & \qquad \frac{\partial l_z}{\partial p_y} &= x,
+\end{align*}
 
-**$l_z$ est donc une constante du mouvement si et seulement si** $x\dfrac{\partial V}{\partial y}=y\dfrac{\partial V}{\partial x}$ (74).
+et celles de l'hamiltonien pour $H=\dfrac{1}{2m}(p_x^2+p_y^2)+V(x,y)$,
+\begin{align*}
+\frac{\partial H}{\partial p_x} &= \frac{p_x}{m}, & \qquad \frac{\partial H}{\partial p_y} &= \frac{p_y}{m} \\[1em]
+\frac{\partial H}{\partial x} &= \frac{\partial V}{\partial x}, & \qquad \frac{\partial H}{\partial y} &= \frac{\partial V}{\partial y}.
+\end{align*}
+
+#### Substitution dans la dérivée temporelle totale
+
+\begin{align*}
+\dot l_z &= \{l_z, H\} + \cancel{\frac{\partial l_z}{\partial t}} \\
+&= \{l_z, H\}
+&= \frac{\partial l_z}{\partial x}\frac{\partial H}{\partial p_x}+\frac{\partial l_z}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial l_z}{\partial p_x}\frac{\partial H}{\partial x}-\frac{\partial l_z}{\partial p_y}\frac{\partial H}{\partial y}\\
+&= \cancel{\frac{p_yp_x}{m}-\frac{p_xp_y}{m}}+y\frac{\partial V}{\partial x}-x\frac{\partial V}{\partial y}\\
+&= y\frac{\partial V}{\partial x}-x\frac{\partial V}{\partial y}
+\end{align*}
+
+:::{callout-tip title="Condition de conservation du moment angulaire $\mathbf{l}" style="text-align: center; font-size: 1.3em;"}
+- $l_z$ est une constante du mouvement si et seulement si $\dot l_z &= \{l_z, H\}=0$, ce qui impose la condition
+$$x\dfrac{\partial V}{\partial y}=y\dfrac{\partial V}{\partial x}$$
+- Le moment angulaire $\mathbf{l} est alors conservé puisque $l_x=l_y=0$.
+:::
+
+::::
 
 ## Interprétation : condition sur le potentiel {.smaller}
 
