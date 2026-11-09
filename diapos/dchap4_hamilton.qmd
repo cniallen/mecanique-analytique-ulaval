@@ -846,7 +846,7 @@ Connaître le point à l'instant $t_0$ suffit à déterminer tout le futur.
 
 ## Portrait de phase en revue {.smaller}
 
-Le **portrait de phase** est l'ensemble des trajectoires dans l'espace de phase, avec le champ de vecteurs
+Le **portrait de phase** est l'ensemble des trajectoires dans l'espace de phase, avec le champ de vecteurs correspondant à leur tangente
 
 $$
 (\dot q_i,\dot p_i) = \left(\frac{\partial H}{\partial p_i},\,-\frac{\partial H}{\partial q_i}\right).
@@ -857,31 +857,115 @@ $$
 - On lit la dynamique qualitative **sans résoudre** les équations
 
 
-## Conditions pour $H = T+V$ {.scrollable}
+## Un dernier (contre-)exemple {.scrollable}
 
-Les exemples ci-dessus donnent tous $H = T(q_i,p_i)+V(q_i)$ (44) — l'hamiltonien est la somme $T+V$ du système. Cette forme demeure possible **seulement si**, entre autres, les interactions du lagrangien ne dépendent pas des vitesses.
+::::{.callout-caution title="Bille sur un anneau en tournant"}
 
-::: {.callout-note title="Définition 4.3"}
-$H(q_i,p_i)$ est identifiable à l'énergie $T+V$ **si et seulement si** :
+#### Énoncé
 
-1. la fonction est dérivée de contraintes **scléronomes** (indépendantes du temps), **et**
-2. l'énergie potentielle ne dépend pas des vitesses généralisées.
+Une bille ponctuelle de masse $m$ est contrainte de se déplacer sur une boucle circulaire de rayon $a$, centrée à l'origine. Cet anneau tourne sur lui-même autour de son axe central $Oz$ à fréquence $\omega$ imposée par un moteur externe au système.
+
+:::{.notes}
+- ToDo: ajouter l'illustration, mais faire au tableau en attendant.
 :::
 
-## Contre-exemple : bille sur une boucle tournante {.scrollable}
+#### Analyse du problème 
 
-::: {.callout-tip}
-Une bille est contrainte de se déplacer sur une boucle circulaire (rayon $a$, centrée à l'origine) qui tourne elle-même autour de $Oz$ à fréquence $\omega$ imposée par un moteur externe.
+- **Contraintes :** 
+  - rayon de l'anneau constant $r=a$ (holonome scléronome),
+  - vitesse angulaire de rotation de l'anneau constante $\dot\varphi = \omega \to \varphi = \omega t$ (holonome rhéonome).
+- **Degré de liberté :** 1 bille dans l'espace 3D & 2 contraintes $\implies 3-2=1$ ddl.
+- **Coordonnée généralisée :** $q_1=\theta$.
+
+:::{.notes}
+Des fois il faut se gribouiller un peu de géométrie avant de caller les coordonnées généralisées. Noter qu'on oublie pas les autres, elles peuvent toujours se retrouver via les contraintes.
 :::
 
-En sphériques, $T=\dfrac{m}{2}(\dot r^2+r^2\dot\theta^2+r^2\sin^2\theta\dot\varphi^2)$ (45), avec 2 contraintes : $r=a$ (donc $\dot r=0$) et $\varphi=\omega t$ (donc $\dot\varphi=\omega=$cte, **dépendante du temps !**). Il ne reste qu'1 ddl, $\theta$ :
-$$T = \frac{ma^2}{2}(\dot\theta^2+\omega^2\sin^2\theta) \tag{46}$$
+#### Mécanique lagrangienne
 
-En l'absence d'autre interaction, $L=T$, et $p_\theta = ma^2\dot\theta \implies \dot\theta=p_\theta/(ma^2)$ (48). On trouve :
-$$H = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta \tag{49}$$
+- **Énergie cinétique** selon la métrique de coordonnées sphériques et substitution des contraintes :
+\begin{align*}
+T &= \frac{m}{2}\left(\dot r^2 + r^2\dot\theta^2 + r^2\sin^2\theta\;\dot\varphi^2 \right)\\
+&= \frac{ma^2}{2}\left(\dot\theta^2 + \omega^2 sin^2\theta \right).
+\end{align*}
+- **Énergie potentielle :** $V=0$ en l'absence d'interactions internes.
+- **Lagrangien :** $L(\theta,\dot \theta) = \frac{ma^2}{2}\left(\dot\theta^2 + \omega^2 sin^2\theta \right).$
 
-::: {.callout-important title="Remarque 4.5"}
-$H$ ne dépend pas du temps, c'est donc une constante du mouvement — mais on ne peut pas l'identifier à l'énergie physique, car poser $\varphi=\omega t$ équivaut à une transformation de coordonnées **dépendant du temps** : on se retrouve dans un repère non inertiel (tournant, donc accéléré par rapport au laboratoire).
+:::{.notes}
+Toujours mettre le lagrangien L au tableau
+:::
+
+#### Mécanique hamiltonienne
+
+- Moment $p$ conjugué à $\theta$ : $\displaystyle p_\theta = \frac{\partial L}{\partial\dot\theta} = ma^2\dot\theta$
+- Isolement de la vitesse angulaire généralisée: $displaystyle \dot\theta=\frac{p_\theta}{ma^2}$
+- Selon la définition de l'hamiltonien :
+$$H(\theta,p_\theta) = \dot \theta \cdot p_\theta - L(\theta,\dot \theta)$$
+
+:::{.callout-tip title="Hamiltonien du système" style="text-align: center; font-size: 1.3em;"}
+$$H(\theta,p_\theta) = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta$$
+:::
+
+## Est-ce que cet hamiltonien est une constante du mouvement ? {.quiz-question}
+
+$$H = \frac{p_\theta^2}{2ma^2} - \frac{ma^2}{2}\omega^2\sin^2\theta$$
+
+- "1)" Non
+- ["2)" Oui]{.correct data-explanation="$H(\theta, p_\theta)$ ne dépend pas du temps, c'est donc une constante du mouvement."}
+
+## Contre-exemple puisque $H\neq" énergie totale
+
+Ici $H(\theta,p_\theta)$ est une constante du mouvement, **mais** il ne peut pas être identifié à l'énergie physique, car poser $\varphi=\omega t$ équivaut à une transformation de coordonnées **dépendante du temps**. En effet, le repère tournant est alors non inertiel, puisqu'il est accéléré par rapport au repère inertiel du laboratoire.
+
+:::{.r-frame}
+La mécanique analytique inclut automatiquement les considérations de relativité restreinte via le bon choix de contraintes et ddl.
+:::
+
+::::
+
+:::{.notes}
+... pourrait demander de finir complètement en exercice en classe -> tout un gros fragment...
+
+#### Équations canoniques
+
+\begin{align*}
+\dot q_1 &= \frac{\partial H}{\partial p_1}\\
+\dot p_1 &= -\frac{\partial H}{\partial q_1}
+\end{align*}
+
+_**pour la vitesse angulaire généralisée $\dot q_1 = \dot \theta$**_
+
+$$...$$
+
+
+\begin{align*}
+...
+\end{align*}
+
+
+
+callout-tip title="Équation du mouvement en $x$" style="text-align: center; font-size: 1.3em;"
+$$...$$
+
+
+_**pour la dérivée temporelle du moment conjugué $\dot p_1 = \dot p_\theta$**_
+
+$$...$$
+
+:::
+
+## Conditions pour $H = T+V$, l'énergie totale du système {.scrollable}
+
+La forme de l'hamiltonien $H = T+V$ est possible **seulement si**, entre autres, les potentiels d'interaction du système ne dépendent pas des vitesses. Les conditions nécessaires pour identifier $H(q_i,p_i,t)$ à l'énergie $T+V$ sont :
+
+1. l'hamitonien doit être une **constante du mouvement** et donc indépendant du temps $H(q_i,p_i,\cancel{t})$,
+2. celui-ci est dérivé de contraintes **scléronomes** (indépendantes du temps),
+3. l'énergie potentielle ne dépend **pas** des vitesses généralisées.
+
+C'est pourquoi la voie prudente de résolution de problèmes commence par $L=T-V$ et les moments conjugués généralisés pour évaluer $H$.
+
+:::{.notes}
+Confirmer si c'est nécessaire et suffisant ou juste nécessaire ; pis la condition 1 itou
 :::
 
 # 4.4 Crochets de Poisson
