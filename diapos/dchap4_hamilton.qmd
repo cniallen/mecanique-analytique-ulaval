@@ -1115,12 +1115,12 @@ $$\{A,\{B,C\}\}+\{C,\{A,B\}\}+\{B,\{C,A\}\}=0$$
 Calculons les crochets entre les variables canoniques elles-mêmes :
 
 **1. $\{q_k,q_j\}$** : puisque $\partial q_j/\partial p_i=0=\partial q_k/\partial p_i$ (les variables canoniques sont indépendantes) :
-$$\{q_k,q_j\} = \sum_i\left[\frac{\partial q_k}{\partial q_i}\frac{\partial q_j}{\partial p_i}-\frac{\partial q_k}{\partial p_i}\frac{\partial q_j}{\partial q_i}\right] \equiv 0 \tag{83,84}$$
+$$\{q_k,q_j\} = \sum_i\left[\frac{\partial q_k}{\partial q_i}\frac{\partial q_j}{\partial p_i}-\frac{\partial q_k}{\partial p_i}\frac{\partial q_j}{\partial q_i}\right] \equiv 0$$
 
-**2. $\{p_k,p_j\}$** : de la même façon, $\{p_k,p_j\}=0$ (85).
+**2. $\{p_k,p_j\}$** : de la même façon, $\{p_k,p_j\}=0$.
 
 **3. $\{q_k,p_j\}$** :
-$$\{q_k,p_j\} = \sum_i\frac{\partial q_k}{\partial q_i}\frac{\partial p_j}{\partial p_i} = \sum_i \delta_{ki}\delta_{ji} = \delta_{kj} \tag{86}$$
+$$\{q_k,p_j\} = \sum_i\frac{\partial q_k}{\partial q_i}\frac{\partial p_j}{\partial p_i} = \sum_i \delta_{ki}\delta_{ji} = \delta_{kj}$$
 
 où $\delta_{kj}$ est le delta de Kronecker.
 
@@ -1128,20 +1128,20 @@ où $\delta_{kj}$ est le delta de Kronecker.
 
 ::: {.callout-important title="Remarque 4.9"}
 On peut démontrer que l'inverse est vrai : si un ensemble de $n$ variables $q_i$ et $n$ variables $p_i$ obéit à :
-$$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj} \tag{88-90}$$
+$$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj}$$
 alors l'ensemble des $q_i$ et $p_i$ constitue un ensemble de **variables canoniques**.
 :::
 
 ::: {.callout-important title="Remarque 4.10 — CP et mécanique quantique"}
 Il existe des relations similaires avec les commutateurs de la MQ. Par exemple, avec $p_j=-i\hbar\,\partial/\partial x_j$ :
-$$[x_k,x_j]=0, \qquad [p_k,p_j]=0, \qquad [x_k,p_j]=i\hbar\delta_{kj} \tag{91-93}$$
+$$[x_k,x_j]=0, \qquad [p_k,p_j]=0, \qquad [x_k,p_j]=i\hbar\delta_{kj}$$
 En MQ : seconde quantification. En TQC : quantification des champs.
 :::
 
 ## Symétrisation complète des équations canoniques
 
 Les CP permettent de symétriser complètement les équations canoniques. Pour $F(p_i,q_i)$ avec $\partial F/\partial t=0$, $\dot F=\{F,H\}$ (94) — valide aussi pour les $q_i$ et $p_i$ eux-mêmes :
-$$\dot q_i = \{q_i,H\}, \qquad \dot p_i = \{p_i,H\} \tag{95,96}$$
+$$\dot q_i = \{q_i,H\}, \qquad \dot p_i = \{p_i,H\}$$
 
 ::: {.callout-important title="Symétrie symplectique"}
 À cause de cette symétrie parfaite entre $q_i$ et $p_i$, on parle parfois des « $2n$ variables canoniques » sans distinction. Une telle symétrie n'existe **pas** dans le formalisme lagrangien entre les $q_i$ et les $\dot q_i$.
@@ -1166,12 +1166,12 @@ Dans les exemples vus jusqu'ici, les $p_i$ étaient les composantes de $\mathbf{
 
 ::: {.callout-tip title="Exemple 4.11"}
 Le lagrangien d'une particule de masse $m$, charge $e$, dans un champ électromagnétique, en cartésiennes $x_i=(x,y,z)$ :
-$$L = \frac{m}{2}\sum_i\dot x_i^2 + e\sum_i\dot x_iA_i - eV \tag{100}$$
+$$L = \frac{m}{2}\sum_i\dot x_i^2 + e\sum_i\dot x_iA_i - eV$$
 où $V$ et $\mathbf{A}=(A_x,A_y,A_z)$ sont les potentiels scalaire et vectoriel électromagnétiques.
 :::
 
 Les moments généralisés :
-$$p_i \equiv \frac{\partial L}{\partial\dot x_i} = m\dot x_i + eA_i \tag{101}$$
+$$p_i \equiv \frac{\partial L}{\partial\dot x_i} = m\dot x_i + eA_i$$
 
 **On constate que $p\neq mv$, mais bien** $\mathbf{p}=m\mathbf{v}+e\mathbf{A}$ (102). En inversant : $\dot x_i = (p_i-eA_i)/m$ (103). Avec $H=\sum_ip_i\dot x_i-L$ :
 $$H = \frac{1}{2m}\sum_i(p_i-eA_i)^2 + eV \tag{104}$$
