@@ -1095,6 +1095,17 @@ $$V(x,y,z) = f(x^2+y^2+z^2) \quad\text{ou}\quad f(r)$$
 
 c'est-à-dire un **potentiel central** — cohérent avec ce qu'on savait déjà (Chapitres 2 et 3), mais dérivé ici directement via les crochets de Poisson.
 
+## Si $V = f(x^2+z^2)$ que vaut $\,z\dfrac{\partial V}{\partial x} - x\dfrac{\partial V}{\partial z}\,$ ? {.quiz-question}
+
+- "1)" [$0$]{.correct data-explanation="Règle de dérivation en chaîne : ∂V/∂x = f'(u)·∂u/∂x = 2x f'(u) et ∂V/∂z = 2z f'(u). Donc z·2x f'(u) − z·2y f'(u) = 0. Le moment de force correspondant est nul : l_y est conservé pour tout potentiel de la forme f(x²+z²)."}
+- "2)" $4xy\,f'(u)$
+- "3)" $(y-x)\,f'(u)$
+- "4)" $2(y^2-x^2)\,f'(u)$
+
+:::{.notes}
+$V = f(u)$ avec $u = x^2+z^2$
+:::
+
 ## Propriétés des crochets de Poisson (CP) {.scrollable}
 
 \begin{align*}
@@ -1149,7 +1160,7 @@ Si un ensemble de $n$ variables $q_i$ et $n$ variables $p_i$ quelconques satisfa
 
 \begin{align*}
 \{q_k,q_j\}&=0\\
-\qquad \{p_k,p_j\}&=0\\
+\{p_k,p_j\}&=0\\
 \{q_k,p_j\}&=\delta_{kj}
 \end{align*}
 
@@ -1176,7 +1187,7 @@ Ceci permet d'introduire la seconde quantification en mécanique quantique et la
 Revérifier la dernière remarque
 :::
 
-## Symétrisation des équations canoniques avec les CP
+## Symétrisation des éq. canoniques avec les CP {.smaller}
 
 Les CP permettent de symétriser complètement les équations canoniques, _i.e._ d'éliminer le signe négatif dans l'interchange de variables canoniques. En se rappelant qu'une fonction $F(p_i,q_i)$ sans dépendance explicite au temps a pour dérivée totale $\dot F=\{F,H\}$, les coordonnées $q_i$ et moments $p_i$ généralisés peuvent être une telle fonction $F$. Les équations canoniques s'écrivent alors
 
@@ -1236,13 +1247,13 @@ où $V$ et $\mathbf{A}=(A_x,A_y,A_z)$ sont respectivements les potentiels scalai
 - Selon la définition de l'hamiltonien, $H=\sum_ip_i\dot x_i-L$,
 
 $$H(x_i,p_i) = \frac{1}{2m}\sum_i(p_i-eA_i)^2 + eV$$
-::::
 
 #### Conclusion
 
 On constate que $p\neq mv$ puisque $\mathbf{p}=m\mathbf{v}+e\mathbf{A}$. 
 
 Qui plus est, $H\neq T+V$ en raison de la présence de vitesses dans l'énergie potentielle.
+::::
 
 :::{.notes}
 Ajouter un petit commentaire sur Interactions de jauge : le cas électromagnétique
@@ -1271,31 +1282,42 @@ $$m\ddot{\mathbf{x}} = e(\mathbf{v}\times\mathbf{B}+\mathbf{E}) = \mathbf{F}_\te
 
 ## Variables canoniques généralisées
 
-Les $q_i$ et $p_i$ sont des variables canoniques généralisées — pratiquement aucune limite à ce qu'elles peuvent représenter physiquement (angle, longueur...). Mais alors, il doit exister des **transformations** entre ces différents choix.
+Les $q_i$ et $p_i$ sont des variables canoniques généralisées, il n'y a pratiquement aucune limite à ce qu'elles peuvent représenter physiquement (angle, longueur...). Mais alors, il doit exister des **transformations** entre ces différents choix arbitraires.
 
-::: {.callout-note title="Notation 4.1"}
-On note $Q_i, P_i$ les nouvelles variables canoniques obtenues après une transformation canonique (TC) :
+::: {.callout-note title="Notation"}
+On note $Q_i, P_i$ les nouvelles variables canoniques obtenues après une transformation canonique (TC), soit
 $$q_i, p_i \; \xrightarrow{\text{TC}} \; Q_i, P_i$$
 :::
 
+## Condition pour qu'une paire de variables données soit canonique {.smaller}
+
 Ces transformations sont soumises à des conditions sévères : les $Q_i,P_i$ étant eux-mêmes des variables canoniques, ils doivent obéir à :
-$$\{Q_k,Q_j\}_{Q,P}=0, \quad \{P_k,P_j\}_{Q,P}=0, \quad \{Q_k,P_j\}_{Q,P}=\delta_{kj} \tag{128}$$
 
-et les équations canoniques $\dot Q_i=\partial H'/\partial P_i$, $\dot P_i=-\partial H'/\partial Q_i$ (129) doivent rester **invariantes de forme**, pour un nouvel hamiltonien $H'(Q_i,P_i)$.
+\begin{align*}
+\{Q_k,Q_j\}_{Q,P}&=0\\
+\{P_k,P_j\}_{Q,P}&=0\\
+\{Q_k,P_j\}_{Q,P}&=\delta_{kj}
+\end{align*}
 
-## Variables dépendantes et indépendantes
+et les équations canoniques $\dot Q_i=\partial H'/\partial P_i$, $\dot P_i=-\partial H'/\partial Q_i$ doivent rester **invariantes de forme**, pour un nouvel hamiltonien $H'(Q_i,P_i)$.
 
-Les $q_i,p_i,Q_i,P_i$ forment un ensemble de $4n$ variables, mais seules $2n$ d'entre elles sont indépendantes. Il est généralement possible d'écrire les $n$ équations $Q_i=Q_i(q_j,p_j,t)$ de façon assez arbitraire — mais il est généralement **impossible** d'écrire les $n$ autres équations $P_i=P_i(q_j,p_j,t)$ tout aussi arbitrairement : un tel choix ne satisferait pas les conditions canoniques.
+:::{.notes}
+Ce pourquoi c'était dit un résultat intéressant tantôt.
+:::
 
-**La façon standard** : considérer que, pour les fins de la transformation, $n$ des anciennes variables et $n$ des nouvelles sont indépendantes.
+## Variables dépendantes et indépendantes {.scrollable}
 
-::: {.callout-tip title="Exemple 4.12"}
+Les $q_i,p_i,Q_i,P_i$ forment un ensemble de $4n$ variables, mais seules $2n$ d'entre elles sont indépendantes. Il est généralement possible d'écrire les $n$ équations $Q_i=Q_i(q_j,p_j,t)$ de façon assez arbitraire, mais il est généralement **impossible** d'écrire les $n$ autres équations $P_i=P_i(q_j,p_j,t)$ tout aussi arbitrairement : un tel choix ne satisferait pas les conditions canoniques.
+
+Convention : considérer que, pour les fins de la transformation, $n$ des anciennes variables et $n$ des nouvelles sont indépendantes.
+
+::: {.callout-tip title=""}
 Si on choisit comme indépendantes les $q_i$ (anciennes) et les $P_i$ (nouvelles) : $q_i,P_i \xrightarrow{\text{TC}} p_i,Q_i$. On écrit $p_i=p_i(q_j,P_j,t)$, $Q_i=Q_i(q_j,P_j,t)$ (134), on inverse la première en $P_j=P_j(q_i,p_i,t)$ (135), puis on substitue dans la seconde pour obtenir la forme habituelle $Q_i=Q_i(q_j,p_j,t)$ (136).
 :::
 
 # 4.6.1 Fonctions génératrices
 
-## Principe de base : le principe variationnel
+## Principe de base : le principe variationnel {.scrollable}
 
 ::: {.callout-note title="Rappel — Variation de l'action"}
 $$\delta S = \delta\int_1^2 L\,dt = 0$$
@@ -1326,7 +1348,7 @@ Cette fonction $F$, le **générateur** de la TC, sera choisie comme ne dépenda
 | $p_i,Q_i$ | $q_i,P_i$ | $F_3(p_i,Q_i,t)$ |
 | $p_i,P_i$ | $q_i,Q_i$ | $F_4(p_i,P_i,t)$ |
 
-## Cas $F_1(q_i,Q_i,t)$ : dérivation {.smaller}
+## Cas $F_1(q_i,Q_i,t)$ : dérivation {.scrollable}
 
 Avec $q_i,Q_i$ indépendantes : $\dfrac{dF_1}{dt}=\displaystyle\sum_i\dfrac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_1}{\partial Q_i}\dot Q_i + \dfrac{\partial F_1}{\partial t}$ (141).
 
