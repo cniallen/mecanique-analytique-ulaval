@@ -931,6 +931,7 @@ La mécanique analytique inclut automatiquement les considérations de relativit
 \end{align*}
 
 :::{.notes}
+Compléter et Mettre des fragments pour faire faire
 _**pour la vitesse angulaire généralisée $\dot q_1 = \dot \theta$**_
 
 $$...$$
@@ -1083,7 +1084,7 @@ $$x\dfrac{\partial V}{\partial y}=y\dfrac{\partial V}{\partial x}$$
 
 ## Interprétation : condition sur le potentiel {.smaller}
 
-::: {.callout-important title="Remarque 4.8"}
+::: {.callout-important title="Remarque"}
 Pour une force conservative, $F_x=-\partial V/\partial x$, $F_y=-\partial V/\partial y$, donc $y\partial V/\partial x - x\partial V/\partial y = (\mathbf{r}\times\mathbf{F})_z$ — on reconnaît le **moment de force** selon $z$.
 :::
 
@@ -1094,93 +1095,165 @@ $$V(x,y,z) = f(x^2+y^2+z^2) \quad\text{ou}\quad f(r)$$
 
 c'est-à-dire un **potentiel central** — cohérent avec ce qu'on savait déjà (Chapitres 2 et 3), mais dérivé ici directement via les crochets de Poisson.
 
-## Propriétés des crochets de Poisson {.scrollable}
+## Propriétés des crochets de Poisson (CP) {.scrollable}
 
-$$\{A,B\}=-\{B,A\} \qquad \{A,b\}=0 \; (b=\text{cte})$$
-
-$$\{A,B+C\}=\{A,B\}+\{A,C\} \qquad \{A,BC\}=B\{A,C\}+\{A,B\}C$$
-
-$$\frac{\partial}{\partial t}\{A,B\}=\left\{\frac{\partial A}{\partial t},B\right\}+\left\{A,\frac{\partial B}{\partial t}\right\}$$
-
-$$\{A,q_i\}=-\frac{\partial A}{\partial p_i} \qquad \{A,p_i\}=\frac{\partial A}{\partial q_i}$$
+\begin{align*}
+\{A,B\}&=-\{B,A\}\\
+\{A,b\}&=0 \;\; \text{pour }(b=\text{cte})\\
+\{A,B+C\}&=\{A,B\}+\{A,C\}\\
+\{A,BC\}&=B\{A,C\}+\{A,B\}C\\
+\frac{\partial}{\partial t}\{A,B\}&=\left\{\frac{\partial A}{\partial t},B\right\}+\left\{A,\frac{\partial B}{\partial t}\right\}\\                    
+\{A,q_i\}&=-\frac{\partial A}{\partial p_i}\\
+\{A,p_i\}&=\frac{\partial A}{\partial q_i}
+\end{align*}
 
 **Identité de Jacobi** :
 $$\{A,\{B,C\}\}+\{C,\{A,B\}\}+\{B,\{C,A\}\}=0$$
 
-**Avantages des CP** : calcul relativement facile qui permet d'obtenir bon nombre de résultats intéressants (ex. constantes du mouvement) ; intimement reliés aux **commutateurs de la mécanique quantique**.
+**Avantages des CP** : calcul relativement facile qui permet d'obtenir bon nombre de résultats intéressants (_e.g._ constantes du mouvement).  intimement reliés aux **commutateurs de la mécanique quantique**.
 
 
-## Crochets de Poisson entre variables canoniques {.smaller}
+## Crochets de Poisson entre variables canoniques {.scrollable}
 
-Calculons les crochets entre les variables canoniques elles-mêmes :
+Calculons les crochets entre les variables canoniques elles-mêmes en appréciant que ce sont des variables indépendantes dans notre formalisme, d'où $\partial q_j/\partial p_i, \partial q_k/\partial p_i$, etc. sont nuls $\forall i,j,k=1,2,3,... n$ ddl.
 
-**1. $\{q_k,q_j\}$** : puisque $\partial q_j/\partial p_i=0=\partial q_k/\partial p_i$ (les variables canoniques sont indépendantes) :
-$$\{q_k,q_j\} = \sum_i\left[\frac{\partial q_k}{\partial q_i}\frac{\partial q_j}{\partial p_i}-\frac{\partial q_k}{\partial p_i}\frac{\partial q_j}{\partial q_i}\right] \equiv 0$$
+**1. $\{q_k,q_j\}$**
 
-**2. $\{p_k,p_j\}$** : de la même façon, $\{p_k,p_j\}=0$.
+$$\{q_k,q_j\} = \sum_i\left[\frac{\partial q_k}{\partial q_i}\frac{\partial q_j}{\partial p_i}-\frac{\partial q_k}{\partial p_i}\frac{\partial q_j}{\partial q_i}\right] = 0$$
 
-**3. $\{q_k,p_j\}$** :
-$$\{q_k,p_j\} = \sum_i\frac{\partial q_k}{\partial q_i}\frac{\partial p_j}{\partial p_i} = \sum_i \delta_{ki}\delta_{ji} = \delta_{kj}$$
+**2. $\{p_k,p_j\}$**
+
+De la même façon, 
+$$\{p_k,p_j\}=0$$
+
+**3. $\{q_k,p_j\}$**
+
+\begin{align*}
+\{q_k,p_j\} &= \sum_i\left[\frac{\partial q_k}{\partial q_i}\frac{\partial p_j}{\partial p_i}-\frac{\partial q_k}{\partial p_i}\frac{\partial p_j}{\partial q_i}\right]\\
+&= \sum_i\frac{\partial q_k}{\partial q_i}\frac{\partial p_j}{\partial p_i}\\
+&= \sum_i \delta_{ki}\delta_{ji} = \delta_{kj}
+\end{align*}
 
 où $\delta_{kj}$ est le delta de Kronecker.
 
-## L'inverse est vrai aussi
-
-::: {.callout-important title="Remarque 4.9"}
-On peut démontrer que l'inverse est vrai : si un ensemble de $n$ variables $q_i$ et $n$ variables $p_i$ obéit à :
-$$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj}$$
-alors l'ensemble des $q_i$ et $p_i$ constitue un ensemble de **variables canoniques**.
+:::{.notes}
+Voir l'intéresante notation de wiki en anglais, et voir si j'ajoute la définition du delta de Kronecker
 :::
 
-::: {.callout-important title="Remarque 4.10 — CP et mécanique quantique"}
-Il existe des relations similaires avec les commutateurs de la MQ. Par exemple, avec $p_j=-i\hbar\,\partial/\partial x_j$ :
-$$[x_k,x_j]=0, \qquad [p_k,p_j]=0, \qquad [x_k,p_j]=i\hbar\delta_{kj}$$
-En MQ : seconde quantification. En TQC : quantification des champs.
+## Crochets de Poisson entre variables canoniques
+
+Il s'agit d'un des résultats intéressants découlant des CP, car l'inverse est aussi vrai.
+
+::: {.callout-important title="Comment déterminer si une paire de variable est canonique?"}
+Si un ensemble de $n$ variables $q_i$ et $n$ variables $p_i$ quelconques satisfait les relations
+
+\begin{align*}
+\{q_k,q_j\}&=0\\
+\qquad \{p_k,p_j\}&=0\\
+\{q_k,p_j\}&=\delta_{kj}
+\end{align*}
+
+alors l'ensemble des $q_i$ et $p_i$ constitue un ensemble de **variables canoniques**, soit des coordonnées généralisées et leur moment conjugué généralisé qui obéissent aux équations canoniques.
 :::
 
-## Symétrisation complète des équations canoniques
-
-Les CP permettent de symétriser complètement les équations canoniques. Pour $F(p_i,q_i)$ avec $\partial F/\partial t=0$, $\dot F=\{F,H\}$ (94) — valide aussi pour les $q_i$ et $p_i$ eux-mêmes :
-$$\dot q_i = \{q_i,H\}, \qquad \dot p_i = \{p_i,H\}$$
-
-::: {.callout-important title="Symétrie symplectique"}
-À cause de cette symétrie parfaite entre $q_i$ et $p_i$, on parle parfois des « $2n$ variables canoniques » sans distinction. Une telle symétrie n'existe **pas** dans le formalisme lagrangien entre les $q_i$ et les $\dot q_i$.
+:::{.notes}
+Démontrable
 :::
 
-## Quel est le rôle des crochets de Poisson $\{F,H\}$ pour une fonction $F$ sans dépendance explicite au temps ? {.quiz-question}
+## Crochets de Poisson et mécanique quantique 
 
-- Ils annulent toujours la fonction $F$
-- [Ils sont égaux à la dérivée totale $dF/dt$, permettant d'identifier facilement les constantes du mouvement]{.correct data-explanation="Quand ∂F/∂t = 0, dF/dt = {F,H} — si ce crochet est nul, F est une constante du mouvement, sans avoir à résoudre les équations différentielles."}
-- Ils remplacent le lagrangien du système
-- Ils ne s'appliquent qu'aux systèmes non conservatifs
+Les commutateurs de la mécanique quantique se contruisent avec ce résultat des CP. Par exemple, avec $p_j=-i\hbar\,\partial/\partial x_j$ :
+
+\begin{align*}
+[x_k,x_j]&=0\\
+[p_k,p_j]&=0\\
+[x_k,p_j]&=i\hbar\delta_{kj}
+\end{align*}
+
+Ceci permet d'introduire la seconde quantification en mécanique quantique et la quantification des champs en théorie quantique des champs.
+
+:::{.notes}
+Revérifier la dernière remarque
+:::
+
+## Symétrisation des équations canoniques avec les CP
+
+Les CP permettent de symétriser complètement les équations canoniques, _i.e._ d'éliminer le signe négatif dans l'interchange de variables canoniques. En se rappelant qu'une fonction $F(p_i,q_i)$ sans dépendance explicite au temps a pour dérivée totale $\dot F=\{F,H\}$, les coordonnées $q_i$ et moments $p_i$ généralisés peuvent être une telle fonction $F$. Les équations canoniques s'écrivent alors
+
+\begin{align*}
+\dot q_i &= \{q_i,H\}\\
+\dot p_i &= \{p_i,H\}
+\end{align*}
+
+En raison de cette symétrie symplectique entre $q_i$ et $p_i$, on parle parfois des « $2n$ variables canoniques » sans distinction. Une telle symétrie n'existe pas dans le formalisme lagrangien entre les $q_i$ et les $\dot q_i$.
+
+## Révision: quel est le rôle des crochets de Poisson $\{F,H\}$ pour une fonction $F$ sans dépendance explicite au temps ? {.quiz-question}
+
+- "1)" Ils annulent toujours la fonction $F$
+- "2)" [Ils sont égaux à la dérivée totale $dF/dt$, permettant d'identifier facilement les constantes du mouvement]{.correct data-explanation="Quand ∂F/∂t = 0, dF/dt = {F,H} — si ce crochet est nul, F est une constante du mouvement, sans avoir à résoudre les équations différentielles."}
+- "3)" Ils remplacent le lagrangien du système
+- "4)" Ils ne s'appliquent qu'aux systèmes non conservatifs
 
 # 4.5 Moments généralisés
 
-## Moments généralisés : $p \neq mv$ en général
+## Est-ce que les moments conjugués généralisés s'écrivent toujours comme un produit de masse et vitesse $\mathbf{p} = m\mathbf{v}$ ? {.quiz-question}
 
-On parle des $p_i$ comme des **moments généralisés**, et des $q_i$ comme des **coordonnées généralisées**. Les dimensions des $q_i$ pouvant être à peu près n'importe quoi, il en va de même des $p_i$.
+- "1)" Oui
+- "2)" Non
 
-Dans les exemples vus jusqu'ici, les $p_i$ étaient les composantes de $\mathbf{p}=m\mathbf{v}$ (99) — particulièrement évident en cartésiennes. **Cette définition n'est pas toujours vraie !** Lorsque l'interaction dépend des vitesses : $\mathbf{p}\neq m\mathbf{v}$.
+## Moments généralisés
 
-## Interactions de jauge : le cas électromagnétique {.smaller}
+Comme les coordonnées généralisées $q_i$ peuvent prendre pratiquement n'importe quelle dimension, n'importe quelles unités, il en va de même pour leur moment généralisé $p_i$.
 
-::: {.callout-tip title="Exemple 4.11"}
-Le lagrangien d'une particule de masse $m$, charge $e$, dans un champ électromagnétique, en cartésiennes $x_i=(x,y,z)$ :
-$$L = \frac{m}{2}\sum_i\dot x_i^2 + e\sum_i\dot x_iA_i - eV$$
-où $V$ et $\mathbf{A}=(A_x,A_y,A_z)$ sont les potentiels scalaire et vectoriel électromagnétiques.
+Dans la plupart des exemples vus jusqu'ici, $p_i$ étaient les composantes de $\mathbf{p}=m\mathbf{v}$. **Cette définition n'est pas toujours vraie** tout comme l'hamiltonien ne représente pas toujours l'émergie totale du système physique. Lorsque l'énergie potentielle d'interaction dépend des vitesses, $\mathbf{p}\neq m\mathbf{v}$.
+
+## {.scrollable}
+
+::::{.callout-caution title="Exemple - Le cas du champ électromagnétique"}
+
+#### Énoncé
+Le lagrangien d'une particule libre de masse $m$ et de charge $e$ dans un champ électromagnétique, s'exprime en coordonnées cartésiennes $q_i \to x_i=(x,y,z)$ par
+
+$$L = \frac{m}{2}\sum_{i=1}^3\dot x_i^2 + e\sum_{i=1}^3\dot x_iA_i - eV$$
+
+où $V$ et $\mathbf{A}=(A_x,A_y,A_z)$ sont respectivements les potentiels scalaire et vectoriel électromagnétiques. Est-ce que son moment généralisé est seulement un produit de masse et vitesse?
+
+:::{.notes}
+- En profiter pour noter la nuance entre potentiel électrique J/C et énergie potentielle J. Et approfindir l'équivalent en potentiel vecteur. Voir que la vitesse s'inclue bien dans cette énergie potentielle
+- Voir s'il y a lieu d'indiquer une dépendance explicite sur le temps dans le potentiels avec x_i
 :::
 
-Les moments généralisés :
-$$p_i \equiv \frac{\partial L}{\partial\dot x_i} = m\dot x_i + eA_i$$
+#### Analyse du problème 
 
-**On constate que $p\neq mv$, mais bien** $\mathbf{p}=m\mathbf{v}+e\mathbf{A}$ (102). En inversant : $\dot x_i = (p_i-eA_i)/m$ (103). Avec $H=\sum_ip_i\dot x_i-L$ :
-$$H = \frac{1}{2m}\sum_i(p_i-eA_i)^2 + eV \tag{104}$$
+- **Contraintes :** Aucune.
+- **Degré de liberté :** 1 particule dans l'espace 3D $\implies 1$ ddl.
+- **Coordonnée généralisée :** $q_1=x, q_2=y, q_3=z$ tel qu'indiqué dans l'énoncé du problème.
 
-## Retour à la force de Lorentz {.smaller}
+#### Mécanique hamiltonienne
 
-::: {.callout-tip title="Exercice 4.2"}
+- Moments $p_i$ conjugués à $x_i$ : $\displaystyle p_i = \frac{\partial L}{\partial\dot x_i} = m\dot x_i + eA_i$
+- Isolement de la vitesse angulaire généralisée: $\displaystyle \dot x_i = \frac{(p_i-eA_i)}{m}$
+- Selon la définition de l'hamiltonien, $H=\sum_ip_i\dot x_i-L$,
+
+$$H(x_i,p_i) = \frac{1}{2m}\sum_i(p_i-eA_i)^2 + eV$$
+::::
+
+#### Conclusion
+
+On constate que $p\neq mv$ puisque $\mathbf{p}=m\mathbf{v}+e\mathbf{A}$. 
+
+Qui plus est, $H\neq T+V$ en raison de la présence de vitesses dans l'énergie potentielle.
+
+:::{.notes}
+Ajouter un petit commentaire sur Interactions de jauge : le cas électromagnétique
+:::
+
+:::{.notes}
+Pourrait être fait en dépannage.
+Retour à la force de Lorentz
+
+callout-tip title="Exercice 4.2"
 Vérifions que les équations canoniques pour ce $H$ redonnent bien la force de Lorentz.
-:::
 
 $\dot x_i = \partial H/\partial p_i = (p_i-eA_i)/m$ (107-109). Puis $\dot p_i=-\partial H/\partial x_i$ (110), qui après dérivation complète donne :
 $$\dot p_i = e\sum_j\frac{p_j-eA_j}{m}\frac{\partial A_j}{\partial x_i} - e\frac{\partial V}{\partial x_i} \tag{112}$$
@@ -1192,6 +1265,7 @@ Or $\mathbf{E}=-\nabla V - \partial\mathbf{A}/\partial t$, donc les termes se r�
 $$m\ddot{\mathbf{x}} = e(\mathbf{v}\times\mathbf{B}+\mathbf{E}) = \mathbf{F}_\text{Lorentz}$$
 
 **On retrouve exactement la force de Lorentz.** Ce résultat est fondamental : il montre comment écrire l'hamiltonien pour une particule soumise à une interaction de jauge — aujourd'hui, on cherche souvent à formuler les interactions de la nature comme des interactions de jauge.
+:::
 
 # 4.6 Transformations canoniques
 
