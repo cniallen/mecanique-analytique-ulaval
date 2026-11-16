@@ -1416,6 +1416,7 @@ $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
 :::
 :::
 
+:::
 
 # 4.6.1 Fonctions génératrices
 
