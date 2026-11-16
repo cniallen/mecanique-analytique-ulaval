@@ -1289,9 +1289,9 @@ On note $Q_i, P_i$ les nouvelles variables canoniques obtenues après une transf
 $$q_i, p_i \; \xrightarrow{\text{TC}} \; Q_i, P_i$$
 :::
 
-## Condition pour qu'une paire de variables données soit canonique
+## Condition pour qu'une paire de variables données soit canonique {.smaller}
 
-Ces transformations sont soumises à des conditions sévères : les $Q_i,P_i$ étant eux-mêmes des variables canoniques, ils doivent obéir à :
+Ces transformations sont soumises à des conditions sévères : les $Q_i,P_i$ étant elles-mêmes des variables canoniques, elles doivent obéir à
 
 \begin{align*}
 \{Q_k,Q_j\}_{Q,P}&=0\\
@@ -1302,22 +1302,49 @@ Ces transformations sont soumises à des conditions sévères : les $Q_i,P_i$ é
 et les équations canoniques $\dot Q_i=\partial H'/\partial P_i$, $\dot P_i=-\partial H'/\partial Q_i$ doivent rester **invariantes de forme**, pour un nouvel hamiltonien $H'(Q_i,P_i)$.
 
 :::{.notes}
-Ce pourquoi c'était dit un résultat intéressant tantôt.
-:::
+- Ce pourquoi c'était dit un résultat intéressant tantôt.
+- Tout ça reste invariant de forme sous TC, les crochets aussi voir démo de Cline
 
-## Variables dépendantes et indépendantes {.scrollable}
+À SUPPRIMER QUAND LA NOUVELLE VERSION MARCHE
+Variables dépendantes et indépendantes 
 
 Les $q_i,p_i,Q_i,P_i$ forment un ensemble de $4n$ variables, mais seules $2n$ d'entre elles sont indépendantes. Il est généralement possible d'écrire les $n$ équations $Q_i=Q_i(q_j,p_j,t)$ de façon assez arbitraire, mais il est généralement **impossible** d'écrire les $n$ autres équations $P_i=P_i(q_j,p_j,t)$ tout aussi arbitrairement : un tel choix ne satisferait pas les conditions canoniques.
 
 Convention : considérer que, pour les fins de la transformation, $n$ des anciennes variables et $n$ des nouvelles sont indépendantes.
-
-## Schéma d'application d'une transformation canonique (TC) {.scrollable}
-
-::: {.callout-tip title=""}
-Si on choisit comme indépendantes les $q_i$ (anciennes) et les $P_i$ (nouvelles) : $q_i,P_i \xrightarrow{\text{TC}} p_i,Q_i$. On écrit $p_i=p_i(q_j,P_j,t)$, $Q_i=Q_i(q_j,P_j,t)$, on inverse la première en $P_j=P_j(q_i,p_i,t)$, puis on substitue dans la seconde pour obtenir la forme habituelle $Q_i=Q_i(q_j,p_j,t)$ (136).
 :::
 
-Avant d'obtenir les équations de TC, examinons d'abord la procédure d'application afin de garder notre but en tête.
+## Variables indépendantes et dépendantes {.smaller}
+
+- $q_i,\,p_i,\,Q_i,\,P_i$ : **$4n$ variables** en tout où $n$ reste le nombre de ddl,
+- **$2n$ équations** de transformation canonique (TC) les relient, donc seulement **$2n$ variables canoniques sont indépendantes**.
+
+**Qui est libre, qui est dépendant ?**
+
+- Choix assez arbitraire des $Q_i(q_j,p_j,t)$ librement à sa guise,
+- mais les $P_i(q_j,p_j,t)$ sont dépendants : ils doivent satisfaire les conditions canoniques.
+
+::: {.callout-note title="Convention"}
+Pour les fins de TC, on choisit $n$ anciennes et $n$ nouvelles
+variables comme indépendantes, donc un mélange de minuscules et majuscules comme $q_i$ et $P_i$!
+:::
+
+:::{.notes}
+S'il y avait plus que 2n var. ind., on aurait une contradiction avec nos nbres d'éq. du mouvement venant de 2n canoniques et de 1n E.-L.
+:::
+
+## Combien de variables sont indépendantes ? {.quiz-question}
+
+Pour un système à $n$ ddl, parmi les $4n$ variables $q_i,\,p_i,\,Q_i,\,P_i$ :
+
+- [$2n$]{.correct data-explanation="La TC fournit 2n équations qui expriment les nouvelles variables en fonction des anciennes. Il reste 2n variables indépendantes, soit la dimension de l'espace de phase."}
+- [$4n$]{data-explanation="Ce serait vrai sans la TC. Mais les 2n équations de la transformation relient les nouvelles variables aux anciennes, donc la moitié seulement sont indépendantes."}
+- [$3n$]{data-explanation="Rien ne justifie ce compte : les 4n variables sont reliées par 2n équations, ce qui en laisse 2n."}
+- [$n$]{data-explanation="n est le nombre de degrés de liberté. L'espace de phase a la dimension 2n, car chaque ddl compte une coordonnée et un moment."}
+
+
+## Schéma d'application d'une TC {.scrollable}
+
+Avant d'obtenir les équations de transformation canonique (TC), examinons d'abord la procédure d'application afin de garder notre but en tête.
 
 ::: {.tc-flow}
 
@@ -1383,23 +1410,26 @@ $$Q_i(q_j,P_j,t)\;\Longrightarrow\;Q_i(q_j,\textcolor{#e8505b}{p_j},t)$$
 
 ::: {.tc-step}
 ::: {.tc-label}
-**But :** exprimer les nouvelles variables en fonction des anciennes
+**But :**
 :::
 ::: {.tc-math}
 $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
 :::
 :::
 
+Les nouvelles variables canoniques sont exprimées en fonction des anciennes.
 :::
 
 
 # 4.6.1 Fonctions génératrices
 
-## Retour au principe de base : le principe variationnel {.scrollable}
+## Retour au principe variationnel {.scrollable}
 
 ::: {.callout-note title="Rappel — Variation de l'action"}
 $$\delta S = \delta\int_{P_1}^{P_2} L\,dt = 0$$
+
 Lagrangien et vitesses : $L=\sum_ip_i\dot q_i-H$ où $\dot q_i=\partial H/\partial p_i$.
+
 Hamiltonien et moments : $H=\sum_ip_i\dot q_i-L$ où $p_i=\partial L/\partial\dot q_i$.
 :::
 
@@ -1417,6 +1447,10 @@ $$\delta\int_1^2\left[\sum_ip_i\dot q_i - H\right]dt = \delta\int_1^2\left[\sum_
 
 - Cette fonction $F$, le **générateur** de la TC, sera choisie comme ne dépendant que des variables indépendantes de la transformation. Quatre générateurs, aussi appelées **fonctions génératrices**, suffisent à couvrir tous les cas de transformation vers $2n$ variables dépendantes. 
 
+:::{.notes}
+Le rappel montre bien que L et H expriment la même chose à une TLegendre près.
+:::
+
 ## Notation des fonctions génératrices de TC
 
 On identifie 4 cas d'espèce :
@@ -1427,6 +1461,7 @@ On identifie 4 cas d'espèce :
 | $q_i,P_i$ | $p_i,Q_i$ | $F_2(q_i,P_i,t)$ |
 | $p_i,Q_i$ | $q_i,P_i$ | $F_3(p_i,Q_i,t)$ |
 | $p_i,P_i$ | $q_i,Q_i$ | $F_4(p_i,P_i,t)$ |
+| | | |
 
 :::{.notes}
 P-e mettre des flèches de TC dans ce tableau
@@ -1465,14 +1500,18 @@ $$p_i = \frac{\partial}{\partial q_i}F_2(q_j,P_j,t), \qquad Q_i = \frac{\partial
 
 Le test canonique correspondant est $\partial p_i/\partial P_j = \partial Q_j/\partial q_i$, comme précédemment.
 
-## Tableau récapitulatif des 4 générateurs {.scrollable}
+## Les quatre types de fonctions génératrices {.scrollable}
 
-| Générateur | Transformation | Test canonique |
-|---|---|---|
-| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$, $P_i=-\dfrac{\partial F_1}{\partial Q_i}$, $H'=H+\dfrac{\partial F_1}{\partial t}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
-| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$, $Q_i=\dfrac{\partial F_2}{\partial P_i}$, $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
-| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$, $P_i=-\dfrac{\partial F_3}{\partial Q_i}$, $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
-| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$, $Q_i=\dfrac{\partial F_4}{\partial P_i}$, $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
+::: {.tc-table}
+
+| Générateurs | | Transformation | | Éqs. de la TC |
+|:---:|:---:|:---:|:---:|:---:|
+| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$ | $P_i=-\dfrac{\partial F_1}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_1}{\partial t}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$ | $P_i=-\dfrac{\partial F_3}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
+| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$ | $Q_i=\dfrac{\partial F_4}{\partial P_i}$ | $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
+
+:::
 
 Les 4 versions $F_1,F_2,F_3,F_4$ ne génèrent pas des transformations différentes, ce sont juste des chemins différents pour générer une même transformation $q_i,p_i \to Q_i,P_i$.
 
@@ -1481,23 +1520,34 @@ $$F_1 = F_2 - \sum_iP_iQ_i = F_3+\sum_ip_iq_i = F_4+\sum_i(p_iq_i-P_iQ_i)$$
 
 :::{.note}
 À voir si j'ajoute: Deux $F_1$ différentes génèrent en général des transformations différentes.
+
+Tableau récapitulatif des 4 générateurs {.scrollable}
+
+| Générateur | Transformation | Test canonique |
+|---|---|---|
+| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$, $P_i=-\dfrac{\partial F_1}{\partial Q_i}$, $H'=H+\dfrac{\partial F_1}{\partial t}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$, $Q_i=\dfrac{\partial F_2}{\partial P_i}$, $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$, $P_i=-\dfrac{\partial F_3}{\partial Q_i}$, $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
+| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$, $Q_i=\dfrac{\partial F_4}{\partial P_i}$, $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
 :::
 
 # 4.6.2 Cas typiques de transformations canoniques
 
-##
+## {.center}
 
 ::: {.callout-tip title="Transformation identité"}
 $F_2(q,P)=\sum_iq_iP_i$. On calcule $p_k=\partial F_2/\partial q_k=P_k$, $Q_k=\partial F_2/\partial P_k=q_k$, $H'=H$, soit la transformation identité attendue.
 :::
 
+    
+
 ::: {.callout-tip title="Transformation ponctuelle"}
 $F_2(q,P)=\sum_if_i(q,t)P_i$, où $f_i$ est une fonction arbitraire des positions seulement. On trouve $Q_k=f_k(q,t)$ — les nouvelles coordonnées ne dépendent **pas des moments**. Puisque $f_i$ est arbitraire, **toute transformation ponctuelle est canonique** !
 :::
 
-##
+## {.center}
 
-::: {.callout-tip title="Échange coordonnée $\leftrightharpoons$ moment"}
+::: {.callout-tip title="TC d'échange coordonnée $\leftrightharpoons$ moment"}
 $F_1=\sum_iq_iQ_i$. On calcule $p_k=\partial F_1/\partial q_k=Q_k$, $P_k=-\partial F_1/\partial Q_k=-q_k$, $H'=H$.
 :::
 
@@ -1505,7 +1555,7 @@ La notion de coordonnée spatiale et de quantité de mouvement se confondent en 
 
 ## {.smaller}
 
-::: {.callout-tip title="Changement de coordonnées général"}
+::: {.callout-tip title="TC de changement de coordonnées général"}
 Fréquemment, on connaît une transformation de coordonnées $Q_i=Q_i(q_j,t)$, inversible en $q_i=q_i(Q_j,t)$, mais sans savoir _a priori_ comment transformer les moments pour rester canonique.
 :::
 
@@ -1518,21 +1568,22 @@ $$Q_k = \frac{\partial F_2}{\partial P_k} = Q_k(q_j,t) \quad\text{(tel que dési
 
 Ceci garantit que les $P_i$ ainsi définis sont canoniques.
 
-4.6.3 Quelques exemples de transformations canoniques
+
+# 4.6.3 Quelques exemples de transformations canoniques
 
 ## Exemple : cartésiennes vers polaires {.smaller}
 
 ::: {.callout-tip title="Exemple 4.14"}
-Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$ (173).
+Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$.
 :::
 
 $$F_2(x,y,P_r,P_\varphi) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\varphi$$
 
 Les lois canoniques donnent, après calcul des dérivées partielles :
-$$p_x = \frac{\partial F_2}{\partial x} = \cos\varphi\,P_r - \frac{\sin\varphi}{r}P_\varphi, \qquad p_y = \frac{\partial F_2}{\partial y} = \sin\varphi\,P_r+\frac{\cos\varphi}{r}P_\varphi \tag{177,178}$$
+$$p_x = \frac{\partial F_2}{\partial x} = \cos\varphi\,P_r - \frac{\sin\varphi}{r}P_\varphi, \qquad p_y = \frac{\partial F_2}{\partial y} = \sin\varphi\,P_r+\frac{\cos\varphi}{r}P_\varphi$$
 
 d'où on isole facilement :
-$$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}, \qquad P_\varphi = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z \tag{179,180}$$
+$$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}, \qquad P_\varphi = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z$$
 
 ## Vérification physique du résultat
 
