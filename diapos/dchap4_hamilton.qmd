@@ -1289,7 +1289,7 @@ On note $Q_i, P_i$ les nouvelles variables canoniques obtenues après une transf
 $$q_i, p_i \; \xrightarrow{\text{TC}} \; Q_i, P_i$$
 :::
 
-## Condition pour qu'une paire de variables données soit canonique {.smaller}
+## Condition pour qu'une paire de variables données soit canonique
 
 Ces transformations sont soumises à des conditions sévères : les $Q_i,P_i$ étant eux-mêmes des variables canoniques, ils doivent obéir à :
 
@@ -1311,35 +1311,115 @@ Les $q_i,p_i,Q_i,P_i$ forment un ensemble de $4n$ variables, mais seules $2n$ d'
 
 Convention : considérer que, pour les fins de la transformation, $n$ des anciennes variables et $n$ des nouvelles sont indépendantes.
 
+## Schéma d'application d'une transformation canonique (TC) {.scrollable}
+
 ::: {.callout-tip title=""}
-Si on choisit comme indépendantes les $q_i$ (anciennes) et les $P_i$ (nouvelles) : $q_i,P_i \xrightarrow{\text{TC}} p_i,Q_i$. On écrit $p_i=p_i(q_j,P_j,t)$, $Q_i=Q_i(q_j,P_j,t)$ (134), on inverse la première en $P_j=P_j(q_i,p_i,t)$ (135), puis on substitue dans la seconde pour obtenir la forme habituelle $Q_i=Q_i(q_j,p_j,t)$ (136).
+Si on choisit comme indépendantes les $q_i$ (anciennes) et les $P_i$ (nouvelles) : $q_i,P_i \xrightarrow{\text{TC}} p_i,Q_i$. On écrit $p_i=p_i(q_j,P_j,t)$, $Q_i=Q_i(q_j,P_j,t)$, on inverse la première en $P_j=P_j(q_i,p_i,t)$, puis on substitue dans la seconde pour obtenir la forme habituelle $Q_i=Q_i(q_j,p_j,t)$ (136).
 :::
+
+Avant d'obtenir les équations de TC, examinons d'abord la procédure d'application afin de garder notre but en tête.
+
+::: {.tc-flow}
+
+::: {.tc-step .fragment data-fragment-index="1"}
+::: {.tc-label}
+**1. Choisir** la TC
+:::
+::: {.tc-math}
+$$q_i,\,P_i \;\xRightarrow{\ \text{TC}\ }\; p_i,\,Q_i$$
+:::
+:::
+
+::: {.tc-arrow .fragment data-fragment-index="2"}
+::: {.tc-math}
+$\Downarrow$
+:::
+:::
+
+::: {.tc-step .fragment data-fragment-index="2"}
+::: {.tc-label}
+**2. Écrire** $p_i$ et $Q_i$
+:::
+::: {.tc-math}
+$$
+\begin{aligned}
+p_i &= p_i(q_j,P_j,t)\\[0.3em]
+Q_i &= Q_i(q_j,P_j,t)
+\end{aligned}
+$$
+:::
+:::
+
+::: {.tc-arrow .fragment data-fragment-index="3"}
+::: {.tc-math}
+$\Downarrow$
+:::
+:::
+
+::: {.tc-step .fragment data-fragment-index="3"}
+::: {.tc-label}
+**3. Inverser** $p_i=p_i(q_j,P_j,t)$
+:::
+::: {.tc-math}
+$$P_j = \textcolor{#e8505b}{P_j(q_i,p_i,t)}$$
+$\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
+:::
+:::
+
+::: {.tc-arrow .fragment data-fragment-index="4"}
+::: {.tc-math}
+$\Downarrow$
+:::
+:::
+
+::: {.tc-step .fragment data-fragment-index="4"}
+::: {.tc-label}
+**4. Substituer** $P_j$ dans $Q_i$
+:::
+::: {.tc-math}
+$$Q_i(q_j,P_j,t)\;\Longrightarrow\;Q_i(q_j,\textcolor{#e8505b}{p_j},t)$$
+:::
+:::
+
+::: {.tc-step}
+::: {.tc-label}
+**But :** exprimer les nouvelles variables en fonction des anciennes
+:::
+::: {.tc-math}
+$$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
+:::
+:::
+
+:::
+
 
 # 4.6.1 Fonctions génératrices
 
-## Principe de base : le principe variationnel {.scrollable}
+## Retour au principe de base : le principe variationnel {.scrollable}
 
 ::: {.callout-note title="Rappel — Variation de l'action"}
-$$\delta S = \delta\int_1^2 L\,dt = 0$$
+$$\delta S = \delta\int_{P_1}^{P_2} L\,dt = 0$$
 Lagrangien et vitesses : $L=\sum_ip_i\dot q_i-H$ où $\dot q_i=\partial H/\partial p_i$.
 Hamiltonien et moments : $H=\sum_ip_i\dot q_i-L$ où $p_i=\partial L/\partial\dot q_i$.
 :::
 
-Réécrivons l'action avec $L=\sum_ip_i\dot q_i-H$ :
-$$\delta S = \delta\int_1^2\left[\sum_i p_i\dot q_i - H\right]dt = 0 \tag{137}$$
+- Réécrivons l'action avec $L=\sum_ip_i\dot q_i-H$ :
+$$\delta S = \delta\int_1^2\left[\sum_i p_i\dot q_i - H\right]dt = 0$$
 
-Si $L$ correspond à $H$, après TC, $L'$ correspondra à $H'$, et on exige aussi :
-$$\delta S = \delta\int_1^2 L'\,dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H'\right]dt = 0, \qquad L' = \sum_i P_i\dot Q_i - H' \tag{138}$$
+- Si $L$ correspond à $H$, après TC, $L'$ correspondra à $H'$, et on exige aussi :
+$$\delta S = \delta\int_1^2 L'\,dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H'\right]dt = 0, \qquad L' = \sum_i P_i\dot Q_i - H'$$
 
-## $L$ et $L'$ ne diffèrent que par une jauge
+- $L$ et $L'$ décrivent la même physique, donc ne peuvent différer l'un de l'autre que par la **dérivée totale d'une fonction** $F$ (une transformation de jauge, cf. Chapitre 2) :
+$$L = L' + \frac{dF}{dt}$$
 
-$L$ et $L'$ décrivent la même physique, donc ne peuvent différer l'un de l'autre que par la **dérivée totale d'une fonction** $F$ (une transformation de jauge, cf. Chapitre 2) :
-$$L = L' + \frac{dF}{dt} \tag{139}$$
+- On pose donc :
+$$\delta\int_1^2\left[\sum_ip_i\dot q_i - H\right]dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H' + \frac{dF}{dt}\right]dt$$
 
-On pose donc :
-$$\delta\int_1^2\left[\sum_ip_i\dot q_i - H\right]dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H' + \frac{dF}{dt}\right]dt \tag{140}$$
+- Cette fonction $F$, le **générateur** de la TC, sera choisie comme ne dépendant que des variables indépendantes de la transformation. Quatre générateurs, aussi appelées **fonctions génératrices**, suffisent à couvrir tous les cas de transformation vers $2n$ variables dépendantes. 
 
-Cette fonction $F$, le **générateur** de la TC, sera choisie comme ne dépendant que des variables indépendantes de la transformation. On identifie 4 cas d'espèce :
+## Notation des fonctions génératrices de TC
+
+On identifie 4 cas d'espèce :
 
 | Variables indépendantes | Variables dépendantes | Générateur |
 |:---:|:---:|:---:|
@@ -1348,39 +1428,44 @@ Cette fonction $F$, le **générateur** de la TC, sera choisie comme ne dépenda
 | $p_i,Q_i$ | $q_i,P_i$ | $F_3(p_i,Q_i,t)$ |
 | $p_i,P_i$ | $q_i,Q_i$ | $F_4(p_i,P_i,t)$ |
 
-## Cas $F_1(q_i,Q_i,t)$ : dérivation {.scrollable}
+:::{.notes}
+P-e mettre des flèches de TC dans ce tableau
+:::
 
-Avec $q_i,Q_i$ indépendantes : $\dfrac{dF_1}{dt}=\displaystyle\sum_i\dfrac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_1}{\partial Q_i}\dot Q_i + \dfrac{\partial F_1}{\partial t}$ (141).
+## Transformation canonique pour $F_1(q_i,Q_i,t)$ {.scrollable}
 
-Puisqu'il suffit de comparer les fonctions à intégrer dans $\delta\int Ldt=0$, on égale :
-$$\sum_ip_i\dot q_i - H = \sum_iP_i\dot Q_i - H' + \sum_i\frac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_1}{\partial Q_i}\dot Q_i + \frac{\partial F_1}{\partial t} \tag{142,143}$$
+- Avec $q_i,Q_i$ indépendantes : $\dfrac{dF_1}{dt}=\displaystyle\sum_i\dfrac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_1}{\partial Q_i}\dot Q_i + \dfrac{\partial F_1}{\partial t}$.
 
-En regroupant les termes en $\dot q_i$, $\dot Q_i$, et le reste (tous devant s'annuler puisque $q_i,Q_i,\dot q_i,\dot Q_i$ sont indépendants) :
+- Puisqu'il suffit de comparer les fonctions à intégrer dans $\delta\int Ldt=0$, on égale :
+$$\sum_ip_i\dot q_i - H = \sum_iP_i\dot Q_i - H' + \sum_i\frac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_1}{\partial Q_i}\dot Q_i + \frac{\partial F_1}{\partial t}$$
+
+- En regroupant les termes en $\dot q_i$, $\dot Q_i$, et le reste (tous devant s'annuler puisque $q_i,Q_i,\dot q_i,\dot Q_i$ sont indépendants) :
 $$0 = \sum_i\left(p_i-\frac{\partial F_1}{\partial q_i}\right)\dot q_i - \sum_i\left(P_i+\frac{\partial F_1}{\partial Q_i}\right)\dot Q_i + \left(H'-H-\frac{\partial F_1}{\partial t}\right)$$
 
-## Équations de transformation pour $F_1$
+- Chaque facteur devant ces variables indépendantes doit être identiquement nul :
+$$p_i = \frac{\partial}{\partial q_i}F_1(q_j,Q_j,t), \qquad P_i = -\frac{\partial}{\partial Q_i}F_1(q_j,Q_j,t), \qquad H' = H+\frac{\partial F_1}{\partial t}$$
 
-Chaque facteur devant ces variables indépendantes doit être identiquement nul :
-$$p_i = \frac{\partial}{\partial q_i}F_1(q_j,Q_j,t), \qquad P_i = -\frac{\partial}{\partial Q_i}F_1(q_j,Q_j,t), \qquad H' = H+\frac{\partial F_1}{\partial t} \tag{144}$$
+- Ces transformations permettent d'écrire les $2n$ variables dépendantes ($p_i,P_i$) en fonction des $2n$ variables indépendantes ($q_i,Q_i$), puis, en inversant, sous la forme habituelle $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$, ce qui permet de calculer $H'(Q_i,P_i,t)$.
 
-Ces lois permettent d'écrire les $2n$ variables dépendantes ($p_i,P_i$) en fonction des $2n$ variables indépendantes ($q_i,Q_i$), puis, en inversant, sous la forme habituelle $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$ (145,146), ce qui permet de calculer $H'(Q_i,P_i,t)$ (147).
+- **Test du caractère canonique :** en comparant les dérivées croisées $\partial^2F_1/\partial q_i\partial Q_j$, on montre que la condition $\partial p_i/\partial Q_j = -\partial P_j/\partial q_i$ équivaut exactement à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$.
 
-**Test du caractère canonique :** en comparant les dérivées croisées $\partial^2F_1/\partial q_i\partial Q_j$ (148,149), on montre que la condition $\partial p_i/\partial Q_j = -\partial P_j/\partial q_i$ (152) équivaut exactement à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$ (153).
 
-## Cas $F_2(q_i,P_i,t)$ : intégration par parties nécessaire {.smaller}
+## Transformation canonique pour $F_2(q_i,P_i,t)$ {.scrollable}
 
-Ici, les $Q_i$ ne sont pas indépendants — la comparaison directe des intégrandes ne suffit pas. On intègre par parties le terme $\sum_iP_i\dot Q_i$ :
-$$\int_1^2\sum_iP_i\dot Q_i\,dt = \left[\sum_iP_iQ_i\right]_1^2 - \int_1^2\sum_i\dot P_iQ_i\,dt = -\int_1^2\sum_i\dot P_iQ_i\,dt \tag{156,157}$$
+Ici, une intégration par parties devient nécessaire.
 
-le terme de bord s'annulant car les points $1,2$ sont fixes (même condition qu'au Chapitre 2 !). En comparant maintenant les intégrandes :
-$$\sum_ip_i\dot q_i-H = -\sum_i\dot P_iQ_i - H' + \sum_i\frac{\partial F_2}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_2}{\partial P_i}\dot P_i + \frac{\partial F_2}{\partial t} \tag{158}$$
+- Les $Q_i$ ne sont pas indépendants — la comparaison directe des intégrandes ne suffit pas. On intègre par parties le terme $\sum_iP_i\dot Q_i$,
+$$\int_1^2\sum_iP_i\dot Q_i\,dt = \left[\sum_iP_iQ_i\right]_1^2 - \int_1^2\sum_i\dot P_iQ_i\,dt = -\int_1^2\sum_i\dot P_iQ_i\,dt$$
+
+le terme de bord s'annulant, car les points $P_1,P_2$ sont fixes (même condition qu'au Chapitre 2). En comparant maintenant les intégrandes :
+$$\sum_ip_i\dot q_i-H = -\sum_i\dot P_iQ_i - H' + \sum_i\frac{\partial F_2}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_2}{\partial P_i}\dot P_i + \frac{\partial F_2}{\partial t}$$
 
 En regroupant les termes en $\dot q_i$, $\dot P_i$, et le reste :
-$$p_i = \frac{\partial}{\partial q_i}F_2(q_j,P_j,t), \qquad Q_i = \frac{\partial}{\partial P_i}F_2(q_j,P_j,t), \qquad H' = H+\frac{\partial F_2}{\partial t} \tag{159}$$
+$$p_i = \frac{\partial}{\partial q_i}F_2(q_j,P_j,t), \qquad Q_i = \frac{\partial}{\partial P_i}F_2(q_j,P_j,t), \qquad H' = H+\frac{\partial F_2}{\partial t}$$
 
-Le test canonique correspondant : $\partial p_i/\partial P_j = \partial Q_j/\partial q_i$ (160), équivalent de nouveau à (153).
+Le test canonique correspondant est $\partial p_i/\partial P_j = \partial Q_j/\partial q_i$, comme précédemment.
 
-## Tableau récapitulatif des 4 générateurs {.smaller}
+## Tableau récapitulatif des 4 générateurs {.scrollable}
 
 | Générateur | Transformation | Test canonique |
 |---|---|---|
@@ -1389,45 +1474,51 @@ Le test canonique correspondant : $\partial p_i/\partial P_j = \partial Q_j/\par
 | $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$, $P_i=-\dfrac{\partial F_3}{\partial Q_i}$, $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
 | $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$, $Q_i=\dfrac{\partial F_4}{\partial P_i}$, $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
 
-::: {.callout-important title="Remarque 4.13"}
-Les 4 versions $F_1,F_2,F_3,F_4$ ne génèrent pas des transformations différentes — ce sont simplement des chemins différents pour générer une même transformation $q_i,p_i \to Q_i,P_i$. Deux $F_1$ différentes génèrent en général des transformations différentes.
-:::
+Les 4 versions $F_1,F_2,F_3,F_4$ ne génèrent pas des transformations différentes, ce sont juste des chemins différents pour générer une même transformation $q_i,p_i \to Q_i,P_i$.
 
 Les fonctions génératrices sont reliées entre elles par des transformations de Legendre :
 $$F_1 = F_2 - \sum_iP_iQ_i = F_3+\sum_ip_iq_i = F_4+\sum_i(p_iq_i-P_iQ_i)$$
 
-# 4.6.2 Transformations canoniques particulières
-
-## Transformation identité et transformation ponctuelle {.smaller}
-
-::: {.callout-tip title="1. Transformation identité"}
-$F_2(q,P)=\sum_iq_iP_i$ (162). On calcule $p_k=\partial F_2/\partial q_k=P_k$, $Q_k=\partial F_2/\partial P_k=q_k$, $H'=H$ — la transformation identité, comme attendu.
+:::{.note}
+À voir si j'ajoute: Deux $F_1$ différentes génèrent en général des transformations différentes.
 :::
 
-::: {.callout-tip title="2. Transformation ponctuelle"}
-$F_2(q,P)=\sum_if_i(q,t)P_i$ (163), où $f_i$ est une fonction arbitraire des positions seulement. On trouve $Q_k=f_k(q,t)$ — les nouvelles coordonnées ne dépendent **pas des moments**. Puisque $f_i$ est arbitraire, **toute transformation ponctuelle est canonique** !
+# 4.6.2 Cas typiques de transformations canoniques
+
+##
+
+::: {.callout-tip title="Transformation identité"}
+$F_2(q,P)=\sum_iq_iP_i$. On calcule $p_k=\partial F_2/\partial q_k=P_k$, $Q_k=\partial F_2/\partial P_k=q_k$, $H'=H$, soit la transformation identité attendue.
 :::
 
-## Échange coordonnée $\leftrightharpoons$ moment {.smaller}
-
-::: {.callout-tip title="3. Échange coordonnée-moment"}
-$F_1=\sum_iq_iQ_i$ (164). On calcule $p_k=\partial F_1/\partial q_k=Q_k$, $P_k=-\partial F_1/\partial Q_k=-q_k$, $H'=H$.
+::: {.callout-tip title="Transformation ponctuelle"}
+$F_2(q,P)=\sum_if_i(q,t)P_i$, où $f_i$ est une fonction arbitraire des positions seulement. On trouve $Q_k=f_k(q,t)$ — les nouvelles coordonnées ne dépendent **pas des moments**. Puisque $f_i$ est arbitraire, **toute transformation ponctuelle est canonique** !
 :::
 
-::: {.callout-important title="Remarque 4.14"}
-La notion de coordonnée spatiale et de quantité de mouvement se confondent en mécanique hamiltonienne, puisqu'elles peuvent être assignées aussi bien à la coordonnée qu'au moment généralisé — un exemple frappant de la symétrie symplectique.
+##
+
+::: {.callout-tip title="Échange coordonnée $\leftrightharpoons$ moment"}
+$F_1=\sum_iq_iQ_i$. On calcule $p_k=\partial F_1/\partial q_k=Q_k$, $P_k=-\partial F_1/\partial Q_k=-q_k$, $H'=H$.
 :::
 
-## Changement de coordonnées général {.smaller}
+La notion de coordonnée spatiale et de quantité de mouvement se confondent en mécanique hamiltonienne, puisqu'elles peuvent être assignées aussi bien à la coordonnée qu'au moment généralisé, un exemple frappant de la symétrie symplectique.
 
-::: {.callout-tip title="Exemple 4.13"}
-Fréquemment, on connaît une transformation de coordonnées $Q_i=Q_i(q_j,t)$, inversible en $q_i=q_i(Q_j,t)$ (165,166), mais sans savoir *a priori* comment transformer les moments pour rester canonique.
+## {.smaller}
+
+::: {.callout-tip title="Changement de coordonnées général"}
+Fréquemment, on connaît une transformation de coordonnées $Q_i=Q_i(q_j,t)$, inversible en $q_i=q_i(Q_j,t)$, mais sans savoir _a priori_ comment transformer les moments pour rester canonique.
 :::
 
-**Solution** : construire $F_2(q_i,P_i,t)=\sum_iQ_i(q_j,t)P_i$ (167). Les équations de TC donnent :
-$$Q_k = \frac{\partial F_2}{\partial P_k} = Q_k(q_j,t) \quad\text{(tel que désiré)}, \qquad p_k = \frac{\partial F_2}{\partial q_k} = \sum_i\frac{\partial Q_i}{\partial q_k}P_i \tag{168,169}$$
+**Procédure** 
 
-Cette dernière équation s'inverse en $P_i=P_i(q_j,p_j,t)$ (170), complétant l'opération et **garantissant** que les $P_i$ ainsi définis sont canoniques.
+- Construire $F_2(q_i,P_i,t)=\sum_iQ_i(q_j,t)P_i$. 
+- Les équations de TC donnent
+$$Q_k = \frac{\partial F_2}{\partial P_k} = Q_k(q_j,t) \quad\text{(tel que désiré)}, \qquad p_k = \frac{\partial F_2}{\partial q_k} = \sum_i\frac{\partial Q_i}{\partial q_k}P_i$$ .
+- Cette dernière équation s'inverse en $P_i=P_i(q_j,p_j,t)$. 
+
+Ceci garantit que les $P_i$ ainsi définis sont canoniques.
+
+4.6.3 Quelques exemples de transformations canoniques
 
 ## Exemple : cartésiennes vers polaires {.smaller}
 
@@ -1435,7 +1526,7 @@ Cette dernière équation s'inverse en $P_i=P_i(q_j,p_j,t)$ (170), complétant l
 Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$ (173).
 :::
 
-$$F_2(x,y,P_r,P_\varphi) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\varphi \tag{176}$$
+$$F_2(x,y,P_r,P_\varphi) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\varphi$$
 
 Les lois canoniques donnent, après calcul des dérivées partielles :
 $$p_x = \frac{\partial F_2}{\partial x} = \cos\varphi\,P_r - \frac{\sin\varphi}{r}P_\varphi, \qquad p_y = \frac{\partial F_2}{\partial y} = \sin\varphi\,P_r+\frac{\cos\varphi}{r}P_\varphi \tag{177,178}$$
@@ -1450,7 +1541,8 @@ $$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\va
 
 que l'on savait déjà être le bon résultat (Chapitre 3) — mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en polaires.
 
-# 4.6.3 Quelques exemples : l'oscillateur harmonique
+
+## L'oscillateur harmonique : exemple et contre-exemple
 
 ## Cas 1 — Une transformation canonique correcte {.smaller}
 
@@ -1526,7 +1618,8 @@ $$\delta p_i = -\epsilon\frac{\partial G}{\partial q_i}=-\epsilon\frac{\partial 
 
 **Le générateur d'une translation selon $q_k$ d'une quantité $\epsilon$ est simplement l'impulsion $G=p_k$.** De la même façon, on peut démontrer que le générateur d'une rotation est le moment cinétique.
 
-## Méthode générale — Mécanique hamiltonienne
+:::{.notes}
+Méthode générale — Mécanique hamiltonienne
 
 1. Trouver les contraintes sur la dynamique du système.
 2. Identifier le nombre de ddl du système.
@@ -1535,6 +1628,7 @@ $$\delta p_i = -\epsilon\frac{\partial G}{\partial q_i}=-\epsilon\frac{\partial 
 5. Déterminer s'il y a des variables cycliques ; construire pour chacune le moment canonique conservé.
 6. Écrire le reste des équations du mouvement à partir des équations canoniques.
 7. Trouver la trajectoire en résolvant les équations du mouvement, si possible.
+:::
 
 # 4.7 La méthode de Hamilton-Jacobi
 

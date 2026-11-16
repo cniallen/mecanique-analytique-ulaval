@@ -31,3 +31,17 @@
   left: 0;
   font-weight: bold;
 }
+
+/* Pour une présentation fancée des étapes d'application de transformation canonique (TC) */
+.tc-flow { font-size: 0.8em; }
+.tc-step, .tc-arrow {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  column-gap: 1.2em;
+  align-items: center;
+}
+.tc-label { text-align: right; }
+.tc-math { text-align: center; }
+.tc-arrow .tc-math { grid-column: 2; }
+.tc-math .katex-display { margin: 0.2em 0; }
+
