@@ -1416,11 +1416,6 @@ $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
 :::
 :::
 
-Les nouvelles variables canoniques sont exprimées en fonction des anciennes.
-
-:::{.notes}
-À l'étape d'inversion, ceci est nécessaire pour que ce soit possible. $\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
-:::
 
 # 4.6.1 Fonctions génératrices
 
