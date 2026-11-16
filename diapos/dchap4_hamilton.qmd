@@ -1417,6 +1417,7 @@ $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
 :::
 
 Les nouvelles variables canoniques sont exprimées en fonction des anciennes.
+
 :::{.notes}
 À l'étape d'inversion, ceci est nécessaire pour que ce soit possible. $\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
 :::
@@ -1467,7 +1468,7 @@ On identifie 4 cas d'espèce :
 P-e mettre des flèches de TC dans ce tableau
 :::
 
-## Transformation canonique pour $F_1(q_i,Q_i,t)$ {.scrollable}
+## Transformation canonique pour $F_1(q_i,Q_i,t)$ {.smaller .scrollable}
 
 - Avec $q_i,Q_i$ comme var. indépendantes,
 $$\dfrac{dF_1}{dt}=\displaystyle\sum_i\dfrac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_1}{\partial Q_i}\dot Q_i + \dfrac{\partial F_1}{\partial t}$$.
@@ -1487,7 +1488,7 @@ H' &= H+\frac{\partial F_1}{\partial t}
 
 - Ces équations de transformation permettent effectivement d'écrire les $2n$ variables dépendantes (ici $p_i,P_i$) en fonction des $2n$ variables indépendantes ($q_j,Q_,$). En inversant, sous la forme habituelle $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$, ceci permet de calculer $H'(Q_i,P_i,t)$.
 
-## Test du caractère canonique {.scrollable}
+## Test du caractère canonique {.smaller .scrollable}
 
 En comparant les dérivées croisées obtenues des équation de cette TC, on constate que 
 
@@ -1590,15 +1591,6 @@ $$F_1 = F_2 - \sum_iP_iQ_i = F_3+\sum_ip_iq_i = F_4+\sum_i(p_iq_i-P_iQ_i)$$
 
 :::{.note}
 À voir si j'ajoute: Deux $F_1$ différentes génèrent en général des transformations différentes.
-
-Tableau récapitulatif des 4 générateurs {.scrollable}
-
-| Générateur | Transformation | Test canonique |
-|---|---|---|
-| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$, $P_i=-\dfrac{\partial F_1}{\partial Q_i}$, $H'=H+\dfrac{\partial F_1}{\partial t}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
-| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$, $Q_i=\dfrac{\partial F_2}{\partial P_i}$, $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
-| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$, $P_i=-\dfrac{\partial F_3}{\partial Q_i}$, $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
-| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$, $Q_i=\dfrac{\partial F_4}{\partial P_i}$, $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
 :::
 
 # 4.6.2 Cas typiques de transformations canoniques
@@ -1606,19 +1598,23 @@ Tableau récapitulatif des 4 générateurs {.scrollable}
 ## {.center}
 
 ::: {.callout-tip title="Transformation identité"}
-$F_2(q,P)=\sum_iq_iP_i$. On calcule $p_k=\partial F_2/\partial q_k=P_k$, $Q_k=\partial F_2/\partial P_k=q_k$, $H'=H$, soit la transformation identité attendue.
+$$F_2(q,P)=\sum_iq_iP_i$$ 
+
+On calcule $p_k=\partial F_2/\partial q_k=P_k$, $Q_k=\partial F_2/\partial P_k=q_k$, $H'=H$, soit la transformation identité attendue.
 :::
-
-    
-
+ 
 ::: {.callout-tip title="Transformation ponctuelle"}
-$F_2(q,P)=\sum_if_i(q,t)P_i$, où $f_i$ est une fonction arbitraire des positions seulement. On trouve $Q_k=f_k(q,t)$ — les nouvelles coordonnées ne dépendent **pas des moments**. Puisque $f_i$ est arbitraire, **toute transformation ponctuelle est canonique** !
+$\displaystyle F_2(q,P)=\sum_if_i(q,t)P_i$, où $f_i$ est une fonction arbitraire des positions seulement. 
+
+On trouve $Q_k=f_k(q,t)$, _i.e._ les nouvelles coordonnées ne dépendent pas des moments. Puisque $f_i$ est arbitraire, toute transformation ponctuelle est canonique.
 :::
 
 ## {.center}
 
 ::: {.callout-tip title="TC d'échange coordonnée $\leftrightharpoons$ moment"}
-$F_1=\sum_iq_iQ_i$. On calcule $p_k=\partial F_1/\partial q_k=Q_k$, $P_k=-\partial F_1/\partial Q_k=-q_k$, $H'=H$.
+$$F_1=\sum_iq_iQ_i$$
+
+On calcule $p_k=\partial F_1/\partial q_k=Q_k$, $P_k=-\partial F_1/\partial Q_k=-q_k$, $H'=H$.
 :::
 
 La notion de coordonnée spatiale et de quantité de mouvement se confondent en mécanique hamiltonienne, puisqu'elles peuvent être assignées aussi bien à la coordonnée qu'au moment généralisé, un exemple frappant de la symétrie symplectique.
@@ -1626,7 +1622,7 @@ La notion de coordonnée spatiale et de quantité de mouvement se confondent en 
 ## {.smaller}
 
 ::: {.callout-tip title="TC de changement de coordonnées général"}
-Fréquemment, on connaît une transformation de coordonnées $Q_i=Q_i(q_j,t)$, inversible en $q_i=q_i(Q_j,t)$, mais sans savoir _a priori_ comment transformer les moments pour rester canonique.
+Fréquemment, une transformation de coordonnées $Q_i=Q_i(q_j,t)$, inversible en $q_i=q_i(Q_j,t)$, est connue, mais sans savoir _a priori_ comment transformer les moments pour rester canonique.
 :::
 
 **Procédure** 
@@ -1643,7 +1639,7 @@ Ceci garantit que les $P_i$ ainsi définis sont canoniques.
 
 ## Exemple : cartésiennes vers polaires {.smaller}
 
-::: {.callout-tip title="Exemple 4.14"}
+::: {.callout-tip title=""}
 Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$.
 :::
 
@@ -1660,43 +1656,46 @@ $$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\m
 En substituant $T=\dfrac{1}{2m}(p_x^2+p_y^2)$ et $V(x,y)$ dans les nouvelles variables, on retrouve exactement :
 $$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\varphi^2}{2mr^2}}_{T_\text{rotation}}, \qquad V(r,\varphi) \tag{182}$$
 
-que l'on savait déjà être le bon résultat (Chapitre 3) — mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en polaires.
+que l'on savait déjà être le bon résultat (Chapitre 3) — mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en coordonnées polaires.
 
 
-## L'oscillateur harmonique : exemple et contre-exemple
+## L'oscillateur harmonique {.center}
 
-## Cas 1 — Une transformation canonique correcte {.smaller}
+### exemple et contre-exemple 
 
-L'hamiltonien de l'oscillateur harmonique 1D : $H=\dfrac{p_x^2}{2m}+\dfrac{m\omega^2}{2}x^2$ (183).
 
-::: {.callout-tip title="Exemple 4.15"}
-Tentons $x=\dfrac{1}{\sqrt{m\omega}}q$, $p_x=\sqrt{m\omega}\,p$ (184,185), soit $q=\sqrt{m\omega}x$, $p=p_x/\sqrt{m\omega}$.
+## Cas 1 — Une transformation canonique correcte {.scrollable}
+
+L'hamiltonien de l'oscillateur harmonique 1D : $H=\dfrac{p_x^2}{2m}+\dfrac{m\omega^2}{2}x^2$.
+
+::: {.callout-tip title=""}
+Tentons $x=\dfrac{1}{\sqrt{m\omega}}q$, $p_x=\sqrt{m\omega}\,p$, soit $q=\sqrt{m\omega}x$, $p=p_x/\sqrt{m\omega}$.
 :::
 
-On vérifie $\{q,p\}=\sqrt{m\omega}\cdot\dfrac{1}{\sqrt{m\omega}}-0\cdot0=1$ (186,187) — **transformation canonique confirmée**. Puisque $\partial F/\partial t=0$, $H'=H$ :
-$$H'(q,p) = \frac{\omega}{2}(p^2+q^2) \tag{189}$$
+On vérifie $\{q,p\}=\sqrt{m\omega}\cdot\dfrac{1}{\sqrt{m\omega}}-0\cdot0=1$ : **transformation canonique confirmée**. Puisque $\partial F/\partial t=0$, $H'=H$ :
+$$H'(q,p) = \frac{\omega}{2}(p^2+q^2)$$
 
-La solution est triviale : $\dot q=\partial H'/\partial p=\omega p$, $\dot p=-\partial H'/\partial q=-\omega q$ (190), donc $\ddot q=-\omega^2q$ (191), $q(t)=A\sin(\omega t+\delta)$ (192), soit :
+La solution est directe : $\dot q=\partial H'/\partial p=\omega p$, $\dot p=-\partial H'/\partial q=-\omega q$ (190), donc $\ddot q=-\omega^2q$ (191), $q(t)=A\sin(\omega t+\delta)$, soit :
 $$x(t) = \frac{1}{\sqrt{m\omega}}A\sin(\omega t+\delta)$$
 
 ## Cas 2 — Une transformation qui n'est PAS canonique {.smaller}
 
-::: {.callout-tip title="Exemple 4.16"}
-Essayons plutôt $q=\sqrt{m\omega^2/2}\,x$, $p=p_x/\sqrt{2m}$ (195).
+::: {.callout-tip title=""}
+Essayons plutôt $q=\sqrt{m\omega^2/2}\,x$, $p=p_x/\sqrt{2m}$.
 :::
 
-En substituant naïvement : $H'(q,p)=p^2+q^2$ (196), qui donnerait $\ddot q=-4q$ (198), soit $q(t)=A\sin(2t+\delta)$ (199) — **une fréquence de 2, indépendante de $\omega$**, ce qui est absurde physiquement !
+En substituant naïvement : $H'(q,p)=p^2+q^2$, qui donnerait $\ddot q=-4q$, soit $q(t)=A\sin(2t+\delta)$, soit une fréquence de 2, indépendante de $\omega$, ce qui est absurde physiquement !
 
-**Vérification** : $\{q,p\} = \sqrt{m\omega^2/2}\cdot 1/\sqrt{2m} - 0 = \omega/2 \neq 1$ (201) **sauf si $\omega=2$** !
+**Vérification** : $\{q,p\} = \sqrt{m\omega^2/2}\cdot 1/\sqrt{2m} - 0 = \omega/2 \neq 1$ sauf si $\omega=2$ !
 
 ::: {.callout-important title="Le résultat est faux"}
-La transformation n'est pas canonique — le calcul de $H'$ par simple substitution n'est valide **que** si $\{q,p\}=1$. C'est un piège classique : appliquer $H'=H(x(q),p_x(p))$ sans vérifier d'abord le caractère canonique de la transformation.
+La transformation n'est pas canonique. Le calcul de $H'$ par simple substitution n'est valide **que** si $\{q,p\}=1$. C'est un piège classique, soit celui d'appliquer $H'=H(x(q),p_x(p))$ sans vérifier d'abord le caractère canonique de la transformation.
 :::
 
 ## Cas 3 — Une transformation complexe canonique {.smaller}
 
-::: {.callout-tip title="Exemple 4.17"}
-Reprenant $H'(q,p)=\frac{\omega}{2}(p^2+q^2)$ du Cas 1, appliquons $Q=\frac{1}{\sqrt2}(q+ip)$, $P=\frac{i}{\sqrt2}(q-ip)$ (203).
+::: {.callout-tip title=""}
+Reprenant $H'(q,p)=\frac{\omega}{2}(p^2+q^2)$ du Cas 1, appliquons $Q=\frac{1}{\sqrt2}(q+ip)$, $P=\frac{i}{\sqrt2}(q-ip)$.
 :::
 
 On vérifie $\{Q,P\}=\frac12+\frac12=1$ (205) — canonique, même si complexe ! Le nouvel hamiltonien : $H_1'(Q,P)=-i\omega QP$ (206). Les équations du mouvement : $\dot Q=-i\omega Q$, $\dot P=i\omega P$ (207), donc $Q(t)=ae^{-i\omega t}$, $P(t)=be^{i\omega t}$ (208).
