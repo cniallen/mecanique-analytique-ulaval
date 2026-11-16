@@ -49,11 +49,11 @@
   border-collapse: collapse;
   width: 100%;
   font-size: 0.5em;
-  color: #a00000;
+  color: white;
 }
 .reveal .tc-table th,
 .reveal .tc-table td {
-  border: 2px solid #a00000;
+  border: 2px solid white;
   text-align: center;
   vertical-align: middle;
   padding: 0.15em 0.3em;
@@ -67,5 +67,6 @@
 .reveal .tc-table thead th:nth-child(2) { border-right-color: #4682b4; }
 .reveal .tc-table thead th:nth-child(3) { border-left-color: #4682b4; border-right-color: #4682b4; }
 .reveal .tc-table thead th:nth-child(4) { border-left-color: #4682b4; }
+
 
 
