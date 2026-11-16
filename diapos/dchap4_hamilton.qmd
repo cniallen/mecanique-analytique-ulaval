@@ -1325,32 +1325,32 @@ Convention : considérer que, pour les fins de la transformation, $n$ des ancien
 
 ::: {.callout-note title="Convention"}
 Pour les fins de TC, on choisit $n$ anciennes et $n$ nouvelles
-variables comme indépendantes, donc un mélange de minuscules et majuscules comme $q_i$ et $P_i$!
+variables comme linéairement indépendantes, donc un mélange de minuscules et majuscules comme $Q_i$ et $p_i$!
 :::
 
 :::{.notes}
 S'il y avait plus que 2n var. ind., on aurait une contradiction avec nos nbres d'éq. du mouvement venant de 2n canoniques et de 1n E.-L.
 :::
 
-## Combien de variables sont indépendantes ? {.quiz-question}
+## Combien de variables sont indépendantes {.quiz-question}
 
-Pour un système à $n$ ddl, parmi les $4n$ variables $q_i,\,p_i,\,Q_i,\,P_i$ :
+pour un système à $n$ ddl, parmi les $4n$ variables $q_i,\,p_i,\,Q_i,\,P_i$?
 
+- $n$
 - [$2n$]{.correct data-explanation="La TC fournit 2n équations qui expriment les nouvelles variables en fonction des anciennes. Il reste 2n variables indépendantes, soit la dimension de l'espace de phase."}
-- [$4n$]{data-explanation="Ce serait vrai sans la TC. Mais les 2n équations de la transformation relient les nouvelles variables aux anciennes, donc la moitié seulement sont indépendantes."}
-- [$3n$]{data-explanation="Rien ne justifie ce compte : les 4n variables sont reliées par 2n équations, ce qui en laisse 2n."}
-- [$n$]{data-explanation="n est le nombre de degrés de liberté. L'espace de phase a la dimension 2n, car chaque ddl compte une coordonnée et un moment."}
+- $3n$
+- $4n$
 
 
 ## Schéma d'application d'une TC {.scrollable}
 
-Avant d'obtenir les équations de transformation canonique (TC), examinons d'abord la procédure d'application afin de garder notre but en tête.
+Avant d'obtenir les équations de transformation canonique (TC), examinons d'abord la procédure d'application afin de garder notre but en tête. Pour un choix de variables INdépendantes de $n$ anciennes $q_i$ et $n$ nouvelles $P_i$, les variables restantes sont dépendantes, soit les $n$ anciennes $p_i$ et $n$ nouvelles $Q_i$.
 
 ::: {.tc-flow}
 
 ::: {.tc-step .fragment data-fragment-index="1"}
 ::: {.tc-label}
-**1. Choisir** la TC
+1. Choisir la TC
 :::
 ::: {.tc-math}
 $$q_i,\,P_i \;\xRightarrow{\ \text{TC}\ }\; p_i,\,Q_i$$
@@ -1365,7 +1365,7 @@ $\Downarrow$
 
 ::: {.tc-step .fragment data-fragment-index="2"}
 ::: {.tc-label}
-**2. Écrire** $p_i$ et $Q_i$
+2. Écrire $p_i$ et $Q_i$ en fct des var. INdépendantes
 :::
 ::: {.tc-math}
 $$
@@ -1385,11 +1385,10 @@ $\Downarrow$
 
 ::: {.tc-step .fragment data-fragment-index="3"}
 ::: {.tc-label}
-**3. Inverser** $p_i=p_i(q_j,P_j,t)$
+3. Inverser $p_i=p_i(q_j,P_j,t)$
 :::
 ::: {.tc-math}
-$$P_j = \textcolor{#e8505b}{P_j(q_i,p_i,t)}$$
-$\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
+$$P_j = P_j(q_i,p_i,t)$$
 :::
 :::
 
@@ -1401,16 +1400,16 @@ $\Downarrow$
 
 ::: {.tc-step .fragment data-fragment-index="4"}
 ::: {.tc-label}
-**4. Substituer** $P_j$ dans $Q_i$
+4. Substituer $P_j$ dans $Q_i$
 :::
 ::: {.tc-math}
-$$Q_i(q_j,P_j,t)\;\Longrightarrow\;Q_i(q_j,\textcolor{#e8505b}{p_j},t)$$
+$$Q_i(q_j,P_j,t)\;\Longrightarrow\;Q_i(q_j,p_j,t)$$
 :::
 :::
 
 ::: {.tc-step}
 ::: {.tc-label}
-**But :**
+Rendus au but de la TC :
 :::
 ::: {.tc-math}
 $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
@@ -1418,8 +1417,9 @@ $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
 :::
 
 Les nouvelles variables canoniques sont exprimées en fonction des anciennes.
+:::{.notes}
+À l'étape d'inversion, ceci est nécessaire pour que ce soit possible. $\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
 :::
-
 
 # 4.6.1 Fonctions génératrices
 
@@ -1433,19 +1433,19 @@ Lagrangien et vitesses : $L=\sum_ip_i\dot q_i-H$ où $\dot q_i=\partial H/\parti
 Hamiltonien et moments : $H=\sum_ip_i\dot q_i-L$ où $p_i=\partial L/\partial\dot q_i$.
 :::
 
-- Réécrivons l'action avec $L=\sum_ip_i\dot q_i-H$ :
-$$\delta S = \delta\int_1^2\left[\sum_i p_i\dot q_i - H\right]dt = 0$$
+- Réécrivons l'action avec $L=\sum_ip_i\dot q_i-H$
+$$\delta S = \delta\int_1^2\left[\sum_i p_i\dot q_i - H\right]dt = 0$$.
 
-- Si $L$ correspond à $H$, après TC, $L'$ correspondra à $H'$, et on exige aussi :
-$$\delta S = \delta\int_1^2 L'\,dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H'\right]dt = 0, \qquad L' = \sum_i P_i\dot Q_i - H'$$
+- Avec $L$ qui correspond à $H$ avant TC, alors $L'$ correspondra à $H'$ après TC, _i.e._ $L' = \sum_i P_i\dot Q_i - H'$, et il est aussi physiquement nécessaire que
+$$\delta S = \delta\int_1^2 L'\,dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H'\right]dt = 0$$
 
-- $L$ et $L'$ décrivent la même physique, donc ne peuvent différer l'un de l'autre que par la **dérivée totale d'une fonction** $F$ (une transformation de jauge, cf. Chapitre 2) :
+- $L$ et $L'$ décrivent la même physique, donc **ne peuvent différer l'un de l'autre que par la dérivée totale temporelle d'une fonction** $F$, comme il avait été vu Chapitre 2 pour l'invariance de jauge. Mathématiquement, 
 $$L = L' + \frac{dF}{dt}$$
 
-- On pose donc :
+- En égalisant les variations d'action avant et après TC pour ce cas le plus général de jauge,
 $$\delta\int_1^2\left[\sum_ip_i\dot q_i - H\right]dt = \delta\int_1^2\left[\sum_iP_i\dot Q_i - H' + \frac{dF}{dt}\right]dt$$
 
-- Cette fonction $F$, le **générateur** de la TC, sera choisie comme ne dépendant que des variables indépendantes de la transformation. Quatre générateurs, aussi appelées **fonctions génératrices**, suffisent à couvrir tous les cas de transformation vers $2n$ variables dépendantes. 
+- Cette fonction $F$, le **générateur** de la TC, sera choisie comme fonction des $2n+1$ variables indépendantes de la transformation seulement. Quatre générateurs, aussi appelées **fonctions génératrices**, suffisent à couvrir tous les cas de transformation vers $2n$ variables dépendantes. 
 
 :::{.notes}
 Le rappel montre bien que L et H expriment la même chose à une TLegendre près.
@@ -1469,36 +1469,106 @@ P-e mettre des flèches de TC dans ce tableau
 
 ## Transformation canonique pour $F_1(q_i,Q_i,t)$ {.scrollable}
 
-- Avec $q_i,Q_i$ indépendantes : $\dfrac{dF_1}{dt}=\displaystyle\sum_i\dfrac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_1}{\partial Q_i}\dot Q_i + \dfrac{\partial F_1}{\partial t}$.
+- Avec $q_i,Q_i$ comme var. indépendantes,
+$$\dfrac{dF_1}{dt}=\displaystyle\sum_i\dfrac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_1}{\partial Q_i}\dot Q_i + \dfrac{\partial F_1}{\partial t}$$.
 
-- Puisqu'il suffit de comparer les fonctions à intégrer dans $\delta\int Ldt=0$, on égale :
-$$\sum_ip_i\dot q_i - H = \sum_iP_i\dot Q_i - H' + \sum_i\frac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_1}{\partial Q_i}\dot Q_i + \frac{\partial F_1}{\partial t}$$
+- Ici, il est suffisant de comparer les intégrandes de $\delta\int_1^2 Ldt=0$ menant à $L=L'+\frac{dF}{dt}$, soit après substitution de l'équation précédente
+$$\sum_ip_i\dot q_i - H = \sum_iP_i\dot Q_i - H' + \sum_i\frac{\partial F_1}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_1}{\partial Q_i}\dot Q_i + \frac{\partial F_1}{\partial t}$$.
 
-- En regroupant les termes en $\dot q_i$, $\dot Q_i$, et le reste (tous devant s'annuler puisque $q_i,Q_i,\dot q_i,\dot Q_i$ sont indépendants) :
-$$0 = \sum_i\left(p_i-\frac{\partial F_1}{\partial q_i}\right)\dot q_i - \sum_i\left(P_i+\frac{\partial F_1}{\partial Q_i}\right)\dot Q_i + \left(H'-H-\frac{\partial F_1}{\partial t}\right)$$
+- En regroupant les termes en $\dot q_i$, $\dot Q_i$, et le reste, pour correspondre aux var. indépendantes $q_i,Q_i$ choisies pour le générateur $F_1$, 
+$$0 = \sum_i\left(p_i-\frac{\partial F_1}{\partial q_i}\right)\dot q_i - \sum_i\left(P_i+\frac{\partial F_1}{\partial Q_i}\right)\dot Q_i + \left(H'-H-\frac{\partial F_1}{\partial t}\right)$$.
 
-- Chaque facteur devant ces variables indépendantes doit être identiquement nul :
-$$p_i = \frac{\partial}{\partial q_i}F_1(q_j,Q_j,t), \qquad P_i = -\frac{\partial}{\partial Q_i}F_1(q_j,Q_j,t), \qquad H' = H+\frac{\partial F_1}{\partial t}$$
+- Chaque coefficient devant ces variables indépendantes doit être identiquement nul, d'où
+\begin{align*}
+p_i &= \frac{\partial}{\partial q_i}F_1(q_j,Q_j,t)\\
+P_i &= -\frac{\partial}{\partial Q_i}F_1(q_j,Q_j,t)\\
+H' &= H+\frac{\partial F_1}{\partial t}
+\end{align*}
 
-- Ces transformations permettent d'écrire les $2n$ variables dépendantes ($p_i,P_i$) en fonction des $2n$ variables indépendantes ($q_i,Q_i$), puis, en inversant, sous la forme habituelle $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$, ce qui permet de calculer $H'(Q_i,P_i,t)$.
+- Ces équations de transformation permettent effectivement d'écrire les $2n$ variables dépendantes (ici $p_i,P_i$) en fonction des $2n$ variables indépendantes ($q_j,Q_,$). En inversant, sous la forme habituelle $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$, ceci permet de calculer $H'(Q_i,P_i,t)$.
 
-- **Test du caractère canonique :** en comparant les dérivées croisées $\partial^2F_1/\partial q_i\partial Q_j$, on montre que la condition $\partial p_i/\partial Q_j = -\partial P_j/\partial q_i$ équivaut exactement à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$.
+## Test du caractère canonique {.scrollable}
 
+En comparant les dérivées croisées obtenues des équation de cette TC, on constate que 
+
+\begin{align*}
+\frac{\partial p_i}{\partial Q_j}
+  &= \frac{\partial}{\partial Q_j}\left(\frac{\partial F_1}{\partial q_i}\right)
+   = \frac{\partial^2 F_1}{\partial q_i\,\partial Q_j},\\[0.8em]
+\frac{\partial P_j}{\partial q_i}
+  &= \frac{\partial}{\partial q_i}\left(-\frac{\partial F_1}{\partial Q_j}\right)
+   = -\frac{\partial^2 F_1}{\partial Q_j\,\partial q_i}
+\end{align*}
+
+ainsi donc, un test du caractère canonique de la transformation
+
+\begin{align*}
+p_i &= p_i(q_j,Q_j,t) &&:\quad n \text{ éqs.}\\
+P_i &= P_i(q_j,Q_j,t) &&:\quad n \text{ éqs.}
+\end{align*}
+
+est qu'elle doit satisfaire
+
+$$\frac{\partial p_i}{\partial Q_j} = -\frac{\partial P_j}{\partial q_i}$$
+
+ce qui équivaut à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$ comme il se doit.
+
+:::{.notes}
+En démontrer une au tableau
+:::
 
 ## Transformation canonique pour $F_2(q_i,P_i,t)$ {.scrollable}
 
-Ici, une intégration par parties devient nécessaire.
+Ici, une intégration par parties devient nécessaire pour ce générateur avec les variables $q_i,P_i$ indépendantes.
 
-- Les $Q_i$ ne sont pas indépendants — la comparaison directe des intégrandes ne suffit pas. On intègre par parties le terme $\sum_iP_i\dot Q_i$,
+- La dérivée totale par rapport au temps s'écrit ici
+$$\dfrac{dF_2}{dt}=\displaystyle\sum_i\dfrac{\partial F_2}{\partial q_i}\dot q_i + \sum_i\dfrac{\partial F_2}{\partial P_i}\dot P_i + \dfrac{\partial F_2}{\partial t}$$.
+
+- Comme les $Q_i$ ne sont plus indépendants, la comparaison directe des intégrandes ne suffit plus. Au complet nous avions
+$$\delta\int_1^2\left[\sum_i^n p_i\dot q_i - H\right]dt = \delta\int_1^2\Biggl[\sum_i^n P_i\dot Q_i - H'
+   + \sum_i^n \frac{\partial F_2}{\partial q_i}\,\dot q_i + \sum_i^n \frac{\partial F_2}{\partial P_i}\,\dot P_i
+   + \frac{\partial F_2}{\partial t}\Biggr]dt.$$
+
+- Le premier terme à droite $\sum_iP_i\dot Q_i$ s'intègre par parties ainsi
+:::{.fragment}
 $$\int_1^2\sum_iP_i\dot Q_i\,dt = \left[\sum_iP_iQ_i\right]_1^2 - \int_1^2\sum_i\dot P_iQ_i\,dt = -\int_1^2\sum_i\dot P_iQ_i\,dt$$
+:::
 
-le terme de bord s'annulant, car les points $P_1,P_2$ sont fixes (même condition qu'au Chapitre 2). En comparant maintenant les intégrandes :
+- Après substitution dans l'équation précédente, le terme de bord $\left[\sum_iP_iQ_i\right]_1^2$ s'annule, car les points $P_1,P_2$ sont toujours fixes comme au Chapitre 2. En comparant maintenant les intégrandes,
 $$\sum_ip_i\dot q_i-H = -\sum_i\dot P_iQ_i - H' + \sum_i\frac{\partial F_2}{\partial q_i}\dot q_i + \sum_i\frac{\partial F_2}{\partial P_i}\dot P_i + \frac{\partial F_2}{\partial t}$$
 
-En regroupant les termes en $\dot q_i$, $\dot P_i$, et le reste :
-$$p_i = \frac{\partial}{\partial q_i}F_2(q_j,P_j,t), \qquad Q_i = \frac{\partial}{\partial P_i}F_2(q_j,P_j,t), \qquad H' = H+\frac{\partial F_2}{\partial t}$$
+- En regroupant les termes en $\dot q_i$, $\dot P_i$, et le reste, pour correspondre aux var. indépendantes $q_i,P_i$ choisies pour le générateur $F_2$, 
+\begin{align*}
+0 ={}& \sum_i^n\left(-p_i+\frac{\partial F_2}{\partial q_i}\right)\dot q_i\\[0.6em]
+{}+{}& \sum_i^n\left(-Q_i+\frac{\partial F_2}{\partial P_i}\right)\dot P_i\\[0.6em]
+{}+{}& \left(H(q_i,p_i,t)-H'(Q_i,P_i,t)+\frac{\partial F_2}{\partial t}\right)
+\end{align*}
 
-Le test canonique correspondant est $\partial p_i/\partial P_j = \partial Q_j/\partial q_i$, comme précédemment.
+- L'annulation des coefficients mène alors à
+\begin{align*}
+p_i &= \frac{\partial}{\partial q_i}F_2(q_j,P_j,t),\\
+Q_i &= \frac{\partial}{\partial P_i}F_2(q_j,P_j,t),\\
+H' &= H+\frac{\partial F_2}{\partial t}
+\end{align*}
+
+## Test du caractère canonique {.scrollable}
+
+En comparant les dérivées croisées obtenues des équation de cette TC, on constate que 
+
+\begin{align*}
+\frac{\partial p_i}{\partial P_j}
+  &= \frac{\partial}{\partial P_j}\left(\frac{\partial F_2}{\partial q_i}\right)
+   = \frac{\partial^2 F_2}{\partial q_i\,\partial P_j},\\[0.8em]
+\frac{\partial Q_j}{\partial q_i}
+  &= \frac{\partial}{\partial q_i}\left(\frac{\partial F_2}{\partial P_j}\right)
+   = -\frac{\partial^2 F_2}{\partial q_i\,\partial P_j}
+\end{align*}
+
+ainsi donc, le test du caractère canonique de cette transformation est
+
+$$\frac{\partial p_i}{\partial P_j} = \frac{\partial Q_j}{\partial q_i}$$
+
+ce qui équivaut à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$ comme précédemment.
 
 ## Les quatre types de fonctions génératrices {.scrollable}
 
