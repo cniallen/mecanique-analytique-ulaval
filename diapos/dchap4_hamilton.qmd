@@ -1416,7 +1416,14 @@ $$\boxed{(q_i,p_i)\;\longmapsto\;\bigl(Q_i(q_j,p_j,t),\;P_i(q_j,p_j,t)\bigr)}$$
 :::
 :::
 
+Les nouvelles variables canoniques sont exprimées en fonction des anciennes.
+
 :::
+
+:::{.notes} mid fonctions génératrices
+À l'étape d'inversion, ceci est nécessaire pour que ce soit possible. $\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
+:::
+
 
 # 4.6.1 Fonctions génératrices
 
@@ -1585,7 +1592,7 @@ Les 4 versions $F_1,F_2,F_3,F_4$ ne génèrent pas des transformations différen
 Les fonctions génératrices sont reliées entre elles par des transformations de Legendre :
 $$F_1 = F_2 - \sum_iP_iQ_i = F_3+\sum_ip_iq_i = F_4+\sum_i(p_iq_i-P_iQ_i)$$
 
-:::{.note}
+:::{.notes}
 À voir si j'ajoute: Deux $F_1$ différentes génèrent en général des transformations différentes.
 :::
 
