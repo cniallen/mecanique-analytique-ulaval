@@ -1783,22 +1783,44 @@ que l'on savait déjà être le bon résultat (chapitre 2), mais obtenu ici syst
 
 ## Cas 1 — Une transformation canonique correcte {.scrollable}
 
-L'hamiltonien de l'oscillateur harmonique 1D : $H=\dfrac{p_x^2}{2m}+\dfrac{m\omega^2}{2}x^2$.
+Soit l'hamiltonien de l'oscillateur harmonique 1D :
 
-::: {.callout-tip title=""}
-Tentons $x=\dfrac{1}{\sqrt{m\omega}}q$, $p_x=\sqrt{m\omega}\,p$, soit $q=\sqrt{m\omega}x$, $p=p_x/\sqrt{m\omega}$.
+$$H=\dfrac{p_x^2}{2m}+\dfrac{m\omega^2}{2}x^2$$.
+
+::: {.callout-tip title="Hypothèse de transformation"}
+Tentons 
+$$x=\dfrac{1}{\sqrt{m\omega}}q, p_x=\sqrt{m\omega}\,p$$,
+
+soit en inversant
+
+$$q=\sqrt{m\omega}x, p=p_x/\sqrt{m\omega}$$.
 :::
 
-On vérifie $\{q,p\}=\sqrt{m\omega}\cdot\dfrac{1}{\sqrt{m\omega}}-0\cdot0=1$ : **transformation canonique confirmée**. Puisque $\partial F/\partial t=0$, $H'=H$ :
-$$H'(q,p) = \frac{\omega}{2}(p^2+q^2)$$
+On vérifie $\{q,p\}_{x,p_x}$
 
-La solution est directe : $\dot q=\partial H'/\partial p=\omega p$, $\dot p=-\partial H'/\partial q=-\omega q$ (190), donc $\ddot q=-\omega^2q$ (191), $q(t)=A\sin(\omega t+\delta)$, soit :
+$$\{q,p\}_{x,p_x}=\sqrt{m\omega}\cdot\dfrac{1}{\sqrt{m\omega}}-0\cdot0=1$$
+
+La transformation canonique est confirmée. Puisque $\partial F/\partial t=0$, donc $H'=H$,
+$$H'(q,p) = \frac{\omega}{2}(p^2+q^2)$$.
+
+La solution des trajectoires s'obtient directement des équations canoniques : 
+
+:::{.fragment}
+\begin{align*}
+\dot q &= \partial H'/\partial p=\omega p\\
+\dot p &= -\partial H'/\partial q=-\omega q
+\end{align*}
+:::
+
+donc $\ddot q=-\omega^2q$ et en intégrant $q(t)=A\sin(\omega t+\delta)$, _i.e_
 $$x(t) = \frac{1}{\sqrt{m\omega}}A\sin(\omega t+\delta)$$
 
 ## Cas 2 — Une transformation qui n'est PAS canonique {.smaller}
 
-::: {.callout-tip title=""}
-Essayons plutôt $q=\sqrt{m\omega^2/2}\,x$, $p=p_x/\sqrt{2m}$.
+::: {.callout-tip title="Hypothèse de transformation"}
+Essayons maintenant
+
+$$q=\sqrt{m\omega^2/2}\,x p=p_x/\sqrt{2m}$$.
 :::
 
 En substituant naïvement : $H'(q,p)=p^2+q^2$, qui donnerait $\ddot q=-4q$, soit $q(t)=A\sin(2t+\delta)$, soit une fréquence de 2, indépendante de $\omega$, ce qui est absurde physiquement !
@@ -1809,11 +1831,11 @@ En substituant naïvement : $H'(q,p)=p^2+q^2$, qui donnerait $\ddot q=-4q$, soit
 La transformation n'est pas canonique. Le calcul de $H'$ par simple substitution n'est valide **que** si $\{q,p\}=1$. C'est un piège classique, soit celui d'appliquer $H'=H(x(q),p_x(p))$ sans vérifier d'abord le caractère canonique de la transformation.
 :::
 
-## Cas 3 — Une transformation complexe canonique {.smaller}
+:::{.notes}
+Cas 3 — Une transformation complexe canonique {.smaller}
 
-::: {.callout-tip title=""}
+callout-tip title=""
 Reprenant $H'(q,p)=\frac{\omega}{2}(p^2+q^2)$ du Cas 1, appliquons $Q=\frac{1}{\sqrt2}(q+ip)$, $P=\frac{i}{\sqrt2}(q-ip)$.
-:::
 
 On vérifie $\{Q,P\}=\frac12+\frac12=1$ (205) — canonique, même si complexe ! Le nouvel hamiltonien : $H_1'(Q,P)=-i\omega QP$ (206). Les équations du mouvement : $\dot Q=-i\omega Q$, $\dot P=i\omega P$ (207), donc $Q(t)=ae^{-i\omega t}$, $P(t)=be^{i\omega t}$ (208).
 
@@ -1821,21 +1843,22 @@ On vérifie $\{Q,P\}=\frac12+\frac12=1$ (205) — canonique, même si complexe !
 $$q(t) = \sqrt2|a|\sin\left(\omega t-\Delta+\frac{\pi}{2}\right)$$
 
 une solution physique cohérente. Cette TC complexe, bien qu'étrange, trouve une application directe en **mécanique quantique** (opérateurs création/annihilation).
+:::
 
 # 4.6.4 Générateurs de transformations infinitésimales
 
-## Interprétation géométrique des crochets de Poisson
+:::{.notes}
+Interprétation géométrique des crochets de Poisson
 
 Le crochet $\{f,G\}$ peut être interprété géométriquement. Soit $f(q,p,t)$ une fonction quelconque sur l'espace des phases, et une transformation infinitésimale des coordonnées canoniques engendrée par une fonction génératrice $G$. Alors $G$ génère un changement infinitésimal $\delta f$ sur $f$ :
 $$\delta f = \epsilon\{f,G\}$$
 
 où $\epsilon$ est un paramètre infinitésimal. Ce que nous savions déjà via Lagrange (théorème de Noether, Chapitre 2) apparaît ici comme un **cas particulier** d'un ensemble bien plus vaste de transformations canoniques possibles.
 
-## L'hamiltonien génère les translations dans le temps {.smaller}
+L'hamiltonien génère les translations dans le temps {.smaller}
 
-::: {.callout-tip title="Exemple 4.18"}
+callout-tip title="Exemple 4.18"
 Quel est le générateur d'une translation dans le temps ? Puisque $dH/dt=0$ pour un système symétrique par translation temporelle, on identifie $G=H$.
-:::
 
 En appliquant $\delta f=\epsilon\{f,G\}$ aux $p_i,q_i$ eux-mêmes, et en utilisant les équations canoniques :
 $$\delta p_i = \epsilon\{p_i,H\}=-\epsilon\frac{\partial H}{\partial q_i}=\epsilon\dot p_i, \qquad \delta q_i = \epsilon\{q_i,H\}=\epsilon\frac{\partial H}{\partial p_i}=\epsilon\dot q_i \tag{218}$$
@@ -1844,18 +1867,16 @@ Cette relation permet d'identifier $\epsilon=dt$ : $dp_i=dt\{p_i,H\}=dt\,\dot p_
 
 **Conclusion :** l'hamiltonien $H$ d'un système est bien le **générateur $G=H$** d'une translation infinitésimale dans le temps, faisant passer le système de $t$ à $t+dt$. Le mouvement entre 2 instants $t_1,t_2$ peut donc être décrit comme une succession de transformations canoniques infinitésimales dont le générateur est $H$.
 
-## Le moment conjugué génère les translations spatiales {.smaller}
+Le moment conjugué génère les translations spatiales
 
-::: {.callout-tip title="Exemple 4.19"}
+callout-tip title="Exemple 4.19
 Si $q_k$ est cyclique, $p_k$ est une constante du mouvement. Quel est le générateur de la translation associée ?
-:::
 
 Posons $G=p_k$. Puisque $dp_k/dt=0=\{H,p_k\}+\partial p_k/\partial t$, on a $\{H,p_k\}=0$ et $\delta p_k=0$. On calcule :
 $$\delta p_i = -\epsilon\frac{\partial G}{\partial q_i}=-\epsilon\frac{\partial p_k}{\partial q_i}=0, \qquad \delta q_i = \epsilon\frac{\partial G}{\partial p_i}=\epsilon\frac{\partial p_k}{\partial p_i}=\epsilon\,\delta_{ik} \tag{219}$$
 
 **Le générateur d'une translation selon $q_k$ d'une quantité $\epsilon$ est simplement l'impulsion $G=p_k$.** De la même façon, on peut démontrer que le générateur d'une rotation est le moment cinétique.
 
-:::{.notes}
 Méthode générale — Mécanique hamiltonienne
 
 1. Trouver les contraintes sur la dynamique du système.
@@ -1866,6 +1887,7 @@ Méthode générale — Mécanique hamiltonienne
 6. Écrire le reste des équations du mouvement à partir des équations canoniques.
 7. Trouver la trajectoire en résolvant les équations du mouvement, si possible.
 :::
+
 
 # 4.7 La méthode de Hamilton-Jacobi
 
