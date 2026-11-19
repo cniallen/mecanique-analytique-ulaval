@@ -1400,7 +1400,7 @@ $\Downarrow$
 
 ::: {.tc-step .fragment data-fragment-index="4"}
 ::: {.tc-label}
-4. Substituer $P_j$ dans $Q_i$
+4. Substituer $P_j$ dans $Q_i$ 
 :::
 ::: {.tc-math}
 $$Q_i(q_j,P_j,t)\;\Longrightarrow\;Q_i(q_j,p_j,t)$$
@@ -1420,7 +1420,8 @@ Les nouvelles variables canoniques sont exprimées en fonction des anciennes.
 
 :::
 
-:::{.notes} mid fonctions génératrices
+:::{.notes} 
+mid fonctions génératrices
 À l'étape d'inversion, ceci est nécessaire pour que ce soit possible. $\text{si } \det\!\left(\dfrac{\partial p_i}{\partial P_j}\right)\neq 0$
 :::
 
@@ -1585,6 +1586,7 @@ ce qui équivaut à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$ comme
 | $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
 | $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$ | $P_i=-\dfrac{\partial F_3}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
 | $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$ | $Q_i=\dfrac{\partial F_4}{\partial P_i}$ | $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
+| | | | | |
 
 :::
 
@@ -1598,6 +1600,10 @@ $$F_1 = F_2 - \sum_iP_iQ_i = F_3+\sum_ip_iq_i = F_4+\sum_i(p_iq_i-P_iQ_i)$$
 :::
 
 # 4.6.2 Cas typiques de transformations canoniques
+
+:::{.notes}
+Faire au tableau
+:::
 
 ## {.center}
 
@@ -1623,23 +1629,87 @@ On calcule $p_k=\partial F_1/\partial q_k=Q_k$, $P_k=-\partial F_1/\partial Q_k=
 
 La notion de coordonnée spatiale et de quantité de mouvement se confondent en mécanique hamiltonienne, puisqu'elles peuvent être assignées aussi bien à la coordonnée qu'au moment généralisé, un exemple frappant de la symétrie symplectique.
 
-## {.smaller}
+## {.scrollable}
 
 ::: {.callout-tip title="TC de changement de coordonnées général"}
-Fréquemment, une transformation de coordonnées $Q_i=Q_i(q_j,t)$, inversible en $q_i=q_i(Q_j,t)$, est connue, mais sans savoir _a priori_ comment transformer les moments pour rester canonique.
+Fréquemment, une transformation des coordonnées d'une trajectoire $Q_i=Q_i(q_j,t)$, toujours inversible en $q_i=q_i(Q_j,t)$, est connue. Cependant, on ignore _a priori_ souvent comment transformer les moments: **il faut s’assurer que ces derniers seront des moments canoniques généralisés.** Le générateur de cette TC typique est défini par
+$$F_2(q_i,P_i,t)=\sum_i^n Q_i(q_j,t)P_i$$
+
 :::
 
-**Procédure** 
+|:---:|:---:|:---:|:---:|:---:|
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| | | | | |
 
-- Construire $F_2(q_i,P_i,t)=\sum_iQ_i(q_j,t)P_i$. 
-- Les équations de TC donnent
-$$Q_k = \frac{\partial F_2}{\partial P_k} = Q_k(q_j,t) \quad\text{(tel que désiré)}, \qquad p_k = \frac{\partial F_2}{\partial q_k} = \sum_i\frac{\partial Q_i}{\partial q_k}P_i$$ .
-- Cette dernière équation s'inverse en $P_i=P_i(q_j,p_j,t)$. 
+Les équations de cette transformation canonique sont:
+
+:::{.fragment}
+$$p_k = \frac{\partial F_2}{\partial q_k} = \sum_i\frac{\partial Q_i(q_j,t)}{\partial q_k}P_i$$
+
+Avec les variables indépendantes pour la TC pour $F_2$, $p_k$ s'écrit alors comme les $n$ fonctions $p_k(q_k, P_i, t)$ qui s'inverseront pour isoler $P_i=P_i(q_k, p_k, t)$.
+:::
+
+:::{.fragment}
+$$Q_k = \frac{\partial}{\partial P_k} \sum_i^n Q_i(q_j,t)P_i = Q_k(q_j,t)$$
+
+tel que désiré pour ces coordonnées post-TC déjà connues.
+:::
+
+:::{.fragment}
+$$H'=H+\dfrac{\partial F_2}{\partial t}=H+\sum_i \dfrac{\partial}{\partial t} Q_iP_i$$
+
+L'évaluation de cet hamiltonien post-TC se continue après l'inversion permettant de substituer $P_i(q_k, p_k, t)$. 
+:::
+
+Ceci complète la TC qui garantit que les $P_i$ obtenus sont des moments généralisés canoniques. 
+
+### Procédure adaptée pour cette TC
+
+1. Identifier les coordonnées pré- et post-transformation: $q_i, Q_i$,
+2. inverser au besoin pour obtenir $Q_i(q_j,t)$,
+3. construire la fonction génératrice $F_2(q_i,P_i,t)=\sum_iQ_i(q_j,t)P_i$,
+4. évaluer Les équations de TC,
+5. inverser cette dernière équation pour obtenir $P_i=P_i(q_j,p_j,t)$. 
 
 Ceci garantit que les $P_i$ ainsi définis sont canoniques.
 
 
 # 4.6.3 Quelques exemples de transformations canoniques
+
+##
+
+## {.scrollable}
+
+::::{.callout-caution title="Exemple - Changement de coordonnées cartésiennes à polaire"}
+
+#### Énoncé
+
+Pour une transformation de coordonnées cartésiennes à polaires donnée : $(x,y) \to (r,\theta)$
+
+:::{.notes}
+
+:::
+
+#### Analyse du problème 
+
+- **Contraintes :** Aucune.
+- **Degré de liberté :** 1 particule dans l'espace 3D $\implies 1$ ddl.
+- **Coordonnée généralisée :** $q_1=x, q_2=y, q_3=z$ tel qu'indiqué dans l'énoncé du problème.
+
+
+#### Conclusion
+
+
+::::
+
+::: {.tc-table}
+
+|:---:|:---:|:---:|:---:|:---:|
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| | | | | |
+
+:::
+
 
 ## Exemple : cartésiennes vers polaires {.smaller}
 
