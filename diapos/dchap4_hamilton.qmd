@@ -1210,7 +1210,7 @@ En raison de cette symétrie symplectique entre $q_i$ et $p_i$, on parle parfois
 ## Est-ce que les moments conjugués généralisés s'écrivent toujours comme un produit de masse et vitesse $\mathbf{p} = m\mathbf{v}$ ? {.quiz-question}
 
 - "1)" Oui
-- "2)" Non
+- "2)" [Non]{.correct}
 
 ## Moments généralisés
 
@@ -1521,7 +1521,7 @@ ce qui équivaut à $\{Q_i,Q_j\}=0=\{P_i,P_j\}$, $\{Q_i,P_j\}=\delta_{ij}$ comme
 En démontrer une au tableau
 :::
 
-## Transformation canonique pour $F_2(q_i,P_i,t)$ {.scrollable}
+## Transformation canonique pour $F_2(q_i,P_i,t)$ {.smaller .scrollable}
 
 Ici, une intégration par parties devient nécessaire pour ce générateur avec les variables $q_i,P_i$ indépendantes.
 
@@ -1534,6 +1534,7 @@ $$\delta\int_1^2\left[\sum_i^n p_i\dot q_i - H\right]dt = \delta\int_1^2\Biggl[\
    + \frac{\partial F_2}{\partial t}\Biggr]dt.$$
 
 - Le premier terme à droite $\sum_iP_i\dot Q_i$ s'intègre par parties ainsi
+
 :::{.fragment}
 $$\int_1^2\sum_iP_i\dot Q_i\,dt = \left[\sum_iP_iQ_i\right]_1^2 - \int_1^2\sum_i\dot P_iQ_i\,dt = -\int_1^2\sum_i\dot P_iQ_i\,dt$$
 :::
