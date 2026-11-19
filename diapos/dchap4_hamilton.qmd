@@ -1614,7 +1614,8 @@ On calcule $p_k=\partial F_2/\partial q_k=P_k$, $Q_k=\partial F_2/\partial P_k=q
 :::
  
 ::: {.callout-tip title="Transformation ponctuelle"}
-$\displaystyle F_2(q,P)=\sum_if_i(q,t)P_i$, où $f_i$ est une fonction arbitraire des positions seulement. 
+$$\displaystyle F_2(q,P)=\sum_if_i(q,t)P_i$$ 
+où $f_i$ est une fonction arbitraire des positions seulement. 
 
 On trouve $Q_k=f_k(q,t)$, _i.e._ les nouvelles coordonnées ne dépendent pas des moments. Puisque $f_i$ est arbitraire, toute transformation ponctuelle est canonique.
 :::
@@ -1634,12 +1635,16 @@ La notion de coordonnée spatiale et de quantité de mouvement se confondent en 
 ::: {.callout-tip title="TC de changement de coordonnées général"}
 Fréquemment, une transformation des coordonnées d'une trajectoire $Q_i=Q_i(q_j,t)$, toujours inversible en $q_i=q_i(Q_j,t)$, est connue. Cependant, on ignore _a priori_ souvent comment transformer les moments: **il faut s’assurer que ces derniers seront des moments canoniques généralisés.** Le générateur de cette TC typique est défini par
 $$F_2(q_i,P_i,t)=\sum_i^n Q_i(q_j,t)P_i$$
-
 :::
 
+::: {.tc-table}
+
+| Générateur | | Transformation | | Test de TC |
 |:---:|:---:|:---:|:---:|:---:|
 | $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
 | | | | | |
+
+:::
 
 Les équations de cette transformation canonique sont:
 
@@ -1650,7 +1655,7 @@ Avec les variables indépendantes pour la TC pour $F_2$, $p_k$ s'écrit alors co
 :::
 
 :::{.fragment}
-$$Q_k = \frac{\partial}{\partial P_k} \sum_i^n Q_i(q_j,t)P_i = Q_k(q_j,t)$$
+$$Q_k = \frac{\partial}{\partial P_k} \sum_i Q_i(q_j,t)P_i = Q_k(q_j,t)$$
 
 tel que désiré pour ces coordonnées post-TC déjà connues.
 :::
@@ -1661,61 +1666,97 @@ $$H'=H+\dfrac{\partial F_2}{\partial t}=H+\sum_i \dfrac{\partial}{\partial t} Q_
 L'évaluation de cet hamiltonien post-TC se continue après l'inversion permettant de substituer $P_i(q_k, p_k, t)$. 
 :::
 
-Ceci complète la TC qui garantit que les $P_i$ obtenus sont des moments généralisés canoniques. 
+**Ceci complète la TC qui garantit que les $P_i(q_j, p_j, t)$ obtenus sont des moments généralisés canoniques.**
+
 
 ### Procédure adaptée pour cette TC
 
-1. Identifier les coordonnées pré- et post-transformation: $q_i, Q_i$,
-2. inverser au besoin pour obtenir $Q_i(q_j,t)$,
-3. construire la fonction génératrice $F_2(q_i,P_i,t)=\sum_iQ_i(q_j,t)P_i$,
-4. évaluer Les équations de TC,
-5. inverser cette dernière équation pour obtenir $P_i=P_i(q_j,p_j,t)$. 
-
-Ceci garantit que les $P_i$ ainsi définis sont canoniques.
+- Identifier les coordonnées pré- et post-transformation: $q_i, Q_i$, ainsi que les notations pour les inconnues $p_i,P_i$,
+- inverser au besoin pour obtenir $Q_i(q_j,t)$,
+- construire la fonction génératrice $F_2(q_i,P_i,t)=\sum_iQ_i(q_j,t)P_i$,
+- évaluer Les équations de TC,
+- inverser ces équations pour obtenir $P_i=P_i(q_j,p_j,t)$. 
 
 
 # 4.6.3 Quelques exemples de transformations canoniques
 
-##
-
 ## {.scrollable}
-
-::::{.callout-caution title="Exemple - Changement de coordonnées cartésiennes à polaire"}
-
-#### Énoncé
-
-Pour une transformation de coordonnées cartésiennes à polaires donnée : $(x,y) \to (r,\theta)$
-
-:::{.notes}
-
-:::
-
-#### Analyse du problème 
-
-- **Contraintes :** Aucune.
-- **Degré de liberté :** 1 particule dans l'espace 3D $\implies 1$ ddl.
-- **Coordonnée généralisée :** $q_1=x, q_2=y, q_3=z$ tel qu'indiqué dans l'énoncé du problème.
-
-
-#### Conclusion
-
-
-::::
 
 ::: {.tc-table}
 
+| Générateur | | Transformation | | Test de TC |
 |:---:|:---:|:---:|:---:|:---:|
 | $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
 | | | | | |
 
 :::
 
+::::{.callout-caution title="Exemple - Changement de coordonnées cartésiennes à polaire"}
 
-## Exemple : cartésiennes vers polaires {.smaller}
+#### Énoncé
 
-::: {.callout-tip title=""}
-Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$.
+Pour une transformation de coordonnées cartésiennes à polaires donnée : $(x,y) \to (r,\theta)$, quels sont les moments canoniques correspondants?
+
+:::{.notes}
+Faire bonne partie au tableau en dessinant le plan de coordonnées
 :::
+
+#### Identification 
+
+Pour ces 2 ddl avec les $i=1,2$ coordonnées avant et après TC, identifions $q_i=(x,y)$, $Q_i=(r,\theta)$ avec les équations de transformation
+
+:::{.fragment}
+\begin{align*}
+q_1 &= x=r\cos\theta\\
+q_2 &= y=r\sin\theta\\
+\end{align*}
+:::
+
+et la notation des variables de moments inconnus $p_i=(p_x,p_y)$, $P_i=(P_r,P_{\theta})$.
+
+#### Inversion de $q_j=q_j(Q_i)$
+
+En isolant $Q_1=r$ et $Q_2=\theta$,
+
+:::{.fragment}
+$$
+\begin{aligned}
+r &= \left(x^2 + y^2\right)^{\frac{1}{2}} \\
+\theta &= \tan^{-1}\left(\frac{y}{x}\right)
+\end{aligned}
+$$
+:::
+
+#### Construction du générateur $F_2$
+
+:::{.fragment}
+
+:::
+
+#### Conclusion
+
+
+::::
+
+
+$$F_2(x,y,P_r,P_\theta) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\theta$$
+
+Les lois canoniques donnent, après calcul des dérivées partielles :
+$$p_x = \frac{\partial F_2}{\partial x} = \cos\theta\,P_r - \frac{\sin\theta}{r}P_\theta, \qquad p_y = \frac{\partial F_2}{\partial y} = \sin\theta\,P_r+\frac{\cos\theta}{r}P_\theta$$
+
+d'où on isole facilement :
+$$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}, \qquad P_\theta = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z$$
+
+## Vérification physique du résultat
+
+En substituant les nouvelles variables canoniques dans $T=\dfrac{1}{2m}(p_x^2+p_y^2)$ et $V(x,y)$, on retrouve exactement :
+$$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\theta^2}{2mr^2}}_{T_\text{rotation}}, \qquad\text{et}\qquad V(r,\theta)$$
+
+que l'on savait déjà être le bon résultat (chapitre 2), mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en coordonnées polaires.
+
+
+
+Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$.
 
 $$F_2(x,y,P_r,P_\varphi) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\varphi$$
 
@@ -1728,14 +1769,16 @@ $$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\m
 ## Vérification physique du résultat
 
 En substituant $T=\dfrac{1}{2m}(p_x^2+p_y^2)$ et $V(x,y)$ dans les nouvelles variables, on retrouve exactement :
-$$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\varphi^2}{2mr^2}}_{T_\text{rotation}}, \qquad V(r,\varphi) \tag{182}$$
+$$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\varphi^2}{2mr^2}}_{T_\text{rotation}}, \qquad V(r,\varphi)$$
 
 que l'on savait déjà être le bon résultat (Chapitre 3) — mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en coordonnées polaires.
 
 
 ## L'oscillateur harmonique {.center}
 
-### exemple et contre-exemple 
+### Vérification des conditions canoniques
+
+#### Exemple et contre-exemple 
 
 
 ## Cas 1 — Une transformation canonique correcte {.scrollable}
