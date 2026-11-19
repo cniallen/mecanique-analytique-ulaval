@@ -1706,7 +1706,7 @@ Faire bonne partie au tableau en dessinant le plan de coordonnées
 
 Pour ces 2 ddl avec les $i=1,2$ coordonnées avant et après TC, identifions 
 
-$$q_i=(x,y)$, $Q_i=(r,\theta)$$
+$$q_i=(x,y), Q_i=(r,\theta)$$
 
 avec les équations de transformation
 
@@ -1750,7 +1750,7 @@ Les moments $p_i$ sont
 \begin{align*}
 p_x &= \frac{\partial F_2}{\partial x} = \cos\theta\,P_r - \frac{\sin\theta}{r}P_\theta\\
 p_y &= \frac{\partial F_2}{\partial y} = \sin\theta\,P_r+\frac{\cos\theta}{r}P_\theta
-\begin{align*}
+\end{align*}
 :::
 
 #### Inversion
