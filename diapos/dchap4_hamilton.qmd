@@ -1699,11 +1699,16 @@ Pour une transformation de coordonnées cartésiennes à polaires donnée : $(x,
 
 :::{.notes}
 Faire bonne partie au tableau en dessinant le plan de coordonnées
+&= \left(q_1^2 + q_2^2\right)^{\frac{1}{2}} P_r + \tan^{-1}\left(\frac{q_2}{q_1}\right) P_\varphi
 :::
 
 #### Identification 
 
-Pour ces 2 ddl avec les $i=1,2$ coordonnées avant et après TC, identifions $q_i=(x,y)$, $Q_i=(r,\theta)$ avec les équations de transformation
+Pour ces 2 ddl avec les $i=1,2$ coordonnées avant et après TC, identifions 
+
+$$q_i=(x,y)$, $Q_i=(r,\theta)$$
+
+avec les équations de transformation
 
 :::{.fragment}
 \begin{align*}
@@ -1729,23 +1734,37 @@ $$
 
 #### Construction du générateur $F_2$
 
-:::{.fragment}
+La sommation à 2 termes se développe
 
+$$ F_2(q_i, P_i) = Q_1(q_j, t)P_1 + Q_2(q_j, t)P_2$$ 
+
+:::{.fragment}
+$$F_2(x,y,P_r,P_\theta) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\theta$$
 :::
 
-#### Conclusion
+#### Évaluation des lois de TC
 
+Les moments $p_i$ sont
+
+:::{.fragment}
+\begin{align*}
+p_x &= \frac{\partial F_2}{\partial x} = \cos\theta\,P_r - \frac{\sin\theta}{r}P_\theta\\
+p_y &= \frac{\partial F_2}{\partial y} = \sin\theta\,P_r+\frac{\cos\theta}{r}P_\theta
+\begin{align*}
+:::
+
+#### Inversion
+
+Les moments $P_i$ sont
+
+:::{.fragment}
+\begin{align*}
+P_r &= \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}\\
+P_\theta = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z
+\begin{align*}
+:::
 
 ::::
-
-
-$$F_2(x,y,P_r,P_\theta) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\theta$$
-
-Les lois canoniques donnent, après calcul des dérivées partielles :
-$$p_x = \frac{\partial F_2}{\partial x} = \cos\theta\,P_r - \frac{\sin\theta}{r}P_\theta, \qquad p_y = \frac{\partial F_2}{\partial y} = \sin\theta\,P_r+\frac{\cos\theta}{r}P_\theta$$
-
-d'où on isole facilement :
-$$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}, \qquad P_\theta = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z$$
 
 ## Vérification physique du résultat
 
@@ -1753,25 +1772,6 @@ En substituant les nouvelles variables canoniques dans $T=\dfrac{1}{2m}(p_x^2+p_
 $$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\theta^2}{2mr^2}}_{T_\text{rotation}}, \qquad\text{et}\qquad V(r,\theta)$$
 
 que l'on savait déjà être le bon résultat (chapitre 2), mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en coordonnées polaires.
-
-
-
-Passage de $(x,y)$ à $(r,\varphi)$. On identifie $q_i=(x,y)$, $Q_i=(r,\varphi)$ avec $x=r\cos\varphi$, $y=r\sin\varphi$.
-
-$$F_2(x,y,P_r,P_\varphi) = (x^2+y^2)^{1/2}P_r + \tan^{-1}\left(\frac{y}{x}\right)P_\varphi$$
-
-Les lois canoniques donnent, après calcul des dérivées partielles :
-$$p_x = \frac{\partial F_2}{\partial x} = \cos\varphi\,P_r - \frac{\sin\varphi}{r}P_\varphi, \qquad p_y = \frac{\partial F_2}{\partial y} = \sin\varphi\,P_r+\frac{\cos\varphi}{r}P_\varphi$$
-
-d'où on isole facilement :
-$$P_r = \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}, \qquad P_\varphi = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z$$
-
-## Vérification physique du résultat
-
-En substituant $T=\dfrac{1}{2m}(p_x^2+p_y^2)$ et $V(x,y)$ dans les nouvelles variables, on retrouve exactement :
-$$T = \underbrace{\frac{P_r^2}{2m}}_{T_\text{radiale}} + \underbrace{\frac{P_\varphi^2}{2mr^2}}_{T_\text{rotation}}, \qquad V(r,\varphi)$$
-
-que l'on savait déjà être le bon résultat (Chapitre 3) — mais obtenu ici systématiquement via une transformation canonique, plutôt que par calcul direct de l'énergie cinétique en coordonnées polaires.
 
 
 ## L'oscillateur harmonique {.center}
