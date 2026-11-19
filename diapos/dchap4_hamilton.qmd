@@ -1761,7 +1761,7 @@ Les moments $P_i$ sont
 \begin{align*}
 P_r &= \frac{xp_x+yp_y}{(x^2+y^2)^{1/2}} = \frac{\mathbf{r}\cdot\mathbf{p}}{|\mathbf{r}|}\\
 P_\theta = xp_y-yp_x = (\mathbf{r}\times\mathbf{p})_z = l_z
-\begin{align*}
+\end{align*}
 :::
 
 ::::
