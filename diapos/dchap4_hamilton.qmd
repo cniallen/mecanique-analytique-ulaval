@@ -1948,17 +1948,41 @@ $$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj}$$
 $$L=L'+\frac{dF}{dt} \qquad\qquad H'=H+\frac{\partial F}{\partial t}$$
 :::
 
+## {.center}
+
+::: {.tc-table}
+
+| Générateurs | | Transformation | | Éqs. de la TC |
+|:---:|:---:|:---:|:---:|:---:|
+| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$ | $P_i=-\dfrac{\partial F_1}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_1}{\partial t}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$ | $P_i=-\dfrac{\partial F_3}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
+| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$ | $Q_i=\dfrac{\partial F_4}{\partial P_i}$ | $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
+| | | | | |
+
+:::
 
 # 4.7 La méthode de Hamilton-Jacobi
 
 ## Objectif de la méthode
 
-Utiliser les transformations canoniques (un cas particulier) pour **simplifier** les problèmes et obtenir trivialement la solution.
+Utiliser une transformations canonique pour simplifier les problèmes de dynamique ardus afin d'obtenir trivialement la solution.
+
+## Contexte historique
+::: {layout-ncol=2 style="font-size: 0.9em;"}
+
+### Charles Gustave Jacob Jacobi
+![](./assets/Charles Gustave Jacob Jacobi.png){width="25%" fig-align="left"}
+
+### Contributions
+
+- intégrales elliptiques, 
+- les équations aux dérivées partielles, et
+- leur application à la mécanique analytique
+::: 
 
 ::: {.notes}
-Charles Gustave Jacob Jacobi (1804-1851), mathématicien allemand connu pour ses
-travaux sur les intégrales elliptiques, les équations aux dérivées partielles et
-leur application à la mécanique analytique.
+mathématicien allemand (10 décembre 1804 à Potsdam - 18 février 1851 à Berlin)
 :::
 
 **L'approche** : soit un hamiltonien $H(q_i,p_i)$ dépendant de $2n$ variables canoniques $\Rightarrow$ le système compte $2n$ constantes du mouvement. On introduit un nouvel hamiltonien $H'(Q_i,P_i)$ via une TC particulière à déterminer, avec toujours $2n$ constantes du mouvement.
@@ -1968,13 +1992,13 @@ leur application à la mécanique analytique.
 ## Après la bonne transformation : trivialité {.smaller}
 
 Si $(Q_i,P_i)$ sont les constantes du mouvement, alors $H'(Q_i,P_i)$ doit être tel que :
-$$\dot Q_i = \frac{\partial H'}{\partial P_i}=0 \iff Q_i=\beta_i, \qquad \dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i \tag{220,221}$$
+$$\dot Q_i = \frac{\partial H'}{\partial P_i}=0 \iff Q_i=\beta_i, \qquad \dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i$$
 
 où $\alpha_i,\beta_i=$ cte. La solution est alors donnée directement par les équations de transformation inverses $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$ (222,223), évaluées en $Q_j=\beta_j$, $P_j=\alpha_j$ :
-$$q_i = q_i(\beta_j,\alpha_j,t), \qquad p_i = p_i(\beta_j,\alpha_j,t) \tag{224,225}$$
+$$q_i = q_i(\beta_j,\alpha_j,t), \qquad p_i = p_i(\beta_j,\alpha_j,t)$$
 
 **Comment choisir la bonne TC ?** On cherche une fonction génératrice de type $F_2(q_i,P_i,t)$ avec $P_i=\alpha_i=$ cte. On note $S(q_i,\alpha_i,t) \equiv F_2(q_i,P_i,t)|_{P_i=\alpha_i}$, et on choisit $S$ tel que :
-$$H' = H + \frac{\partial S}{\partial t} \equiv 0 \tag{227}$$
+$$H' = H + \frac{\partial S}{\partial t} \equiv 0$$
 
 Ce choix garantit automatiquement que $\dot Q_i=0$ et $\dot P_i=0$ sont satisfaites.
 

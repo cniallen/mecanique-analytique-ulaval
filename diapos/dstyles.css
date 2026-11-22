@@ -68,5 +68,16 @@
 .reveal .tc-table thead th:nth-child(3) { border-left-color: #4682b4; border-right-color: #4682b4; }
 .reveal .tc-table thead th:nth-child(4) { border-left-color: #4682b4; }
 
+/* Pour le résumé hamiltonien */
+.carte {
+  background: rgba(23, 162, 184, 0.12);
+  padding: 0.4em 0.8em;
+  border-radius: 8px;
+  margin-bottom: 0.6em;
+}
+
+/* Formules en rouge comme dans tes diapos d'origine (optionnel) */
+/* .reveal .katex { color: #c00000; } */
+
 
 
