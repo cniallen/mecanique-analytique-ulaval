@@ -1888,6 +1888,66 @@ Méthode générale — Mécanique hamiltonienne
 7. Trouver la trajectoire en résolvant les équations du mouvement, si possible.
 :::
 
+## Résumé de mécanique hamiltonienne {.smaller}
+### et son formalisme canonique
+
+:::: {.columns}
+
+::: {.column width="48%" .carte}
+**Hamiltonien**
+
+$$H(q_i,p_i,t)=\sum_{i=1}^{n}\dot q_i\,p_i-L(q_i,\dot q_i,t)$$
+
+avec $p_i\equiv\dfrac{\partial L}{\partial\dot q_i}$
+
+et $T=\displaystyle\sum_{i,j}\dfrac{1}{2m}\,g_{ij}^{-1}p_ip_j$
+:::
+
+::: {.column width="48%" .carte}
+**Crochets de Poisson**
+
+$$\{A,B\}_{q,p}\equiv\sum_{i=1}^{n}\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i}-\frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right]$$
+:::
+
+::::
+
+## Dynamique hamiltonienne {.smaller}
+
+:::: {.columns}
+
+::: {.column width="48%" .carte}
+**Équations canoniques du mouvement**
+
+$$
+\begin{aligned}
+\dot q_i &= \frac{\partial H}{\partial p_i}=\{q_i,H\} \\[0.5em]
+\dot p_i &= -\frac{\partial H}{\partial q_i}=\{p_i,H\}
+\end{aligned}
+$$
+:::
+
+::: {.column width="48%" .carte}
+**Fonction quelconque $F$**
+
+$$\frac{dF}{dt}=\{F,H\}+\frac{\partial F}{\partial t}$$
+
+$=0$ pour $F=$ constante du mouvement
+:::
+
+::::
+
+::: {.carte}
+**Variables canoniques** $q_i, p_i$
+
+$$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj}$$
+:::
+
+## Transformations canoniques
+
+::: {.carte}
+$$L=L'+\frac{dF}{dt} \qquad\qquad H'=H+\frac{\partial F}{\partial t}$$
+:::
+
 
 # 4.7 La méthode de Hamilton-Jacobi
 
