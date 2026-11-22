@@ -1888,8 +1888,9 @@ Méthode générale — Mécanique hamiltonienne
 7. Trouver la trajectoire en résolvant les équations du mouvement, si possible.
 :::
 
-## Résumé de mécanique hamiltonienne {.smaller}
-### et son formalisme canonique
+# Résumé du formalisme canonique de Hamilton
+
+## Mécanique hamiltonienne {.smaller .scrollable}
 
 :::: {.columns}
 
@@ -1947,8 +1948,6 @@ $$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj}$$
 ::: {.carte}
 $$L=L'+\frac{dF}{dt} \qquad\qquad H'=H+\frac{\partial F}{\partial t}$$
 :::
-
-## {.center}
 
 ::: {.tc-table}
 
