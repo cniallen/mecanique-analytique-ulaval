@@ -1831,7 +1831,15 @@ En substituant naïvement : $H'(q,p)=p^2+q^2$, qui donnerait $\ddot q=-4q$, soit
 La transformation n'est pas canonique. Le calcul de $H'$ par simple substitution n'est valide **que** si $\{q,p\}=1$. C'est un piège classique, soit celui d'appliquer $H'=H(x(q),p_x(p))$ sans vérifier d'abord le caractère canonique de la transformation.
 :::
 
+
 :::{.notes}
+POUR VISUALISATION
+```{python}
+#| echo: false
+from phasespace_figs import show, action_angle
+show(action_angle)
+```
+
 POUR FRAGMENTS À FAIRE
 $Q=\ln q$, $P=qp$ est canonique, puisque $\{\ln q,\,qp\}=\frac1q\cdot q=1$. Mais $Q$ n'a plus de dimension physique évidente, et $P$ est un produit position × moment. À l'inverse, $Q=p$, $P=q$ n'est pas canonique ($\{Q,P\}=-1$) : il faut $P=-q$.
 
@@ -2137,39 +2145,39 @@ p_i &= p_i(q_i, \alpha_i, t) = p_i(q_j(\alpha_k, \beta_k, t), \alpha_i, t) \\
 - Nos solutions de variables canoniques $q_i,p_i$ s'expriment donc maintenant en fonction des constantes du mouvement $\alpha_j,\beta_j$.
 
 # 4.7.3 L'équation de Hamilton-Jacobi
-## Approche 1 - Système conservatif
+**Approche 1 - Système conservatif**
 
 ## Système conservatif : point de départ {.smaller}
 
-Équation de Hamilton-Jacobi :
+Soit l'équation de Hamilton-Jacobi
 
-$$\frac{\partial S}{\partial t} + H\!\left(q_i,\frac{\partial S}{\partial q_i},t\right)=0$$
+$$\frac{\partial S}{\partial t} + H\!\left(q_i,\frac{\partial S}{\partial q_i},t\right)=0.$$
 
-Lorsqu'un système est **conservatif**, l'hamiltonien est indépendant du temps :
+Lorsqu'un système est conservatif, l'hamiltonien est indépendant du temps, d'où
 
 $$\frac{\partial H}{\partial t}=0$$
 
-L'équation devient donc
+L'équation H.J. devient donc
 
 $$\frac{\partial S}{\partial t} + H\!\left(q_i,\frac{\partial S}{\partial q_i}\right)=0$$
 
 Le temps n'apparaît plus que dans le terme $\partial S/\partial t$.
 
-## Séparation de variables {.smaller}
+## Système conservatif : séparation de variables {.smaller}
 
-On cherche une solution **additive**, avec une partie temporelle et une partie spatiale :
+Cherchons une solution additive, avec une partie temporelle et une partie spatiale séparées :
 
 $$S(q_i,t) = T(t) + W(q_i)$$
 
-En substituant dans l'équation de Hamilton-Jacobi :
+En substituant dans l'équation de Hamilton-Jacobi,
 
-$$\underbrace{\frac{dT}{dt}}_{\text{dépend de } t \text{ seulement}} = -\underbrace{H\!\left(q_i,\frac{\partial W}{\partial q_i}\right)}_{\text{dépend des } q_i \text{ seulement}}$$
+$$\underbrace{\frac{dT}{dt}}_{\text{dépend de } t \text{ seulement}} = -\underbrace{H\!\left(q_i,\frac{\partial W}{\partial q_i}\right)}_{\text{dépend des } q_i \text{ seulement}}.$$
 
 ::: {.fragment}
 Les $q_i$ et $t$ varient indépendamment. Pour que l'égalité tienne toujours, les deux membres doivent être égaux à **une même constante**, notée $-\alpha_1$.
 :::
 
-## Résolution des deux équations {.smaller}
+## Système conservatif : résolution des deux équations {.smaller}
 
 **Partie temporelle :**
 
@@ -2180,7 +2188,7 @@ $$\frac{dT}{dt}=-\alpha_1 \quad\Longrightarrow\quad T(t)=-\alpha_1 t$$
 $$H\!\left(q_i,\frac{\partial W}{\partial q_i}\right)=\alpha_1$$
 
 ::: {.fragment}
-La constante de séparation $\alpha_1$ s'identifie donc à la valeur numérique de $H$, c'est-à-dire à l'**énergie** $E$ du système.
+La constante de séparation $\alpha_1$ s'identifie donc à la valeur numérique de $H$, c'est-à-dire à l'énergie $E$ du système puisqu'il est conservatif.
 :::
 
 ## Simplification pour un système conservatif {.smaller}
@@ -2197,16 +2205,7 @@ où
 Comme $\partial S/\partial q_i=\partial W/\partial q_i$, on est ramené à une équation sur $W$ seul, sans dépendance explicite en $t$.
 
 
-## Simplification pour un système conservatif {.smaller .scrollable}
-
-Lorsqu'un système est conservatif, l'hamiltonien est indépendant du temps, d'où
-$$\partial H/\partial t=0$$
-
-par séparation de variables, $\partial S/\partial t=$ cte $\implies S\propto t$. On écrit :
-$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i)$$
-
-où $\alpha_1=H(q_i,\partial S/\partial q_i)$ est identifiée à la valeur numérique de $H$, et $W(q_i,\alpha_i)$ est appelée **action réduite**. 
-
+## {.center}
 
 Puisque $p_i=\partial S/\partial q_i=\partial W/\partial q_i$, l'équation de H-J devient l'**équation caractéristique** :
 
@@ -2214,12 +2213,14 @@ Puisque $p_i=\partial S/\partial q_i=\partial W/\partial q_i$, l'équation de H-
 $$H\left(q_i,\frac{\partial W}{\partial q_i}\right)-\alpha_1=0$$
 :::
 
+## Système conservatif avec variables cycliques
 
-**Variables cycliques** : si $q_k$ est cyclique, $p_k$ est une constante identifiable à $\alpha_k$, et $\partial S/\partial q_k=\partial W/\partial q_k=\alpha_k$ (238), donc :
-$$W(q_i,\alpha_i) = \sum_{k=\text{var. cycl.}}\alpha_kq_k + W'(q_j,\alpha_j)_{j\neq k} \tag{240}$$
+Si la coordonnée dénéralisée $q_k$ est cyclique, $p_k$ est une constante identifiable à $\alpha_k$, et $\partial S/\partial q_k=\partial W/\partial q_k=\alpha_k$, donc :
+$$W(q_i,\alpha_i) = \sum_{k=\text{var. cycl.}}\alpha_kq_k + W'(q_j,\alpha_j)_{j\neq k}$$
+
 
 # 4.7.4 L'équation de Hamilton-Jacobi
-## Approche 2 - Système conservatif et périodique (optionnel)
+**Approche 2 - Système conservatif et périodique (optionnel)**
 
 Pour un mouvement périodique, il est plus approprié de cibler une fréquence constante plutôt que $Q_i=$ cte. On remplace $\dot Q_i=\partial H'/\partial P_i=0$ par $\dot Q_i=\omega_i$ (constant), donnant :
 $$Q_i(t) = \gamma_i(t) = \omega_it+\beta_i \quad\text{(dépendance linéaire)}, \qquad P_i=\alpha_i=\text{cte}$$
