@@ -1859,6 +1859,8 @@ une solution physique cohérente. Cette TC complexe, bien qu'étrange, trouve un
 - Tout système de coordonnées sur l'espace de phase décrit le mouvement. Ce qui est particulier aux coordonnées canoniques, c'est que les équations y gardent la forme de Hamilton, avec un nouvel hamiltonien $K(Q,P,t)$. Elles préservent la structure symplectique (crochets, aires de Liouville). 
 
 - Les quatre types sont quatre manières d'écrire une même transformation canonique, selon les variables prises comme indépendantes. Ce ne sont pas quatre transformations différentes. Une même TC peut donc avoir une représentation en $F_1$, en $F_2$, etc., et toutes mènent aux mêmes relations $Q_i(q,p,t)$ et $P_i(q,p,t)$, ainsi qu'au même $H'$ (la dérivée partielle en $t$ se conserve sous TLegendre, I think,to check). Mais une TC n'admet pas toujours les quatre types. Un type n'existe que si les variables qu'il suppose indépendantes le sont vraiment, c'est-à-dire si le déterminant correspondant est non nul. C'est pourquoi on a besoin des quatre types : chacun couvre des transformations que les autres ne peuvent pas décrire. Pour $n>1$, on peut même mélanger les types, avec certaines variables traitées en $F_1$ et d'autres en $F_2$. À l'inverse : une même $F$ donne-t-elle toujours la même TC ? Oui, une fois le type fixé. Seules les constantes ou les fonctions du temps seul ajoutées à $F$ ne changent rien aux relations $Q(q,p,t)$ et $P(q,p,t)$, et ne décalent $H'$ que d'une fonction du temps. Les quatre types de fonctions génératrices décrivent la même transformation canonique avec des variables indépendantes différentes. Le choix dépend de la transformation visée : certaines ne s'écrivent pas avec tous les types.
+
+- Faire un quiz pour mettre en évidence que les constantes du mvt ne sont pas ctes en position (to check also)
 FIN DE À METTRE À QQPART
 
 
@@ -1904,7 +1906,7 @@ Méthode générale — Mécanique hamiltonienne
 
 # Résumé du formalisme canonique de Hamilton
 
-## Mécanique hamiltonienne {.smaller .scrollable}
+## Mécanique hamiltonienne {.smaller}
 
 :::: {layout-ncol=2}
 
@@ -1915,20 +1917,21 @@ $$H(q_i,p_i,t)=\sum_{i=1}^{n}\dot q_i\,p_i-L(q_i,\dot q_i,t)$$
 
 avec $p_i\equiv\dfrac{\partial L}{\partial\dot q_i}$
 
-et $T=\displaystyle\sum_{i,j}\dfrac{1}{2m}\,g_{ij}^{-1}p_ip_j$
+et $T=\sum_{i,j}\dfrac{1}{2m}\,g_{ij}^{-1}p_ip_j$
 :::
 
 ::: {.carte}
 **Crochets de Poisson**
 
-$$\{A,B\}_{q,p}\equiv\sum_{i=1}^{n}\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i}-\frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right]$$
-:::
+\begin{align*}
+&\{A,B\}_{q,p}\equiv
+&\sum_{i=1}^{n}\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i}-\frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right]
+\end{align*}
 
-**Dérivée temporelle de fct $F(q_i,p_i,t)$**
+**Dérivée p/r au temps d'une fct**
 
+Pour $F(q_i,p_i,t)$,
 $$\frac{dF}{dt}=\{F,H\}+\frac{\partial F}{\partial t}$$
-
-Si $\dot F=0$, alors $F=$ est constante du mouvement.
 :::
 
 ::::
@@ -1937,7 +1940,7 @@ Si $\dot F=0$, alors $F=$ est constante du mouvement.
 
 :::: {.columns}
 
-::: {.column width="48%" .carte}
+::: {.column width="40%" .carte}
 **Équations canoniques du mouvement**
 
 $$
@@ -1948,12 +1951,25 @@ $$
 $$
 :::
 
+::: {.column width="40%" .carte}
+**Constantes du mouvement**
+
+Si $\frac{dF}{dt}=0$, alors la fonction $F$ devient une constante du mouvement.
+
+Lorsque $F(q_i,p_i)$ est indépendant du temps, il est nécessaire et suffisant que $\{F,H\}=0$.
+:::
 ::::
 
 ::: {.carte}
-**Variables canoniques** $q_i, p_i$
+**Variables canoniques de coordonnées $q_i$ et moments $p_i$ généralisés**
+
+Elles satisfont
 
 $$\{q_k,q_j\}=0, \qquad \{p_k,p_j\}=0, \qquad \{q_k,p_j\}=\delta_{kj}$$
+:::
+
+:::{.notes}
+Il y avait un machin dans les conditions canoniques qui semblait prendre les éq. canoniques itou...
 :::
 
 ## Transformations canoniques
@@ -1993,23 +2009,31 @@ $$L=L'+\frac{dF}{dt} \qquad\qquad H'=H+\frac{\partial F}{\partial t}$$
 mathématicien allemand (10 décembre 1804 à Potsdam - 18 février 1851 à Berlin)
 :::
 
-## Objectif de la méthode
+## Objectif de la méthode de Hamilton-Jacobi {.smaller}
 
 Utiliser une transformations canonique pour simplifier les problèmes de dynamique ardus afin d'obtenir trivialement la solution.
 
-- **L'approche** : Les équations canoniques de Hamilton pour $H(q_i,p_i,t)$ forment un système de $2n$ EDO du 1^er^ ordre $\Rightarrow$ il possède $2n$ constantes d'intégration. En introduisant un nouvel hamiltonien $H'(Q_i,P_i,t)$ trivial via une TC particulière à déterminer, on peut transformer ces constantes d'intégration en $2n$ constantes du mouvement.
+- **Approche** : Les équations canoniques de Hamilton pour $H(q_i,p_i,t)$ forment un système de $2n$ EDO du 1^er^ ordre 
+
+$\Rightarrow$ il possède $2n$ constantes d'intégration. 
+
+En introduisant un nouvel hamiltonien $H'(Q_i,P_i,t)$ trivial via une TC particulière à déterminer, on peut transformer ces constantes d'intégration en 
+
+$\rightarrow 2n$ constantes du mouvement.
 
 ## Après la bonne transformation : trivialité {.smaller}
 
-**But de la méthode :** Opérer une TC particulière telle que $(Q_i,P_i)$ soient elles-mêmes les $2n$ constantes du mouvement.
+:::{.callout-important title="But de la méthode"}
+Opérer une TC particulière telle que $(Q_i,P_i)$ soient elles-mêmes les $2n$ constantes du mouvement.
+:::
 
 Si $(Q_i,P_i)$ sont les constantes du mouvement notées $\alpha_i,\beta_i$, alors $H'(Q_i,P_i)$ doit être tel que les équations canoniques s'écrivent
 \begin{align*}
 \dot Q_i = \frac{\partial H'}{\partial P_i}=0 &\iff Q_i=\beta_i,\\
-\dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i
+\dot P_i = -\frac{\partial H'}{\partial Q_i}=0 &\iff P_i=\alpha_i
 \end{align*}
 
-Les solutions de coordonnées et moments généralisés sont alors données directement par les équations de transformation inverses $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$, évaluées en $Q_j=\beta_j$, $P_j=\alpha_j$, _i.e._
+Les solutions de coordonnées et moments généralisés sont alors données directement par les équations de transformation inverses $q_i=q_i(Q_j,P_j,t)$ et $p_i=p_i(Q_j,P_j,t)$, évaluées en $Q_j=\beta_j$, $P_j=\alpha_j$,  _i.e._
 $$q_i = q_i(\beta_j,\alpha_j,t)=q_i(t), \qquad p_i = p_i(\beta_j,\alpha_j,t)=p_i(t)$$
 
 ## Quelle est la bonne TC particulière ?
@@ -2025,17 +2049,17 @@ Comme Jacobi, cherchons une fonction génératrice de type $F_2(q_i,P_i,t)$ avec
 
 :::
 
-Pour mettre l'accent sur l'introduction de la constante, notons 
+Pour mettre l'accent sur l'introduction de la constante $\alpha_i$, notons 
 $$F_2(q_i,P_i,t)|_{P_i=\alpha_i} \equiv S(q_i,\alpha_i,t)$$
 
 qui reste une TC du 2^e^ type. 
 
-## La flexibilité du choix de $S$ permet $H'=0$
+## La flexibilité du choix de $S$ permet $H'=0$ {.smaller .scrollable}
 
 En posant $S$ tel que
 \begin{align*}
-H'(Q_i,P_i,t) &= H(q_i,p_i,t) + \frac{\partial F_2(q_i,P_i,t)}{\partial t}
-&= H(q_i,p_i,t) + \frac{\partial S(q_i,\alpha_i,t)}{\partial t} 
+H'(Q_i,P_i,t) &= H(q_i,p_i,t) + \frac{\partial F_2(q_i,P_i,t)}{\partial t}\\
+&= H(q_i,p_i,t) + \frac{\partial S(q_i,\alpha_i,t)}{\partial t}\\ 
 &= 0,
 \end{align*}
 
@@ -2043,25 +2067,67 @@ il est garantit que les équations canoniques triviales
 
 \begin{align*}
 \dot Q_i = \frac{\partial H'}{\partial P_i}=0 &\iff Q_i=\beta_i,\\
-\dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i
+\dot P_i = -\frac{\partial H'}{\partial Q_i}=0 &\iff P_i=\alpha_i
 \end{align*}
 
 sont satisfaites.
 
-## 4.7.2 — L'équation de Hamilton-Jacobi
-### Cas général "Approche 0"
+# 4.7.2 L'équation de Hamilton-Jacobi
 
-Avec $p_i=\partial S/\partial q_i$ (228, de la relation $F_2$), l'objectif $H'=H+\partial S/\partial t=0$ devient, après remplacement des $p_i$ dans $H$ :
+## Cas général "Approche 0"
 
-::: {.callout-note title="Définition 4.5 — Équation de Hamilton-Jacobi"}
-$$H\left(q_i,\frac{\partial S}{\partial q_i},t\right) + \frac{\partial S(q_i,\alpha_i,t)}{\partial t}=0 \tag{229}$$
+::: {.tc-table}
+
+| Générateur | | Transformation | | Test de TC |
+|:---:|:---:|:---:|:---:|:---:|
+| $S=F_2(q_i,P_i=\alpha_i,t)$ | $p_i=\dfrac{\partial S}{\partial q_i}$ | $Q_i=\dfrac{\partial S}{\partial \alpha_i}$ | $H'=H+\dfrac{\partial S}{\partial t}$ | $\dfrac{\partial p_i}{\partial \alpha_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| | | | | |
+
 :::
 
-Une fois cette équation résolue pour $S$, on obtient :
-$$p_i = \frac{\partial S(q_j,\alpha_j,t)}{\partial q_i} \equiv p_i(q_j,\alpha_j,t) \tag{230}$$
-$$Q_i=\beta_i = \frac{\partial S}{\partial P_i} = \frac{\partial S(q_j,\alpha_j,t)}{\partial\alpha_i} \equiv Q_i(q_j,\alpha_j,t)$$
+Avec $p_i=\partial S/\partial q_i$ de la TC ⬆️ et $P_i=\alpha_i$, l'objectif $H'=0$ s'écrit
 
-Ces $n$ équations s'inversent en $q_i\equiv q_i(\alpha_j,\beta_j,t)$ (232) — **la solution recherchée !** Puis $p_i=p_i(\alpha_l,\beta_l,t)$ (233) par substitution.
+\begin{align*}
+H\left(q_i,p_i,t\right) &+ \frac{\partial F_2(q_i,P_i,t)}{\partial t}=0\\
+&\downarrow\\
+H\left(q_i,\frac{\partial S}{\partial q_i},t\right) &+ \frac{\partial S(q_i,\alpha_i,t)}{\partial t}=0
+\end{align*}
+
+::: {.callout-note title="Définition — Équation de Hamilton-Jacobi"}
+Cette équation différentielle à résoudre pour $S$ s'écrit
+$$H\left(q_i,\frac{\partial S}{\partial q_i},t\right) + \frac{\partial S(q_i,\alpha_i,t)}{\partial t}=0$$
+:::
+
+## Cas général "Approche 0" - suite {.scrollable}
+
+::: {.tc-table}
+
+| Générateur | | Transformation | | Test de TC |
+|:---:|:---:|:---:|:---:|:---:|
+| $S=F_2(q_i,P_i=\alpha_i,t)$ | $p_i=\dfrac{\partial S}{\partial q_i}$ | $Q_i=\dfrac{\partial S}{\partial \alpha_i}$ | $H'=H+\dfrac{\partial S}{\partial t}$ | $\dfrac{\partial p_i}{\partial \alpha_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| | | | | |
+
+:::
+
+- APRÈS que cette équation de Hamilton-Jacobi (H.J.) soit résolue pour $S$, on obtient de la TC ⬆️
+\begin{align*}
+p_i &= \frac{\partial S(q_j,\alpha_j,t)}{\partial q_i} &\Rightarrow p_i(q_j,\alpha_j,t)\\
+Q_i=\beta_i &= \frac{\partial S(q_j,\alpha_j,t)}{\partial\alpha_i} &\Rightarrow Q_i(q_j,\alpha_j,t)
+\end{align*}
+
+- Ces $n$ dernières équations pour $\beta_i=Q_i(q_j,\alpha_j,t)$ s'inversent pour isoler les coordonnées de la trajectoire recherchée
+$$q_i\equiv q_i(\alpha_j,\beta_j,t)$$
+
+ce qui complète souvent la solution du problème.
+
+- Lorsque les moments généralisés, et les vitesses qui en découlent, sont aussi d'intérêt, il suffit de substituer les variables $q_i$ obtenues dans l'équation pour $p_i$. Ainsi
+
+\begin{aligned}
+p_i &= p_i(q_i, \alpha_i, t) = p_i(q_j(\alpha_k, \beta_k, t), \alpha_i, t) \\
+&= p_i(\alpha_l, \beta_l, t).
+\end{aligned}
+
+- Nos solutions de variables canoniques $q_i,p_i$ s'expriment donc maintenant en fonction des constantes du mouvement $\alpha_j,\beta_j$.
 
 ## 4.7.3 — Simplification pour un système conservatif {.smaller}
 
