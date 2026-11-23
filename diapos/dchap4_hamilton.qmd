@@ -1831,15 +1831,23 @@ En substituant naïvement : $H'(q,p)=p^2+q^2$, qui donnerait $\ddot q=-4q$, soit
 La transformation n'est pas canonique. Le calcul de $H'$ par simple substitution n'est valide **que** si $\{q,p\}=1$. C'est un piège classique, soit celui d'appliquer $H'=H(x(q),p_x(p))$ sans vérifier d'abord le caractère canonique de la transformation.
 :::
 
+## Testez les TC suivantes
+
+$Q=\ln q$, $P=qp$
+
+:::{.fragment}
+Canonique
+$\{\ln q,\,qp\}=\frac1q\cdot q=1$.
+:::
+
+$Q=p$, $P=q$
+
+:::{.fragment}
+N'est pas canonique
+$\{Q,P\}=-1$ : il faut $P=-q$
+:::
 
 :::{.notes}
-POUR VISUALISATION
-```{python}
-#| echo: false
-from phasespace_figs import show, action_angle
-show(action_angle)
-```
-
 POUR FRAGMENTS À FAIRE
 $Q=\ln q$, $P=qp$ est canonique, puisque $\{\ln q,\,qp\}=\frac1q\cdot q=1$. Mais $Q$ n'a plus de dimension physique évidente, et $P$ est un produit position × moment. À l'inverse, $Q=p$, $P=q$ n'est pas canonique ($\{Q,P\}=-1$) : il faut $P=-q$.
 
