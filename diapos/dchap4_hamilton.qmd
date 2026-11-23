@@ -1924,7 +1924,7 @@ et $T=\sum_{i,j}\dfrac{1}{2m}\,g_{ij}^{-1}p_ip_j$
 **Crochets de Poisson**
 
 \begin{align*}
-&\{A,B\}_{q,p}\equiv
+&\{A,B\}_{q,p}\equiv \\
 &\sum_{i=1}^{n}\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i}-\frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right]
 \end{align*}
 
@@ -1936,11 +1936,11 @@ $$\frac{dF}{dt}=\{F,H\}+\frac{\partial F}{\partial t}$$
 
 ::::
 
-## Dynamique hamiltonienne {.smaller .scrollable}
+## Dynamique hamiltonienne {.smaller}
 
-:::: {.columns}
+:::: {layout-ncol=2}
 
-::: {.column width="40%" .carte}
+::: {.carte}
 **Équations canoniques du mouvement**
 
 $$
@@ -1951,12 +1951,12 @@ $$
 $$
 :::
 
-::: {.column width="40%" .carte}
+::: {.carte}
 **Constantes du mouvement**
 
-Si $\frac{dF}{dt}=0$, alors la fonction $F$ devient une constante du mouvement.
+- Si $\frac{dF}{dt}=0$, alors la fonction $F$ devient une constante du mouvement.
 
-Lorsque $F(q_i,p_i)$ est indépendant du temps, il est nécessaire et suffisant que $\{F,H\}=0$.
+- Lorsque $F(q_i,p_i)$ est indépendant du temps, il est nécessaire et suffisant que $\{F,H\}=0$.
 :::
 ::::
 
@@ -2013,11 +2013,13 @@ mathématicien allemand (10 décembre 1804 à Potsdam - 18 février 1851 à Berl
 
 Utiliser une transformations canonique pour simplifier les problèmes de dynamique ardus afin d'obtenir trivialement la solution.
 
-- **Approche** : Les équations canoniques de Hamilton pour $H(q_i,p_i,t)$ forment un système de $2n$ EDO du 1^er^ ordre 
+### Approche
+
+- Les équations canoniques de Hamilton pour $H(q_i,p_i,t)$ forment un système de $2n$ EDO du 1^er^ ordre 
 
 $\Rightarrow$ il possède $2n$ constantes d'intégration. 
 
-En introduisant un nouvel hamiltonien $H'(Q_i,P_i,t)$ trivial via une TC particulière à déterminer, on peut transformer ces constantes d'intégration en 
+- En introduisant un nouvel hamiltonien $H'(Q_i,P_i,t)$ trivial via une TC particulière à déterminer, on peut transformer ces constantes d'intégration en 
 
 $\rightarrow 2n$ constantes du mouvement.
 
@@ -2036,6 +2038,10 @@ Si $(Q_i,P_i)$ sont les constantes du mouvement notées $\alpha_i,\beta_i$, alor
 Les solutions de coordonnées et moments généralisés sont alors données directement par les équations de transformation inverses $q_i=q_i(Q_j,P_j,t)$ et $p_i=p_i(Q_j,P_j,t)$, évaluées en $Q_j=\beta_j$, $P_j=\alpha_j$,  _i.e._
 $$q_i = q_i(\beta_j,\alpha_j,t)=q_i(t), \qquad p_i = p_i(\beta_j,\alpha_j,t)=p_i(t)$$
 
+:::{.notes}
+Mais alpha_i et beta_i sont tout de même fcts de position... checj notation q_i(t), p_i(t)
+:::
+
 ## Quelle est la bonne TC particulière ?
 
 Comme Jacobi, cherchons une fonction génératrice de type $F_2(q_i,P_i,t)$ avec $P_i=\alpha_i=$ cte.
@@ -2052,9 +2058,9 @@ Comme Jacobi, cherchons une fonction génératrice de type $F_2(q_i,P_i,t)$ avec
 Pour mettre l'accent sur l'introduction de la constante $\alpha_i$, notons 
 $$F_2(q_i,P_i,t)|_{P_i=\alpha_i} \equiv S(q_i,\alpha_i,t)$$
 
-qui reste une TC du 2^e^ type. 
+qui reste un générateur du 2^e^ type. 
 
-## La flexibilité du choix de $S$ permet $H'=0$ {.smaller .scrollable}
+## La flexibilité du choix de $S$ permet $H'=0$ {.smaller}
 
 En posant $S$ tel que
 \begin{align*}
@@ -2093,6 +2099,7 @@ H\left(q_i,p_i,t\right) &+ \frac{\partial F_2(q_i,P_i,t)}{\partial t}=0\\
 H\left(q_i,\frac{\partial S}{\partial q_i},t\right) &+ \frac{\partial S(q_i,\alpha_i,t)}{\partial t}=0
 \end{align*}
 
+## {.center}
 ::: {.callout-note title="Définition — Équation de Hamilton-Jacobi"}
 Cette équation différentielle à résoudre pour $S$ s'écrit
 $$H\left(q_i,\frac{\partial S}{\partial q_i},t\right) + \frac{\partial S(q_i,\alpha_i,t)}{\partial t}=0$$
@@ -2120,7 +2127,7 @@ $$q_i\equiv q_i(\alpha_j,\beta_j,t)$$
 
 ce qui complète souvent la solution du problème.
 
-- Lorsque les moments généralisés, et les vitesses qui en découlent, sont aussi d'intérêt, il suffit de substituer les variables $q_i$ obtenues dans l'équation pour $p_i$. Ainsi
+- Lorsque les moments généralisés, et les vitesses qui en découlent, sont aussi d'intérêt, il suffit de substituer les variables $q_i$ obtenues dans l'équation pour $p_i$. Ainsi,
 
 \begin{aligned}
 p_i &= p_i(q_i, \alpha_i, t) = p_i(q_j(\alpha_k, \beta_k, t), \alpha_i, t) \\
@@ -2129,32 +2136,102 @@ p_i &= p_i(q_i, \alpha_i, t) = p_i(q_j(\alpha_k, \beta_k, t), \alpha_i, t) \\
 
 - Nos solutions de variables canoniques $q_i,p_i$ s'expriment donc maintenant en fonction des constantes du mouvement $\alpha_j,\beta_j$.
 
-## 4.7.3 — Simplification pour un système conservatif {.smaller}
+# 4.7.3 L'équation de Hamilton-Jacobi
+## Approche 1 - Système conservatif
 
-Si $\partial H/\partial t=0$ : par séparation de variables, $\partial S/\partial t=$ cte $\implies S\propto t$. On écrit :
+## Système conservatif : point de départ {.smaller}
+
+Équation de Hamilton-Jacobi :
+
+$$\frac{\partial S}{\partial t} + H\!\left(q_i,\frac{\partial S}{\partial q_i},t\right)=0$$
+
+Lorsqu'un système est **conservatif**, l'hamiltonien est indépendant du temps :
+
+$$\frac{\partial H}{\partial t}=0$$
+
+L'équation devient donc
+
+$$\frac{\partial S}{\partial t} + H\!\left(q_i,\frac{\partial S}{\partial q_i}\right)=0$$
+
+Le temps n'apparaît plus que dans le terme $\partial S/\partial t$.
+
+## Séparation de variables {.smaller}
+
+On cherche une solution **additive**, avec une partie temporelle et une partie spatiale :
+
+$$S(q_i,t) = T(t) + W(q_i)$$
+
+En substituant dans l'équation de Hamilton-Jacobi :
+
+$$\underbrace{\frac{dT}{dt}}_{\text{dépend de } t \text{ seulement}} = -\underbrace{H\!\left(q_i,\frac{\partial W}{\partial q_i}\right)}_{\text{dépend des } q_i \text{ seulement}}$$
+
+::: {.fragment}
+Les $q_i$ et $t$ varient indépendamment. Pour que l'égalité tienne toujours, les deux membres doivent être égaux à **une même constante**, notée $-\alpha_1$.
+:::
+
+## Résolution des deux équations {.smaller}
+
+**Partie temporelle :**
+
+$$\frac{dT}{dt}=-\alpha_1 \quad\Longrightarrow\quad T(t)=-\alpha_1 t$$
+
+**Partie spatiale :**
+
+$$H\!\left(q_i,\frac{\partial W}{\partial q_i}\right)=\alpha_1$$
+
+::: {.fragment}
+La constante de séparation $\alpha_1$ s'identifie donc à la valeur numérique de $H$, c'est-à-dire à l'**énergie** $E$ du système.
+:::
+
+## Simplification pour un système conservatif {.smaller}
+
+Seule la **partie temporelle** de $S$ est linéaire en $t$. On écrit :
+
 $$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i)$$
 
-où $\alpha_1=H(q_i,\partial S/\partial q_i)$ est identifiée à la valeur numérique de $H$, et $W(q_i,\alpha_i)$ est appelée **action réduite**. Puisque $p_i=\partial S/\partial q_i=\partial W/\partial q_i$ (235), l'équation de H-J devient l'**équation caractéristique** :
+où
 
-::: {.callout-note title="Définition 4.6 — Équation caractéristique de Hamilton-Jacobi"}
-$$H\left(q_i,\frac{\partial W}{\partial q_i}\right)-\alpha_1=0 \tag{237}$$
+- $\alpha_1=H\!\left(q_i,\dfrac{\partial S}{\partial q_i}\right)$ est identifiée à la valeur numérique de $H$ (l'énergie)
+- $W(q_i,\alpha_i)$ est appelée **action réduite**
+
+Comme $\partial S/\partial q_i=\partial W/\partial q_i$, on est ramené à une équation sur $W$ seul, sans dépendance explicite en $t$.
+
+
+## Simplification pour un système conservatif {.smaller .scrollable}
+
+Lorsqu'un système est conservatif, l'hamiltonien est indépendant du temps, d'où
+$$\partial H/\partial t=0$$
+
+par séparation de variables, $\partial S/\partial t=$ cte $\implies S\propto t$. On écrit :
+$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i)$$
+
+où $\alpha_1=H(q_i,\partial S/\partial q_i)$ est identifiée à la valeur numérique de $H$, et $W(q_i,\alpha_i)$ est appelée **action réduite**. 
+
+
+Puisque $p_i=\partial S/\partial q_i=\partial W/\partial q_i$, l'équation de H-J devient l'**équation caractéristique** :
+
+::: {.callout-note title="Éq. caractéristique de Hamilton-Jacobi pour un système conservatif"}
+$$H\left(q_i,\frac{\partial W}{\partial q_i}\right)-\alpha_1=0$$
 :::
+
 
 **Variables cycliques** : si $q_k$ est cyclique, $p_k$ est une constante identifiable à $\alpha_k$, et $\partial S/\partial q_k=\partial W/\partial q_k=\alpha_k$ (238), donc :
 $$W(q_i,\alpha_i) = \sum_{k=\text{var. cycl.}}\alpha_kq_k + W'(q_j,\alpha_j)_{j\neq k} \tag{240}$$
 
-## 4.7.4 — Système conservatif et périodique
+# 4.7.4 L'équation de Hamilton-Jacobi
+## Approche 2 - Système conservatif et périodique (optionnel)
 
-Pour un mouvement **périodique**, il est plus approprié de cibler une fréquence constante plutôt que $Q_i=$ cte. On remplace $\dot Q_i=\partial H'/\partial P_i=0$ par $\dot Q_i=\omega_i$ (constant), donnant :
-$$Q_i(t) = \gamma_i(t) = \omega_it+\beta_i \quad\text{(dépendance linéaire)}, \qquad P_i=\alpha_i=\text{cte} \tag{241}$$
+Pour un mouvement périodique, il est plus approprié de cibler une fréquence constante plutôt que $Q_i=$ cte. On remplace $\dot Q_i=\partial H'/\partial P_i=0$ par $\dot Q_i=\omega_i$ (constant), donnant :
+$$Q_i(t) = \gamma_i(t) = \omega_it+\beta_i \quad\text{(dépendance linéaire)}, \qquad P_i=\alpha_i=\text{cte}$$
 
 Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodique) sont toutes valables simultanément pour un système conservatif périodique — l'approche 2 offre simplement une interprétation physique plus directe (fréquences propres).
 
-# 4.7.5 Un exemple complet : l'oscillateur en $x,y,z$
+# 4.7.5 L'équation de Hamilton-Jacobi
+## Un exemple complet
 
 ## Mise en place du problème {.smaller}
 
-::: {.callout-tip title="Exemple 4.20"}
+::: {.callout-tip title="L'oscillateur en $x,y,z$"}
 $$H = \frac{1}{2m}(p_x^2+p_y^2+p_z^2)+\frac{m\omega^2}{2}(x^2+y^2) \tag{242}$$
 (potentiel harmonique en $x,y$ seulement ; $z$ libre.)
 :::
@@ -2163,11 +2240,11 @@ $H$ ne dépend pas du temps $\implies H=\alpha_1$. Et $z$ est cyclique $\implies
 $$W(x,y,z,\alpha_i) = \alpha_2z+W'(x,y,\alpha_3), \qquad S=-\alpha_1t+\alpha_2z+W'(x,y,\alpha_3) \tag{244,245}$$
 
 L'équation caractéristique de H-J, avec $p_x=\partial W'/\partial x$, $p_y=\partial W'/\partial y$, $p_z=\alpha_2$ :
-$$\frac{1}{2m}\left[\left(\frac{\partial W'}{\partial x}\right)^2+\left(\frac{\partial W'}{\partial y}\right)^2+\alpha_2^2\right]+\frac{m\omega^2}{2}(x^2+y^2)-\alpha_1=0 \tag{249}$$
+$$\frac{1}{2m}\left[\left(\frac{\partial W'}{\partial x}\right)^2+\left(\frac{\partial W'}{\partial y}\right)^2+\alpha_2^2\right]+\frac{m\omega^2}{2}(x^2+y^2)-\alpha_1=0$$
 
 ## Séparation de variables {.smaller}
 
-En posant $W'=W_x(x)+W_y(y)$ (250), l'équation se sépare en une partie purement en $x$ et une purement en $y$ — chacune devant être égale à une constante (introduisant $\alpha_3$) :
+En posant $W'=W_x(x)+W_y(y)$, l'équation se sépare en une partie purement en $x$ et une purement en $y$ — chacune devant être égale à une constante (introduisant $\alpha_3$) :
 $$\frac{1}{2m}\left(\frac{dW_x}{dx}\right)^2+\frac{m\omega^2}{2}x^2 = \alpha_3 \tag{252}$$
 $$\frac{1}{2m}\left(\frac{dW_y}{dy}\right)^2+\frac{m\omega^2}{2}y^2 = \alpha_1-\alpha_3-\frac{\alpha_2^2}{2m} \tag{254}$$
 
