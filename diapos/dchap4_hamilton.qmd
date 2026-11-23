@@ -1832,12 +1832,15 @@ La transformation n'est pas canonique. Le calcul de $H'$ par simple substitution
 :::
 
 :::{.notes}
+POUR FRAGMENTS À FAIRE
+$Q=\ln q$, $P=qp$ est canonique, puisque $\{\ln q,\,qp\}=\frac1q\cdot q=1$. Mais $Q$ n'a plus de dimension physique évidente, et $P$ est un produit position × moment. À l'inverse, $Q=p$, $P=q$ n'est pas canonique ($\{Q,P\}=-1$) : il faut $P=-q$.
+
 Cas 3 — Une transformation complexe canonique {.smaller}
 
 callout-tip title=""
 Reprenant $H'(q,p)=\frac{\omega}{2}(p^2+q^2)$ du Cas 1, appliquons $Q=\frac{1}{\sqrt2}(q+ip)$, $P=\frac{i}{\sqrt2}(q-ip)$.
 
-On vérifie $\{Q,P\}=\frac12+\frac12=1$ (205) — canonique, même si complexe ! Le nouvel hamiltonien : $H_1'(Q,P)=-i\omega QP$ (206). Les équations du mouvement : $\dot Q=-i\omega Q$, $\dot P=i\omega P$ (207), donc $Q(t)=ae^{-i\omega t}$, $P(t)=be^{i\omega t}$ (208).
+On vérifie $\{Q,P\}=\frac12+\frac12=1$ — canonique, même si complexe ! Le nouvel hamiltonien : $H_1'(Q,P)=-i\omega QP$ (206). Les équations du mouvement : $\dot Q=-i\omega Q$, $\dot P=i\omega P$, donc $Q(t)=ae^{-i\omega t}$, $P(t)=be^{i\omega t}$.
 
 **Subtilité** : $P=iQ^*$ par définition, mais $P$ et $Q$ doivent être indépendants ! En fait, $Q,P$ complexes impliquent **2 ddl** (partie réelle et imaginaire) — une seule relation ne suffit pas à déterminer $P$ à partir de $Q^*$ seul. En posant $a=|a|e^{i\Delta}$ et en résolvant complètement, on retrouve :
 $$q(t) = \sqrt2|a|\sin\left(\omega t-\Delta+\frac{\pi}{2}\right)$$
@@ -1848,6 +1851,17 @@ une solution physique cohérente. Cette TC complexe, bien qu'étrange, trouve un
 # 4.6.4 Générateurs de transformations infinitésimales
 
 :::{.notes}
+À METTRE À QQPART
+- Les unités : le produit $Q\,P$ doit avoir la dimension d'une action. On voit déjà qu'une paire de variables arbitraires ne passe donc pas le test canonique.
+
+- Le mot « projection » est juste dans un autre sens : le mouvement dans l'espace physique est la projection de la trajectoire de phase sur l'axe $q$, comme dans ta diapo à deux panneaux.
+
+- Tout système de coordonnées sur l'espace de phase décrit le mouvement. Ce qui est particulier aux coordonnées canoniques, c'est que les équations y gardent la forme de Hamilton, avec un nouvel hamiltonien $K(Q,P,t)$. Elles préservent la structure symplectique (crochets, aires de Liouville). 
+
+- Les quatre types sont quatre manières d'écrire une même transformation canonique, selon les variables prises comme indépendantes. Ce ne sont pas quatre transformations différentes. Une même TC peut donc avoir une représentation en $F_1$, en $F_2$, etc., et toutes mènent aux mêmes relations $Q_i(q,p,t)$ et $P_i(q,p,t)$, ainsi qu'au même $H'$ (la dérivée partielle en $t$ se conserve sous TLegendre, I think,to check). Mais une TC n'admet pas toujours les quatre types. Un type n'existe que si les variables qu'il suppose indépendantes le sont vraiment, c'est-à-dire si le déterminant correspondant est non nul. C'est pourquoi on a besoin des quatre types : chacun couvre des transformations que les autres ne peuvent pas décrire. Pour $n>1$, on peut même mélanger les types, avec certaines variables traitées en $F_1$ et d'autres en $F_2$. À l'inverse : une même $F$ donne-t-elle toujours la même TC ? Oui, une fois le type fixé. Seules les constantes ou les fonctions du temps seul ajoutées à $F$ ne changent rien aux relations $Q(q,p,t)$ et $P(q,p,t)$, et ne décalent $H'$ que d'une fonction du temps. Les quatre types de fonctions génératrices décrivent la même transformation canonique avec des variables indépendantes différentes. Le choix dépend de la transformation visée : certaines ne s'écrivent pas avec tous les types.
+FIN DE À METTRE À QQPART
+
+
 Interprétation géométrique des crochets de Poisson
 
 Le crochet $\{f,G\}$ peut être interprété géométriquement. Soit $f(q,p,t)$ une fonction quelconque sur l'espace des phases, et une transformation infinitésimale des coordonnées canoniques engendrée par une fonction génératrice $G$. Alors $G$ génère un changement infinitésimal $\delta f$ sur $f$ :
@@ -1892,9 +1906,9 @@ Méthode générale — Mécanique hamiltonienne
 
 ## Mécanique hamiltonienne {.smaller .scrollable}
 
-:::: {.columns}
+:::: {layout-ncol=2}
 
-::: {.column width="48%" .carte}
+::: {.carte}
 **Hamiltonien**
 
 $$H(q_i,p_i,t)=\sum_{i=1}^{n}\dot q_i\,p_i-L(q_i,\dot q_i,t)$$
@@ -1904,15 +1918,22 @@ avec $p_i\equiv\dfrac{\partial L}{\partial\dot q_i}$
 et $T=\displaystyle\sum_{i,j}\dfrac{1}{2m}\,g_{ij}^{-1}p_ip_j$
 :::
 
-::: {.column width="48%" .carte}
+::: {.carte}
 **Crochets de Poisson**
 
 $$\{A,B\}_{q,p}\equiv\sum_{i=1}^{n}\left[\frac{\partial A}{\partial q_i}\frac{\partial B}{\partial p_i}-\frac{\partial A}{\partial p_i}\frac{\partial B}{\partial q_i}\right]$$
 :::
 
+**Dérivée temporelle de fct $F(q_i,p_i,t)$**
+
+$$\frac{dF}{dt}=\{F,H\}+\frac{\partial F}{\partial t}$$
+
+Si $\dot F=0$, alors $F=$ est constante du mouvement.
+:::
+
 ::::
 
-## Dynamique hamiltonienne {.smaller}
+## Dynamique hamiltonienne {.smaller .scrollable}
 
 :::: {.columns}
 
@@ -1921,18 +1942,10 @@ $$\{A,B\}_{q,p}\equiv\sum_{i=1}^{n}\left[\frac{\partial A}{\partial q_i}\frac{\p
 
 $$
 \begin{aligned}
-\dot q_i &= \frac{\partial H}{\partial p_i}=\{q_i,H\} \\[0.5em]
+\dot q_i &= \frac{\partial H}{\partial p_i}=\{q_i,H\}\\[0.5em]
 \dot p_i &= -\frac{\partial H}{\partial q_i}=\{p_i,H\}
 \end{aligned}
 $$
-:::
-
-::: {.column width="48%" .carte}
-**Fonction quelconque $F$**
-
-$$\frac{dF}{dt}=\{F,H\}+\frac{\partial F}{\partial t}$$
-
-$=0$ pour $F=$ constante du mouvement
 :::
 
 ::::
@@ -1951,57 +1964,92 @@ $$L=L'+\frac{dF}{dt} \qquad\qquad H'=H+\frac{\partial F}{\partial t}$$
 
 ::: {.tc-table}
 
-| Générateurs | | Transformation | | Éqs. de la TC |
-|:---:|:---:|:---:|:---:|:---:|
-| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$ | $P_i=-\dfrac{\partial F_1}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_1}{\partial t}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
-| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
-| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$ | $P_i=-\dfrac{\partial F_3}{\partial Q_i}$ | $H'=H+\dfrac{\partial F_3}{\partial t}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
-| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$ | $Q_i=\dfrac{\partial F_4}{\partial P_i}$ | $H'=H+\dfrac{\partial F_4}{\partial t}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
-| | | | | |
+| Générateurs | | Transformation | Éqs. de la TC |
+|:---:|:---:|:---:|:---:|
+| $F_1(q_i,Q_i,t)$ | $p_i=\dfrac{\partial F_1}{\partial q_i}$ | $P_i=-\dfrac{\partial F_1}{\partial Q_i}$ | $\dfrac{\partial p_i}{\partial Q_j}=-\dfrac{\partial P_j}{\partial q_i}$ |
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| $F_3(p_i,Q_i,t)$ | $q_i=-\dfrac{\partial F_3}{\partial p_i}$ | $P_i=-\dfrac{\partial F_3}{\partial Q_i}$ | $\dfrac{\partial P_j}{\partial p_i}=\dfrac{\partial q_i}{\partial Q_j}$ |
+| $F_4(p_i,P_i,t)$ | $q_i=-\dfrac{\partial F_4}{\partial p_i}$ | $Q_i=\dfrac{\partial F_4}{\partial P_i}$ | $\dfrac{\partial Q_j}{\partial p_i}=-\dfrac{\partial q_i}{\partial P_j}$ |
+| | | | | 
 
 :::
 
 # 4.7 La méthode de Hamilton-Jacobi
 
-## Objectif de la méthode
-
-Utiliser une transformations canonique pour simplifier les problèmes de dynamique ardus afin d'obtenir trivialement la solution.
-
 ## Contexte historique
 ::: {layout-ncol=2 style="font-size: 0.9em;"}
 
 ### Charles Gustave Jacob Jacobi
-![](./assets/Charles Gustave Jacob Jacobi.png){width="25%" fig-align="left"}
+![](./assets/Charles Gustave Jacob Jacobi.png){width="20%" fig-align="left"}
 
 ### Contributions
 
 - intégrales elliptiques, 
-- les équations aux dérivées partielles, et
-- leur application à la mécanique analytique
+- les équations aux dérivées partielles,
+- et leur application à la mécanique analytique
 ::: 
 
 ::: {.notes}
 mathématicien allemand (10 décembre 1804 à Potsdam - 18 février 1851 à Berlin)
 :::
 
-**L'approche** : soit un hamiltonien $H(q_i,p_i)$ dépendant de $2n$ variables canoniques $\Rightarrow$ le système compte $2n$ constantes du mouvement. On introduit un nouvel hamiltonien $H'(Q_i,P_i)$ via une TC particulière à déterminer, avec toujours $2n$ constantes du mouvement.
+## Objectif de la méthode
 
-**Le but de la méthode :** opérer une TC particulière telle que $(Q_i,P_i)$ **soient eux-mêmes** les $2n$ constantes du mouvement.
+Utiliser une transformations canonique pour simplifier les problèmes de dynamique ardus afin d'obtenir trivialement la solution.
+
+- **L'approche** : Les équations canoniques de Hamilton pour $H(q_i,p_i,t)$ forment un système de $2n$ EDO du 1^er^ ordre $\Rightarrow$ il possède $2n$ constantes d'intégration. En introduisant un nouvel hamiltonien $H'(Q_i,P_i,t)$ trivial via une TC particulière à déterminer, on peut transformer ces constantes d'intégration en $2n$ constantes du mouvement.
 
 ## Après la bonne transformation : trivialité {.smaller}
 
-Si $(Q_i,P_i)$ sont les constantes du mouvement, alors $H'(Q_i,P_i)$ doit être tel que :
-$$\dot Q_i = \frac{\partial H'}{\partial P_i}=0 \iff Q_i=\beta_i, \qquad \dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i$$
+**But de la méthode :** Opérer une TC particulière telle que $(Q_i,P_i)$ soient elles-mêmes les $2n$ constantes du mouvement.
 
-où $\alpha_i,\beta_i=$ cte. La solution est alors donnée directement par les équations de transformation inverses $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$ (222,223), évaluées en $Q_j=\beta_j$, $P_j=\alpha_j$ :
-$$q_i = q_i(\beta_j,\alpha_j,t), \qquad p_i = p_i(\beta_j,\alpha_j,t)$$
+Si $(Q_i,P_i)$ sont les constantes du mouvement notées $\alpha_i,\beta_i$, alors $H'(Q_i,P_i)$ doit être tel que les équations canoniques s'écrivent
+\begin{align*}
+\dot Q_i = \frac{\partial H'}{\partial P_i}=0 &\iff Q_i=\beta_i,\\
+\dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i
+\end{align*}
 
-**Comment choisir la bonne TC ?** On cherche une fonction génératrice de type $F_2(q_i,P_i,t)$ avec $P_i=\alpha_i=$ cte. On note $S(q_i,\alpha_i,t) \equiv F_2(q_i,P_i,t)|_{P_i=\alpha_i}$, et on choisit $S$ tel que :
-$$H' = H + \frac{\partial S}{\partial t} \equiv 0$$
+Les solutions de coordonnées et moments généralisés sont alors données directement par les équations de transformation inverses $q_i=q_i(Q_j,P_j,t)$, $p_i=p_i(Q_j,P_j,t)$, évaluées en $Q_j=\beta_j$, $P_j=\alpha_j$, _i.e._
+$$q_i = q_i(\beta_j,\alpha_j,t)=q_i(t), \qquad p_i = p_i(\beta_j,\alpha_j,t)=p_i(t)$$
 
-Ce choix garantit automatiquement que $\dot Q_i=0$ et $\dot P_i=0$ sont satisfaites.
+## Quelle est la bonne TC particulière ?
+
+Comme Jacobi, cherchons une fonction génératrice de type $F_2(q_i,P_i,t)$ avec $P_i=\alpha_i=$ cte.
+
+::: {.tc-table}
+
+| Générateur | | Transformation | | Test de TC |
+|:---:|:---:|:---:|:---:|:---:|
+| $F_2(q_i,P_i,t)$ | $p_i=\dfrac{\partial F_2}{\partial q_i}$ | $Q_i=\dfrac{\partial F_2}{\partial P_i}$ | $H'=H+\dfrac{\partial F_2}{\partial t}$ | $\dfrac{\partial p_i}{\partial P_j}=\dfrac{\partial Q_j}{\partial q_i}$ |
+| | | | | |
+
+:::
+
+Pour mettre l'accent sur l'introduction de la constante, notons 
+$$F_2(q_i,P_i,t)|_{P_i=\alpha_i} \equiv S(q_i,\alpha_i,t)$$
+
+qui reste une TC du 2^e^ type. 
+
+## La flexibilité du choix de $S$ permet $H'=0$
+
+En posant $S$ tel que
+\begin{align*}
+H'(Q_i,P_i,t) &= H(q_i,p_i,t) + \frac{\partial F_2(q_i,P_i,t)}{\partial t}
+&= H(q_i,p_i,t) + \frac{\partial S(q_i,\alpha_i,t)}{\partial t} 
+&= 0,
+\end{align*}
+
+il est garantit que les équations canoniques triviales
+
+\begin{align*}
+\dot Q_i = \frac{\partial H'}{\partial P_i}=0 &\iff Q_i=\beta_i,\\
+\dot P_i = -\frac{\partial H'}{\partial Q_i}=0 \iff P_i=\alpha_i
+\end{align*}
+
+sont satisfaites.
 
 ## 4.7.2 — L'équation de Hamilton-Jacobi
+### Cas général "Approche 0"
 
 Avec $p_i=\partial S/\partial q_i$ (228, de la relation $F_2$), l'objectif $H'=H+\partial S/\partial t=0$ devient, après remplacement des $p_i$ dans $H$ :
 
@@ -2011,14 +2059,14 @@ $$H\left(q_i,\frac{\partial S}{\partial q_i},t\right) + \frac{\partial S(q_i,\al
 
 Une fois cette équation résolue pour $S$, on obtient :
 $$p_i = \frac{\partial S(q_j,\alpha_j,t)}{\partial q_i} \equiv p_i(q_j,\alpha_j,t) \tag{230}$$
-$$Q_i=\beta_i = \frac{\partial S}{\partial P_i} = \frac{\partial S(q_j,\alpha_j,t)}{\partial\alpha_i} \equiv Q_i(q_j,\alpha_j,t) \tag{231}$$
+$$Q_i=\beta_i = \frac{\partial S}{\partial P_i} = \frac{\partial S(q_j,\alpha_j,t)}{\partial\alpha_i} \equiv Q_i(q_j,\alpha_j,t)$$
 
 Ces $n$ équations s'inversent en $q_i\equiv q_i(\alpha_j,\beta_j,t)$ (232) — **la solution recherchée !** Puis $p_i=p_i(\alpha_l,\beta_l,t)$ (233) par substitution.
 
 ## 4.7.3 — Simplification pour un système conservatif {.smaller}
 
 Si $\partial H/\partial t=0$ : par séparation de variables, $\partial S/\partial t=$ cte $\implies S\propto t$. On écrit :
-$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i) \tag{234}$$
+$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i)$$
 
 où $\alpha_1=H(q_i,\partial S/\partial q_i)$ est identifiée à la valeur numérique de $H$, et $W(q_i,\alpha_i)$ est appelée **action réduite**. Puisque $p_i=\partial S/\partial q_i=\partial W/\partial q_i$ (235), l'équation de H-J devient l'**équation caractéristique** :
 
