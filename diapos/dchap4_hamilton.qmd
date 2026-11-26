@@ -2201,9 +2201,9 @@ La constante de séparation $\alpha_1$ s'identifie donc à la valeur numérique 
 
 ## Simplification pour un système conservatif {.smaller}
 
-Seule la **partie temporelle** de $S$ est linéaire en $t$. On écrit :
+Seule la **partie temporelle** de $S$ est linéaire en $t$. On écrit
 
-$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i)$$
+$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i),$$
 
 où
 
@@ -2230,10 +2230,14 @@ $$W(q_i,\alpha_i) = \sum_{k=\text{var. cycl.}}\alpha_kq_k + W'(q_j,\alpha_j)_{j\
 # 4.7.4 L'équation de Hamilton-Jacobi
 **Approche 2 - Système conservatif et périodique (optionnel)**
 
+## La fréquence comme constante
+
 Pour un mouvement périodique, il est plus approprié de cibler une fréquence constante plutôt que $Q_i=$ cte. On remplace $\dot Q_i=\partial H'/\partial P_i=0$ par $\dot Q_i=\omega_i$ (constant), donnant :
 $$Q_i(t) = \gamma_i(t) = \omega_it+\beta_i \quad\text{(dépendance linéaire)}, \qquad P_i=\alpha_i=\text{cte}$$
 
-Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodique) sont toutes valables simultanément pour un système conservatif périodique — l'approche 2 offre simplement une interprétation physique plus directe (fréquences propres).
+:::{.r-frame}
+Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodique) sont toutes valables simultanément pour un système conservatif périodique, l'approche 2 offre simplement une interprétation physique plus directe (fréquences propres).
+:::
 
 ## Résumé de la méthode Hamilton-Jacobi {.smaller .scrollable}
 
@@ -2247,9 +2251,9 @@ Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodiq
 | $\dot P_i=$ | $-\dfrac{\partial H'}{\partial Q_i}=0$ | $-\dfrac{\partial H'}{\partial Q_i}=0$ | $-\dfrac{\partial H'}{\partial Q_i}=0$ |
 | $p_i=$ | $\dfrac{\partial S(q_i,\alpha_i,t)}{\partial q_i}$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial q_i}$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial q_i}$ |
 | $Q_i=$ | $\dfrac{\partial S(q_i,\alpha_i,t)}{\partial \alpha_i}=\beta_i$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial \alpha_i}=\beta_i$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial \alpha_i}=\gamma_i(t)$ |
-| [éq. de H-J]{style="color:#c00000;"} | $H\!\left(q_i,\dfrac{\partial S}{\partial q_i},t\right)=-\dfrac{\partial S}{\partial t}$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ |
+| éq. de H-J | $H\!\left(q_i,\dfrac{\partial S}{\partial q_i},t\right)=-\dfrac{\partial S}{\partial t}$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ |
 
-: {tbl-colwidths="[16,28,28,28]"}
+: {tbl-colwidths="[16,32,32,32]"}
 
 
 # 4.7.5 L'équation de Hamilton-Jacobi
@@ -2257,15 +2261,12 @@ Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodiq
 
 ## {.scrollable}
 
-::::{.callout-caution title="Exemple - Oscillateur harmonique en $x$ et $y$, libre en $z$}
+::::{.callout-caution title="Exemple - Oscillateur harmonique en $x$ et $y$, libre en $z$"}
 
 #### Énoncé
 Soit une particule dans l'espace 3D soumise à un potentiel harmonique $V(x,y)$, menant à l'hamiltonien
 $$H = \frac{1}{2m}(p_x^2+p_y^2+p_z^2)+\frac{m\omega^2}{2}(x^2+y^2)$$
 
-:::{.notes}
-
-:::
 
 #### Solution des équations canoniques après TC menant à $H'=0$
 
@@ -2278,18 +2279,94 @@ où $\alpha_i$ et $\beta_i$ sont des constantes du mouvement dans ce choix de co
 
 #### Équation de Hamilton-Jacobi pour un système conservatif
 
-sep. variables
+Comme $H$ ne dépend pas du temps, le système est conservatif et la fonction génératrice est séparable, menant à
+$$S(q_i,\alpha_i,t) = -\alpha_1 t + W(q_i,\alpha_i)$$
 
-eq caractéristique
+où $W$ est solution de l'équation caractéristique de Hamilton-Jacobi
+$$H\left(q_i,\frac{\partial W}{\partial q_i}\right)-\alpha_1=0$$
+
+#### Variable cyclique
+
+La coordonnée $z$ est absente de l'hamiltonien, donc cyclique,
+$$\implies p_z=\partial W/\partial z=\alpha_2$$
+
+où $\alpha_2$ est une constante du mouvement fixant directement $p_z$ correspondant bien à la quantité de mouvement d'une particule libre selon $z$. Les générateurs se simplifient alors à
+\begin{align*}
+W(x,y,z,\alpha_i) &= \alpha_2z+W'(x,y,\alpha_3)\\
+S &=-\alpha_1t+\alpha_2z+W'(x,y,\alpha_3)
+\end{align*}
+
+:::{.notes}
+Pas besoin de détour de décorticage de crevettes dans l'espace de phase!
+:::
+
+#### Séparation de variables pour évaluer $W'$
+
+En posant $W'=W_x(x)+W_y(y)$, l'équation caractéristique de H.-J. se sépare en une partie purement en $x$ et une purement en $y$, chacune devant être égale à une constante qui introduit $\alpha_3$ ainsi:
+
+\begin{align*}
+\frac{1}{2m}\left(\frac{dW_x}{dx}\right)^2+\frac{m\omega^2}{2}x^2 &= \alpha_3 \\
+$$\frac{1}{2m}\left(\frac{dW_y}{dy}\right)^2+\frac{m\omega^2}{2}y^2 &= \alpha_1-\alpha_3-\frac{\alpha_2^2}{2m}
+\end{align*}
+
+Les 3 constantes du mouvement $\alpha_i=(\alpha_1,\alpha_2,\alpha_3)$ ici introduites après TC correspondent aux 3 nouveaux moments $P_i$, soit une cte du mvt pour chaque ddl. En isolant les dérivées,
+\begin{align*}
+\frac{dW_x}{dx} &= \sqrt{2m\alpha_3-m^2\omega^2x^2}\\
+\frac{dW_y}{dy} &= \sqrt{2m\alpha_1-2m\alpha_3-\alpha_2^2-m^2\omega^2y^2}
+\end{align*}
+
+::: {.callout-important title="Garder $W$ implicite"}
+Souvent, il n'est pas nécessaire d'intégrer explicitement pour obtenir $W$, il suffit de "traîner" l'intégrale sans évaluer $W$ en tant que tel.
+:::
+
+#### Vers la trajectoire avec les équations $\beta_i=\partial S/\partial\alpha_i$
+
+Commençons à retourner vers notre espace physique "pré-TC". Avec $S=-\alpha_1t+\alpha_2z+W_x(x)+W_y(y)$, on calcule les 3 constantes conjuguées $\beta_i=\partial S/\partial\alpha_i$ où chacune est une intégrale explicite en $x$ ou $y$.
+
+Après intégration de type $\int dx/\sqrt{a-bx^2}=\frac{1}{\sqrt b}\sin^{-1}(\sqrt{b/a}\,x)$), 3 équations indépendantes sont obtenues, soit
+\begin{align*}
+f(x,y,\alpha_i,\beta_3) &=0, \\
+g(y,z,\alpha_i,\beta_2) &=0, \\
+h(y,t,\alpha_i,\beta_1) &=0
+\end{align*}
+
+Les 2 premières donnent la trajectoire sous forme paramétrique $x=x(y,\dots)$, $z=z(y,\dots)$, indépendamment du temps,alors que la dernière donne la dépendance explicite sur le temps, $y=y(t,\dots)$, qu'on peut ensuite substituer dans les deux premières pour obtenir $x,y,z$ en fonction du temps.
+
+::: {.r-frame}
+Dans certains cas, la dépendance en $t$ n'est pas le but recherché, on peut se limiter aux 2 premières équations pour obtenir la trajectoire paramétrique purement en fonction des coordonnées.
+:::
+
+#### Solution finale
+
+Après résolution complète et inversion, le mouvement en $x$ et $y$ est harmonique de fréquence $\omega$, et le mouvement en $z$ est libre tel qu'attendu.
+\begin{align*}
+x(t) &= X_0\sin(\omega t+\Delta), \\ 
+y(t) &= Y_0\sin(\omega t+\delta), \\
+z(t) &= v_zt+z_0
+\end{align*}
+
+où
+\begin{align*}
+X_0 &=\sqrt{\frac{2\alpha_3}{m\omega^2}},\\
+\Delta &=\omega\beta_1+\frac{\beta_3}{2},\\
+Y_0 &=\sqrt{\frac{2\alpha_1}{m\omega^2}-\frac{2\alpha_3}{m\omega^2}-\frac{\alpha_2^2}{m^2\omega^2}},\\
+\delta &=\omega\beta_1,\\
+v_z &=\frac{\alpha_2}{m},\\
+z_0 &=\beta_2+\frac{\alpha_2\beta_1}{m}
+\end{align*}
+
+Remarque:cet exemple illustre que pour la première fois que la trajectoire complète peut s'obtenir **sans jamais passer par une équation du mouvement du type $F=ma$**. La méthode H.-J. est particulièrement appréciée pour son intérêt théorique permettant notamment de développer la mécanique quantique sans recourir à des forces et dans plusieurs domaines, comme l'optique géométrique, où l'on cherche la trajectoire paramétrique sous forme $x=x(y)$, $z=z(y)$ sans dépendance temporelle explicite.
+
+::::
 
 :::{.fragment}
 \begin{align*}
 
 \end{align*}
 :::
+:::{.notes}
 
-::::
-
+:::
 
 $H$ ne dépend pas du temps $\implies H=\alpha_1$. Et $z$ est cyclique $\implies p_z=\partial W/\partial z=\alpha_2$ (constante). Donc :
 $$W(x,y,z,\alpha_i) = \alpha_2z+W'(x,y,\alpha_3), \qquad S=-\alpha_1t+\alpha_2z+W'(x,y,\alpha_3) \tag{244,245}$$
