@@ -2443,28 +2443,28 @@ $$T = \frac{1}{2m}\left[p_r^2 + \frac{1}{r^2}p_\theta^2 + \frac{1}{r^2\sin^2\the
 
 ce qui est le résultat correspondant bien à la forme générale diagonale.
 
-# 4.9 Interprétation de la fonction $S$
+# 4.9 Interprétation de la fonction génératrice $S$
 
 ## $S$ est en fait l'action elle-même ! {.smaller}
 
-La méthode H-J utilise une fonction génératrice de type $F_2$ dénotée $S$. **Ce n'est pas un hasard** — on a déjà utilisé $S$ pour désigner l'action au Chapitre 2 !
+La méthode de Hamilton-Jacobi utilise une fonction génératrice de type $F_2$ avec un choix de la noter $S$. C'est "organisé avec le gars des vues" puisque $S$ désignait déjà l'action au Chapitre 2, alors examinons ici cette correspondance.
 
-$S=S(q_i,\alpha_i,t)$ est défini par $H+\partial S/\partial t=0$ (313). Calculons la dérivée totale de $S$ par rapport à $t$ :
-$$\frac{dS}{dt} = \sum_i\frac{\partial S}{\partial q_i}\dot q_i + \sum_i\frac{\partial S}{\partial\alpha_i}\dot\alpha_i + \frac{\partial S}{\partial t} = \sum_i\frac{\partial S}{\partial q_i}\dot q_i+\frac{\partial S}{\partial t} \tag{314}$$
+$S=S(q_i,\alpha_i,t)$ est défini par $H+\partial S/\partial t=0$. Calculons la dérivée totale de $S$ par rapport à $t$, soit
+\begin{align*}
+\frac{dS}{dt} &= \sum_i\frac{\partial S}{\partial q_i}\dot q_i + \sum_i\frac{\partial S}{\partial\alpha_i}\dot\alpha_i + \frac{\partial S}{\partial t}\\
+&= \sum_i\frac{\partial S}{\partial q_i}\dot q_i+\frac{\partial S}{\partial t} \end{align*}
 
-(le terme en $\dot\alpha_i$ s'annule car $\alpha_i=$ cte). Or $\partial S/\partial q_i=p_i$ et $\partial S/\partial t=-H$ (315), donc :
-$$\frac{dS}{dt} = \sum_ip_i\dot q_i - H = L \tag{316}$$
+où le terme en $\dot\alpha_i$ s'annule car $\alpha_i=$ cte. Or $\partial S/\partial q_i=p_i$ et $\partial S/\partial t=-H$, donc
+$$\frac{dS}{dt} = \sum_ip_i\dot q_i - H = L.$$
 
 ## $S$ redonne l'action
 
-Ainsi $dS=L\,dt$ (317), soit :
-$$S = \int_{t_1}^{t_2}L\,dt \tag{318}$$
+Ainsi $dS=L\,dt$, _i.e_
+$$S = \int_{t_1}^{t_2}L\,dt.$$
 
-**La fonction génératrice de Hamilton-Jacobi est donc simplement l'action.**
+**La fonction génératrice de Hamilton-Jacobi $F_2\to S$ est donc simplement l'action.**
 
-::: {.callout-important title="Remarque 4.18"}
-Même si formellement intéressant, ce résultat est pratiquement **inutile** pour résoudre un problème ! Pourquoi ? Parce qu'il faut avoir déjà complété la solution du problème (connaître la trajectoire) pour pouvoir vérifier cette relation.
-:::
+Bien que formellement intéressant, ce résultat est malheureusement souvent inutile pour résoudre un problème. En effet, il faut avoir déjà complété la solution du problème, _i.e._ connaître la trajectoire, pour pouvoir vérifier cette relation.
 
 # 4.10 Mécanique ondulatoire (optionnel)
 
