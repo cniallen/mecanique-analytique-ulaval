@@ -2253,7 +2253,7 @@ Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodiq
 | $Q_i=$ | $\dfrac{\partial S(q_i,\alpha_i,t)}{\partial \alpha_i}=\beta_i$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial \alpha_i}=\beta_i$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial \alpha_i}=\gamma_i(t)$ |
 | éq. de H-J | $H\!\left(q_i,\dfrac{\partial S}{\partial q_i},t\right)=-\dfrac{\partial S}{\partial t}$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ |
 
-: {tbl-colwidths="[16,32,32,32]"}
+: {tbl-colwidths="[16,45,45,45]"}
 
 
 # 4.7.5 L'équation de Hamilton-Jacobi
@@ -2306,7 +2306,7 @@ En posant $W'=W_x(x)+W_y(y)$, l'équation caractéristique de H.-J. se sépare e
 
 \begin{align*}
 \frac{1}{2m}\left(\frac{dW_x}{dx}\right)^2+\frac{m\omega^2}{2}x^2 &= \alpha_3 \\
-$$\frac{1}{2m}\left(\frac{dW_y}{dy}\right)^2+\frac{m\omega^2}{2}y^2 &= \alpha_1-\alpha_3-\frac{\alpha_2^2}{2m}
+\frac{1}{2m}\left(\frac{dW_y}{dy}\right)^2+\frac{m\omega^2}{2}y^2 &= \alpha_1-\alpha_3-\frac{\alpha_2^2}{2m}
 \end{align*}
 
 Les 3 constantes du mouvement $\alpha_i=(\alpha_1,\alpha_2,\alpha_3)$ ici introduites après TC correspondent aux 3 nouveaux moments $P_i$, soit une cte du mvt pour chaque ddl. En isolant les dérivées,
@@ -2364,62 +2364,25 @@ Remarque:cet exemple illustre que pour la première fois que la trajectoire comp
 
 \end{align*}
 :::
+
 :::{.notes}
 
 :::
 
-$H$ ne dépend pas du temps $\implies H=\alpha_1$. Et $z$ est cyclique $\implies p_z=\partial W/\partial z=\alpha_2$ (constante). Donc :
-$$W(x,y,z,\alpha_i) = \alpha_2z+W'(x,y,\alpha_3), \qquad S=-\alpha_1t+\alpha_2z+W'(x,y,\alpha_3) \tag{244,245}$$
-
-L'équation caractéristique de H-J, avec $p_x=\partial W'/\partial x$, $p_y=\partial W'/\partial y$, $p_z=\alpha_2$ :
-$$\frac{1}{2m}\left[\left(\frac{\partial W'}{\partial x}\right)^2+\left(\frac{\partial W'}{\partial y}\right)^2+\alpha_2^2\right]+\frac{m\omega^2}{2}(x^2+y^2)-\alpha_1=0$$
-
-## Séparation de variables {.smaller}
-
-En posant $W'=W_x(x)+W_y(y)$, l'équation se sépare en une partie purement en $x$ et une purement en $y$ — chacune devant être égale à une constante (introduisant $\alpha_3$) :
-$$\frac{1}{2m}\left(\frac{dW_x}{dx}\right)^2+\frac{m\omega^2}{2}x^2 = \alpha_3 \tag{252}$$
-$$\frac{1}{2m}\left(\frac{dW_y}{dy}\right)^2+\frac{m\omega^2}{2}y^2 = \alpha_1-\alpha_3-\frac{\alpha_2^2}{2m} \tag{254}$$
-
-On a ainsi introduit 3 constantes $\alpha_i=(\alpha_1,\alpha_2,\alpha_3)$ correspondant aux 3 nouveaux moments $P_i$ (pour les 3 ddl). En isolant les dérivées :
-$$\frac{dW_x}{dx}=\sqrt{2m\alpha_3-m^2\omega^2x^2}, \qquad \frac{dW_y}{dy}=\sqrt{2m\alpha_1-2m\alpha_3-\alpha_2^2-m^2\omega^2y^2}$$
-
-::: {.callout-important title="Remarque 4.16"}
-Souvent, il n'est pas nécessaire d'intégrer explicitement pour $W_x,W_y$ — on n'a pas besoin de $W$ en tant que tel pour la suite.
-:::
-
-## Vers la trajectoire : les équations $\beta_i=\partial S/\partial\alpha_i$
-
-Avec $S=-\alpha_1t+\alpha_2z+W_x(x)+W_y(y)$, on calcule les 3 constantes conjuguées $\beta_i=\partial S/\partial\alpha_i$ — chacune étant une intégrale explicite en $x$ ou $y$. Après intégration (des intégrales de type $\int dx/\sqrt{a-bx^2}=\frac{1}{\sqrt b}\sin^{-1}(\sqrt{b/a}\,x)$), on obtient 3 équations indépendantes :
-$$f(x,y,\alpha_i,\beta_3)=0, \qquad g(y,z,\alpha_i,\beta_2)=0, \qquad h(y,t,\alpha_i,\beta_1)=0 \tag{266-268}$$
-
-Les 2 premières donnent la trajectoire sous forme **paramétrique** $x=x(y,\dots)$, $z=z(y,\dots)$ (269,270), indépendamment du temps ; la dernière donne $y=y(t,\dots)$ (271), qu'on peut ensuite substituer dans les deux premières pour obtenir $x,y,z$ en fonction du temps.
-
-::: {.callout-important title="Remarque 4.17"}
-Dans certains cas, la dépendance en $t$ n'est pas le but recherché — on peut se limiter aux 2 premières équations pour obtenir la trajectoire purement en fonction des coordonnées (utile en optique, par exemple).
-:::
-
-## La solution finale {.smaller}
-
-Après résolution complète des 3 intégrales et inversion, on trouve que le mouvement en $x$ et $y$ est **harmonique de fréquence $\omega$**, et le mouvement en $z$ est **libre** :
-$$x(t) = X_0\sin(\omega t+\Delta), \qquad y(t) = Y_0\sin(\omega t+\delta), \qquad z(t) = v_zt+z_0 \tag{295-297}$$
-
-où :
-$$X_0=\sqrt{\frac{2\alpha_3}{m\omega^2}}, \; \Delta=\omega\beta_1+\frac{\beta_3}{2}, \qquad Y_0=\sqrt{\frac{2\alpha_1}{m\omega^2}-\frac{2\alpha_3}{m\omega^2}-\frac{\alpha_2^2}{m^2\omega^2}}, \; \delta=\omega\beta_1$$
-$$v_z=\frac{\alpha_2}{m}, \qquad z_0=\beta_2+\frac{\alpha_2\beta_1}{m}$$
-
-**Remarque essentielle :** cet exemple, bien que simple, illustre que pour la **première fois**, on obtient la trajectoire complète **sans jamais passer par une équation du mouvement du type $F=ma$**. La méthode est particulièrement appréciée pour son intérêt théorique, notamment en optique (où l'on se désintéresse souvent de la dépendance temporelle), et lorsqu'on cherche la trajectoire sous forme $x=x(y)$, $z=z(y)$ plutôt que $x(t),y(t),z(t)$.
-
 # 4.8 L'énergie cinétique en coordonnées généralisées
 **$T(q_i,p_i)$ en version hamiltonienne**
 
-## Peut-on écrire $T$ directement en fonction de $p_i$ ?
+## Peut-on écrire $T$ directement en fct de $p_i$ ?
 
-Dans le formalisme de Lagrange, nos avons vu que $T=\dfrac{m}{2}\sum_{i,j}g_{ij}\dot q_i\dot q_j$, avec la métrique $g_{ik}=g_{ki}$.
+Dans le formalisme de Lagrange, nos avons vu que 
+
+$T=\dfrac{m}{2}\sum_{i,j}g_{ij}\dot q_i\dot q_j$, avec la métrique $g_{ik}=g_{ki}$.
 
 **Question :** Peut-on écrire $T\equiv T(q_i,p_i)$ directement dans le formalisme canonique hamiltonien? 
+
 **Réponse : Oui !**
 
-## Démonstration {.smaller}
+## Démonstration {.smaller .scrollable}
  
 **En l'absence d'interaction dépendant des vitesses,** $p_k=\partial T/\partial\dot q_k = m\sum_ig_{ik}\dot q_i$, soit sous forme matricielle $\mathbf{p}=mg\dot{\mathbf{q}}$. En multipliant par $g^{-1}/m$, où la relation avec la matrice unitaire $I=g^{-1}g$ est satisfaite pour permettre l'inversion, il en découle que
 $$\dot{\mathbf{q}} = \frac{1}{m}g^{-1}\mathbf{p}$$
@@ -2433,7 +2396,7 @@ T &= \frac{1}{2m}\mathbf{p}^T(g^{-1})^T\mathbf{p}\\
 Lorsque $g$ est diagonale, _i.e._ $g_{ij}=g_{ii}\delta_{ij}$,
 $$T = \frac{1}{2m}\sum_ig^{-1}_{ii}p_i^2$$
 
-## Exemple : $T$ en coordonnées sphériques {.scrollable}
+## Exemple : $T$ en coordonnées sphériques {.smaller .scrollable}
 
 En coordonnées sphériques $q_i=(r,\theta,\varphi)$, la métrique et son inverse sont
 $$g = \begin{pmatrix}1&0&0\\0&r^2&0\\0&0&r^2\sin^2\theta\end{pmatrix} \implies g^{-1}=\begin{pmatrix}1&0&0\\0&\frac{1}{r^2}&0\\0&0&\frac{1}{r^2\sin^2\theta}\end{pmatrix}$$
@@ -2457,7 +2420,7 @@ $S=S(q_i,\alpha_i,t)$ est défini par $H+\partial S/\partial t=0$. Calculons la 
 où le terme en $\dot\alpha_i$ s'annule car $\alpha_i=$ cte. Or $\partial S/\partial q_i=p_i$ et $\partial S/\partial t=-H$, donc
 $$\frac{dS}{dt} = \sum_ip_i\dot q_i - H = L.$$
 
-## $S$ redonne l'action
+## $S$ redonne l'action {.smaller}
 
 Ainsi $dS=L\,dt$, _i.e_
 $$S = \int_{t_1}^{t_2}L\,dt.$$
@@ -2465,6 +2428,7 @@ $$S = \int_{t_1}^{t_2}L\,dt.$$
 **La fonction génératrice de Hamilton-Jacobi $F_2\to S$ est donc simplement l'action.**
 
 Bien que formellement intéressant, ce résultat est malheureusement souvent inutile pour résoudre un problème. En effet, il faut avoir déjà complété la solution du problème, _i.e._ connaître la trajectoire, pour pouvoir vérifier cette relation.
+
 
 # 4.10 Mécanique ondulatoire (optionnel)
 
