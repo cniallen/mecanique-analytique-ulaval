@@ -2235,15 +2235,61 @@ $$Q_i(t) = \gamma_i(t) = \omega_it+\beta_i \quad\text{(dépendance linéaire)}, 
 
 Les 2 approches (0 : cas général, 1 : conservatif, 2 : conservatif + périodique) sont toutes valables simultanément pour un système conservatif périodique — l'approche 2 offre simplement une interprétation physique plus directe (fréquences propres).
 
+## Résumé de la méthode Hamilton-Jacobi {.smaller .scrollable}
+
+|  | Approche 0<br>(cas général) | Approche 1<br>(conservatif) | Approche 2<br>(conservatif<br>et périodique) |
+|--:|:-:|:-:|:-:|
+| $H=$ | $H(q_i,p_i,t)$ | $H(q_i,p_i)$ | $H(q_i,p_i)$ |
+| $Q_i=$ | $\beta_i=\text{cte.}$ | $\beta_i=\text{cte.}$ | $\gamma_i(t)=\omega_i t+\beta_i$ |
+| $P_i=$ | $\alpha_i=\text{cte.}$ | $\alpha_i=\text{cte.}$ | $\alpha_i=\text{cte.}$ |
+| $H'(Q_i,P_i)=$ | $0$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ |
+| $\dot Q_i=$ | $\dfrac{\partial H'}{\partial P_i}=0$ | $\dfrac{\partial H'}{\partial P_i}=0$ | $\dfrac{\partial H'}{\partial P_i}=\omega_i$ |
+| $\dot P_i=$ | $-\dfrac{\partial H'}{\partial Q_i}=0$ | $-\dfrac{\partial H'}{\partial Q_i}=0$ | $-\dfrac{\partial H'}{\partial Q_i}=0$ |
+| $p_i=$ | $\dfrac{\partial S(q_i,\alpha_i,t)}{\partial q_i}$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial q_i}$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial q_i}$ |
+| $Q_i=$ | $\dfrac{\partial S(q_i,\alpha_i,t)}{\partial \alpha_i}=\beta_i$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial \alpha_i}=\beta_i$ | $\dfrac{\partial W(q_i,\alpha_i)}{\partial \alpha_i}=\gamma_i(t)$ |
+| [éq. de H-J]{style="color:#c00000;"} | $H\!\left(q_i,\dfrac{\partial S}{\partial q_i},t\right)=-\dfrac{\partial S}{\partial t}$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ | $H\!\left(q_i,\dfrac{\partial W}{\partial q_i}\right)=\alpha_1$ |
+
+: {tbl-colwidths="[16,28,28,28]"}
+
+
 # 4.7.5 L'équation de Hamilton-Jacobi
-## Un exemple complet
+**Un exemple complet**
 
-## Mise en place du problème {.smaller}
+## {.scrollable}
 
-::: {.callout-tip title="L'oscillateur en $x,y,z$"}
-$$H = \frac{1}{2m}(p_x^2+p_y^2+p_z^2)+\frac{m\omega^2}{2}(x^2+y^2) \tag{242}$$
-(potentiel harmonique en $x,y$ seulement ; $z$ libre.)
+::::{.callout-caution title="Exemple - Oscillateur harmonique en $x$ et $y$, libre en $z$}
+
+#### Énoncé
+Soit une particule dans l'espace 3D soumise à un potentiel harmonique $V(x,y)$, menant à l'hamiltonien
+$$H = \frac{1}{2m}(p_x^2+p_y^2+p_z^2)+\frac{m\omega^2}{2}(x^2+y^2)$$
+
+:::{.notes}
+
 :::
+
+#### Solution des équations canoniques après TC menant à $H'=0$
+
+\begin{align*}
+Q_i &= \alpha_i\\
+P_i &= \beta_i
+\end{align*}
+
+où $\alpha_i$ et $\beta_i$ sont des constantes du mouvement dans ce choix de coordonnées de l'espace de phase.
+
+#### Équation de Hamilton-Jacobi pour un système conservatif
+
+sep. variables
+
+eq caractéristique
+
+:::{.fragment}
+\begin{align*}
+
+\end{align*}
+:::
+
+::::
+
 
 $H$ ne dépend pas du temps $\implies H=\alpha_1$. Et $z$ est cyclique $\implies p_z=\partial W/\partial z=\alpha_2$ (constante). Donc :
 $$W(x,y,z,\alpha_i) = \alpha_2z+W'(x,y,\alpha_3), \qquad S=-\alpha_1t+\alpha_2z+W'(x,y,\alpha_3) \tag{244,245}$$
