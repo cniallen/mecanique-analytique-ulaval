@@ -2359,15 +2359,6 @@ Remarque:cet exemple illustre que pour la première fois que la trajectoire comp
 
 ::::
 
-:::{.fragment}
-\begin{align*}
-
-\end{align*}
-:::
-
-:::{.notes}
-
-:::
 
 # 4.8 L'énergie cinétique en coordonnées généralisées
 **$T(q_i,p_i)$ en version hamiltonienne**
