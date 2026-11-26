@@ -2409,32 +2409,39 @@ $$v_z=\frac{\alpha_2}{m}, \qquad z_0=\beta_2+\frac{\alpha_2\beta_1}{m}$$
 
 **Remarque essentielle :** cet exemple, bien que simple, illustre que pour la **première fois**, on obtient la trajectoire complète **sans jamais passer par une équation du mouvement du type $F=ma$**. La méthode est particulièrement appréciée pour son intérêt théorique, notamment en optique (où l'on se désintéresse souvent de la dépendance temporelle), et lorsqu'on cherche la trajectoire sous forme $x=x(y)$, $z=z(y)$ plutôt que $x(t),y(t),z(t)$.
 
-# 4.8 $T(q_i,p_i)$ en coordonnées généralisées
+# 4.8 L'énergie cinétique en coordonnées généralisées
+**$T(q_i,p_i)$ en version hamiltonienne**
 
-## Peut-on écrire $T$ directement en fonction de $p_i$ ? {.smaller}
+## Peut-on écrire $T$ directement en fonction de $p_i$ ?
 
-En Lagrange, $T=\dfrac{m}{2}\sum_{i,j}g_{ij}\dot q_i\dot q_j$ (299), avec $g_{ik}=g_{ki}$ (espace de Riemann). **Question :** peut-on écrire $T\equiv T(q_i,p_i)$ directement ? **Réponse : Oui !**
+Dans le formalisme de Lagrange, nos avons vu que $T=\dfrac{m}{2}\sum_{i,j}g_{ij}\dot q_i\dot q_j$, avec la métrique $g_{ik}=g_{ki}$.
 
-**Démonstration** : en l'absence d'interaction dépendant des vitesses, $p_k=\partial T/\partial\dot q_k = m\sum_ig_{ik}\dot q_i$ (300), soit sous forme matricielle $\mathbf{p}=mg\dot{\mathbf{q}}$ (301). En multipliant par $g^{-1}/m$ (où $g^{-1}g=I$) :
-$$\dot{\mathbf{q}} = \frac{1}{m}g^{-1}\mathbf{p} \tag{304}$$
+**Question :** Peut-on écrire $T\equiv T(q_i,p_i)$ directement dans le formalisme canonique hamiltonien? 
+**Réponse : Oui !**
 
-En substituant dans $T=\frac{m}{2}\dot{\mathbf{q}}^Tg\dot{\mathbf{q}}$ (306), on obtient après simplification (utilisant $g^{-1}gg^{-1}=g^{-1}$) :
-$$T = \frac{1}{2m}\mathbf{p}^T(g^{-1})^T\mathbf{p} = \frac{1}{2m}\sum_{i,j}p_ig^{-1}_{ji}p_j \tag{307,308}$$
+## Démonstration {.smaller}
+ 
+**En l'absence d'interaction dépendant des vitesses,** $p_k=\partial T/\partial\dot q_k = m\sum_ig_{ik}\dot q_i$, soit sous forme matricielle $\mathbf{p}=mg\dot{\mathbf{q}}$. En multipliant par $g^{-1}/m$, où la relation avec la matrice unitaire $I=g^{-1}g$ est satisfaite pour permettre l'inversion, il en découle que
+$$\dot{\mathbf{q}} = \frac{1}{m}g^{-1}\mathbf{p}$$
 
-**Lorsque $g$ est diagonale** ($g_{ij}=g_{ii}\delta_{ij}$) :
-$$T = \frac{1}{2m}\sum_ig^{-1}_{ii}p_i^2 \tag{309}$$
+En substituant dans $T=\frac{m}{2}\dot{\mathbf{q}}^Tg\dot{\mathbf{q}}$, on obtient que, après simplification utilisant $g^{-1}gg^{-1}=g^{-1}$,
+\begin{align*}
+T &= \frac{1}{2m}\mathbf{p}^T(g^{-1})^T\mathbf{p}\\
+&= \frac{1}{2m}\sum_{i,j}p_ig^{-1}_{ji}p_j
+\end{align*}
 
-## Exemple : $T$ en coordonnées sphériques {.smaller}
+Lorsque $g$ est diagonale, _i.e._ $g_{ij}=g_{ii}\delta_{ij}$,
+$$T = \frac{1}{2m}\sum_ig^{-1}_{ii}p_i^2$$
 
-::: {.callout-tip title="Exemple 4.21"}
-En sphériques $q_i=(r,\theta,\varphi)$, la métrique et son inverse :
-$$g = \begin{pmatrix}1&0&0\\0&r^2&0\\0&0&r^2\sin^2\theta\end{pmatrix} \implies g^{-1}=\begin{pmatrix}1&0&0\\0&\frac{1}{r^2}&0\\0&0&\frac{1}{r^2\sin^2\theta}\end{pmatrix} \tag{310}$$
-:::
+## Exemple : $T$ en coordonnées sphériques {.scrollable}
 
-Donc, directement à partir de la formule diagonale (309) :
-$$T = \frac{1}{2m}\left[p_r^2 + \frac{1}{r^2}p_\theta^2 + \frac{1}{r^2\sin^2\theta}p_\varphi^2\right] = \frac{p_r^2}{2m}+\frac{p_\theta^2}{2mr^2}+\frac{p_\varphi^2}{2mr^2\sin^2\theta} \tag{311,312}$$
+En coordonnées sphériques $q_i=(r,\theta,\varphi)$, la métrique et son inverse sont
+$$g = \begin{pmatrix}1&0&0\\0&r^2&0\\0&0&r^2\sin^2\theta\end{pmatrix} \implies g^{-1}=\begin{pmatrix}1&0&0\\0&\frac{1}{r^2}&0\\0&0&\frac{1}{r^2\sin^2\theta}\end{pmatrix}$$
 
-ce qui est exactement le bon résultat, et correspond bien à la forme générale diagonale.
+Donc, directement à partir de la formule diagonale pour $T$,
+$$T = \frac{1}{2m}\left[p_r^2 + \frac{1}{r^2}p_\theta^2 + \frac{1}{r^2\sin^2\theta}p_\varphi^2\right] = \frac{p_r^2}{2m}+\frac{p_\theta^2}{2mr^2}+\frac{p_\varphi^2}{2mr^2\sin^2\theta} $$
+
+ce qui est le résultat correspondant bien à la forme générale diagonale.
 
 # 4.9 Interprétation de la fonction $S$
 
@@ -2459,7 +2466,7 @@ $$S = \int_{t_1}^{t_2}L\,dt \tag{318}$$
 Même si formellement intéressant, ce résultat est pratiquement **inutile** pour résoudre un problème ! Pourquoi ? Parce qu'il faut avoir déjà complété la solution du problème (connaître la trajectoire) pour pouvoir vérifier cette relation.
 :::
 
-# 4.10 Mécanique ondulatoire
+# 4.10 Mécanique ondulatoire (optionnel)
 
 ## Système mécanique et optique géométrique {.smaller}
 
